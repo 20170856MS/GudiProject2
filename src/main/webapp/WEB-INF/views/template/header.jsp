@@ -1,36 +1,61 @@
     <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
-    
-    <header class="container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link active" href="/bankbook/list.esh">상품리스트</a>
-                <a class="nav-link active" href="/notice/list.esh">공지사항</a>
-                <a class="nav-link active" href="/qna/list.esh">Q & A</a>
-                <a class="nav-link active" href="/member/search.esh">회원검색</a>
-                <a class="nav-link active" href="/member/map.esh">지도</a>
-                
-              		  <c:choose>
-                	<c:when test="${not empty check}">
-              		  <a class="nav-link active" href="/member/myPage.esh">마이페이지</a>
-               		 <a class="nav-link active" href="/member/logout.esh">로그아웃</a>
-					</c:when>
-					<c:otherwise>
-            		    <a class="nav-link active" href="/member/login.esh">로그인</a>
-             	   <a class="nav-link active" href="/member/join0.esh">회원가입</a>
-                	</c:otherwise>
-                </c:choose>
-              </div>
-            </div>
+
+
+    <header>
+      <div class="px-3 py-2 text-bg-dark">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+  
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+              <li>
+                <a href="#" class="nav-link text-secondary">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="admin/adminTest" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                  관리자테스트
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+                  Orders
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                  Customers
+                </a>
+              </li>
+            </ul>
           </div>
-       </nav>
+        </div>
+      </div>
+      <div class="px-3 py-2 border-bottom mb-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+          <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+            <input type="search" class="form-control" placeholder="검색" aria-label="Search">
+          </form>
+  
+          <div class="text-end">
+            <button type="button" class="btn btn-light text-dark me-2">Login</button>
+            <button type="button" class="btn btn-primary">Sign-up</button>
+          </div>
+        </div>
+      </div>
     </header>

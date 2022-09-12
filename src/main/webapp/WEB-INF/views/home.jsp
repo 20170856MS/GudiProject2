@@ -11,7 +11,5 @@
 	Hello world!  
 </h1>
 
-<a class="nav-link active" href="/admin/adminTest">관리자</a>
-
 </body>
 </html>
