@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 //버튼 클릭하면 실행
 function payment(data) {
-    IMP.init('가맹점 식별코드');//아임포트 관리자 콘솔에서 확인한 '가맹점 식별코드' 입력
+    IMP.init('imp10453708');//아임포트 관리자 콘솔에서 확인한 '가맹점 식별코드' 입력
     IMP.request_pay({// param
         pg: "kakaopay.TC0ONETIME", //pg사명 or pg사명.CID (잘못 입력할 경우, 기본 PG사가 띄워짐)
         pay_method: "card", //지불 방법
