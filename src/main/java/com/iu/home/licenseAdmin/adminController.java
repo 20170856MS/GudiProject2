@@ -1,4 +1,4 @@
-package com.iu.home.license.admin;
+package com.iu.home.licenseAdmin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
