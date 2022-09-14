@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>CafeDetail</h1>
     <table>
         <tr>
             <td>이름</td>
@@ -15,11 +16,14 @@
             <td>가격</td>
             <td>설명</td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
 
-        </tr>
+	    <tr>
+	      	<td>${dto.scName}</td>
+	        <td>${dto.cdPay}</td>
+			<td>${dto.cdRegion}</td>
+			<td>${dto.scExplain}</td>
+	    </tr>
+        
     </table>
 </body>
 </html>
