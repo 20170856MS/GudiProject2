@@ -17,4 +17,7 @@ public class LicenseListDAO {
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
+	public LicenseListDTO getDetail(LicenseListDTO licenseListDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getDetail",licenseListDTO);
+	}
 }

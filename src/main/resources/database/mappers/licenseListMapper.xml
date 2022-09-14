@@ -8,5 +8,9 @@
 	<select id="getList" resultType="LicenseListDTO">
 		SELECT NUM,LICENSENAME FROM LICENSELIST ORDER BY NUM ASC
 	</select>
+	
+	<select id="getDetail" resultType="LicenseListDTO" parameterType="LicenseListDTO">
+		SELECT NUM, LICENSENAME FROM LICENSELIST WHERE NUM=#{NUM} ORDER BY NUM ASC
+	</select>
 
 </mapper>

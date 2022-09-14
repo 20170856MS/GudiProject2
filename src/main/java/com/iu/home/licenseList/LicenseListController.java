@@ -27,4 +27,14 @@ public class LicenseListController {
 		return mv;
 	}
 	
+	@GetMapping("detail")
+	public ModelAndView getDetail(LicenseListDTO licenseListDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		licenseListDTO = licenseListService.getDetail(licenseListDTO);
+		mv.addObject("detail",licenseListDTO);
+		mv.setViewName();
+		return mv;	
+	}
+	
 }

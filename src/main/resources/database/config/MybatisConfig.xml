@@ -7,6 +7,11 @@
 	<typeAliases>
 		<typeAlias type="com.iu.home.licenseList.LicenseListDAO" alias="LicenseListDAO"/>
 		<typeAlias type="com.iu.home.licenseList.LicenseListDTO" alias="LicenseListDTO"/>
+		
+		<typeAlias type="com.iu.home.licenseList.LicenseDetailDTO" alias="LicenseDetailDTO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseJobDTO" alias="LicenseJobDTO"/>
+		<typeAlias type="com.iu.home.licenseList.StudyBookDTO" alias="StudyBookDTO"/>
+		<typeAlias type="com.iu.home.licenseList.StudyVideoDTO" alias="StudyVideoDTO"/>
 	
 	
 		<typeAlias type="java.lang.String" alias="String"/>
