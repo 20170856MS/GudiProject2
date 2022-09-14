@@ -6,8 +6,6 @@ public class QnaDTO {
 	
 	//글제목
 	private String title;
-	
-	private Long licenseNum;
 	//글내용
 	private String contents;
 	//작성일
@@ -23,17 +21,11 @@ public class QnaDTO {
 	
 	private Long qnaNum;
 	
+	private Long licenseNum;
+	
 	private String writer;
 	
 	
-	
-	
-	public Long getLicenseNum() {
-		return licenseNum;
-	}
-	public void setLicenseNum(Long licenseNum) {
-		this.licenseNum = licenseNum;
-	}
 	
 	public String getTitle() {
 		return title;
@@ -82,6 +74,12 @@ public class QnaDTO {
 	}
 	public void setQnaNum(Long qnaNum) {
 		this.qnaNum = qnaNum;
+	}
+	public Long getLicenseNum() {
+		return licenseNum;
+	}
+	public void setLicenseNum(Long licenseNum) {
+		this.licenseNum = licenseNum;
 	}
 	public String getWriter() {
 		return writer;

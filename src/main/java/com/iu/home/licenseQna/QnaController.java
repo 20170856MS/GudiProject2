@@ -29,6 +29,8 @@ public class QnaController {
 		List<QnaDTO> ar = qnaService.getList(pager);
 		mv.addObject("pager",pager);
 		mv.addObject("list",ar);
+		mv.addObject("Qna");
+		mv.setViewName("qna/list");
 		return mv;
 	}
 	
@@ -63,7 +65,7 @@ public class QnaController {
 	@PostMapping("update")
 	public String setUpdate(QnaDTO qnaDTO)throws Exception {
 		int result = qnaService.setUpdate(qnaDTO);
-		return "redirect:./detail?num=";
+		return "redirect:./detail?num="+qnaDTO.getQnaNum();
 	}
 	
 	public String setDelete(QnaDTO qnaDTO)throws Exception {

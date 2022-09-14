@@ -5,9 +5,25 @@
 	
 	<mapper namespace="com.iu.home.licenseQna.QnaDAO">
 	
+	<sql id="search">
+	WHERE
+		<choose>
+			<when test="kind == 'title'">Title</when>
+			<when test="kind =='writer'">Writer</when>
+			<otherwise>contents</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+		</sql>
+	
 	<select id="getList" resultType="QnaDTO"
 	parameterType="Pager">
-	SELECT * FROM LICENSEQNA
+	SELECT * FROM
+	(SELECT ROWNUM R,N.* FROM
+	(SELECT * FROM LICENSEQNA
+	<include refid="search"></include> 
+	ORDER BY REF DESC, STEP ASC) N)
+	WHERE R BETWEEN
+	#{startRow} AND #{lastRow}
 	</select>
 	
 	<select id="getDetail" parameterType="QnaDTO"
@@ -47,6 +63,12 @@
 	<delete id="setDelete" parameterType="QnaDTO">
 	DELETE LICENSEQNA WHERE QNANUM=#{qnaNum}
 	</delete>
+	
+	<select id="getCount" resultType="Long"
+		parameterType="Pager">
+		SELECT COUNT(NUM)FROM LICENSEQNA
+		<include refid="search"></include>
+		</select>
 	
 	
 	</mapper>
