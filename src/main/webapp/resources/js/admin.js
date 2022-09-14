@@ -12,10 +12,10 @@ function payment(data) {
     IMP.request_pay({// param
         pg: "kakaopay.TC0ONETIME", //pg사명 or pg사명.CID (잘못 입력할 경우, 기본 PG사가 띄워짐)
         pay_method: "card", //지불 방법
-        merchant_uid: "iamport_test_id", //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
-        name: "도서", //결제창에 노출될 상품명
-        amount: 13700, //금액
-        buyer_email : "testiamport@naver.com", 
+        merchant_uid: "iamport_test_id1", //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
+        name: "이승헌", //결제창에 노출될 상품명
+        amount: 100000, //금액
+        buyer_email : "testiamport1@naver.com", 
         buyer_name : "홍길동",
         buyer_tel : "01012341234"
     }, function (rsp) { // callback
