@@ -1,11 +1,13 @@
-package com.iu.home.qnaBoard;
+package com.iu.home.licenseQna;
 
 import java.sql.Date;
 
-public class qnaBoardDTO {
+public class QnaDTO {
 	
 	//글제목
 	private String title;
+	
+	private Long licenseNum;
 	//글내용
 	private String contents;
 	//작성일
@@ -18,6 +20,20 @@ public class qnaBoardDTO {
 	private Long step;
 	//답글
 	private Long depth;
+	
+	private Long qnaNum;
+	
+	private String writer;
+	
+	
+	
+	
+	public Long getLicenseNum() {
+		return licenseNum;
+	}
+	public void setLicenseNum(Long licenseNum) {
+		this.licenseNum = licenseNum;
+	}
 	
 	public String getTitle() {
 		return title;
@@ -61,5 +77,19 @@ public class qnaBoardDTO {
 	public void setDepth(Long depth) {
 		this.depth = depth;
 	}
+	public Long getQnaNum() {
+		return qnaNum;
+	}
+	public void setQnaNum(Long qnaNum) {
+		this.qnaNum = qnaNum;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	
+	
 	
 }

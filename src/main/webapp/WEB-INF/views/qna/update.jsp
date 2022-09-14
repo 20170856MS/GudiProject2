@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>Qna Update Page</h1>
 
 </body>
 </html>
