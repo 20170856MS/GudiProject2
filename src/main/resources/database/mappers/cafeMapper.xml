@@ -8,7 +8,7 @@
     		SELECT * FROM STUDYCAFE ORDER BY SCNUM ASC
     	</select>
     	
-    	<select id="getDetail" parameterType="cafeDetailDTO" resultType="cafeDetailDTO">
+    	<select id="getDetail" parameterType="cafeDTO" resultType="cafeDetailDTO">
     		SELECT * FROM STUDYCAFEDETAIL WHERE SCNAME = #{scName}
     	</select>
     	

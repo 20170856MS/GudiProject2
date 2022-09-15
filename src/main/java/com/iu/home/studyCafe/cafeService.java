@@ -15,7 +15,7 @@ public class cafeService {
 		return cafeDAO.getList();
 	}
 	
-	public cafeDTO getDetail(cafeDetailDTO cafeDetailDTO) throws Exception{
-		return cafeDAO.getDetail(cafeDetailDTO);
+	public cafeDetailDTO getDetail(cafeDTO cafeDTO) throws Exception{
+		return cafeDAO.getDetail(cafeDTO);
 	}
 }

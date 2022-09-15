@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
-	
+  
     <img src="/resources/img/GOOD.png" width="60px" height="50px">
     <h1>StudyCafe</h1>
 
@@ -26,14 +26,13 @@
 				<td>
 					<a href="./cafeDetail?scName=${dto.scName}">${dto.scName}</a>
 				</td>
+				<td><img src="/resources/img/${dto.img}" width="60px" height="50px"></td>
+				
 			</tr>
 		
 		</c:forEach>
 	</table>
 
-
-    
-    
-
+   
 </body>
 </html>

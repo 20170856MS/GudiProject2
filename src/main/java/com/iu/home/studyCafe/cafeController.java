@@ -27,11 +27,12 @@ public class cafeController {
 	}
 	
 	@RequestMapping(value = "cafeDetail", method = RequestMethod.GET)
-	public ModelAndView cafeDetail(cafeDetailDTO cafeDetailDTO) throws Exception{
+	public ModelAndView cafeDetail(cafeDTO cafeDTO) throws Exception{
 		System.out.println("cafeDetail");
 		ModelAndView mv = new ModelAndView();
+		cafeDetailDTO cafeDetailDTO = new cafeDetailDTO();
 		
-		cafeDetailDTO = cafeService.getDetail(cafeDetailDTO);
+		cafeDetailDTO = cafeService.getDetail(cafeDTO);
 		
 		mv.setViewName("studyCafe/cafeDetail");
 		mv.addObject("dto", cafeDetailDTO);
