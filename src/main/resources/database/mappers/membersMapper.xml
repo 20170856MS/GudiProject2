@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+         
+<mapper namespace="com.iu.home.licensemembers.LicenseMembersDAO">
+	
+	<insert id="setJoin" parameterType="LicenseMembersDTO">
+		INSERT INTO LICENSEMEMBERS
+		VALUES(area_seq.nextval,#{areaName},#{userName},#{password},#{name},#{email},#{phone})
+	</insert>
+	
+	<select id="getMyPage" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
+		SELECT USERNAME,NAME,EMAIL,PHONE FROM LICENSEMEMBERS WHERE USERNAME =#{userName}
+	</select>
+	
+
+	<select id="getLogin" parameterType="LicenseMembersDTO"
+		resultMap="getRoleResult">
+		SELECT LM.USERNAME, LM.NAME, LR.ROLENUM,AR.ROLENAME
+		FROM 
+		    LiCENSEMEMBERS LM
+		    INNER JOIN
+		    LICENSEROLE LR
+		    ON (LM.USERNAME = LR.USERNAME)
+		    	INNER JOIN
+		   		 ADMINROLE AR
+		  		  ON (LR.ROLENUM = AR.ROLENUM)
+		WHERE LM.USERNAME=#{userName} AND LM.PASSWORD=#{password}
+		ORDER BY AR.ROLENUM ASC
+	</select>
+	
+	<resultMap type="LicenseMembersDTO" id="getRoleResult">
+    	<id column="USERNAME" property="userName"></id>
+		<result column="NAME" property="name"></result>
+		<collection property="adminRoleDTOs" javaType="List" ofType="AdminRoleDTO">
+			<id column="ROLENUM" property="roleNum"></id>
+			<result column="ROLENAME" property="roleName"></result>
+			
+		</collection> 
+    </resultMap>
+
+
+</mapper>

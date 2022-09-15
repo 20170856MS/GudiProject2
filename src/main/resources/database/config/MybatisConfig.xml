@@ -5,6 +5,9 @@
 				  
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.iu.home.licensemembers.LicenseMembersDTO" alias="LicenseMembersDTO"/>
+		<typeAlias type="com.iu.home.licensemembers.AdminRoleDTO" alias="AdminRoleDTO"/>
+		
 		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		
