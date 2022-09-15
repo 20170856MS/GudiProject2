@@ -1,0 +1,17 @@
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+	-o-font-family: 'Noto Sans KR', sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+img{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
