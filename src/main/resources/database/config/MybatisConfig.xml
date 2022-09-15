@@ -8,9 +8,19 @@
 		<typeAlias type="com.iu.home.licensemembers.LicenseMembersDTO" alias="LicenseMembersDTO"/>
 		<typeAlias type="com.iu.home.licensemembers.AdminRoleDTO" alias="AdminRoleDTO"/>
 		
-		<typeAlias type="java.lang.String" alias="String"/>
-		<typeAlias type="java.lang.Long" alias="Long"/>
 		
+		<typeAlias type="com.iu.home.licenseList.LicenseListDAO" alias="LicenseListDAO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseListDTO" alias="LicenseListDTO"/>
+
+		
+		<typeAlias type="com.iu.home.licenseList.LicenseDetailDTO" alias="LicenseDetailDTO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseJobDTO" alias="LicenseJobDTO"/>
+		<typeAlias type="com.iu.home.licenseList.StudyBookDTO" alias="StudyBookDTO"/>
+		<typeAlias type="com.iu.home.licenseList.StudyVideoDTO" alias="StudyVideoDTO"/>
+	
+	
+		<typeAlias type="java.lang.String" alias="String"/>
+		<typeAlias type="java.lang.Long" alias="Long"/>		
 		<typeAlias type="java.util.List" alias="List"/>
 	</typeAliases>
 
