@@ -11,7 +11,7 @@
 		VALUES(area_seq.nextval,#{areaName},#{userName},#{password},#{name},#{email},#{phone})
 	</insert>
 	
-	<select id="getMyPage" parameterType="LicenseMembersDTO">
+	<select id="getMyPage" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
 		SELECT USERNAME,NAME,EMAIL,PHONE FROM LICENSEMEMBERS WHERE USERNAME =#{userName}
 	</select>
 	

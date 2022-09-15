@@ -30,7 +30,7 @@
    		</div>
    			 <div class="form-floating">
    			 <h1 class="h3 mb-3 fw-normal">Enter Password</h1>
-      		<input type="text" name="password" id = "password" class="form-control" placeholder="Password">
+      		<input type="password" name="password" id = "password" class="form-control" placeholder="Password">
   		</div>
 
     		<div class="checkbox mb-3">

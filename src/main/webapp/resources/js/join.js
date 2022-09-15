@@ -25,7 +25,6 @@ id.addEventListener("blur",function(){
 
     if(id.value.length<1){
         alert("1글자 이하입니다")
-        id.focus();
         check1 = false;
         ch = true;
         

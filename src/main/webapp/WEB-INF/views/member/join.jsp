@@ -54,7 +54,7 @@
 <div class="row align-items-center justify-content-between">
         
             </div>
-            <form class="align-center" action="join" method="post" enctype="multipart/form-data" id="frm3">
+            <form class="align-center" action="join" method="post" id="frm3">
                 <div class="form-group">
                		<label for="area" class="form-label mt-4">지역</label>
                     <input type="text" name="areaName" class="form-control" id="area" >
@@ -105,7 +105,7 @@
 				
 				
 				<div class="d-grid gap-2 mt-4">
-                    <button class="btn btn-primary btn-lg" type="button" id="join1" name="join1">가입하기</button>
+                    <button class="btn btn-primary btn-lg" type="button" id="join1" name="join">가입하기</button>
                 </div>
 
             </form>

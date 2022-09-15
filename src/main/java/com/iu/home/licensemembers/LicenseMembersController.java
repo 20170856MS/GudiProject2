@@ -95,10 +95,7 @@ public class LicenseMembersController {
 		System.out.println("조인 POST");
 		System.out.println(licenseMembersDTO.getAreaName());
 		System.out.println(licenseMembersDTO.getName());
-  
-			   //int result = bankMembersService.setJoin(bankMembersDTO);
-		   
-			      
+       
 	    int result = licenseMembersService.setJoin(licenseMembersDTO);
 		if(result > 0) {
 				System.out.println("성공");
@@ -114,7 +111,9 @@ public class LicenseMembersController {
 	@GetMapping("myPage")
 	public ModelAndView myPage(HttpSession session) throws Exception{
 		LicenseMembersDTO licenseMembersDTO = (LicenseMembersDTO)session.getAttribute("check");
+		
 		ModelAndView mv = new ModelAndView();
+		System.out.println("myPage");
 //		Map<String, Object> map = bankMembersService.getmyPage(bankMemberDTO);
 //		
 //		model.addAttribute("map", map);

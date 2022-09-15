@@ -53,13 +53,13 @@
 	
 	<div>
 		<!-- 로그인한 정보 session -->
-		<c:forEach items="${check.roleDTOs}" var="roleDTO">
+		<%-- <c:forEach items="${check.adminRoleDTOs}" var="roleDTO">
 			<div>${roleDTO.roleNum}, ${roleDTO.roleName}</div>
 			
-		</c:forEach>
+		</c:forEach> --%>
 		
 		<%-- <h1> 당신은 ${check.roleDTOs.get(0).roleName} 등급입니다. </h1>  --%>
-		<h1> 당신은 ${check.roleDTOs["0"].roleName} 등급입니다.</h1>
+		<h1> 당신은 ${check.adminRoleDTOs["0"].roleName} 등급입니다.</h1>
 		
 	</div>
 	

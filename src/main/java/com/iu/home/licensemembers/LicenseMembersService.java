@@ -12,9 +12,8 @@ public class LicenseMembersService {
 	
 	public int setJoin(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
-		int result = licenseMembersDAO.setJoin(licenseMembersDTO);
 	
-		return result;
+		return licenseMembersDAO.setJoin(licenseMembersDTO);
 	}
 	
 	public LicenseMembersDTO getLogin(LicenseMembersDTO licenseMembersDTO) throws Exception{
