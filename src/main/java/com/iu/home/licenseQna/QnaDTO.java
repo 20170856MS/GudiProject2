@@ -21,8 +21,6 @@ public class QnaDTO {
 	
 	private Long qnaNum;
 	
-	private Long licenseNum;
-	
 	private String writer;
 	
 	
@@ -75,12 +73,7 @@ public class QnaDTO {
 	public void setQnaNum(Long qnaNum) {
 		this.qnaNum = qnaNum;
 	}
-	public Long getLicenseNum() {
-		return licenseNum;
-	}
-	public void setLicenseNum(Long licenseNum) {
-		this.licenseNum = licenseNum;
-	}
+
 	public String getWriter() {
 		return writer;
 	}

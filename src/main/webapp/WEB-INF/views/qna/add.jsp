@@ -8,16 +8,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<h1>Qna Add Page</h1>
+		<h1>게시판 글 작성하기</h1>
 		
 		<form action="update" method="post">
 	<div>
-	Writer <input type ="text" name="writer">
+	작성자 <input type ="text" name="writer">
 	</div>
 	<div>
-	Title <input type = "text" name="title">
+	글제목 <input type = "text" name="title">
 	</div>
-	<button type="submit">Add</button>
+	<div>
+	글내용 <input type = "text" name="title">
+	</div>
+	
+	<button type="submit">작성완료</button>
 	</form>
 
 </body>
