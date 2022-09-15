@@ -54,7 +54,13 @@
 <div class="row align-items-center justify-content-between">
         
             </div>
-            <form class="align-center" action="join.esh" method="post" enctype="multipart/form-data" id="frm3">
+            <form class="align-center" action="join" method="post" enctype="multipart/form-data" id="frm3">
+                <div class="form-group">
+               		<label for="area" class="form-label mt-4">지역</label>
+                    <input type="text" name="areaName" class="form-control" id="area" >
+					
+				</div>
+				
                 <div class="form-group">
                		<label for="id" class="form-label mt-4">아이디</label>
                     <input type="text" name="userName" class="form-control" id="id" >
@@ -67,7 +73,7 @@
 				</div>
 				<div class="form-group">
 					<label class="form-label mt-4" for="password_check">비밀번호 확인 </label>
-					<input type="password11" name="password_check" class="form-control is-invalid" id="password_check">
+					<input type="password" name="password_check" class="form-control is-invalid" id="password_check">
 					<div class="valid-feedback"></div>
 					<div id="chheck"></div>
 				</div>
@@ -84,14 +90,7 @@
 					<div></div>
 				</div>
                 
-			    <div class="form-group">
-			      <label for="exampleSelect1" class="form-label mt-4">성별</label>
-			      <select class="form-select" id="exampleSelect1">
-			        <option>남자</option>
-			        <option>여자</option>
-			      </select>
-				  <div></div>
-			    </div>                
+			                   
                 <div class="form-group">
                		<label for="email" class="form-label mt-4">본인 확인 이메일</label>
                     <input type="text" name ="email"class="form-control" id="email" aria-describedby="emailHelp" placeholder="선택입력">
@@ -104,14 +103,9 @@
 					<div></div>
 				</div>
 				
-				<div class="form-group">
-					<label class="form-label mt-4" for="files">Photo</label>
-					<input type="file" name="photo" class="form-control" id="files">
-					
-				</div>
 				
 				<div class="d-grid gap-2 mt-4">
-                    <button class="btn btn-primary btn-lg" type="button" id="join" name="join">가입하기</button>
+                    <button class="btn btn-primary btn-lg" type="button" id="join1" name="join1">가입하기</button>
                 </div>
 
             </form>
@@ -127,8 +121,6 @@
 <script src="/resources/js/join.js">
 
 </script> 
-<script>
-	joincheck();
-</script>
+
 </body>
 </html>

@@ -18,7 +18,7 @@
 	<section class="container-fluid col-lg-4 mt-5">
 		<div class="row">
 		<main class="form-signin w-100 m-auto">
-		  <form action="./login.esh" method="post" id ="frm">
+		  <form action="./login" method="post" id ="frm">
   		  <img class="mb-4" src="../../../resources/img/GOOD.png" alt="" width="100" height="100">
   		  <h1 class="h3 mb-3 fw-normal">Enter ID</h1>
 

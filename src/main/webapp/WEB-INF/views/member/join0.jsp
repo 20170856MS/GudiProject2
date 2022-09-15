@@ -54,7 +54,7 @@
 		<div class="row align-items-center justify-content-between">
         
    		</div>
-   		  <form class="align-center" action="join0.esh" method="post" id ="frm" >
+   		  <form class="align-center" action="join0" method="post" id ="frm" >
                 
 			<div class="checkbox_group">
 

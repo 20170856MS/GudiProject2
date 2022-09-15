@@ -51,35 +51,6 @@
 		
 	</table>
 	
-	<h2>가입상품</h2>
-	
-	
-	
-	<table border="1" class="table table-success table-striped">
-		<thead>
-			<tr>
-				<th>계좌번호</th><th>통장이름</th><th>개설날짜</th>
-			</tr>
-		</thead>
-		<tbody>
-				<c:forEach items="${dto.bankAccountDTOs}" var="dto">
-					
-				<tr>
-					<td>${dto.accountNum}</td>
-					<td>${dto.bankBookDTO.bookName}</td>
-					<td>${dto.accountDate}</td>		
-					
-				</tr>		
-				</c:forEach>
-		</tbody>
-		
-	</table>
-	
-	
-	<div class="row">
-		<img alt="" src="../resources/upload/member/${dto.bankMembersFileDTO.fileName}">
-	</div>
-	
 	<div>
 		<!-- 로그인한 정보 session -->
 		<c:forEach items="${check.roleDTOs}" var="roleDTO">

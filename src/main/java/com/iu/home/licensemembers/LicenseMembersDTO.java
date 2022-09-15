@@ -1,23 +1,38 @@
-package com.iu.home.licenseMembers;
+package com.iu.home.licensemembers;
 
-public class licenseMembersDTO {
+import java.util.List;
+
+public class LicenseMembersDTO {
 	private Long num;
-	private Long areaNum;
+	private String areaName;
 	private String userName;
 	private String password;
+	private String name;
 	private String email;
 	private String phone;
+	
+	private List<AdminRoleDTO> adminRoleDTOs;
+
+	
+	
+	public List<AdminRoleDTO> getAdminRoleDTOs() {
+		return adminRoleDTOs;
+	}
+	public void setAdminRoleDTOs(List<AdminRoleDTO> adminRoleDTOs) {
+		this.adminRoleDTOs = adminRoleDTOs;
+	}
 	public Long getNum() {
 		return num;
 	}
 	public void setNum(Long num) {
 		this.num = num;
 	}
-	public Long getAreaNum() {
-		return areaNum;
+	
+	public String getAreaName() {
+		return areaName;
 	}
-	public void setAreaNum(Long areaNum) {
-		this.areaNum = areaNum;
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
 	}
 	public String getUserName() {
 		return userName;
@@ -30,6 +45,13 @@ public class licenseMembersDTO {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;

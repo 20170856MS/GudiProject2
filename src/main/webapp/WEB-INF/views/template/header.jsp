@@ -19,7 +19,7 @@
                 </a>
               </li>
               <li>
-                <a href="admin/adminTest" class="nav-link text-white">
+                <a href="/admin/adminTest" class="nav-link text-white">
                   <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
                   관리자테스트
                 </a>
@@ -52,10 +52,22 @@
             <input type="search" class="form-control" placeholder="검색" aria-label="Search">
           </form>
   
-          <div class="text-end">
-            <button type="button" class="btn btn-light text-dark me-2">Login</button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
-          </div>
+         
+          <c:choose>
+               <c:when test="${not empty check}">
+              		<div class="text-end">
+           				 <a href = "/member/myPage" class="btn btn-light text-dark me-2">마이페이지</a>
+						<a href = "/member/logout" class="btn btn-primary">로그아웃</a>
+         			 </div>
+				</c:when>
+				<c:otherwise>
+            		<div class="text-end">
+           				 <a href = "/member/join0" class="btn btn-light text-dark me-2">회원가입</a>
+						<a href = "/member/login" class="btn btn-primary" >로그인</a>
+        		  </div>
+                </c:otherwise>
+          </c:choose>
+          
         </div>
       </div>
     </header>
