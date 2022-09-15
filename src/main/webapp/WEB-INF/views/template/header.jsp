@@ -166,6 +166,12 @@
                   Customers
                 </a>
               </li>
+              <li>
+                <a href="/info/main" class="nav-link text-white">
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                  자격증 정보 페이지
+                </a>
+              </li>
             </ul>
           </div>
         </div>
