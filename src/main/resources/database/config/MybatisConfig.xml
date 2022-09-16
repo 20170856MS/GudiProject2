@@ -23,9 +23,14 @@
 		<typeAlias type="java.lang.Long" alias="Long"/>		
 
 		<typeAlias type="java.util.List" alias="List"/>
+
 		<typeAlias type="com.iu.home.util.Pager" alias="Pager"/>
 		<typeAlias type="com.iu.home.licenseQna.QnaDTO" alias="QnaDTO"/>
+
 		
+		<typeAlias type="com.iu.home.studyCafe.cafeDTO" alias="cafeDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.cafeDetailDTO" alias="cafeDetailDTO"/>
+
 	</typeAliases>
 
 </configuration>
