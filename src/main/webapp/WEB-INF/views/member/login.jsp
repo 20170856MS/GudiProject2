@@ -59,8 +59,9 @@
 <script src="/resources/js/member.js">
 
 </script>
-<script>
-	// logincheck();
-</script>
+<script src="/resources/js/common.js">
+
+</script> 
+
 </body>
 </html>
