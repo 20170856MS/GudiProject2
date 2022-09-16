@@ -18,7 +18,6 @@ public class cafeDAO {
 	}
 	
 	public cafeDetailDTO getDetail(cafeDTO cafeDTO) throws Exception{
-		cafeDetailDTO cafeDetailDTO = new cafeDetailDTO();
-		return sqlSession.selectOne(NAMESPACE+"getDetail", cafeDetailDTO);
+		return sqlSession.selectOne(NAMESPACE+"getDetail", cafeDTO);
 	}
 }

@@ -1,10 +1,9 @@
 package com.iu.home.studyCafe;
 
-public class cafeDetailDTO{
+public class cafeDetailDTO extends cafeDTO{
 	
 	private Long cdPay;
 	private String cdRegion;
-	private String scName;
 	private String scExplain;
 	
 	
@@ -20,12 +19,7 @@ public class cafeDetailDTO{
 	public void setCdRegion(String cdRegion) {
 		this.cdRegion = cdRegion;
 	}
-	public String getScName() {
-		return scName;
-	}
-	public void setScName(String scName) {
-		this.scName = scName;
-	}
+
 	public String getScExplain() {
 		return scExplain;
 	}
