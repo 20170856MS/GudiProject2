@@ -11,30 +11,30 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value="/info/*")
-public class LicenseListController {
+public class LicenseController {
 	
 	@Autowired
-	private LicenseListService licenseListService;
+	private LicenseService licenseListService;
 	
 	@GetMapping("main")
 	public ModelAndView getInfo() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<LicenseListDTO> ar = licenseListService.getList();
+		List<LicenseDTO> ar = licenseListService.getList();
 
 		mv.addObject("list",ar);
 		mv.setViewName("/info/main");
 		return mv;
 	}
 	
-	@GetMapping("detail")
-	public ModelAndView getDetail(LicenseListDTO licenseListDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		licenseListDTO = licenseListService.getDetail(licenseListDTO);
-		mv.addObject("detail",licenseListDTO);
-		mv.setViewName();
-		return mv;	
-	}
+//	@GetMapping("detail")
+//	public ModelAndView getDetail(LicenseListDTO licenseListDTO) throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		
+//		licenseListDTO = licenseListService.getDetail(licenseListDTO);
+//		mv.addObject("detail",licenseListDTO);
+//		mv.setViewName();
+//		return mv;	
+//	}
 	
 }

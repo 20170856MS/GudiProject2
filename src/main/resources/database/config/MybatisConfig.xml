@@ -9,14 +9,18 @@
 		<typeAlias type="com.iu.home.licensemembers.AdminRoleDTO" alias="AdminRoleDTO"/>
 		
 		
-		<typeAlias type="com.iu.home.licenseList.LicenseListDAO" alias="LicenseListDAO"/>
-		<typeAlias type="com.iu.home.licenseList.LicenseListDTO" alias="LicenseListDTO"/>
+		<typeAlias type="com.iu.home.licenseList.BookDTO" alias="BookDTO"/>
+		<typeAlias type="com.iu.home.licenseList.JobDTO" alias="JobDTO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseBookDTO" alias="LicenseBookDTO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseDTO" alias="LicenseDTO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseJobDTO" alias="LicenseJobDTO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseScheduleDTO" alias="LicenseScheduleDTO"/>
+		<typeAlias type="com.iu.home.licenseList.LicenseVideoDTO" alias="LicenseVideoDTO"/>
+		<typeAlias type="com.iu.home.licenseList.ScheduleDTO" alias="ScheduleDTO"/>
+		<typeAlias type="com.iu.home.licenseList.VideoDTO" alias="VideoDTO"/>
 
 		
-		<typeAlias type="com.iu.home.licenseList.LicenseDetailDTO" alias="LicenseDetailDTO"/>
-		<typeAlias type="com.iu.home.licenseList.LicenseJobDTO" alias="LicenseJobDTO"/>
-		<typeAlias type="com.iu.home.licenseList.StudyBookDTO" alias="StudyBookDTO"/>
-		<typeAlias type="com.iu.home.licenseList.StudyVideoDTO" alias="StudyVideoDTO"/>
+
 	
 	
 		<typeAlias type="java.lang.String" alias="String"/>

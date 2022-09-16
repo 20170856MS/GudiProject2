@@ -7,17 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class LicenseListDAO {
+public class LicenseDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.iu.home.licenseList.LicenseListDAO.";
+	private final String NAMESPACE = "com.iu.home.licenseList.LicenseDAO.";
 	
-	public List<LicenseListDTO> getList() throws Exception{
+	public List<LicenseDTO> getList() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
-	public LicenseListDTO getDetail(LicenseListDTO licenseListDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getDetail",licenseListDTO);
-	}
 }
