@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world! 
 </h1>
 
 </body>
