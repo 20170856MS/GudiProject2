@@ -106,10 +106,10 @@
                             </ul>
                          </div>
                        </li>
-                       <li><a href="#" title="TEST6">TEST6</a>
+                       <li><a href="#" title="TEST6">StudyCafe</a>
                         <div class="dep2" style="height: 0px;">
                             <ul class="depth2" style="display: none;">
-                              <li><a href="#" title="test0">test0</a></li>
+                              <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
                               <li><a href="#" title="test1">test</a></li>
                                
                             </ul>
