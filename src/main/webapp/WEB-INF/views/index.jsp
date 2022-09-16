@@ -26,7 +26,6 @@
           <c:import url="template/header.jsp"></c:import>
          <section class="container-fluid col-lg-8 mt-5">
       
-    
 
     
         </section>
@@ -41,4 +40,4 @@
 
 </body>
 </body>
-</html>
+</html>	
