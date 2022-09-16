@@ -44,8 +44,12 @@ public class QnaService implements BoardService {
 			if(multipartFile.isEmpty()) {
 				continue;
 			}
-			String fileName = fileManager.saveFile(path, servletContext, multipartFile);
-			
+//			String fileName = fileManager.saveFile(path, servletContext, multipartFile);
+//			QnaDTO qnaDTO = new QnaDTO();
+//			qnaDTO.setFileName(fileName);
+//			qnaDTO.setOriName(multipartFile.getOriginalFilename());
+//			qnaDTO.setQnaNum(qnaDTO.getQnaNum());
+//			qnaDAO.setAddFile(qnaDTO);
 		}
 		return result;
 	}

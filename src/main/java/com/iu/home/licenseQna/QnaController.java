@@ -22,6 +22,7 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	//글목록
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager)throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -29,11 +30,11 @@ public class QnaController {
 		List<QnaDTO> ar = qnaService.getList(pager);
 		mv.addObject("pager",pager);
 		mv.addObject("list",ar);
-		mv.addObject("Qna");
+		//mv.addObject("Qna");
 		mv.setViewName("qna/list");
 		return mv;
 	}
-	
+	//글상세
 	@GetMapping("detail")
 	public ModelAndView getDetail(QnaDTO qnaDTO)throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -41,11 +42,12 @@ public class QnaController {
 		return mv;
 	}
 	
+	//글쓰기
 	@GetMapping("add")
 	public String setAdd()throws Exception {
 		return "qna/add";
 	}
-	
+	//
 	@PostMapping("add")
 	public ModelAndView setAdd(QnaDTO qnaDTO,MultipartFile[]files, HttpSession session)throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -53,10 +55,10 @@ public class QnaController {
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
-	
+	//글수정
 	@GetMapping("update")
 	public ModelAndView setUpdate(QnaDTO qnaDTO,ModelAndView mv)throws Exception {
-		QnaDTO result = qnaService.getDetail(qnaDTO);
+		qnaDTO = qnaService.getDetail(qnaDTO);
 		mv.addObject("qnaDTO",qnaDTO);
 		mv.setViewName("qna/update");
 		return mv;
@@ -67,7 +69,7 @@ public class QnaController {
 		int result = qnaService.setUpdate(qnaDTO);
 		return "redirect:./detail?num="+qnaDTO.getQnaNum();
 	}
-	
+	//글삭제
 	public String setDelete(QnaDTO qnaDTO)throws Exception {
 		int result = qnaService.setDelete(qnaDTO);
 		return "redirect./list";
