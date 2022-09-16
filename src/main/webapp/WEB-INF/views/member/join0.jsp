@@ -53,7 +53,6 @@
 
 <section class="container-fluid col-lg-4 mt-5">
 		<div class="row"> 
-		<div><h1>회원가입 약관동의 </h1></div>
 		
 		<div class="row align-items-center justify-content-between">
         
