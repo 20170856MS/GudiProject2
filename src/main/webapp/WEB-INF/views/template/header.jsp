@@ -1,6 +1,9 @@
     <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 <header id="header">
 	<div class="top">
 		
@@ -21,14 +24,14 @@
                           <c:choose>
                             <c:when test="${not empty check}">
                                	<div class="text-end">
-                            				<a href = "/member/myPage" class="btn btn-light text-dark me-2">마이페이지</a>
-					                  	      <a href = "/member/logout" class="btn btn-primary">로그아웃</a>
+                            				<a href = "/member/myPage" class="btn_memb myPage">마이페이지</a>
+					                  	      <a href = "/member/logout" class="btn_memb logout">로그아웃</a>
                            			</div>
 			                  	   </c:when>
 			                      	<c:otherwise>
                              		<div class="text-end">
-                            				<a href = "/member/join0" class="btn btn-light text-dark me-2">회원가입</a>
-			                  		      	<a href = "/member/login" class="btn btn-primary" >로그인</a>
+                            				<a href = "/member/join0" class="btn_memb join">회원가입</a>
+			                  		      	<a href = "/member/login" class="btn_memb login" >로그인</a>
                           		  </div>
                              </c:otherwise>
                             </c:choose>

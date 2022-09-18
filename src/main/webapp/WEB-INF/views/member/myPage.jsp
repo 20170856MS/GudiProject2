@@ -10,10 +10,10 @@
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/font.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
+   <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<link rel="stylesheet" href="/resources/css/myPage.css" type="text/css">
 </head>
 <style>
     .align-center {text-align: center;}
@@ -23,50 +23,68 @@
 
 	<c:import url="../template/header.jsp"></c:import>
 	
-	<section class="container-fluid col-lg-4 mt-5">
+	<section>
 		<div class="row">
-	<h1>마이페이지</h1>
-	<h2>${sessionScope.check.userName} 님 환영합니다.</h2>
-	<%-- <h4>USERNAME : ${map.dto.userName}</h4>
-	<h4>NAME : ${map.dto.name}</h4>
-	<h4>EMAIL : ${map.dto.email}</h4>
-	<h4>PHONE : ${map.dto.phone}</h4>
-	
-	<c:forEach items="${map.list}" var="dto">
-		<p>${dto.accountNum}</p>
-		<p>${dto.bankBookDTO.bookName}</p>
-		<p>${dto.accountDate}</p>
-	</c:forEach> --%>
-	<table border="1" class="table table-success table-striped">
-		<thead>
-			<tr>
-				<th>USERNAME</th><th>NAME</th><th>EMAIL</th><th>PHONE</th>
-			</tr>
-		</thead>
-		<tbody>
-	
-				<tr>
-					<td>${dto.userName}</td>
-					<td>${dto.name}</td>
-					<td>${dto.email}</td>
-					<td>${dto.phone}</td>
-				</tr>		
-			
-		</tbody>
-		
-	</table>
-	
-	<div>
-		<!-- 로그인한 정보 session -->
-		<%-- <c:forEach items="${check.adminRoleDTOs}" var="roleDTO">
-			<div>${roleDTO.roleNum}, ${roleDTO.roleName}</div>
-			
-		</c:forEach> --%>
-		
-		<%-- <h1> 당신은 ${check.roleDTOs.get(0).roleName} 등급입니다. </h1>  --%>
-		<h1> 당신은 ${check.adminRoleDTOs["0"].roleName} 등급입니다.</h1>
-		
-	</div>
+			<main>
+				<div class="container">
+					
+					
+		    	<div class="grid_box">
+		    		<div class="login_box">
+	    				 <!-- <c:if test="${empty SPRING_SECURITY_CONTEXT }">
+	                         <a href="/login"><span>로그인을 해주세요</span></a>
+	                    </c:if> -->
+	                    
+	                    <h1>마이페이지</h1>
+	                    <c:if test="${empty SPRING_SECURITY_CONTEXT }">
+                            <c:set var="name1" value="${SPRING_SECURITY_CONTEXT.authentication.principal.user.nickname }" />
+	                        <a href="/user/myInfo"><span class="name1" data-nickname=${name} >${check.name }</span></a>
+							<button type="button" class="logout">로그아웃</button>
+	                    </c:if>
+		    		</div>
+		    		
+		    		
+		    		<div>
+		    			<a href="/user/point" onclick="return loginCheck();">
+	                       	<span class="img_box">
+	                       		<img src="/resources/img/icon11.png" alt="포인트">
+	                       	</span>
+	                       	<span>포인트</span>
+	                  	</a>
+		    		</div>
+		    		
+		    		
+		    		
+		    		<div>
+						<a href="/likes/store">
+							<span class="img_box">
+								<img src="/resources/img/icon44.png" alt="찜한자격증">
+							</span>
+							<span>찜한자격증</span>
+						</a>
+		    		</div>
+		    		
+		    		
+		    		<div>
+						<a href="/orderList">
+							<span class="img_box">
+								<img src="/resources/img/icon55.png" alt="주문내역">
+							</span>
+							<span>스터디카페 주문내역</span>
+						</a>
+		    		</div>
+		    		
+		    		
+		    		
+		    		
+		    	</div>
+	    		
+	    	</div>
+	    </main>
+	    
+    </div>
+    
+    <!-- 콘텐츠 -->
 	
 	
 	
