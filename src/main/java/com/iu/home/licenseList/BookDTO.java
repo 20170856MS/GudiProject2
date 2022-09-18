@@ -2,16 +2,16 @@ package com.iu.home.licenseList;
 
 public class BookDTO {
 
-	private Long booknum;
+	private Long bookNum;
 	private String bookName;
 	private String bookImage;
 	private Long bookPrice;
 	
-	public Long getBooknum() {
-		return booknum;
+	public Long getBookNum() {
+		return bookNum;
 	}
-	public void setBooknum(Long booknum) {
-		this.booknum = booknum;
+	public void setBookNum(Long bookNum) {
+		this.bookNum = bookNum;
 	}
 	public String getBookName() {
 		return bookName;
@@ -31,7 +31,11 @@ public class BookDTO {
 	public void setBookPrice(Long bookPrice) {
 		this.bookPrice = bookPrice;
 	}
+
 	
+	
+	
+
 	
 	
 	

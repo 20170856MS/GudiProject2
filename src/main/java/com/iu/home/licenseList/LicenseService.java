@@ -15,5 +15,12 @@ public class LicenseService {
 		
 		return licenseListDAO.getList();
 	}
+	
+	public List<LicenseDTO> getDetail(LicenseDTO licenseDTO) throws Exception{
+		
+		return licenseListDAO.getDetail(licenseDTO);
+	}
+	
+	
 
 }

@@ -17,14 +17,19 @@
 <!-- header.jsp -->
 <c:import url="../template/header.jsp"></c:import>
 		  
-		  
-<c:forEach items="${requestScope.list}" var="dto">
-	<h3>
-		<a href="./detail?num=${dto.num}">${dto.licenseName}</a>
-	</h3>
+	<c:forEach items="${requestScope.detail}" var="dto">
 	
-</c:forEach>
+		<h3>
+			자격증 번호 : ${dto.licenseNum} <br>
+			자격증 이름 : ${dto.licenseName} <br>
+			책 번호 : ${dto.bookDTO.bookNum} <br>
+			책 제목 : ${dto.bookDTO.bookName} <br>
+			책 이미지 : ${dto.bookDTO.bookImage} <br>
+			책 가격 : ${dto.bookDTO.bookPrice} <br>	
+		</h3>
 		
+	</c:forEach>
+	
 
 <!-- footer.jsp -->
 <c:import url="../template/footer.jsp"></c:import>

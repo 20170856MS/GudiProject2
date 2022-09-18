@@ -70,7 +70,7 @@
                             </ul>
                          </div>
                        </li>
-                       <li><a href="#" title="TEST2">TEST2</a>
+                       <li><a href="/info/main" title="TEST2">자격증 정보 페이지</a>
                         <div class="dep2" style="height: 0px;">
                             <ul class="depth2" style="display: none;">
                               <li><a href="#" title="test0">test0</a></li>

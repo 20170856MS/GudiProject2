@@ -27,14 +27,15 @@ public class LicenseController {
 		return mv;
 	}
 	
-//	@GetMapping("detail")
-//	public ModelAndView getDetail(LicenseListDTO licenseListDTO) throws Exception{
-//		ModelAndView mv = new ModelAndView();
-//		
-//		licenseListDTO = licenseListService.getDetail(licenseListDTO);
-//		mv.addObject("detail",licenseListDTO);
-//		mv.setViewName();
-//		return mv;	
-//	}
+	@GetMapping("detail")
+	public ModelAndView getDetail(LicenseDTO licenseDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		List<LicenseDTO> ar = licenseListService.getDetail(licenseDTO);
+		
+		mv.addObject("detail",ar);
+		mv.setViewName("/info/detail");
+		return mv;	
+	}
 	
 }

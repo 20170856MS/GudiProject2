@@ -4,6 +4,7 @@ public class LicenseDTO {
 
 	private Long licenseNum;
 	private String licenseName;
+	private BookDTO bookDTO;
 	
 	public Long getLicenseNum() {
 		return licenseNum;
@@ -16,6 +17,12 @@ public class LicenseDTO {
 	}
 	public void setLicenseName(String licenseName) {
 		this.licenseName = licenseName;
+	}
+	public BookDTO getBookDTO() {
+		return bookDTO;
+	}
+	public void setBookDTO(BookDTO bookDTO) {
+		this.bookDTO = bookDTO;
 	}
 	
 	
