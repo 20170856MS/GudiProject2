@@ -40,11 +40,11 @@ public class cafeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "reservation")
+	@RequestMapping(value = "reservation2")
 	public ModelAndView reser() throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println("reservation");
-		mv.setViewName("studyCafe/reservation");
+		System.out.println("reservation2");
+		mv.setViewName("studyCafe/reservation2");
 		return mv;
 	}
 	

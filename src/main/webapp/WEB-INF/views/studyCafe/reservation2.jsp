@@ -23,11 +23,12 @@
 	
 	<meta name="description" content="A lightweight, customizable jQuery timepicker plugin inspired by Google Calendar. Add a user-friendly javascript timepicker dropdown to your app in minutes." />
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="./TimePicker/jquery.timepicker.js"></script>
+	
+	<script type="text/javascript"><%@include file="./TimePicker/jquery.timepicker.js"%></script>
 	<link rel="stylesheet" type="text/css" href="./TimePicker/jquery.timepicker.css" />
-	<script type="text/javascript" src="./TimePicker/documentation-assets/bootstrap-datepicker.js"></script>
+	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/bootstrap-datepicker.js"%></script>
 	<link rel="stylesheet" type="text/css" href="./TimePicker/documentation-assets/bootstrap-datepicker.css" />
-	<script type="text/javascript" src="./TimePicker/documentation-assets/site.js"></script>
+	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/site.js"%></script>
 	<link rel="stylesheet" type="text/css" href="./TimePicker/documentation-assets/site.css" />
 	
 	

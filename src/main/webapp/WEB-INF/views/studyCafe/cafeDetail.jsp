@@ -41,7 +41,7 @@
 		        
 		    </table>
 		    
-		    <<a href="./reservation">예약하기</a>
+		    <<a href="./reservation2?scName=${dto.scName}">예약하기</a>
 		    <button></button>
 		    
 		</div>
