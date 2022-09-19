@@ -18,7 +18,8 @@
 		<typeAlias type="com.iu.home.licenseList.LicenseVideoDTO" alias="LicenseVideoDTO"/>
 		<typeAlias type="com.iu.home.licenseList.ScheduleDTO" alias="ScheduleDTO"/>
 		<typeAlias type="com.iu.home.licenseList.VideoDTO" alias="VideoDTO"/>
-
+		
+		<typeAlias type="com.iu.home.licenseorder.OrderDTO" alias="OrderDTO"/>
 		
 
 	
