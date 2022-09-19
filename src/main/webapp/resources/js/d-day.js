@@ -13,7 +13,7 @@ setInterval(function() {
     let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let sec = Math.floor((distance % (1000 * 60)) / 1000);
 
-    const count = document.getElementById("count").innerHTML = day + "일" + hour + "시간" + min + "분" + sec + "초";
+    const bx_timer = document.getElementsByClassName("bx_timer").innerHTML = day + "일" + hour + "시간" + min + "분" + sec + "초";
 },1000);
 
 

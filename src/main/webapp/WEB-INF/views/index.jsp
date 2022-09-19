@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link rel="stylesheet" href="/resources/css/d-day.css" type="text/css">
+    
 </head>
 <body>
     <div id="wrap">
@@ -34,6 +35,19 @@
     <h4>D-DAY</h4>
     <div id="count"></div>
     <div class="black-overlay"></div>
+    <div class="timer_wrap scroll_fixed">
+
+    <div class="inner pos_r">
+        <img src="/resources/img/timer.jpg" altusemap="#timer">
+    </div>  
+    <div class="bx_timer">
+        <span class="t-day" data-component="timer" data-format="dd"></span>
+        <span class="t_hour" data-component="timer" data-format="hh"></span>
+        <span class="t_minute" data-component="timer" data-format="mm"></span>
+        <span class="t_sec" data-component="timer" data-format="ss"></span>
+    </div>
+    </div>
+
 
     <!-- footer.jsp -->
     <c:import url="template/footer.jsp"></c:import>
