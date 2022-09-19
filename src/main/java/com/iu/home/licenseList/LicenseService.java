@@ -16,9 +16,24 @@ public class LicenseService {
 		return licenseListDAO.getList();
 	}
 	
-	public List<LicenseDTO> getDetail(LicenseDTO licenseDTO) throws Exception{
+	public List<LicenseDTO> getDetailBook(LicenseDTO licenseDTO) throws Exception{
 		
-		return licenseListDAO.getDetail(licenseDTO);
+		return licenseListDAO.getDetailBook(licenseDTO);
+	}
+	
+	public List<LicenseDTO> getDetailVideo(LicenseDTO licenseDTO) throws Exception{
+		
+		return licenseListDAO.getDetailVideo(licenseDTO);
+	}
+	
+	public List<LicenseDTO> getDetailJob(LicenseDTO licenseDTO) throws Exception{
+		
+		return licenseListDAO.getDetailJob(licenseDTO);
+	}
+	
+	public List<LicenseDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
+		
+		return licenseListDAO.getDetailSchedule(licenseDTO);
 	}
 	
 	

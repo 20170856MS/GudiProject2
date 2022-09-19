@@ -31,9 +31,15 @@ public class LicenseController {
 	public ModelAndView getDetail(LicenseDTO licenseDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<LicenseDTO> ar = licenseListService.getDetail(licenseDTO);
+		List<LicenseDTO> detailBook = licenseListService.getDetailBook(licenseDTO);
+		List<LicenseDTO> detailVideo = licenseListService.getDetailVideo(licenseDTO);
+		List<LicenseDTO> detailJob = licenseListService.getDetailJob(licenseDTO);
+		List<LicenseDTO> detailSchedule = licenseListService.getDetailSchedule(licenseDTO);
 		
-		mv.addObject("detail",ar);
+		mv.addObject("detailBook",detailBook);
+		mv.addObject("detailVideo",detailVideo);
+		mv.addObject("detailJob",detailJob);
+		mv.addObject("detailSchedule",detailSchedule);
 		mv.setViewName("/info/detail");
 		return mv;	
 	}

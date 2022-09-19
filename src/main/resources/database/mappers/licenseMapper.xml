@@ -9,7 +9,9 @@
 		SELECT LICENSENUM,LICENSENAME FROM LICENSE ORDER BY LICENSENUM ASC
 	</select>
 	
-	<select id="getDetail" parameterType="LicenseDTO" resultMap="getBook">
+							<!--  BOOK  -->
+							
+	<select id="getDetailBook" parameterType="LicenseDTO" resultMap="getBook">
 		
 		SELECT *
 		FROM    LICENSE L
@@ -33,5 +35,82 @@
 			<result column ="BOOKPRICE" property="bookPrice"/>
 		</association>
 	</resultMap>
+	
+							<!--  VIDEO  -->
+							
+	<select id="getDetailVideo" parameterType="LicenseDTO" resultMap="getVideo">
+		
+		SELECT *
+        FROM LICENSE L
+	            INNER JOIN
+	            LICENSEVIDEO LV
+	            USING (LICENSENUM)
+	            INNER JOIN
+	            VIDEO V
+	            USING (VIDEONUM)
+		        WHERE LICENSENUM=#{licenseNum}
+		        ORDER BY VIDEOTITLE ASC
+	</select>
+	
+	<resultMap type="LicenseDTO" id="getVideo">
+		<id column = "LICENSENUM" property="licenseNum"/>
+		<result column ="LICENSENAME" property="licenseName" />
+		<association property="videoDTO" javaType="VideoDTO">
+			<id column = "VIDEONUM" property="videoNum" />
+			<result column ="VIDEOTITLE" property="videoTitle"/>
+			<result column ="VIDEOLINK" property="videoLink"/>
+		</association>
+	</resultMap>							
+							<!--  JOB  -->
+							
+	<select id="getDetailJob" parameterType="LicenseDTO" resultMap="getJob">
+		
+		SELECT *
+        FROM LICENSE L
+	            INNER JOIN
+	            LICENSEJOB LJ
+	            USING (LICENSENUM)
+	            INNER JOIN
+	            JOB J
+	            USING (JOBNUM)
+		        WHERE LICENSENUM=#{licenseNum}
+		        ORDER BY JOBNAME ASC
+	</select>
+	
+	<resultMap type="LicenseDTO" id="getJob">
+		<id column = "LICENSENUM" property="licenseNum"/>
+		<result column ="LICENSENAME" property="licenseName" />
+		<association property="jobDTO" javaType="JobDTO">
+			<id column = "JOBNUM" property="jobNum" />
+			<result column ="JOBNAME" property="jobName"/>
+			<result column ="JOBINTRO" property="jobIntro"/>
+		</association>
+	</resultMap>
+							<!--  SCHEDULE  -->
+
+	<select id="getDetailSchedule" parameterType="LicenseDTO" resultMap="getSchedule">
+		
+		SELECT *
+        FROM LICENSE L
+	            INNER JOIN
+	            LICENSESCHEDULE LS
+	            USING (LICENSENUM)
+	            INNER JOIN
+	            SCHEDULE S
+	            USING (SCHEDULENUM)
+		        WHERE LICENSENUM=#{licenseNum}
+		        ORDER BY SCHEDULENAME ASC
+	</select>
+	
+	<resultMap type="LicenseDTO" id="getSchedule">
+		<id column = "LICENSENUM" property="licenseNum"/>
+		<result column ="LICENSENAME" property="licenseName" />
+		<association property="scheduleDTO" javaType="ScheduleDTO">
+			<id column = "SCHEDULENUM" property="scheduleNum" />
+			<result column ="SCHEDULENAME" property="scheduleName"/>
+			<result column ="SCHEDULEDATE" property="scheduleDate"/>
+		</association>
+	</resultMap>
+	
 
 </mapper>
