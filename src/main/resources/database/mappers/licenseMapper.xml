@@ -6,7 +6,7 @@
 <mapper namespace="com.iu.home.licenseList.LicenseDAO">
 
 	<select id="getList" resultType="LicenseDTO">
-		SELECT LICENSENUM,LICENSENAME FROM LICENSE ORDER BY LICENSENUM ASC
+		SELECT * FROM LICENSENUM,LICENSENAME FROM LICENSE ORDER BY LICENSENUM ASC
 	</select>
 	
 							<!--  BOOK  -->

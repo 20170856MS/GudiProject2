@@ -15,6 +15,7 @@
     <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="/resources/css/d-day.css" type="text/css">
 </head>
 <body>
     <div id="wrap">
@@ -29,14 +30,18 @@
     
         </section>
     </div>
+    <!--d-day count div -->
+    <h4>D-DAY</h4>
+    <div id="count"></div>
+    <div class="black-overlay"></div>
 
-<!-- footer.jsp -->
-<c:import url="template/footer.jsp"></c:import>
-   
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="/resources/js/common.js" type="text/javascript"></script>
-
+    <!-- footer.jsp -->
+    <c:import url="template/footer.jsp"></c:import>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="/resources/js/common.js" type="text/javascript"></script>
+    <script src="/resources/js/d-day.js"></script>
 </body>
 </body>
 </html>	
