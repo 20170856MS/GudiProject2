@@ -15,4 +15,11 @@ public class adminController {
 		System.out.println("admintest");
 		
 	}
+	
+	@RequestMapping(value = "order", method = RequestMethod.GET)
+	public void setorder() throws Exception{
+		
+		System.out.println("order");
+		
+	}
 }

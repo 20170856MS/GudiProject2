@@ -58,8 +58,8 @@
                       <li><a href="/admin/adminTest" title="관리자테스트">관리자 테스트</a>
                           <div class="dep2" style="height: 0px;">
                               <ul class="depth2" style="display: none;">
-                                <li><a href="#" title="test0">관리자</a></li>
-                                <li><a href="#" title="test1">test</a></li>
+                                <li><a href="/admin/adminTest" title="test0">관리자</a></li>
+                                <li><a href="/admin/order" title="test1">결제테스트</a></li>
                                  
                               </ul>
                           </div>

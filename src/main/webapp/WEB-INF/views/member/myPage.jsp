@@ -30,6 +30,9 @@
 					
 					
 		    	<div class="grid_box">
+					<div>
+						<h1> 등급 : ${check.adminRoleDTOs["0"].roleName}</h1>
+					</div>
 		    		<div class="login_box">
 	    				 <!-- <c:if test="${empty SPRING_SECURITY_CONTEXT }">
 	                         <a href="/login"><span>로그인을 해주세요</span></a>
@@ -38,7 +41,8 @@
 	                    <h1>마이페이지</h1>
 	                    <c:if test="${empty SPRING_SECURITY_CONTEXT }">
                             <c:set var="name1" value="${SPRING_SECURITY_CONTEXT.authentication.principal.user.nickname }" />
-	                        <a href="/user/myInfo"><span class="name1" data-nickname=${name} >${check.name }</span></a>
+	                        <a href="/user/myInfo"><span class="name1" data-nickname=${name} >${dto.name}</span></a>
+							
 							<button type="button" class="logout">로그아웃</button>
 	                    </c:if>
 		    		</div>
@@ -58,9 +62,9 @@
 		    		<div>
 						<a href="/likes/store">
 							<span class="img_box">
-								<img src="/resources/img/icon44.png" alt="찜한자격증">
+								<img src="/resources/img/icon44.png" alt="관심있는 자격증">
 							</span>
-							<span>찜한자격증</span>
+							<span>관심있는 자격증</span>
 						</a>
 		    		</div>
 		    		
