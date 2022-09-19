@@ -17,10 +17,10 @@ public interface BoardService {
 	public QnaDTO getDetail(QnaDTO qnaDTO)throws Exception;
 	
 	//글쓰기
-	public int setAdd(QnaDTO qnaDTO, MultipartFile[]files, ServletContext servletContext)throws Exception;
+	public int setAdd(QnaDTO qnaDTO)throws Exception;
 	
 	//글수정
-	public int setUpdate(QnaDTO qnaDTO)throws Exception;
+	public int setUpdate(QnaDTO qnaDTO, ServletContext servletContext)throws Exception;
 	
 	//글삭제
 	public int setDelete(QnaDTO qnaDTO)throws Exception;

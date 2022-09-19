@@ -16,8 +16,7 @@ public class QnaService implements BoardService {
 	
 	@Autowired
 	private QnaDAO qnaDAO;
-	@Autowired
-	private FileManager fileManager;
+	
 	
 	@Override
 	public List<QnaDTO> getList(Pager pager) throws Exception {
@@ -35,27 +34,15 @@ public class QnaService implements BoardService {
 	}
 	
 	@Override
-	public int setAdd(QnaDTO qnaDTO, MultipartFile[] files, ServletContext servletContext) throws Exception {
+	public int setAdd(QnaDTO qnaDTO) throws Exception {
 		// TODO Auto-generated method stub
 		int result = qnaDAO.setAdd(qnaDTO);
-		String path="resources/upload/qna";
-		
-		for(MultipartFile multipartFile: files) {
-			if(multipartFile.isEmpty()) {
-				continue;
-			}
-//			String fileName = fileManager.saveFile(path, servletContext, multipartFile);
-//			QnaDTO qnaDTO = new QnaDTO();
-//			qnaDTO.setFileName(fileName);
-//			qnaDTO.setOriName(multipartFile.getOriginalFilename());
-//			qnaDTO.setQnaNum(qnaDTO.getQnaNum());
-//			qnaDAO.setAddFile(qnaDTO);
-		}
+
 		return result;
 	}
 	
 	@Override
-	public int setUpdate(QnaDTO qnaDTO) throws Exception {
+	public int setUpdate(QnaDTO qnaDTO, ServletContext servletContext) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaDAO.setUpdate(qnaDTO);
 	}

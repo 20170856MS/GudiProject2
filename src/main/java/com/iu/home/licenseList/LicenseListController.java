@@ -33,7 +33,7 @@ public class LicenseListController {
 		
 		licenseListDTO = licenseListService.getDetail(licenseListDTO);
 		mv.addObject("detail",licenseListDTO);
-		mv.setViewName();
+		mv.setViewName("/info/detail");
 		return mv;	
 	}
 	

@@ -2,7 +2,6 @@ package com.iu.home.licenseQna;
 
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licensemembers.LicenseMembersDTO;
 import com.iu.home.util.Pager;
 
 @Controller
@@ -21,6 +20,7 @@ public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
+	private HttpSession session;
 	
 	//글목록
 	@GetMapping("list")
@@ -44,15 +44,28 @@ public class QnaController {
 	
 	//글쓰기
 	@GetMapping("add")
-	public String setAdd()throws Exception {
-		return "qna/add";
+	public String setAdd(HttpSession session)throws Exception {
+		LicenseMembersDTO licenseMembersDTO=(LicenseMembersDTO)session.getAttribute("member");
+			return "qna/add";
 	}
-	//
+	
+	
 	@PostMapping("add")
-	public ModelAndView setAdd(QnaDTO qnaDTO,MultipartFile[]files, HttpSession session)throws Exception {
+	public ModelAndView setAdd(QnaDTO qnaDTO)throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result =qnaService.setAdd(qnaDTO,files,session.getServletContext());
-		mv.setViewName("redirect:./list");
+		System.out.println(qnaDTO.getWriter());
+		System.out.println(qnaDTO.getQnaNum());
+		int result =qnaService.setAdd(qnaDTO);
+		String message="글쓰기실패!!!";
+		
+		if(result > 0) {
+			message="글쓰기완료!!!";
+		}
+		mv.addObject("result",result);
+		mv.addObject("message",message);
+		mv.addObject("url", "list");
+		mv.setViewName("common/result");
+		
 		return mv;
 	}
 	//글수정
@@ -65,14 +78,16 @@ public class QnaController {
 	}
 	
 	@PostMapping("update")
-	public String setUpdate(QnaDTO qnaDTO)throws Exception {
-		int result = qnaService.setUpdate(qnaDTO);
-		return "redirect:./detail?num="+qnaDTO.getQnaNum();
+	public String setUpdate(QnaDTO qnaDTO, HttpSession session)throws Exception {
+		int result = qnaService.setUpdate(qnaDTO, session.getServletContext());
+		return "redirect:./detail?qnaNum="+qnaDTO.getQnaNum();
 	}
 	//글삭제
+	@GetMapping
 	public String setDelete(QnaDTO qnaDTO)throws Exception {
-		int result = qnaService.setDelete(qnaDTO);
-		return "redirect./list";
+		//int result = qnaService.setDelete(qnaDTO);
+		qnaService.setDelete(qnaDTO);
+		return "redirect:list";
 	}
 	
 	@GetMapping("reply")

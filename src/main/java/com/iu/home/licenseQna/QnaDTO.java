@@ -18,11 +18,12 @@ public class QnaDTO {
 	private Long step;
 	//답글
 	private Long depth;
-	
+	//글번호
 	private Long qnaNum;
-	
+	//자격증번호
+	private Long licenseNum;
+	//작성자
 	private String writer;
-	
 	
 	
 	public String getTitle() {
@@ -73,7 +74,12 @@ public class QnaDTO {
 	public void setQnaNum(Long qnaNum) {
 		this.qnaNum = qnaNum;
 	}
-
+	public Long getLicenseNum() {
+		return licenseNum;
+	}
+	public void setLicenseNum(Long licenseNum) {
+		this.licenseNum = licenseNum;
+	}
 	public String getWriter() {
 		return writer;
 	}

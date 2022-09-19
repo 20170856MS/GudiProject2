@@ -32,13 +32,13 @@
 	</select>
 	
 	<insert id="setAdd" parameterType="QnaDTO">
-	<selectKey keyProperty="qnaNum" order="BEFORE" resultType="Long">
-	SELECT LICENSE_SEQ.NEXTVAL FROM DUAL
-	</selectKey>
+		<selectKey keyProperty="qnaNum" order="BEFORE" resultType="Long">
+		SELECT LICENSE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 	
 	INSERT INTO LICENSEQNA
-	(QNANUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
-	VALUES(#{qnaNum},#{title},#{contents},#{writer},SYSDATE,0,#{qnaNum},0,0)
+	(QNANUM,LICENSENUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
+	VALUES(#{qnaNum},6,#{title},#{contents},#{writer},SYSDATE,0,#{qnaNum},0,0)
 	</insert>
 	
 	<insert id="setReplyAdd" parameterType="QnaDTO">
@@ -46,8 +46,8 @@
 	SELECT LICENSE_SEQ.NEXTVAL FROM DUAL
 	</selectKey>
 	 INSERT INTO LICENSEQNA
-		(QNANUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
-		VALUES(#{qnaNum},#{title},#{contents},#{writer},SYSDATE,
+		(QNANUM,LICENSENUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
+		VALUES(#{qnaNum},6,#{title},#{contents},#{writer},SYSDATE,
 		0,#{ref},#{step},#{depth})
 	</insert>
 	
