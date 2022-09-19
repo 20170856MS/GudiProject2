@@ -41,8 +41,9 @@
 			</tr>
 		</table>
 	</section>
-	<a href="update?qnaNum=${qnaDTO.qnaNum}">수정</a>
-	<a href="delete?qnaNum=${qnaDTO.qnaNum}">삭제</a>
+	<a href = "./list" class="btn btn-info">글목록 보기</a>
+	<a href="update?qnaNum=${qnaDTO.qnaNum}" class="btn btn-primary">수정</a>
+	<a href="delete?qnaNum=${qnaDTO.qnaNum}" class="btn btn-danger">삭제</a>
 
 	<c:import url="../template/footer.jsp"></c:import>
 	<script

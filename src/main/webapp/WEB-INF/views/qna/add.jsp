@@ -23,7 +23,10 @@
 			글내용 <input type="text" name="contents">
 		</div>
 
-		<button type="submit">작성완료</button>
+		<div class="mb-3">
+		<button type="submit" class="btn btn-primary">작성완료</button>
+		</div>
+		
 	</form>
 
 </body>

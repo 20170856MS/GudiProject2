@@ -83,9 +83,11 @@ public class QnaController {
 		return "redirect:./detail?qnaNum="+qnaDTO.getQnaNum();
 	}
 	//글삭제
+	@GetMapping
 	public String setDelete(QnaDTO qnaDTO)throws Exception {
-		int result = qnaService.setDelete(qnaDTO);
-		return "redirect./list";
+		//int result = qnaService.setDelete(qnaDTO);
+		qnaService.setDelete(qnaDTO);
+		return "redirect:list";
 	}
 	
 	@GetMapping("reply")
