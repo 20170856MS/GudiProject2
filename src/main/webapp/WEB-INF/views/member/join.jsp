@@ -9,10 +9,10 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/font.css" rel="stylesheet" type="text/css">
     <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/sub.css" >
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link href="/resources/css/login.css" rel="stylesheet">
 </head>
 <style>
     
@@ -52,67 +52,67 @@
 		<c:import url="../template/header.jsp"></c:import>
 
 		<section class="container-fluid col-lg-4 mt-5">
-				<div class="row"> 
-				<div><h1>회원가입</h1></div>
+			<div class="row">
+			<div class="login_box">
 				
-		<div class="row align-items-center justify-content-between">
+				<div><h4>야나두 자격증 사이트에 오신것을 환영합니다.</h4></div>
+				<main>
+				<form class="align-center" action="join" method="post" id="frm3">
+					<div class="input_aera">
+			                <select class="form-select" name="areaName" id="areaName">
+						        <option>지역선택</option>
+								<option>금천구</option>
+						        <option>서울시 강남구</option>
+						        <option>서울시 강동구</option>
+						        <option>서울시 강북구</option>
+						        <option>서울시 강서구</option>
+						        <option>서울시 관악구</option>
+						        <option>서울시 광진구</option>
+						        <option>서울시 금천구</option>
+						     </select>
+         
+					</div>  
 				
+					<div class="input_aera">
+		            	<input type="text" name="userName" id="userName" maxlength="20"  placeholder="아이디를 입력해 주세요" >
+						
+	            	</div>          
+		               
+					<div class="input_aera">
+						<input type="password" id="password" name="password" maxlength="20"  placeholder="비밀번호를 입력해 주세요">
+						<div id ="password_check1"></div>
 					</div>
-					<form class="align-center" action="join" method="post" id="frm3">
-						<div class="form-group">
-							<label for="area" class="form-label mt-4">지역</label>
-							<input type="text" name="areaName" class="form-control" id="area" >
-							
-						</div>
+	               
+					<div class="input_aera">
+						<input type="password" id="password_check" maxlength="20"  placeholder="비밀번호를 한번더 입력해 주세요">
+						<div id="password_check2"></div>
 						
-						<div class="form-group">
-							<label for="id" class="form-label mt-4">아이디</label>
-							<input type="text" name="userName" class="form-control" id="id" >
-							<div></div>
-						</div>
-						<div class="form-group">
-							<label class="form-label mt-4" for="password">비밀번호</label>
-							<input type="password" name="password" class="form-control" id="password">
-							<div id ="check0"></div>
-						</div>
-						<div class="form-group">
-							<label class="form-label mt-4" for="password_check">비밀번호 확인 </label>
-							<input type="password" name="password_check" class="form-control is-invalid" id="password_check">
-							<div class="valid-feedback"></div>
-							<div id="chheck"></div>
-						</div>
+	               	</div>
+					   
+					 <div class="input_aera">
+						<input type="text" id="name1" name="name" maxlength="20"  placeholder="사용하실 닉네임을 입력해 주세요">
 						
-
-						<!-- <div class="form-group has-danger">
-							<label class="form-label mt-4" for="inputInvalid">비밀번호 재확인</label> 
-							<input type="password" class="form-control is-invalid" id="inputInvalid">
-							<div class="invalid-feedback">비밀번호가 일치하지 않습니다</div>
-						</div> -->
-						<div class="form-group">
-							<label for="name1" class="form-label mt-4">이름</label>
-							<input type="text" name="name" class="form-control" id="name1" >
-							<div></div>
-						</div>
-						
-									
-						<div class="form-group">
-							<label for="email" class="form-label mt-4">본인 확인 이메일</label>
-							<input type="text" name ="email"class="form-control" id="email" aria-describedby="emailHelp" placeholder="선택입력">
-							<div></div>
-						</div>
-						
-						<div class="form-group ">
-							<label class="form-label mt-4" for="phone">폰 번호</label>
-							<input type="text" name="phone" class="form-control" id="phone">
-							<div></div>
-						</div>
-						
-						
-						<div class="d-grid gap-2 mt-4">
-							<button class="btn btn-primary btn-lg" type="button" id="join1" name="join">가입하기</button>
-						</div>
-
-					</form>
+					 </div>
+		               
+	               	<div class="input_aera">
+	               		<input type="text" name="email" id="email"  placeholder="이메일을 입력해 주세요" >
+		                
+               		</div>
+		               
+		               
+					<div class="input_aera">
+						<input type="text" name="phone" id="phone" placeholder="'-' 까지 입력해 주세요" maxlength="11" >
+	                    
+	                </div>
+	                
+	               <input type="button" value="회원가입" id="join1" class="login_btn" >
+			</form>
+			  </main>	
+        </div>
+ 
+  	
+		
+					
 
 		</div>
 			</section>
@@ -123,8 +123,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="/resources/js/join.js">
-
 </script> 
+<script src="/resources/js/util.js"></script>
 <script src="/resources/js/common.js">
 
 </script> 

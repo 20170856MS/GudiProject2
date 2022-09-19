@@ -65,7 +65,7 @@ caption {visibility:hidden; font-size:0; width:0; height:0; overflow:hidden; lin
 #header .top {
     width: 100%;
     height: 30px;
-    background-color: #4e73df;
+    background-color: #00388c;
 }
 #header .top_logo {width:100%; background:#fff; border-bottom:1px solid #ddd; height:160px;}
 #header .top_logo .container {position:relative;}
@@ -92,16 +92,16 @@ caption {visibility:hidden; font-size:0; width:0; height:0; overflow:hidden; lin
 #header .top_logo ul > li.menu_right .btn_wrap {position:absolute; top:0; right:0; transform:translateY(35px);}
 #header .top_logo ul > li.menu_right .btn_wrap a {position:relative; display:inline-block; vertical-align:middle;}
 
+#header .top_logo ul > li.menu_right .btn_wrap .btn_memb:before {display:block; position:absolute; left:0; top:1px; width:17px; height:17px;}
+#header .top_logo ul > li.menu_right .btn_wrap .btn_memb.join:before {content:""; background:url(/resources/img/nav3_3.png) no-repeat left top;}
+#header .top_logo ul > li.menu_right .btn_wrap .btn_memb.login:before {content:""; background:url(/resources/img/team_login.png) no-repeat left top;}
+#header .top_logo ul > li.menu_right .btn_wrap .btn_memb.logout:before {content:""; background:url(/resources/img/team_login.png) no-repeat left top;}
+
 #header .top_logo ul > li.menu_right .btn_wrap .btn_memb {color:#555; margin-left:13px; padding:0 0 0 24px;}
 #header .top_logo ul > li.menu_right .btn_wrap .btn_memb:hover {text-decoration:underline;}
 #header .top_logo ul > li.menu_right .btn_wrap .btn_memb.btn_text {padding:0 0 0 5px;}
 
 #header .top_logo ul > li.menu_right .btn_wrap .btn_memb:before {display:block; position:absolute; left:0; top:1px; width:17px; height:17px;}
-
-#header .top_logo ul > li.menu_right .btn_wrap .btn_search {margin-left:16px; width:29px; height:29px; border-radius:4px; background:#00388c url(/images/inc/top_search_iCon01.png) no-repeat center top; transition:all 0.3s ease-in-out; -webkit-transition:all 0.3s ease-in-out; transform:translateY(1px);}
-#header .top_logo ul > li.menu_right .btn_wrap .btn_search:hover {background:#00225e url(/images/inc/top_search_iCon01.png) no-repeat center top;}
-#header .top_logo ul > li.menu_right .btn_wrap .btn_search span {position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0, 0, 0, 0); border:0;}
-
 /* gnb */
 
 .gnb_wrap {position:relative;  width:100%; height:55px;}
@@ -158,3 +158,9 @@ caption {visibility:hidden; font-size:0; width:0; height:0; overflow:hidden; lin
 
 .gnb_inner.mainMenuOpen .gnb > li:first-child .dep2 a:before {left:1px;}
 .gnb_inner.mainMenuOpen .gnb > li:first-child .dep2 a:hover:before {width:calc(100% - 2px);}
+
+.footer{
+    width: 100%;
+    height: 100%;
+    background-color: #444;
+}

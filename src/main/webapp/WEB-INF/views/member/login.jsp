@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/font.css" rel="stylesheet" type="text/css">
     <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<link rel="stylesheet" href="/resources/css/login.css" type="text/css">
 </head>
 <style>
     .align-center {text-align: center;}
@@ -22,38 +22,39 @@
 	
 	<section class="container-fluid col-lg-4 mt-5">
 		<div class="row">
-		 <div class="box_inner">
-			<main class="form-signin w-100 m-auto">
-			<form action="./login" method="post" id ="frm">
-			<img class="mb-4" src="../../../resources/img/GOOD.png" alt="" width="100" height="100">
-			<h1 class="h3 mb-3 fw-normal">아이디를 입력하세요</h1>
-
-				<div class="form-floating">
+		 		<main>
+        <div class="login_box">
+			<a href="/"><img src="/resources/img/team_login.png" width="30px"  alt="이미지" class="bm_img"></a>    
+            <div><h4>야너두 센터에 오신 것을 환영합니다.</h4></div>
+            <form action="login" method="post" id="frm">
+ 
+	            <div class="input_aera"><input type="text" id= "userName" name="userName"  value="" required placeholder="아이디를 입력해 주세요" maxlength="30" ></div>
+	            <div class="input_aera"><input type="password" id="password" name="password" value="" required placeholder="비밀번호를 입력해 주세요" maxlength="30"></div>
+ 
+				<input type="button" value="로그인" id="btn" >
+            
+				<div class="box">	
+		            <div>
+		            	<span class="id_search"><a href="/find/id">아이디</a></span>
+			            <span> ㅣ </span>
+			            <span><a href="/find/password">비밀번호 찾기</a></span>
+		            </div>
+	            </div>
+            </form>
+            
+			<div id="oauth_login">
+				<div>
+					<a href="/oauth2/authorization/kakao"></a>
+				</div>
+			</div>
 			
-			
-				<input type="text" name="userName" id = "userName" class="form-control" placeholder="name@example.com">
-				
-			</div>
-				<div class="form-floating">
-				<h1 class="h3 mb-3 fw-normal">비밀번호를 입력하세요</h1>
-				<input type="password" name="password" id = "password" class="form-control" placeholder="Password">
-			</div>
-
-				<div class="checkbox mb-3">
-					<label>
-				<input type="checkbox" value="remember-me"> Remember me
-				</label>
-			</div>
-			<button class="w-100 btn btn-lg btn-primary" id="btn" type="button" name="login">Sign in</button>
-			<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
-
-			</form>
-			</main>
+			<div class="join"><a href="join0" >회원 가입하러 가기</a></div>
+        </div>
+    </main>
 	
 
 		
-					
-		 </div>
+				
 		</div>
 	
 	</section>

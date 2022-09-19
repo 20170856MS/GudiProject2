@@ -27,7 +27,7 @@
             <div> 
                 <h2>IAMPORT 결제 데모</h2> 
                 <li> 
-                    <button id="iamportPayment" type="button">결제테스트</button> 
+                    <button id="iamportPayment" type="button">결제하기</button> 
                 </li> 
             </div> 
 
