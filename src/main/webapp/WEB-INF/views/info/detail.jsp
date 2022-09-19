@@ -17,14 +17,46 @@
 <!-- header.jsp -->
 <c:import url="../template/header.jsp"></c:import>
 		  
-		  
-<c:forEach items="${requestScope.list}" var="dto">
-	<h3>
-		<a href="./detail?num=${dto.num}">${dto.licenseName}</a>
-	</h3>
-	
-</c:forEach>
+	<c:forEach items="${requestScope.detailBook}" var="detailBook">
+		<h5>
+			자격증 번호 : 	${detailBook.licenseNum} <br>
+			자격증 이름 : 	${detailBook.licenseName} <br>
+			교재 번호 :  	${detailBook.bookDTO.bookNum} <br>
+			교재 제목 :  	${detailBook.bookDTO.bookName} <br>
+			교재 이미지 : 	${detailBook.bookDTO.bookImage} <br>
+			교재 가격 :   	${detailBook.bookDTO.bookPrice} <br>	
+		</h5>
+	</c:forEach>
 		
+	<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
+		<h5>
+			자격증 번호 : ${detailVideo.licenseNum} <br>
+			자격증 이름 : ${detailVideo.licenseName} <br>
+			동영상 번호 : ${detailVideo.videoDTO.videoNum} <br>
+			동영상 제목 : ${detailVideo.videoDTO.videoTitle} <br>
+			동영상 링크 : ${detailVideo.videoDTO.videoLink} <br>
+		</h5>
+	</c:forEach>
+	
+	<c:forEach items="${requestScope.detailJob}" var="detailJob">
+		<h5>
+			자격증 번호 :	${detailJob.licenseNum} <br>
+			자격증 이름 :	${detailJob.licenseName} <br>
+			직업 번호 :	${detailJob.jobDTO.jobNum} <br>
+			직업 이름 :	${detailJob.jobDTO.jobName} <br>
+			직업 소개글 :	${detailJob.jobDTO.jobIntro} <br>
+		</h5>
+	</c:forEach>
+	
+	<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+		<h5>
+			자격증 번호 :	${detailSchedule.licenseNum} <br>
+			자격증 이름 :	${detailSchedule.licenseName} <br>
+			일정 번호 :	${detailSchedule.scheduleDTO.scheduleNum} <br>
+			일정 이름 :	${detailSchedule.scheduleDTO.scheduleName}  <br>
+			일정 날짜 :	${detailSchedule.scheduleDTO.scheduleDate}  <br>
+		</h5>
+	</c:forEach>	
 
 <!-- footer.jsp -->
 <c:import url="../template/footer.jsp"></c:import>

@@ -17,14 +17,12 @@
 <!-- header.jsp -->
 <c:import url="../template/header.jsp"></c:import>
 		  
-		  
 <c:forEach items="${requestScope.list}" var="dto">
 	<h3>
-		<a href="./detail?num=${dto.num}">${dto.licenseName}</a>
+		<a href="./detail?licenseNum=${dto.licenseNum}">${dto.licenseName}</a>
 	</h3>
 	
-</c:forEach>
-		
+</c:forEach> 
 
 <!-- footer.jsp -->
 <c:import url="../template/footer.jsp"></c:import>
