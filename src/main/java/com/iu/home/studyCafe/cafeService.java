@@ -18,4 +18,6 @@ public class cafeService {
 	public cafeDetailDTO getDetail(cafeDTO cafeDTO) throws Exception{
 		return cafeDAO.getDetail(cafeDTO);
 	}
+	
+	
 }

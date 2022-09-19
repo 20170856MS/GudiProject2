@@ -40,6 +40,10 @@
 			    </tr>
 		        
 		    </table>
+		    
+		    <<a href="./reservation">예약하기</a>
+		    <button></button>
+		    
 		</div>
 	</section>
 	
