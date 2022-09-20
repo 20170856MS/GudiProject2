@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -84,7 +85,6 @@ public class OrderController {
 //		System.out.println(client.getAuth());
 		int res = orderService.insert_pay(pvo);
 		if(res == 1) {
-			if(res == 1)
 				System.out.println("biz_member pay coupon insert complete");
 		}
 		return res;
@@ -95,6 +95,18 @@ public class OrderController {
 	public ResponseEntity<Integer> payInfoPOST(Model model,
 	        HttpServletRequest request, HttpServletResponse response,
 	        @RequestParam String imp_uid) throws Exception {
+		System.out.println("");
+		IamportResponse<Payment> result = client.paymentByImpUid(imp_uid);
+		System.out.println(result);
+		System.out.println(Integer.parseInt(result.getResponse().getMerchantUid()));
+		System.out.println(result.getResponse().getCardName());
+		System.out.println(result.getResponse().getCardNumber());
+		System.out.println(result.getResponse().getCardQuota());
+		System.out.println(result.getResponse().getPayMethod());
+		System.out.println(Integer.parseInt(result.getResponse().getMerchantUid()));
+		
+		System.out.println(result.getResponse().getAmount().intValue());
+		
 
 	    
 	    return new ResponseEntity<Integer>(1, HttpStatus.OK);

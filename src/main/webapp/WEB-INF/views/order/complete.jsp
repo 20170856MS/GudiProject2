@@ -27,12 +27,20 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h4>${check.userName}님의 결제가 완료되었습니다!</h4>
-						<div class="row pl-3">
+                        <h3>${payVO.orderNum}</h3>
+                        <h3>${payVO.scNum}</h3>
+                        <h3>${payVO.num}</h3>
+                        <h3>${payVO.orderDate}</h3>
+                        <h3>${payVO.totalPrice}</h3>
+                        
+                        
+                        
+                            <div class="row pl-3">
 							<div class="col-lg-1">
 								<label for="fir">주문일자</label>
 							</div>
 							<div class="col-lg-11 text-left">
-								<label><strong><fmt:formatDate value="${orderList[0].order_date }" type="date"/></strong></label>
+								<label><strong><fmt:formatDate value="${payVO.orderDate}" type="date"/></strong></label>
 							</div>
 						</div>
 						<div class="row pl-3">
@@ -40,7 +48,7 @@
 								<label for="cun-name">주문번호</label>
 							</div>
 							<div class="col-lg-11 text-left">
-								<label><strong>${payVO.pay_num }</strong></label>
+								<label><strong>${payVO.scNum }</strong></label>
 							</div>
 						</div>
 						<br><hr><br>
@@ -66,13 +74,13 @@
 														<div class="col-lg-2 text-center">
 															<div class="img_center">
 															    <a href="/UnoMas/product/product_detail?prod_num=${order.prod_num }" target="_blank">
-															    <img src="<spring:url value="/resources/upload/images/products/thumbnail/${prodThumbList[i.index] }"></spring:url>" width="80" height="80"></a>
+															    <img src="/resources/img/nav4_1.png" width="80" height="80"></a>
 																<!--N=a:odd.product-->
 															</div>
 														</div>
 														<div class="col-lg-10 align-self-center">
 															<a href="/UnoMas/product/product_detail?prod_num=${order.prod_num }"
-																target="_blank">${order.prod_name }</a>
+																target="_blank">${session.userName }</a>
 															<!--N=a:odd.product-->
 														</div>
 													</div>
@@ -153,8 +161,8 @@
 				<br>
 				<div class="row text-center">
 					<div class="col-lg-12 mt-5">
-					    <button type="button" class="site-btn" onclick="location.href='/UnoMas';">홈</button>
-						<button type="button" class="site-btn" onclick="location.href='/UnoMas/user/mypage';">마이페이지</button>
+					    <button type="button" class="site-btn" onclick="location.href='/';">홈</button>
+						<button type="button" class="site-btn" onclick="location.href='/member/myPage';">마이페이지</button>
 					</div>
 				</div>
 			</form>

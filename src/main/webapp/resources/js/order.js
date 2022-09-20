@@ -38,12 +38,11 @@ function requestPay() {
                     // @@ 주문정보는 상품 개수만큼 생성되어야 해서 상품 개수만큼 반복문을 돌린다
                     // 이때 order code는 모두 같아야 한다.
                     console.log("지금 1")
-                    var recipient = '';
+                    
                     
 		        	
-                    for (var i = 0; i < $('#prodCnt').val(); i++) {
                         // 데이터를 json으로 보내기 위해 바꿔준다.
-                        var orderVO = JSON.stringify({
+                        data = JSON.stringify({
                             "orderNum" : rsp.imp_uid,
                             "scNum" : rsp.merchant_uid,
                             "num" : 'testiamport5@naver.com',
@@ -58,18 +57,18 @@ function requestPay() {
                             type: "POST",
                             dataType: 'json',
                             contentType: 'application/json',
-                            data: orderVO
-                        }).done(function(data) {
-                            if (data == 1) {
-                                console.log(data);
+                            data
+                        ,success: function(res) {
+                            if (res > 0) {
+                                console.log(res);
                                 alert('주문정보 저장 성공');
                             }
                             else {
                                 console.log(data);
                                 alert('주문정보 저장 실패');
                             }
-                        })
-                    }
+                        }
+                    })
                     createPayInfo(uid);
                 }
                 else {
