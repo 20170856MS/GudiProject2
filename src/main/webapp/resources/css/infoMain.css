@@ -1,0 +1,39 @@
+/*
+    * : 전체
+    이름 : 태그명
+    #이름 : 아이디명
+    .이름 : 클래스명
+*/
+
+.cards{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width:300px;
+    height:260px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:20px;
+}
+
+.btn-primary{
+    background-color: black;
+}
+
+.card-title{
+    text-align:center;
+}
+.detail{
+    text-align:center;
+}
+.paging{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    
+}

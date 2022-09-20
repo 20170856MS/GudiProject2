@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.home.util.Pager;
+
 @Repository
 public class LicenseDAO {
 	
@@ -13,8 +15,11 @@ public class LicenseDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.home.licenseList.LicenseDAO.";
 	
-	public List<LicenseDTO> getList() throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public List<LicenseDTO> getList(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList",pager);
+	}
+	public Long getCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCount",pager);
 	}
 	
 	public List<LicenseDTO> getDetailBook(LicenseDTO licenseDTO) throws Exception{

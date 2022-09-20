@@ -11,58 +11,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>License</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    
+    <!-- <link href="/resources/css/reset.css" rel="stylesheet" type="text/css"> 글자크기 달라져서 reset 대신 resetInfo 참조함--> 
+    <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    
+    <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
+    
 </head>
 <body>
 
 <!-- header.jsp -->
 <c:import url="../template/header.jsp"></c:import>
-		  
-	<c:forEach items="${requestScope.detailBook}" var="detailBook">
-		<h5>
-			자격증 번호 : 	${detailBook.licenseNum} <br>
-			자격증 이름 : 	${detailBook.licenseName} <br>
-			교재 번호 :  	${detailBook.bookDTO.bookNum} <br>
-			교재 제목 :  	${detailBook.bookDTO.bookName} <br>
-			교재 이미지 : 	${detailBook.bookDTO.bookImage} <br>
-			교재 가격 :   	${detailBook.bookDTO.bookPrice} <br>	
-		</h5>
-	</c:forEach>
-		
-	<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
-		<h5>
-			자격증 번호 : ${detailVideo.licenseNum} <br>
-			자격증 이름 : ${detailVideo.licenseName} <br>
-			동영상 번호 : ${detailVideo.videoDTO.videoNum} <br>
-			동영상 제목 : ${detailVideo.videoDTO.videoTitle} <br>
-			동영상 링크 : ${detailVideo.videoDTO.videoLink} <br>
-		</h5>
-	</c:forEach>
-	
-	<c:forEach items="${requestScope.detailJob}" var="detailJob">
-		<h5>
-			자격증 번호 :	${detailJob.licenseNum} <br>
-			자격증 이름 :	${detailJob.licenseName} <br>
-			직업 번호 :	${detailJob.jobDTO.jobNum} <br>
-			직업 이름 :	${detailJob.jobDTO.jobName} <br>
-			직업 소개글 :	${detailJob.jobDTO.jobIntro} <br>
-		</h5>
-	</c:forEach>
-	
-	<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-		<h5>
-			자격증 번호 :	${detailSchedule.licenseNum} <br>
-			자격증 이름 :	${detailSchedule.licenseName} <br>
-			일정 번호 :	${detailSchedule.scheduleDTO.scheduleNum} <br>
-			일정 이름 :	${detailSchedule.scheduleDTO.scheduleName}  <br>
-			일정 날짜 :	${detailSchedule.scheduleDTO.scheduleDate}  <br>
-		</h5>
-	</c:forEach>	
+	<div class="top">
+		<div class="card bg-dark text-white detailName">
+			<img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img" alt="...">
+			<div class="card-img-overlay">
+				<h1 class="card-title">
+					정보처리기사	
+				</h1>
+			</div>
+		</div>
+	</div>
+
+
+	<!-------------------------test------------------------->
+	<div>
+		<c:forEach items="${requestScope.detailBook}" var="detailBook">
+			${detailBook.licenseName}
+		</c:forEach>
+	</div>
+	<!-------------------------test------------------------->
 
 <!-- footer.jsp -->
 <c:import url="../template/footer.jsp"></c:import>
-   
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-</body>
+<script src="/src/main/webapp/resources/js/infoDetail.js"></script>
+<script src="/resources/js/common.js"></script>
 </body>
 </html>
