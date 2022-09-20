@@ -1,12 +1,156 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button{margin:0;padding:0}
 
-h4 {
-    background-image: "";
-    font-size: 2rem;
-    color:#00388c
+/* timer */
+.timer_wrap{background:#0842be;}
+.timer_wrap .bx_timer{position:absolute;top:0;left:0}
+.timer_wrap .bx_timer > span{position:absolute;top:30px;left:0;font-size:60px;font-weight:600;color:#282828}
+.timer_wrap .bx_timer > span.t_day{left:284px}
+.timer_wrap .bx_timer > span.t_hour{left:403px}
+.timer_wrap .bx_timer > span.t_minute{left:524px}
+.timer_wrap .bx_timer > span.t_sec{left:644px}
+.timer_wrap .tx_number{position:absolute;top:18px;left:136px;display:block;width:130px;font-size:22px;font-weight:600;letter-spacing:-1px;color:#fff;text-align:center;}
+.timer_wrap .tx_number .txt{display:inline-block;margin-bottom:5px;font-size:16px;font-weight:100;color:#78cde9;}
+.timer_wrap .tx_number strong{display:block;line-height:1.3;font-size:20px;}
+.tx_info{position:absolute;bottom:10px;left:268px;color:#fff;font-size:11px}
+.w_finish_mark{position:absolute;top:50%;left:20px;margin-top:-59px}
+.cont10 .js-tab-type1 li{float:left;width:500px;height:60px}
+.cont10 .js-tab-type1 li a{display:block;height:60px;background-image:url('//gscdn.hackers.co.kr/champ/img/event/2017/06/1900/tab_menu.png')}
+.cont10 .js-tab-type1 li.m2 a{background-position-x:-500px}
+.cont10 .js-tab-type1 li.on a, .cont10 .js-tab-type1 li a:hover{background-position-y:-62px}
+.cont10 .js-tab-type1-con{overflow:hidden;height:475px}
+.end_date{display:inline-block;height:48px;margin-top:53px;line-height:48px;padding:0 100px;border:1px solid #fff;font-size:20px;color:#fff}
+
+/*type2,type3 리뉴얼 asd*/
+.evt_wrap.type2 .timer_wrap{background:#0f151d;}
+.evt_wrap.type2 .timer_wrap .tx_number .txt{color:#fff;}
+
+/* hacac & type4 */
+.hacac .timer_wrap{background:#000 !important;}
+.hacac .timer_wrap * {font-family:'noto' !important;}
+.hacac .timer_wrap .inner{width:1000px;}
+.hacac .timer_wrap .bx_timer > span{position:absolute;top:-1px;left:0;color:#fff;font-size:52px;letter-spacing:20px;}
+.hacac .timer_wrap .bx_timer > span.t_day{left:327px;}
+.hacac .timer_wrap .bx_timer > span.t_hour{left:483px;}
+.hacac .timer_wrap .bx_timer > span.t_minute{left:603px;}
+.hacac .timer_wrap .bx_timer > span.t_sec{left:722px;}
+.hacac .timer_wrap .icon_banner{width:120px;height:35px;float:left;position:absolute;left:5px;top:22px;z-index:10;text-align:center;border:2px dashed #00ffa8;color:#00ffa8;font-size:20px;font-weight:600;}
+.hacac .timer_wrap .btn_txt{position:absolute;top:11px;right:7px;color:#000;font-size:18px;font-weight:600;width:160px;height:58px;padding:10px 0;text-align:center;border-radius:10px;box-sizing:border-box;background:#00ffa8;line-height:19px;text-decoration:none;}
+.hacac .timer_wrap .tx_number{position:absolute;top:16px;left:130px;display:block;width:180px;font-size:16px;letter-spacing:-1px;color:#00ffa8;text-align:center;font-weight:600;}
+.hacac .timer_wrap .tx_info{position:absolute;top:10px;left:inherit;right:-133px;font-size:11px;color:#fff;text-align:left;opacity:0.6;}
+
+
+/*scroll_fixed*/
+.timer_wrap.scroll_fixed{position:sticky;top:38px;z-index:1;}
+
+/* 이벤트내 재설정 */
+input {
+    padding: 0
 }
 
-.count {
-    margin: auto;
-    color:#00388c
- }
+/* position */
+.p_r {
+    position: relative
+}
 
+.p_a {
+    position: absolute
+}
+
+.o_h {
+    overflow: hidden
+}
+
+.c_both {
+    clear: both
+}
+
+.e_inner_box {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center
+}
+
+.evt_wrap .inner {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.evt_wrap .inner * {
+    font-family: 'Nanum Gothic';
+}
+
+.after {
+    *zoom:1}
+
+.after:after {
+    display: block;
+    clear: both;
+    content: ''
+}
+
+/* color */
+.red_color {
+    color: #d9322e
+}
+
+/* font */
+.f_nanum * {
+    font-family: 'Nanum Gothic'
+}
+
+.tx_blind {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0
+}
+
+/* timer */
+.timer .inner {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    text-align: left
+}
+
+.timer .inner .timer_area {
+    font-family: 'Nanum Gothic'
+}
+
+.timer .inner .class_time {
+    display: block;
+    position: absolute;
+    font-family: 'Nanum Gothic'
+}
+
+/* end */
+.timer_wrap span[data-format="ss"], .timer_area span[data-format="ss"] {
+    animation-name: opacity_key;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+.timer_wrap.scroll_fixed {}
+fieldset, img{border:0 none;vertical-align:top}
+dl, ul, ol, menu, li{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after, q:before, q:after{content:'';content:none}
+input, select, textarea, button{vertical-align:top}
+button{border:0 none;background-color:transparent;cursor:pointer}
+body{height:100%;background:#fff}
+body, th, td, input, select, textarea, button{font-size:12px;font-family:'돋움', dotum, sans-serif;color:#000}
+table{border-collapse:collapse;border-spacing:0}
+table td{word-break:break-all;line-height:1.2}
+img{margin-bottom:0;vertical-align:top}
+a{color:#000;text-decoration:none}
+a:active, a:hover{text-decoration:none}
+address, caption, cite, code, dfn, em, var{font-style:normal;font-weight:normal}
+.sr{width:0;height:0;line-height:0;visibility:hidden;overflow:hidden;white-space:nowrap}
