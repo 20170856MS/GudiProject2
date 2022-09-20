@@ -59,10 +59,12 @@ public class cafeController {
 	
 	@RequestMapping(value="cafeList", method=RequestMethod.POST)
 	public ModelAndView completeR(reservationDTO reservationDTO) throws Exception{
+		System.out.println("post문 실행");
 		ModelAndView mv = new ModelAndView();
 		int result = cafeService.completeR(reservationDTO);
 		mv.addObject("result", result);
-		mv.addObject("url", "cafeList");
+		mv.setViewName("studyCafe/cafeList");
+		
 		return mv;
 	}
 	
