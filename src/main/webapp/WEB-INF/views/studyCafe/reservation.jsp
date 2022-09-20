@@ -42,22 +42,19 @@
 	         	<h1>방 선택</h1>
 	         	<table>
 	         		<tr>
-	         			<td>번호</td>
-	         			<td>방개수</td>
 	         			<td>방이름</td>
-	         			<td>카페번호</td>
+	         			<td>방개수</td>
+
 	         		</tr>
-		         	<c:forEach items="${rlist}" var="rdto">
+		         	
+		         	<c:forEach items="${roomList}" var="rdto">
 		         		<tr>
-							<td>${rdto.roomNum}</td>
-							<td>${rdto.roomCount}</td>
-							<td>${rdto.roomName}</td>
-							<td>${rdto.detailNum}</td>
+		         			<td>${rdto.roomName}</td>
+		         			<td>${rdto.roomCount}</td>
 		         		</tr>
 		         	</c:forEach>
 	         	
 	         	</table>
-	         	
 	         	
 	         	
 				<h1>일자 예약</h1>

@@ -36,18 +36,18 @@ public class cafeController {
 		
 		mv.setViewName("studyCafe/cafeDetail");
 		mv.addObject("dto", cafeDetailDTO);
-		
 		return mv;
 	}
 	
 	@RequestMapping(value = "reservation", method = RequestMethod.GET)
-	public String cafeRoomList(cafeDetailDTO cafeDetailDTO, Model model) throws Exception{
-		System.out.println("reservation s");
+	public String cafeRoomList(cafeDetailDTO cafeDetailDTO, Model model, cafeDTO cafeDTO) throws Exception{
 		
+		cafeDetailDTO.getDetailNum();
+		System.out.println(cafeDetailDTO.getDetailNum());
 		List<cafeRoomDTO> ar = cafeService.getRoomList(cafeDetailDTO);
 		
-		model.addAttribute("rlist", ar);
-		System.out.println("reservation e");
+		model.addAttribute("roomList", ar);
+		System.out.println(ar);
 		return "studyCafe/reservation";
 	}
 	

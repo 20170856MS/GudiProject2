@@ -22,7 +22,7 @@ public class cafeDAO {
 	}
 	
 	public List<cafeRoomDTO> getRoomList(cafeDetailDTO cafeDetailDTO) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList", cafeDetailDTO);
+		return sqlSession.selectList(NAMESPACE+"getRoomList", cafeDetailDTO);
 	}
 	
 }
