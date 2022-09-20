@@ -10,11 +10,12 @@ body {
     margin: 0;
     background: #fff;
     font-size: 1em;
+    background-image: url("/resources/img/bg.jpg");
 }
 
 .bodycolor {
     margin: 0;
-    background: #00388c;
+    /* background: #00388c; */
     font-size: 1em;
 }
 
@@ -29,6 +30,7 @@ body {
     max-width: 475px;
     margin: 0 auto;
     overflow: auto;
+    margin-left: 60%;
 }
 
 .button-container-calendasr button {
