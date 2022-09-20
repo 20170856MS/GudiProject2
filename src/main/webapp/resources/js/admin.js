@@ -27,7 +27,7 @@ function payment() {
 					"num" : 'testiamport5@naver.com',
 					"orderDate" : new Date().getTime(),
 					"payMethod" : rsp.paid_amount,
-					"totalPrice" : rsp.apply_num,
+					"totalPrice" : '100원',
 					"imp_uid" : 'payed'
 					}
 					console.log("결제성공 " + msg);
@@ -63,7 +63,6 @@ function payment() {
 					var msg = '결제에 실패했습니다';
 					msg += '에러 : ' + rsp.error_msg
 				}
-				console.log(msg);
 			});//pay
 		}
 
