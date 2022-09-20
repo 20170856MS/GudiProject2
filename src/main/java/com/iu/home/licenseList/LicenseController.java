@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.util.Pager;
+
 @Controller
 @RequestMapping(value="/info/*")
 public class LicenseController {
@@ -17,12 +19,13 @@ public class LicenseController {
 	private LicenseService licenseListService;
 	
 	@GetMapping("main")
-	public ModelAndView getInfo() throws Exception{
+	public ModelAndView getInfo(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<LicenseDTO> ar = licenseListService.getList();
+		List<LicenseDTO> ar = licenseListService.getList(pager);
 
 		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
 		mv.setViewName("/info/main");
 		return mv;
 	}

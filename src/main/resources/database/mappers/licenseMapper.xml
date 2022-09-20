@@ -6,7 +6,16 @@
 <mapper namespace="com.iu.home.licenseList.LicenseDAO">
 
 	<select id="getList" resultType="LicenseDTO">
-		SELECT LICENSENUM,LICENSENAME FROM LICENSE ORDER BY LICENSENUM ASC
+		SELECT * FROM
+			(SELECT ROWNUM R,L.* FROM
+				(SELECT *
+				FROM LICENSE ORDER BY LICENSENUM ASC) L
+			)
+			WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<select id="getCount" resultType="Long" parameterType="Pager">
+		SELECT COUNT(LICENSENUM) FROM LICENSE
 	</select>
 	
 							<!--  BOOK  -->
@@ -111,6 +120,8 @@
 			<result column ="SCHEDULEDATE" property="scheduleDate"/>
 		</association>
 	</resultMap>
+	
+	
 	
 
 </mapper>

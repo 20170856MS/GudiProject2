@@ -42,7 +42,27 @@
         </c:forEach> 
     </div>
 
-    
+    <nav aria-label="Page navigation example">
+		<ul class="pagination">
+			<c:if test="${pager.pre}">
+				<li class="page-item">
+					<a class="page-link" href="./main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+		    		</li>
+    		</c:if>
+    		
+		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+		    	<li class="page-item"><a class="page-link" href="./main?page=${i}">${i}</a></li>
+		    </c:forEach>
+
+			<li class="page-item ${pager.next?'':'disabled'}">
+				<a class="page-link" href="./main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
 
 <!-- footer.jsp -->
 <c:import url="../template/footer.jsp"></c:import>

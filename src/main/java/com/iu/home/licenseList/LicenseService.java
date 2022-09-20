@@ -5,35 +5,43 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.home.util.Pager;
+
 @Service
 public class LicenseService {
 	
 	@Autowired
-	private LicenseDAO licenseListDAO;
+	private LicenseDAO licenseDAO;
 	
-	public List<LicenseDTO> getList() throws Exception{
+	public List<LicenseDTO> getList(Pager pager) throws Exception{
+		Long totalCount = licenseDAO.getCount(pager);
+		pager.getNum(totalCount);
+		pager.getRowNum();
 		
-		return licenseListDAO.getList();
+		return licenseDAO.getList(pager);
+	}
+	public Long getCount(Pager pager) throws Exception{
+		return licenseDAO.getCount(pager);
 	}
 	
 	public List<LicenseDTO> getDetailBook(LicenseDTO licenseDTO) throws Exception{
 		
-		return licenseListDAO.getDetailBook(licenseDTO);
+		return licenseDAO.getDetailBook(licenseDTO);
 	}
 	
 	public List<LicenseDTO> getDetailVideo(LicenseDTO licenseDTO) throws Exception{
 		
-		return licenseListDAO.getDetailVideo(licenseDTO);
+		return licenseDAO.getDetailVideo(licenseDTO);
 	}
 	
 	public List<LicenseDTO> getDetailJob(LicenseDTO licenseDTO) throws Exception{
 		
-		return licenseListDAO.getDetailJob(licenseDTO);
+		return licenseDAO.getDetailJob(licenseDTO);
 	}
 	
 	public List<LicenseDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
 		
-		return licenseListDAO.getDetailSchedule(licenseDTO);
+		return licenseDAO.getDetailSchedule(licenseDTO);
 	}
 	
 	
