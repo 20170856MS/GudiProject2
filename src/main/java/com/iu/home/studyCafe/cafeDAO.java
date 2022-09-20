@@ -20,4 +20,6 @@ public class cafeDAO {
 	public cafeDetailDTO getDetail(cafeDTO cafeDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getDetail", cafeDTO);
 	}
+	
+	
 }
