@@ -14,48 +14,32 @@
 	<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
     <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/d-day.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/d-day.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-
 </head>
 <body>
     <div id="wrap">
-      <div class="progress-container">
-        <div class="progress-bar" id="myBar" style="width: 0%;"></div>
-      </div>
-         <!-- header.jsp -->
-          <c:import url="template/header.jsp"></c:import>
-         <section class="container-fluid col-lg-8 mt-5">
-      
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar" style="width: 0%;"></div>
+        </div>
+        <!-- header.jsp -->
+        <c:import url="template/header.jsp"></c:import>
+        <section class="container-fluid col-lg-8 mt-5">
 
-    
+            <div id="count"></div>
+            
+            
+             
         </section>
     </div>
-    <!--d-day count div -->
-    <!-- <h4>D-DAY</h4>
-    <div id="count"></div> -->
-     
-    <div class="timer_wrap scroll_fixed">
-        <div class="inner pos_r">
-            <img src="/resources/img/timer.jpg" alt="">
-            <div class="bx_timer">
-                <span class="t_day" data-component="timer" data-format="dd"></span>
-                <span class="t_hour" data-component="timer" data-format="hh"></span>
-                <span class="t_minute" data-component="timer" data-format="mm"></span>
-                <span class="t_sec" data-component="timer" data-format="ss"></span>
-            </div>
-        </div>
-    </div>
 
+<!-- footer.jsp -->
+<c:import url="template/footer.jsp"></c:import>
+   
 
-    <!-- footer.jsp -->
-    <c:import url="template/footer.jsp"></c:import>
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="/resources/js/common.js" type="text/javascript"></script>
-    <script src="/resources/js/d-day.js"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="/resources/js/common.js" type="text/javascript"></script>
+<script src="/resources/js/d-day.js"></script>
+
 </body>
 </html>	
