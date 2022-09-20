@@ -23,9 +23,9 @@
 </head>
 <body>
     <!-- header.jsp -->
-    <c:import url="../template/header.jsp"></c:import>
-
-    <div class="cards">
+        <c:import url="../template/header.jsp"></c:import>
+        
+        <div class="cards">
     <c:forEach items="${requestScope.list}" var="dto">
             <div class="card" >
                 <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
@@ -41,35 +41,36 @@
             </div><br>
         </c:forEach> 
     </div>
-
-    <nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<c:if test="${pager.pre}">
-				<li class="page-item">
-					<a class="page-link" href="./main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-					</a>
-		    		</li>
-    		</c:if>
-    		
-		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-		    	<li class="page-item"><a class="page-link" href="./main?page=${i}">${i}</a></li>
-		    </c:forEach>
-
-			<li class="page-item ${pager.next?'':'disabled'}">
-				<a class="page-link" href="./main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
-					<span aria-hidden="true">&raquo;</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-
-<!-- footer.jsp -->
-<c:import url="../template/footer.jsp"></c:import>
-   
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="/src/main/webapp/resources/js/infoMain.js"></script>
-<script src="/resources/js/common.js"></script>
+    <div class="paging">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <c:if test="${pager.pre}">
+                    <li class="page-item">
+                        <a class="page-link" href="./main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                </c:if>
+                
+                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+                    <li class="page-item"><a class="page-link" href="./main?page=${i}">${i}</a></li>
+                </c:forEach>
+                
+                <li class="page-item ${pager.next?'':'disabled'}">
+                    <a class="page-link" href="./main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- footer.jsp -->
+    <c:import url="../template/footer.jsp"></c:import>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="/src/main/webapp/resources/js/infoMain.js"></script>
+    <script src="/resources/js/common.js"></script>
 </body>
 </html>
