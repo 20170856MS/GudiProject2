@@ -7,7 +7,7 @@
  
  	<insert id ="insert_pay" parameterType="OrderDTO">
  		insert into SC_ORDER_USER
- 		values(#{orderNum},#{scNum}, #{num},#{orderDate}, #{payMethod}, #{totalPrice}, #{IMP_UID})
+ 		values(#{orderNum},#{scNum}, #{num},#{orderDate}, #{payMethod}, #{totalPrice}, #{imp_uid})
 	</insert>
     	
 </mapper>

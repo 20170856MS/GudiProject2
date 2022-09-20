@@ -23,7 +23,13 @@ public class OrderController {
 	@RequestMapping(value ="complete", method = RequestMethod.POST)
 	public int paymentComplete(@RequestBody OrderDTO pvo) throws Exception {
 
-		System.out.println("pvo.getMerchant_uid : " + pvo.getScNum());
+		System.out.println("pvo.getMerchant_uid : " + pvo.getOrderNum());
+		System.out.println("2" + pvo.getScNum());
+		System.out.println("3 : " + pvo.getNum());
+		System.out.println("4 : " + pvo.getOrderDate());
+		System.out.println("5 : " + pvo.getPayMethod());
+		System.out.println("6 : " + pvo.getTotalPrice());
+		System.out.println("7 : " + pvo.getImp_uid());
 		int res = orderService.insert_pay(pvo);
 		if(res == 1) {
 			if(res == 1)
