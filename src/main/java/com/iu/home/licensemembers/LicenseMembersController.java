@@ -18,6 +18,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/member/*")
 public class LicenseMembersController {
 	
+	@GetMapping("orderResult")
+	public void getOrderResult() throws Exception{
+		System.out.println("주문결과");
+	}
+	
 	@Autowired
 	private LicenseMembersService licenseMembersService;
 	

@@ -11,7 +11,9 @@
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
+<!-- 아임포트 -->
+<script src ="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 </head>
 <body>
 	
@@ -19,11 +21,6 @@
 
     <section class="container-fluid col-lg-4 mt-5">
         <div class="row">
-
-            <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> 
-            <!-- iamport.payment.js --> 
-            <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-                    
             <div> 
                 <h2>IAMPORT 결제 데모</h2> 
                 <li> 
