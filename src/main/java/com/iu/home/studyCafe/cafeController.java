@@ -51,6 +51,20 @@ public class cafeController {
 		return "studyCafe/reservation";
 	}
 	
+	@RequestMapping(value = "map")
+	public String map() throws Exception{
+		
+		return "studyCafe/map";
+	}
+	
+	@RequestMapping(value="cafeList", method=RequestMethod.POST)
+	public ModelAndView completeR(reservationDTO reservationDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = cafeService.completeR(reservationDTO);
+		mv.addObject("result", result);
+		mv.addObject("url", "cafeList");
+		return mv;
+	}
 	
 }
 

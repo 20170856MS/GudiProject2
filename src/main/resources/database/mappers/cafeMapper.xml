@@ -14,6 +14,9 @@
     	<select id="getRoomList" parameterType="cafeDetailDTO" resultType="cafeRoomDTO">
     		SELECT * FROM STUDYROOMDETAIL WHERE DETAILNUM IN (SELECT DETAILNUM FROM STUDYCAFEDETAIL WHERE DETAILNUM = #{detailNum})
     	</select>
+    	<insert id="completeR" parameterType="reservationDTO">
+    		INSERT INTO SCROOMDETAIL (STARTDATE, ENDDATE, STARTTIME, ENDTIME) VALUES (#{startDate}, #{endDate}, #{startTime}, #{endTime})
+    	</insert>
     	
     </mapper>
     
