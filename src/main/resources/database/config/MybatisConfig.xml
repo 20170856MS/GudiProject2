@@ -34,6 +34,7 @@
 		
 		<typeAlias type="com.iu.home.studyCafe.cafeDTO" alias="cafeDTO"/>
 		<typeAlias type="com.iu.home.studyCafe.cafeDetailDTO" alias="cafeDetailDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.cafeRoomDTO" alias="cafeRoomDTO"/>
 
 	</typeAliases>
 

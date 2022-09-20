@@ -38,7 +38,28 @@
 		<c:import url="../template/header.jsp"></c:import>
 		<section class="container-fluid col-lg-8 mt-5">
 			<div class="row">
-	         
+	         	
+	         	<h1>방 선택</h1>
+	         	<table>
+	         		<tr>
+	         			<td>번호</td>
+	         			<td>방개수</td>
+	         			<td>방이름</td>
+	         			<td>카페번호</td>
+	         		</tr>
+		         	<c:forEach items="${rlist}" var="rdto">
+		         		<tr>
+							<td>${rdto.roomNum}</td>
+							<td>${rdto.roomCount}</td>
+							<td>${rdto.roomName}</td>
+							<td>${rdto.detailNum}</td>
+		         		</tr>
+		         	</c:forEach>
+	         	
+	         	</table>
+	         	
+	         	
+	         	
 				<h1>일자 예약</h1>
 				<article>
 					<div class="demo">

@@ -26,19 +26,22 @@
 			<img src="/resources/img/${dto.img}" width="600px" height="500px">
 		    <table>
 		        <tr>
+		        	<td>번호</td>
 		            <td>이름</td>
 		            <td>장소</td>
 		            <td>가격</td>
-		            <td>설명</td>
 		        </tr>
 		
 			    <tr>
+			    	<td>${dto.detailNum}</td>
 			      	<td>${dto.scName}</td>
 			        <td>${dto.cdPay}</td>
 					<td>${dto.cdRegion}</td>
-					<td>${dto.scExplain}</td>
 			    </tr>
-		        
+		        <tr>
+		        	<td>설명</td>
+		        	<td>${dto.scExplain}</td>
+		        </tr>
 		    </table>
 		    
 		    <<a href="./reservation?scName=${dto.scName}">예약하기</a>
