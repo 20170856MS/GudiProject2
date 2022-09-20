@@ -8,6 +8,9 @@ $(document).ready(function(){
 
 //버튼 클릭하면 실행
 function payment() {
+
+    // var postalcode = '';
+    var uid = '';
     IMP.init('imp10453708');//아임포트 관리자 콘솔에서 확인한 '가맹점 식별코드' 입력
     IMP.request_pay({// param
         pg: "kakaopay.TC0ONETIME", //pg사명 or pg사명.CID (잘못 입력할 경우, 기본 PG사가 띄워짐)
@@ -48,7 +51,7 @@ function payment() {
 				        			        	
 				          if(res == 1){
 							 console.log("추가성공");	
-							 			           
+                             createPayInfo(uid);
 				          }else{
 				             console.log("Insert Fail!!!");
 				          }
@@ -63,6 +66,25 @@ function payment() {
 					var msg = '결제에 실패했습니다';
 					msg += '에러 : ' + rsp.error_msg
 				}
-			});//pay
-		}
+	});//pay
+}
+    
+function createPayInfo(uid) {
+    // 결제정보 생성 및 테이블 저장 후 결제완료 페이지로 이동 
+    $.ajax({
+        type: 'get',
+        url: '/order/complete',
+        data: {
+            'orderNum': uid,
+        },
+        success: function(data) {
+            alert('결제가 완료 되었습니다.');
+            // 결제완료 페이지로 이동
+            location.replace('/order/complete?pay_num='+data);
+        },
+        error: function() {
+            alert('결제정보 저장 통신 실패');
+        }
+    });
+}
 

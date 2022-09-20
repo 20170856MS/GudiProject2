@@ -15,6 +15,10 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet"
 	href="/resources/css/order.css?after22">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
+<!-- 아임포트 -->
+<script src ="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 </head>
 <body>
 	
@@ -186,9 +190,6 @@
 	                                        <input type="hidden" value="${prod.cart_num }" name="cart_num" id="cartNum${i.index }">
 	                                    </li>
                                     </c:forEach>
-                                    <li class="total-price">배송비 <span id="deliveryFee">${shippingFee }원</span>
-                                        <input type="hidden" value="${shippingFee }" name="shippingFee" id="shippingFee">
-                                    </li>
                                     <li class="total-price">합계 <span id="totalPrice"><fmt:formatNumber value="${total }" type="number"/>원</span>
                                         <input type="hidden" value="${total }" name="total" id="total">
                                     </li>
@@ -210,6 +211,9 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <button id="iamportPayment" type="button">결제테스트</button> 
+                </div>
             </div>
         </div>
     </section>
@@ -218,7 +222,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-    <script src="/resources/js/admin.js">
+    <script src="/resources/js/order.js">
         
     </script>
     <script src="/resources/js/common.js">
