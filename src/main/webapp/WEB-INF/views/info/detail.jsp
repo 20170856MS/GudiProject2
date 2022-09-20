@@ -40,7 +40,12 @@
 	<!-------------------------test------------------------->
 	<div>
 		<c:forEach items="${requestScope.detailBook}" var="detailBook">
+			${detailBook.licenseNum}
 			${detailBook.licenseName}
+			${detailBook.bookDTO.bookNum}
+			${detailBook.bookDTO.bookName}
+			${detailBook.bookDTO.bookImage}
+			${detailBook.bookDTO.bookPrice}
 		</c:forEach>
 	</div>
 	<!-------------------------test------------------------->
