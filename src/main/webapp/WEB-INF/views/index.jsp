@@ -35,7 +35,8 @@
         <!-- header.jsp -->
         <c:import url="template/header.jsp"></c:import>
         <section class="container-fluid col-lg-8 mt-5">
-
+            <!-- d-day -->
+            <div id="count"></div>
              <!-- calendar -->
             <div class="wrapper">
                 <div class="container-calendar">
