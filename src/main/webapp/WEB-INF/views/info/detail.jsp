@@ -23,7 +23,10 @@
     
 </head>
 <body>
-	<!--search-->
+
+					<!------------------------------------- header.jsp ----------------------------------------------------------------->
+	<c:import url="../template/header.jsp"></c:import>
+					<!---------------------------------------search--------------------------------------------------------------------->
 	<div class="col-12">
 		<label class="visually-hidden" for="search">Search</label>
 		<div class="input-group">
@@ -34,8 +37,6 @@
 	<div class="col-12">
 		<button type="submit" class="btn btn-primary">검색어찾기</button>
 	</div>
-					<!------------------------------------- header.jsp ----------------------------------------------------------------->
-	<c:import url="../template/header.jsp"></c:import>
 					<!-------------------------------------infoDetailBootStrap 시작 ----------------------------------------------------->
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
