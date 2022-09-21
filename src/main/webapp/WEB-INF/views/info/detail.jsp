@@ -54,7 +54,10 @@
 							</c:forEach>
 						</div>
 					</p>
-                    <a class="btn btn-primary" href="#!">Call to Action!</a>
+                    <a class="btn btn-primary" href="#!">관심 등록</a>
+                    <a class="btn btn-primary" href="#!">게시판 이동</a>
+                    <a class="btn btn-primary" href="#!">보유 등록</a><!-- 회원만 -->
+                    <a class="btn btn-primary" href="#!">자격증 수정</a><!-- 관리자만 -->
                 </div>
             </div>
             <!-- Call to Action-->
@@ -102,7 +105,7 @@
                             <p class="card-text">
 								<c:forEach items="${requestScope.detailJob}" var="detailJob">
 									${detailJob.jobDTO.jobName}<br>
-									${detailJob.jobDTO.jobIntro}<br>
+									${detailJob.jobDTO.jobIntro}<br><br>
 								</c:forEach>
 							</p>
                         </div>
