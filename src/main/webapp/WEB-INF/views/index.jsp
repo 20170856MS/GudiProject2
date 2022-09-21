@@ -11,18 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>License</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 	<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 
      <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/calendar.css">
-
-    <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/resources/css/d-day.css">
-
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
+     <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
+     <link rel="stylesheet" href="/resources/css/top10.css">
+     <link rel="stylesheet" href="/resources/css/d-day.css">
+     <link rel="stylesheet" href="/resources/css/calendar.css">
     <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
     <link href="/resources/css/infoMain.css" rel="stylesheet" type="text/css">
 
@@ -35,10 +32,12 @@
         <!-- header.jsp -->
         <c:import url="template/header.jsp"></c:import>
         <section class="container-fluid col-lg-8 mt-5">
+
             <!-- d-day -->
             <div id="count"></div>
-             <!-- calendar -->
+            <!-- calendar -->
             <div class="wrapper">
+                
                 <div class="container-calendar">
                     <h3 id="monthAndYear"></h3>
                     
@@ -53,8 +52,8 @@
                     </table>
                     
                     <div class="footer-container-calendar">
-                         <label for="month">Jump To: </label>
-                         <select id="month" onchange="jump()">
+                        <label for="month">Jump To: </label>
+                        <select id="month" onchange="jump()">
                              <option value=0>Jan</option>
                              <option value=1>Feb</option>
                              <option value=2>Mar</option>
@@ -67,15 +66,49 @@
                              <option value=9>Oct</option>
                              <option value=10>Nov</option>
                              <option value=11>Dec</option>
-                         </select>
-                         <select id="year" onchange="jump()"></select>       
+                            </select>
+                            <select id="year" onchange="jump()"></select>       
+                        </div>
                     </div>
-            
+
+                    <!-- top10 -->
+                    <div class="rankingBox" data-v-19226b75="">
+                        <h3 data-v-19226b75=""><span data-v-19226b75="">자격증TOP10</span></h3>
+                        <ul data-v-19226b75="">
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=1" data-v-19226b75="">정보처리기사</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=2" data-v-19226b75="">전기기사</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=3" data-v-19226b75="">한식조리기능사</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=4" data-v-19226b75="">빅데이터분석기사</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=5" data-v-19226b75="">정보처리기능사</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=51" data-v-19226b75="">기사1</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=52" data-v-19226b75="">기사2</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=53" data-v-19226b75="">기사3</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=54" data-v-19226b75="">기사4</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                            <li data-v-19226b75=""><a href="./detail?licenseNum=55" data-v-19226b75="">기사5</a>
+                                <div data-v-19226b75=""></div>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
-
-            </div>
-
-				
 
         </section>
         	<div class="cards">
@@ -178,10 +211,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="/resources/js/common.js" type="text/javascript"></script>
 
+<script src="/resources/js/top10.js"></script>
+<script src="/resources/js/d-day.js"></script>
 <script src="/resources/js/calendar.js"></script>
 <script src="/resources/js/infoMain.js"></script>
 
-<script src="/resources/js/d-day.js"></script>
 
 
 </body>
