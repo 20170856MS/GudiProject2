@@ -22,7 +22,7 @@
 		UPDATE LICENSE SET LICENSEHITS=LICENSEHITS+1 WHERE LICENSENUM=#{licenseNum}
 	</update>
 	<select id="getLicenseName" resultType="LicenseDTO" parameterType="LicenseDTO">
-		SELECT LICENSENAME FROM LICENSE WHERE LICENSENUM=#{licenseNum}
+		SELECT LICENSENAME,LICENSEHITS FROM LICENSE WHERE LICENSENUM=#{licenseNum}
 	</select>
 	
 							<!--  BOOK  -->
