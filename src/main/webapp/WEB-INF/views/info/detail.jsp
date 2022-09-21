@@ -40,14 +40,34 @@
 	<!-------------------------test------------------------->
 	<div>
 		<c:forEach items="${requestScope.detailBook}" var="detailBook">
-			${detailBook.licenseNum}
-			${detailBook.licenseName}
-			${detailBook.bookDTO.bookNum}
-			${detailBook.bookDTO.bookName}
-			${detailBook.bookDTO.bookImage}
-			${detailBook.bookDTO.bookPrice}
+			${detailBook.licenseName}<br>
+			${detailBook.bookDTO.bookName}<br>
+			${detailBook.bookDTO.bookPrice}<br>
 		</c:forEach>
 	</div>
+	<div>
+		<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
+			${detailVideo.licenseName}<br>
+			${detailVideo.videoDTO.videoTitle}<br>
+			${detailVideo.videoDTO.videoLink}<br>
+		</c:forEach>
+	</div>
+	<div>
+		<c:forEach items="${requestScope.detailJob}" var="detailJob">
+			${detailJob.licenseName}<br>
+			${detailJob.jobDTO.jobName}<br>
+			${detailJob.jobDTO.jobIntro}<br>
+		</c:forEach>
+	</div>
+	<div>
+		<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+			${detailSchedule.licenseName}<br>
+			${detailSchedule.scheduleDTO.scheduleName}<br>
+			${detailSchedule.scheduleDTO.scheduleDate}<br>
+		</c:forEach>
+	</div>
+	
+	
 	<!-------------------------test------------------------->
 
 <!-- footer.jsp -->

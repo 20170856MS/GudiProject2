@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.home.util.Pager;
 
+
+
 @Repository
 public class LicenseDAO {
 	
@@ -23,7 +25,7 @@ public class LicenseDAO {
 	}
 	
 	public List<LicenseDTO> getDetailBook(LicenseDTO licenseDTO) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getDetailBook",licenseDTO);	
+		return sqlSession.selectList(NAMESPACE+"getDetailBook",licenseDTO);
 	}
 
 	public List<LicenseDTO> getDetailVideo(LicenseDTO licenseDTO) throws Exception{

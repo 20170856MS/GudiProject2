@@ -22,7 +22,7 @@
 							
 	<select id="getDetailBook" parameterType="LicenseDTO" resultMap="getBook">
 		
-		SELECT *
+		SELECT ROWNUM R,L.LICENSENAME,B.BOOKNAME,B.BOOKPRICE
 		FROM    LICENSE L
 		        INNER JOIN
 		        LICENSEBOOK LB
@@ -31,7 +31,7 @@
 		        BOOK B
 		        USING (BOOKNUM)
 		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY BOOKNAME ASC
+		        ORDER BY R ASC
 	</select>
 	
 	<resultMap type="LicenseDTO" id="getBook">
@@ -49,7 +49,7 @@
 							
 	<select id="getDetailVideo" parameterType="LicenseDTO" resultMap="getVideo">
 		
-		SELECT *
+		SELECT ROWNUM R,L.LICENSENAME,V.VIDEOTITLE,V.VIDEOLINK
         FROM LICENSE L
 	            INNER JOIN
 	            LICENSEVIDEO LV
@@ -58,7 +58,7 @@
 	            VIDEO V
 	            USING (VIDEONUM)
 		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY VIDEOTITLE ASC
+		        ORDER BY R ASC
 	</select>
 	
 	<resultMap type="LicenseDTO" id="getVideo">
@@ -74,7 +74,7 @@
 							
 	<select id="getDetailJob" parameterType="LicenseDTO" resultMap="getJob">
 		
-		SELECT *
+		SELECT ROWNUM R,L.LICENSENAME,J.JOBNAME,J.JOBINTRO
         FROM LICENSE L
 	            INNER JOIN
 	            LICENSEJOB LJ
@@ -83,7 +83,7 @@
 	            JOB J
 	            USING (JOBNUM)
 		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY JOBNAME ASC
+		        ORDER BY R ASC
 	</select>
 	
 	<resultMap type="LicenseDTO" id="getJob">
@@ -99,7 +99,7 @@
 
 	<select id="getDetailSchedule" parameterType="LicenseDTO" resultMap="getSchedule">
 		
-		SELECT *
+		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
         FROM LICENSE L
 	            INNER JOIN
 	            LICENSESCHEDULE LS
@@ -108,7 +108,7 @@
 	            SCHEDULE S
 	            USING (SCHEDULENUM)
 		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY SCHEDULENAME ASC
+		        ORDER BY R ASC
 	</select>
 	
 	<resultMap type="LicenseDTO" id="getSchedule">

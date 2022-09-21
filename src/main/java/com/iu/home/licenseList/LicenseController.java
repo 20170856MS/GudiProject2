@@ -40,10 +40,6 @@ public class LicenseController {
 		List<LicenseDTO> detailJob = licenseListService.getDetailJob(licenseDTO);
 		List<LicenseDTO> detailSchedule = licenseListService.getDetailSchedule(licenseDTO);
 		
-		System.out.println(detailBook.get(0).getBookDTO().getBookName());
-//		System.out.println(detailBook.get(1).getBookDTO().getBookName());
-//		System.out.println(detailBook.get(2).getBookDTO().getBookName());
-		
 		mv.addObject("detailBook",detailBook);
 		mv.addObject("detailVideo",detailVideo);
 		mv.addObject("detailJob",detailJob);
