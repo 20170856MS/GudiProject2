@@ -23,6 +23,13 @@ public class LicenseService {
 	public Long getCount(Pager pager) throws Exception{
 		return licenseDAO.getCount(pager);
 	}
+	public int setHits(LicenseDTO licenseDTO) throws Exception{
+		return licenseDAO.setHits(licenseDTO);
+	}
+	
+	public LicenseDTO getLicenseName(LicenseDTO licenseDTO) throws Exception{
+		return licenseDAO.getLicenseName(licenseDTO);
+	}
 	
 	public List<LicenseDTO> getDetailBook(LicenseDTO licenseDTO) throws Exception{
 		

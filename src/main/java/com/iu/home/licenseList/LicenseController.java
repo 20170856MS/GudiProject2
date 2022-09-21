@@ -16,14 +16,14 @@ import com.iu.home.util.Pager;
 public class LicenseController {
 	
 	@Autowired
-	private LicenseService licenseListService;
+	private LicenseService licenseService;
 	
 	@GetMapping("main")
 	public ModelAndView getInfo(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		pager.setPerPage(8L);
 		
-		List<LicenseDTO> ar = licenseListService.getList(pager);
+		List<LicenseDTO> ar = licenseService.getList(pager);
 
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
@@ -34,12 +34,15 @@ public class LicenseController {
 	@GetMapping("detail")
 	public ModelAndView getDetail(LicenseDTO licenseDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
-		List<LicenseDTO> detailBook = licenseListService.getDetailBook(licenseDTO);
-		List<LicenseDTO> detailVideo = licenseListService.getDetailVideo(licenseDTO);
-		List<LicenseDTO> detailJob = licenseListService.getDetailJob(licenseDTO);
-		List<LicenseDTO> detailSchedule = licenseListService.getDetailSchedule(licenseDTO);
-		
+
+		LicenseDTO name=licenseService.getLicenseName(licenseDTO);
+		List<LicenseDTO> detailBook = licenseService.getDetailBook(licenseDTO);
+		List<LicenseDTO> detailVideo = licenseService.getDetailVideo(licenseDTO);
+		List<LicenseDTO> detailJob = licenseService.getDetailJob(licenseDTO);
+		List<LicenseDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
+		int result = licenseService.setHits(licenseDTO);
+				
+		mv.addObject("name",name);
 		mv.addObject("detailBook",detailBook);
 		mv.addObject("detailVideo",detailVideo);
 		mv.addObject("detailJob",detailJob);

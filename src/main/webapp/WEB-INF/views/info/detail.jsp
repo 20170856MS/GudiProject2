@@ -30,7 +30,7 @@
 			<img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img" alt="...">
 			<div class="card-img-overlay">
 				<h1 class="card-title">
-					정보처리기사	
+					${name.licenseName}
 				</h1>
 			</div>
 		</div>
@@ -40,6 +40,8 @@
 	<!-------------------------test------------------------->
 	<div>
 		<c:forEach items="${requestScope.detailBook}" var="detailBook">
+		
+			조회수: ${detailBook.licenseHits}<br>
 			${detailBook.licenseName}<br>
 			${detailBook.bookDTO.bookName}<br>
 			${detailBook.bookDTO.bookPrice}<br>

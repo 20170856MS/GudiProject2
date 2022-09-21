@@ -3,6 +3,7 @@ package com.iu.home.licenseList;
 public class LicenseDTO {
 
 	private Long licenseNum;
+	private Long licenseHits;
 	private String licenseName;
 	private BookDTO bookDTO;
 	private VideoDTO videoDTO;
@@ -45,6 +46,13 @@ public class LicenseDTO {
 	public void setScheduleDTO(ScheduleDTO scheduleDTO) {
 		this.scheduleDTO = scheduleDTO;
 	}
+	public Long getLicenseHits() {
+		return licenseHits;
+	}
+	public void setLicenseHits(Long licenseHits) {
+		this.licenseHits = licenseHits;
+	}
+	
 	
 	
 }

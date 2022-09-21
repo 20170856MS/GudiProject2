@@ -18,11 +18,18 @@
 		SELECT COUNT(LICENSENUM) FROM LICENSE
 	</select>
 	
+	<update id="setHits" parameterType="LicenseDTO">
+		UPDATE LICENSE SET LICENSEHITS=LICENSEHITS+1 WHERE LICENSENUM=#{licenseNum}
+	</update>
+	<select id="getLicenseName" resultType="LicenseDTO" parameterType="LicenseDTO">
+		SELECT LICENSENAME FROM LICENSE WHERE LICENSENUM=#{licenseNum}
+	</select>
+	
 							<!--  BOOK  -->
 							
 	<select id="getDetailBook" parameterType="LicenseDTO" resultMap="getBook">
 		
-		SELECT ROWNUM R,L.LICENSENAME,B.BOOKNAME,B.BOOKPRICE
+		SELECT ROWNUM R,L.LICENSENAME,L.LICENSEHITS,B.BOOKNAME,B.BOOKPRICE
 		FROM    LICENSE L
 		        INNER JOIN
 		        LICENSEBOOK LB
@@ -37,6 +44,7 @@
 	<resultMap type="LicenseDTO" id="getBook">
 		<id column = "LICENSENUM" property="licenseNum"/>
 		<result column ="LICENSENAME" property="licenseName" />
+		<result column ="LICENSEHITS" property="licenseHits" />
 		<association property="bookDTO" javaType="BookDTO">
 			<id column = "BOOKNUM" property="bookNum" />
 			<result column ="BOOKNAME" property="bookName"/>

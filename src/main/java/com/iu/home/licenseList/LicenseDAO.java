@@ -23,6 +23,12 @@ public class LicenseDAO {
 	public Long getCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getCount",pager);
 	}
+	public int setHits(LicenseDTO licenseDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setHits",licenseDTO);
+	}
+	public LicenseDTO getLicenseName(LicenseDTO licenseDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getLicenseName",licenseDTO);
+	}
 	
 	public List<LicenseDTO> getDetailBook(LicenseDTO licenseDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getDetailBook",licenseDTO);
