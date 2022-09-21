@@ -22,7 +22,9 @@
 
          <!-- header.jsp -->
           <c:import url="template/header.jsp"></c:import>
-         <section class="bodycolor container-fluid col-lg-8 mt-5">
+          <section class="bodycolor container-fluid col-lg-8 mt-5">
+              
+              <!-- calendar -->
             <div class="wrapper">
 
                 <div class="container-calendar">
@@ -61,11 +63,9 @@
                 
             </div>
 
-    
         </section>
     
 
-    <!-- calendar -->
 
 
 <!-- footer.jsp -->

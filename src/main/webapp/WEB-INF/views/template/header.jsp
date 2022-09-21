@@ -31,7 +31,7 @@
 			                      	<c:otherwise>
                              		<div class="text-end">
                             				<a href = "/member/join0" class="btn_memb join">회원가입</a>
-			                  		      	<a href = "/member/login" class="btn_memb login" >로그인</a>
+			                  		      	<a href = "/member/login" class="btn_memb login">로그인</a>
                           		  </div>
                              </c:otherwise>
                             </c:choose>
