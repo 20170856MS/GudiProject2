@@ -10,9 +10,14 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ .user-schedule{
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+ }
  .user-wrap{
  position:relative;
  }
+
  .user-text{
  color:white;
  position:absolute;
@@ -21,6 +26,9 @@
  width:100%;
  font-size:25px;
  transform:translate(-70%,30%);
+ text-align:center;
+ }
+ .user-texts{
  text-align:center;
  }
 :root {
@@ -1397,7 +1405,7 @@ progress {
 
   .col-lg-5 {
     flex: 0 0 auto;
-    width: 41.66666667%;
+    width: 39.66666667%;
   }
 
   .col-lg-6 {
@@ -3043,8 +3051,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: black;
+  border: 1px solid #dee2e6;
 }
 .btn-primary:hover {
   color: #fff;

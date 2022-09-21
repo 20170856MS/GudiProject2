@@ -44,8 +44,8 @@
             <div class="row gx-4 gx-lg-5 align-items-center my-5 user-wrap">
                 <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" alt="..." /></div>
                 <div class="user-text">${name.licenseName}</div>
-                <div class="col-lg-5">
-                    <h1 class="font-weight-light">일정</h1>
+                <div class="col-lg-5 user-schedule" >
+                    <h1 class="font-weight-light user-texts">일정</h1>
                     <p>
                     	<div>
 							<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
@@ -88,7 +88,7 @@
 								</c:forEach>
 							</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer user-wrap"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -110,30 +110,6 @@
 					<!-------------------------------------infoDetailBootStrap 끝 ----------------------------------------------------->
 
 	<!-------------------------test------------------------->
-	<div>
-		<c:forEach items="${requestScope.detailBook}" var="detailBook">
-			${detailBook.bookDTO.bookName}<br>
-			${detailBook.bookDTO.bookPrice}<br>
-		</c:forEach>
-	</div>
-	<div>
-		<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
-			${detailVideo.videoDTO.videoTitle}<br>
-			${detailVideo.videoDTO.videoLink}<br>
-		</c:forEach>
-	</div>
-	<div>
-		<c:forEach items="${requestScope.detailJob}" var="detailJob">
-			${detailJob.jobDTO.jobName}<br>
-			${detailJob.jobDTO.jobIntro}<br>
-		</c:forEach>
-	</div>
-	<div>
-		<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-			${detailSchedule.scheduleDTO.scheduleName}<br>
-			${detailSchedule.scheduleDTO.scheduleDate}<br>
-		</c:forEach>
-	</div>
 
 
 	<!-------------------------test------------------------->
