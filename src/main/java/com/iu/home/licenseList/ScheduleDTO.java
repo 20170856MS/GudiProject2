@@ -6,7 +6,7 @@ public class ScheduleDTO {
 
 	private Long scheduleNum;
 	private String scheduleName;
-	private Date scheduleDate;
+	private String scheduleDate;
 	
 	public Long getScheduleNum() {
 		return scheduleNum;
@@ -20,12 +20,13 @@ public class ScheduleDTO {
 	public void setScheduleName(String scheduleName) {
 		this.scheduleName = scheduleName;
 	}
-	public Date getScheduleDate() {
+	public String getScheduleDate() {
 		return scheduleDate;
 	}
-	public void setScheduleDate(Date scheduleDate) {
+	public void setScheduleDate(String scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
+
 	
 	
 	

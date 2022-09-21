@@ -50,7 +50,7 @@
                     	<div>
 							<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
 								${detailSchedule.scheduleDTO.scheduleName}<br>
-								${detailSchedule.scheduleDTO.scheduleDate}<br>
+								${detailSchedule.scheduleDTO.scheduleDate}<br><br>
 							</c:forEach>
 						</div>
 					</p>
@@ -67,10 +67,11 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h2 class="card-title">책</h2>
-                            <p class="card-text">
+                            <p class="card-text">                          
 								<c:forEach items="${requestScope.detailBook}" var="detailBook">
-									${detailBook.bookDTO.bookName}<br>
-									${detailBook.bookDTO.bookPrice}<br>
+									책이름: ${detailBook.bookDTO.bookName}<br>
+									책가격: ${detailBook.bookDTO.bookPrice}<br>
+									<img src="${detailBook.bookDTO.bookImage}" width="140" height="140" alt="..." /><br><br>
 								</c:forEach>
                             </p>
                         </div>
@@ -83,9 +84,12 @@
                             <h2 class="card-title">동영상</h2>
                             <p class="card-text">
 								<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
-									${detailVideo.videoDTO.videoTitle}<br>
-									${detailVideo.videoDTO.videoLink}<br>
-								</c:forEach>
+									<iframe width="280" height="157.5" src="${detailVideo.videoDTO.videoLink}"
+									 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+									  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+								</c:forEach> 
+								    
+
 							</p>
                         </div>
                         <div class="card-footer user-wrap"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
