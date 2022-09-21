@@ -1,0 +1,7 @@
+#count {
+    display: flex;
+    width: 230px;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-left: 80%;
+}
