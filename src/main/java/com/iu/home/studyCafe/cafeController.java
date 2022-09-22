@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -57,16 +58,18 @@ public class cafeController {
 		return "studyCafe/map";
 	}
 	
+
 	@RequestMapping(value="cafeList", method=RequestMethod.POST)
-	public ModelAndView completeR(reservationDTO reservationDTO) throws Exception{
-		System.out.println("post문 실행");
+	public ModelAndView addDate(reservationDTO reservationDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = cafeService.completeR(reservationDTO);
-		mv.addObject("result", result);
-		mv.setViewName("studyCafe/cafeList");
 		
+		int result = cafeService.addDate(reservationDTO);
+		
+		mv.setViewName("redirect:./cafeList");
 		return mv;
 	}
+	
+	
 	
 }
 

@@ -23,9 +23,8 @@ public class cafeService {
 		return cafeDAO.getRoomList(cafeDetailDTO);
 	}
 	
-	public int completeR(reservationDTO reservationDTO) throws Exception{
-		int result = cafeDAO.completeR(reservationDTO);
-		return result;
+	public int addDate(reservationDTO reservationDTO) throws Exception{
+		return cafeDAO.addDate(reservationDTO);
 	}
 	
 }

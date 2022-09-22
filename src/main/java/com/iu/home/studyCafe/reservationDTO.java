@@ -10,8 +10,7 @@ public class reservationDTO {
 	private Time startTime;
 	private Time endTime;
 	private Long seat;
-	
-	
+
 	public Date getStartDate() {
 		return startDate;
 	}

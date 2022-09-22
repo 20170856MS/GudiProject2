@@ -52,7 +52,7 @@
 			         		<tr>
 			         			<td>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="radioBtn" id="flexRadioDefault1">
+										<input class="form-check-input" type="radio" name="radioBtn_${roomList}" id="radio_${roomList}">
 										<label class="form-check-label" for="flexRadioDefault1">
 											${rdto.roomName}
 										</label>
@@ -105,13 +105,14 @@
 					</article>
 	        
 				
-					<button type="submit">예약완료</button>
+					<button id="sendDate" type="submit">예약완료</button>
 				</form>
 			
 		
 			</div>
 		</section>
 		
+	<script src="/resources/js/studyCafe.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>
 	    
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
