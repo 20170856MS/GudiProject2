@@ -1,9 +1,17 @@
-#count {
-    display: flex;
-    width: 230px;
-    margin: 0 auto;
-    border-radius: 8px;
-    margin-left: 60%;
-    font-size: 16px;
-}
+/* d-day css */
 
+.count {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    display: block;
+    width: 46px;
+    height: 20px;
+    line-height: 19px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    background: #4746ff;
+    border-radius: 10px
+}
