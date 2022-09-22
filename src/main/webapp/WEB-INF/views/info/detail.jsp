@@ -118,7 +118,39 @@
 
 	<!-------------------------test------------------------->
 
+	<!---------Modal------------>
+	<div>
+		<button type="button" style="display:none;"class="btn btn-primary" id="up" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body">
+				<form>
+					<input type="hidden" id="num">
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">Writer</label>
+						<input type="text" class="form-control" id="updateWriter">
+					</div>
+					<div class="mb-3">
+						<label for="message-text" class="col-form-label">Contents</label>
+						<textarea class="form-control" id="updateContents"></textarea>
+					</div>
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">취소</button>
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="update">수정</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+	</div>
 	<!-------------------------test------------------------->
 
 	<!-- footer.jsp -->
@@ -128,6 +160,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 		<script src="/src/main/webapp/resources/js/infoDetail.js"></script>
 		<script src="/resources/js/common.js"></script>
+		<script src="/resources/js/infoDetail.js"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
