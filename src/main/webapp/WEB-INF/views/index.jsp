@@ -128,10 +128,15 @@
                             <div class="detail">
                                 <a href="./info/detail?licenseNum=1" class="btn btn-primary">자격증 상세 보기</a>
                             </div>
-                            <div class="subTxt" data-v-e2b56de6="">
+                            <!-- <div class="subTxt" data-v-e2b56de6="">
+                            	<input type="text" id="date11" value="${Time.scheduleDate}"/>
                                 <p data-v-e2b56de6=""><strong data-v-e2b56de6="">필 기 접 수 일 : </strong> 2022-10-14</p>
                                 <p data-v-e2b56de6=""><strong data-v-e2b56de6="">실 기 접 수 일 : </strong> <span class="colorPoint"
                                         data-v-e2b56de6="">2022-11-14</span></p>
+                            </div> -->
+                            <div class="sub-text">
+                            	<input type="text" id="date11" value="${Time.scheduleDate}"/>
+                                
                             </div>
                         </div>
                     </div><br>

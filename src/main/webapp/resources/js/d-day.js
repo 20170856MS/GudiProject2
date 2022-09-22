@@ -1,9 +1,10 @@
 let today = new Date();	// 현재 날짜 및 시간
 let year = today.getFullYear();	// 년도
+const date11 = document.getElementById('date11')
 console.log("년도 : ", year);
 
 
-let dDay = new Date("October 14, 2022, 0:00:00").getTime(); //디데이
+let dDay = new Date(date11.value).getTime(); //디데이
 setInterval(function () {
     let today = new Date().getTime(); //현재날짜 가져오기 
     let distance = dDay - today; //디데이-현재
@@ -25,3 +26,4 @@ setInterval(function () {
 
     }
 }, 1000);
+
