@@ -7,11 +7,13 @@
 
 	<select id="getList" resultType="LicenseDTO">
 		SELECT * FROM
-			(SELECT ROWNUM R,L.* FROM
-				(SELECT *
-				FROM LICENSE ORDER BY LICENSENUM ASC) L
-			)
-			WHERE R BETWEEN #{startRow} AND #{lastRow}
+			(SELECT * FROM
+				(SELECT ROWNUM R,L.* FROM
+					(SELECT *
+					FROM LICENSE ORDER BY LICENSENUM ASC) L
+				)
+				WHERE R BETWEEN #{startRow} AND #{lastRow}
+			)	ORDER BY LICENSEHITS DESC
 	</select>
 	
 	<select id="getCount" resultType="Long" parameterType="Pager">
@@ -22,7 +24,7 @@
 		UPDATE LICENSE SET LICENSEHITS=LICENSEHITS+1 WHERE LICENSENUM=#{licenseNum}
 	</update>
 	<select id="getLicenseName" resultType="LicenseDTO" parameterType="LicenseDTO">
-		SELECT LICENSENAME,LICENSEHITS FROM LICENSE WHERE LICENSENUM=#{licenseNum}
+		SELECT LICENSENUM,LICENSENAME,LICENSEHITS FROM LICENSE WHERE LICENSENUM=#{licenseNum}
 	</select>
 	
 							<!--  BOOK  -->
