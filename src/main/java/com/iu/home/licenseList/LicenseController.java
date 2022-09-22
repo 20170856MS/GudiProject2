@@ -35,12 +35,12 @@ public class LicenseController {
 	public ModelAndView getDetail(LicenseDTO licenseDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 
+		int result = licenseService.setHits(licenseDTO);
 		LicenseDTO name=licenseService.getLicenseName(licenseDTO);
 		List<LicenseDTO> detailBook = licenseService.getDetailBook(licenseDTO);
 		List<LicenseDTO> detailVideo = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> detailJob = licenseService.getDetailJob(licenseDTO);
 		List<LicenseDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
-		int result = licenseService.setHits(licenseDTO);
 				
 		mv.addObject("name",name);
 		mv.addObject("detailBook",detailBook);
@@ -51,4 +51,19 @@ public class LicenseController {
 		return mv;	
 	}
 	
+	@GetMapping("update")
+	public ModelAndView setUpdate(LicenseDTO licenseDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/info/update");
+		return mv;
+	}
+	
+	@GetMapping("add")
+	public ModelAndView setAdd(LicenseDTO licenseDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/info/add");
+		return mv;
+	}
 }

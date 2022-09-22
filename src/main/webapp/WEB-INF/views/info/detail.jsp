@@ -54,15 +54,19 @@
 							</c:forEach>
 						</div>
 					</p>
-                    <a class="btn btn-primary" href="#!">관심 등록</a>
-                    <a class="btn btn-primary" href="#!">게시판 이동</a>
-                    <a class="btn btn-primary" href="#!">보유 등록</a><!-- 회원만 -->
-                    <a class="btn btn-primary" href="#!">자격증 수정</a><!-- 관리자만 -->
+						<a class="btn btn-primary" href="./add?licenseNum=${name.licenseNum}">추가</a>
+						<a class="btn btn-primary" href="./update?licenseNum=${name.licenseNum}">수정</a>
+						<a class="btn btn-primary" href="#!">삭제</a>
                 </div>
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">조회수 : ${name.licenseHits}</p></div>
+                <div class="card-body"><p class="text-white m-0">
+					조회수 : ${name.licenseHits}</p>
+					<a class="btn btn-primary" href="#!" id="board">게시판</a>
+					<a class="btn btn-primary" href="#!" id="interest">관심 등록</a><!-- 회원만 -->
+					<a class="btn btn-primary" href="#!" id="have">보유 등록</a><!-- 회원만 -->
+				</div>
             </div>
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">
@@ -78,7 +82,11 @@
 								</c:forEach>
                             </p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer">
+							<a class="btn btn-primary btn-sm" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm" href="#!">삭제</a>
+						</div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -91,11 +99,13 @@
 									 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
 									  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 								</c:forEach> 
-								    
-
 							</p>
                         </div>
-                        <div class="card-footer user-wrap"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer user-wrap">
+							<a class="btn btn-primary btn-sm" href="#!" id="add">추가</a>
+							<a class="btn btn-primary btn-sm" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm" href="#!">삭제</a>
+						</div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -109,49 +119,51 @@
 								</c:forEach>
 							</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer">
+							<a class="btn btn-primary btn-sm" id="aj" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm" id="uj"href="#!">수정</a>
+							<a class="btn btn-primary btn-sm" id="dj"href="#!">삭제</a>
+						</div>
                     </div>
                 </div>
             </div>
         </div>
 					<!-------------------------------------infoDetailBootStrap 끝 ----------------------------------------------------->
 
-	<!-------------------------test------------------------->
 
-	<!---------Modal------------>
-	<div>
-		<button type="button" style="display:none;"class="btn btn-primary" id="up" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+					<!-------------------------------------Modal----------------------------------------------------------------------->
+		<div>
+			<button type="button" style="display:none;"class="btn btn-primary" id="up" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			  </div>
-			  <div class="modal-body">
-				<form>
-					<input type="hidden" id="num">
-					<div class="mb-3">
-						<label for="recipient-name" class="col-form-label">Writer</label>
-						<input type="text" class="form-control" id="updateWriter">
-					</div>
-					<div class="mb-3">
-						<label for="message-text" class="col-form-label">Contents</label>
-						<textarea class="form-control" id="updateContents"></textarea>
-					</div>
-				</form>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">취소</button>
-				<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="update">수정</button>
-			  </div>
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input type="hidden" id="num">
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Writer</label>
+							<input type="text" class="form-control" id="updateWriter">
+						</div>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Contents</label>
+							<textarea class="form-control" id="updateContents"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">취소</button>
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="update">수정</button>
+				</div>
+				</div>
 			</div>
-		  </div>
-		</div>
+			</div>
 
-	</div>
-	<!-------------------------test------------------------->
+		</div>
 
 	<!-- footer.jsp -->
 	<c:import url="../template/footer.jsp"></c:import>

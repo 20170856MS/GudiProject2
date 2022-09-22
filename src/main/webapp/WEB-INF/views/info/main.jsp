@@ -12,6 +12,7 @@
     
     <title>자격증 정보 페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    
 
     <!-- <link href="/resources/css/reset.css" rel="stylesheet" type="text/css"> 글자크기 달라져서 reset 대신 resetInfo 참조함--> 
     <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
@@ -32,7 +33,10 @@
         <div class="cards">
     <c:forEach items="${requestScope.list}" var="dto">
             <div class="card" >
-                <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
+                <div class="user-wrap">
+                    <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
+                    <div class="user-text">조회수 ${dto.licenseHits}</div>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">${dto.licenseName}</h5>
                     
@@ -67,6 +71,10 @@
                 </li>
             </ul>
         </nav>
+        &nbsp;&nbsp;&nbsp;
+        <div>
+            <a href="./add" class="btn btn-primary">자격증 추가</a>
+        </div>
     </div>
     
     <!-- footer.jsp -->
