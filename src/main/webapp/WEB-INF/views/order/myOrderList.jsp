@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="/resources/css/myOrderList.css">
+<link rel="stylesheet" href="/resources/css/paging.css">
+
 </head>
 <body>
 	

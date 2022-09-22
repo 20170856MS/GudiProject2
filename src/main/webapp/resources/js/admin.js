@@ -25,24 +25,20 @@ function payment() {
         if (rsp.success) {
             var msg = '결제가 완료되었습니다';
 					var result = {
-					"orderNum" : rsp.imp_uid,
-					"scNum" : rsp.merchant_uid,
-					"num" : 'testiamport5@naver.com',
+                    "productNum" : 54,
+					"num" : 44,
 					"orderDate" : new Date().getTime(),
-					"payMethod" : rsp.paid_amount,
-					"totalPrice" : '100원',
-					"imp_uid" : 'payed'
+					"totalPrice" : rsp.paid_amount,
+					"imp_uid" : rsp.imp_uid
 					}
 					console.log("결제성공 " + msg);
 					$.ajax({
                         url : '/order/complete', 
 				        type :'POST',
 				        data : JSON.stringify(result,
-				        		["orderNum",
-                                "scNum",
+				        		["productNum",
                                 "num",
                                 "orderDate",
-                                "payMethod",
                                 "totalPrice",
                                 "imp_uid"]),
 				        contentType:'application/json;charset=utf-8',

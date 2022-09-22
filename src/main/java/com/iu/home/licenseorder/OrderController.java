@@ -2,6 +2,9 @@ package com.iu.home.licenseorder;
 
 import java.io.IOException;
 import java.net.http.HttpHeaders;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +31,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.databind.util.JSONWrappedObject;
+import com.iu.home.util.UserCriteria;
+import com.iu.home.util.UserPageMaker;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.response.IamportResponse;
@@ -50,17 +55,13 @@ public class OrderController {
 	}
 	
 	@GetMapping("complete")
-	public String getOrderComplete(OrderDTO orderDTO) throws Exception {
-		System.out.println("complete");
+	public String getOrderComplete(@RequestParam int payNum, OrderDTO orderDTO, Model model) throws Exception {
+		PayDTO payDTO = orderService.getPay(payNum);
+		model.addAttribute("payDTO", payDTO);
 		
 		return "order/complete";
 	}
 	
-	@GetMapping("myOrderList")
-	public void getOrderList(OrderDTO orderDTO) throws Exception {
-		System.out.println("myOrderList");
-		
-	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/verify_iamport/{imp_uid}", method = RequestMethod.POST)
@@ -73,17 +74,16 @@ public class OrderController {
 	
 	@RequestMapping(value ="complete", method = RequestMethod.POST)
 	@ResponseBody
-	public int paymentComplete(@RequestBody OrderDTO pvo) throws Exception {
-		System.out.println("pvo.getMerchant_uid : " + pvo.getOrderNum());
-		System.out.println("2" + pvo.getScNum());
-		System.out.println("3 : " + pvo.getNum());
-		System.out.println("4 : " + pvo.getOrderDate());
-		System.out.println("5 : " + pvo.getPayMethod());
-		System.out.println("6 : " + pvo.getTotalPrice());
-		System.out.println("7 : " + pvo.getImp_uid());
+	public int paymentComplete(@RequestBody OrderDTO orderDTO) throws Exception {
+		System.out.println("0 : " + orderDTO.getNum());
+		System.out.println("1" + orderDTO.getProductNum());
+		System.out.println("2 : " + orderDTO.getNum());
+		System.out.println("3 : " + orderDTO.getOrderDate());
+		System.out.println("4 : " + orderDTO.getTotalPrice());
+		System.out.println("5 : " + orderDTO.getImp_uid());
 //		System.out.println(client.getBillingCustomer(pvo.getOrderNum()));
 //		System.out.println(client.getAuth());
-		int res = orderService.insert_pay(pvo);
+		int res = orderService.insert_pay(orderDTO);
 		if(res == 1) {
 				System.out.println("biz_member pay coupon insert complete");
 		}
@@ -92,47 +92,66 @@ public class OrderController {
 	
 	@RequestMapping(value = "/pay_info", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<Integer> payInfoPOST(Model model,
+	public ResponseEntity<Long> payInfoPOST(Model model,
 	        HttpServletRequest request, HttpServletResponse response,
-	        @RequestParam String imp_uid) throws Exception {
-		System.out.println("");
+	        @RequestParam String imp_uid,HttpSession session) throws Exception {
 		IamportResponse<Payment> result = client.paymentByImpUid(imp_uid);
-		System.out.println(result);
-		System.out.println(Integer.parseInt(result.getResponse().getMerchantUid()));
-		System.out.println(result.getResponse().getCardName());
-		System.out.println(result.getResponse().getCardNumber());
-		System.out.println(result.getResponse().getCardQuota());
-		System.out.println(result.getResponse().getPayMethod());
-		System.out.println(Integer.parseInt(result.getResponse().getMerchantUid()));
 		
-		System.out.println(result.getResponse().getAmount().intValue());
+		PayDTO payDTO = new PayDTO();
+		payDTO.setNum((Long)session.getAttribute("saveNum"));
+		payDTO.setOrderNum(Long.parseLong(result.getResponse().getMerchantUid()));
+		payDTO.setPayMethod(result.getResponse().getPayMethod());
+		payDTO.setPayName(result.getResponse().getName());
+		payDTO.setPayAmount(result.getResponse().getAmount().longValue());
 		
-
-	    
-	    return new ResponseEntity<Integer>(1, HttpStatus.OK);
+		orderService.insert_payinfo(payDTO);
+		
+		payDTO = orderService.getLastPay(payDTO);
+		System.out.println(payDTO);
+		model.addAttribute("payDTO", payDTO);
+		
+		
+		
+		
+		return new ResponseEntity<Long>(payDTO.getPayNum(), HttpStatus.OK);
 	}
 	
 	
-//	@PostMapping("complete")
-//	@ResponseBody
-//	public ResponseEntity<String> paymentComplete(@RequestBody OrderDTO pvo,HttpSession session, long totalPrice) throws Exception {
-//
-//		System.out.println("pvo.getMerchant_uid : " + pvo.getOrderNum());
-//		System.out.println("2" + pvo.getScNum());
-//		System.out.println("3 : " + pvo.getNum());
-//		System.out.println("4 : " + pvo.getOrderDate());
-//		System.out.println("5 : " + pvo.getPayMethod());
-//		System.out.println("6 : " + pvo.getTotalPrice());
-//		System.out.println("7 : " + pvo.getImp_uid());
-//		int res = orderService.insert_pay(pvo);
-//		if(res == 1) {
-//			if(res == 1)
-//				System.out.println("biz_member pay coupon insert complete");
-//		}
-//		
-//		
-//		
-//		return new ResponseEntity<String>(HttpStatus.OK);
-//	}
+
+	// 마이페이지 - 주문 목록
+		@GetMapping(value = "myOrderList")
+		public String myOrder(OrderDTO orderDTO,HttpSession session, Model model,
+				@RequestParam(value = "pagingNum", required = false, defaultValue = "1") String pagingNum) throws Exception{
+
+			System.out.println("myorderList");
+			Long saveNUM = (Long)(session.getAttribute("saveNUM"));
+			List<Integer> codeList = orderService.MyOrderCount(saveNUM); 
+			
+			System.out.println("saveNum : " + saveNUM);
+			System.out.println("codeList : " +codeList);
+			UserCriteria cri = new UserCriteria();
+			cri.setPage(Integer.parseInt(pagingNum));
+			cri.setPerPageNum(3);
+			
+			System.out.println("cri : " + cri);
+			
+			List<Integer> limitList = new ArrayList<Integer>();
+			try {
+				limitList = codeList.subList(cri.getPageStart(), cri.getPageStart()+3);
+			} catch (Exception e) {
+				limitList = codeList.subList(cri.getPageStart(), codeList.size());
+			}
+			Map<Long, List> orderMap = orderService.getMyOrderList(saveNUM, limitList);
+
+			UserPageMaker pm = new UserPageMaker();
+			pm.setCri(cri);
+			pm.setTotalCount(codeList.size());
+
+			model.addAttribute("orderMap", orderMap);
+			model.addAttribute("pagingNum", pagingNum);
+			model.addAttribute("pm", pm);
+
+			return "order/myOrderList";
+		}
 
 }

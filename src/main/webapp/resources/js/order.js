@@ -7,9 +7,6 @@ $(document).ready(function(){
 })
 
 function requestPay() {
- 
-    
-	
     
     // IMP.request_pay(param, callback) 결제창 호출
     var uid = '';
@@ -17,7 +14,7 @@ function requestPay() {
     IMP.request_pay({ // param
         pg: "html5_inicis",
         pay_method: "card",
-        merchant_uid: "mechant_"+new Date().getTime(), //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
+        merchant_uid: 59, //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
         name: "구디스터디카페", //결제창에 노출될 상품명
         amount: 100, //금액
         buyer_email : "testiamport@naver.com", 
@@ -37,19 +34,16 @@ function requestPay() {
                     // 주문정보 생성 및 테이블에 저장 
                     // @@ 주문정보는 상품 개수만큼 생성되어야 해서 상품 개수만큼 반복문을 돌린다
                     // 이때 order code는 모두 같아야 한다.
-                    console.log("지금 1")
-                    
-                    
+                    console.log("지금 1")             
 		        	
                         // 데이터를 json으로 보내기 위해 바꿔준다.
                         data = JSON.stringify({
-                            "orderNum" : rsp.imp_uid,
-                            "scNum" : rsp.merchant_uid,
-                            "num" : 'testiamport5@naver.com',
+                            "orderNum" : 59,
+                            "productNum" : 54,
+                            "num" : 44,
                             "orderDate" : new Date().getTime(),
-                            "payMethod" : rsp.paid_amount,
-                            "totalPrice" : '100원',
-                            "imp_uid" : 'payed'
+                            "totalPrice" : rsp.paid_amount,
+                            "imp_uid" : rsp.imp_uid
                         });
 					
                         jQuery.ajax({
@@ -94,7 +88,7 @@ function createPayInfo(uid) {
             
             alert('결제가 완료 되었습니다.');
             // 결제완료 페이지로 이동
-            location.replace('/order/complete?pay_num='+data);
+            location.replace('/order/complete?payNum='+data);
         },
         error: function() {
             alert('결제정보 저장 통신 실패');

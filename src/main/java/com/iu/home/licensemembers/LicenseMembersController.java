@@ -1,5 +1,7 @@
 package com.iu.home.licensemembers;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -49,7 +51,7 @@ public class LicenseMembersController {
 		System.out.println("DB에 로그인 실행");
 		// "Redirect: 다시 접속할 URL 주소(절대경로,상대경로)"
 		ModelAndView mv = new ModelAndView();
-		System.out.println("2"+licenseMembersDTO.getUserName()+licenseMembersDTO.getPassword());
+		
 		licenseMembersDTO = licenseMembersService.getLogin(licenseMembersDTO);
 		int result = 0;
 		String message = "로그인실패";
@@ -69,6 +71,8 @@ public class LicenseMembersController {
 		HttpSession session =request.getSession();
 		
 		session.setAttribute("check", licenseMembersDTO);
+		session.setAttribute("saveNum", licenseMembersDTO.getNum());
+		
 		System.out.println("2"+licenseMembersDTO);
 		return mv;
 	}

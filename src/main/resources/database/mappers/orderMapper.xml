@@ -7,7 +7,40 @@
  
  	<insert id ="insert_pay" parameterType="OrderDTO">
  		insert into SC_ORDER_USER
- 		values(#{orderNum},#{scNum}, #{num},#{orderDate}, #{payMethod}, #{totalPrice}, #{imp_uid})
+ 		values(#{orderNum},#{productNum}, #{num},#{orderDate},#{totalPrice}, #{imp_uid})
 	</insert>
-    	
+    
+    <insert id ="insert_payinfo" parameterType="PayDTO">
+    	INSERT INTO SCPAY
+    	VALUES(CAFE_SEQ.NEXTVAL,#{num},#{orderNum},#{payMethod},#{payName},SYSDATE,#{payAmount})   
+    </insert>
+    <select id="getLastPay" parameterType = "PayDTO" resultType="PayDTO">
+	    SELECT *
+	        FROM scpay
+	        WHERE paynum = (SELECT MAX(payNum)
+			FROM scpay)
+    </select>
+    
+    <select id="getPay" resultType="PayDTO">
+        SELECT *
+        FROM SCpay
+        WHERE payNum = #{payNum}
+    </select>
+    
+    <select id="orderCount" parameterType="Long" resultType="Long">
+    	SELECT orderNum
+    	FROM SCPAY
+    	WHERE num=#{num}
+    </select>
+    
+    <!-- 주문 목록 -->
+    <select id="myOrderList" parameterType="Long" resultType="ORDERDTO">
+		SELECT *
+		from SC_ORDER_USER  o
+		JOIN STUDYCAFEDETAIL  p ON p.productNum= o.productNum
+		WHERE o.orderNum=#{orderNum}
+    </select>
+    
+    
+    
 </mapper>

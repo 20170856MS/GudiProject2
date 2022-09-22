@@ -18,7 +18,7 @@
 
 	<select id="getLogin" parameterType="LicenseMembersDTO"
 		resultMap="getRoleResult">
-		SELECT LM.USERNAME, LM.NAME, LR.ROLENUM,AR.ROLENAME
+		SELECT LM.NUM, LM.USERNAME, LM.NAME, LR.ROLENUM,AR.ROLENAME
 		FROM 
 		    LiCENSEMEMBERS LM
 		    INNER JOIN
@@ -33,6 +33,7 @@
 	
 	<resultMap type="LicenseMembersDTO" id="getRoleResult">
     	<id column="USERNAME" property="userName"></id>
+    	<result column="NUM" property="num"></result>
 		<result column="NAME" property="name"></result>
 		<collection property="adminRoleDTOs" javaType="List" ofType="AdminRoleDTO">
 			<id column="ROLENUM" property="roleNum"></id>
