@@ -39,7 +39,6 @@
 		<section class="container-fluid col-lg-8 mt-5">
 			<div class="row">
 			
-	         	<form action="./cafeList" method="POST">
 		         	<h1>방 선택</h1>
 		         	<table>
 		         		<tr>
@@ -105,18 +104,17 @@
 					</article>
 	        
 				
-					<button id="sendDate" type="submit">예약완료</button>
-				</form>
+					<button id="sendDate" type="button">예약완료</button>
 			
 		
 			</div>
 		</section>
 		
-	<script src="/resources/js/studyCafe.js"></script>
 	<c:import url="../template/footer.jsp"></c:import>
 	    
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 		<script src="/resources/js/common.js">
 	</script>
+	<script src="/resources/js/studyCafe.js"></script>
 </body>
 </html>

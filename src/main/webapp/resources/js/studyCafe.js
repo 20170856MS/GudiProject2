@@ -11,8 +11,14 @@ sendDate.addEventListener("click", function(){
     xhttp.open("POST", "./cafeList");
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
+    console.log(startDate);
+    console.log(endDate);
+    console.log(startTime);
+    console.log(endTime);
+    
     xhttp.send("startDate="+startDate+"&endDate="+endDate+"&startTime="+startTime+"&endTime="+endTime );
 
+    
     xhttp.onreadystatechange = function(){
         if(xhttp.readyState==4 && xhttp.status==200){
             if(this.responseText.trim()=='1'){
