@@ -26,13 +26,14 @@
 			<form action="/UnoMas/order/purchase" class="checkout-form">
 				<div class="row">
 					<div class="col-lg-12">
-						<h4>${check.userName}님의 결제가 완료되었습니다!</h4>
-						<div class="row pl-3">
+						<h4>${check.userName}님의 결제가 완료되었습니다!</h4>    
+             
+                            <div class="row pl-3">
 							<div class="col-lg-1">
 								<label for="fir">주문일자</label>
 							</div>
 							<div class="col-lg-11 text-left">
-								<label><strong><fmt:formatDate value="${orderList[0].order_date }" type="date"/></strong></label>
+								<label><strong><fmt:formatDate value="${payDTO.payDate}" type="date"/></strong></label>
 							</div>
 						</div>
 						<div class="row pl-3">
@@ -40,11 +41,11 @@
 								<label for="cun-name">주문번호</label>
 							</div>
 							<div class="col-lg-11 text-left">
-								<label><strong>${payVO.pay_num }</strong></label>
+								<label><strong>${payDTO.orderNum}</strong></label>
 							</div>
 						</div>
 						<br><hr><br>
-					    <h4>주문내역</h4>
+					    <img src="/resources/img/nav4_1.png" width="80" height="80"></a>
 						<div class="row">
 							<div class="col-lg-12">
 								<table cellspacing="0" border="1" class="orderTable mgt">
@@ -59,28 +60,28 @@
 										</tr>
 									</thead>
 									<tbody>
-									    <c:forEach var="order" items="${orderList }" varStatus="i">
+									    
 											<tr class="group">
 												<td class="product">
 													<div class="row">
 														<div class="col-lg-2 text-center">
 															<div class="img_center">
-															    <a href="/UnoMas/product/product_detail?prod_num=${order.prod_num }" target="_blank">
-															    <img src="<spring:url value="/resources/upload/images/products/thumbnail/${prodThumbList[i.index] }"></spring:url>" width="80" height="80"></a>
+															    <a href="/UnoMas/product/product_detail?prod_num=${order.productNum }" target="_blank">
+															    <img src="/resources/img/cafeimg2.jpg" width="80" height="80"></a>
 																<!--N=a:odd.product-->
 															</div>
 														</div>
 														<div class="col-lg-10 align-self-center">
 															<a href="/UnoMas/product/product_detail?prod_num=${order.prod_num }"
-																target="_blank">${order.prod_name }</a>
+																target="_blank">${payDTO.payName}</a>
 															<!--N=a:odd.product-->
 														</div>
 													</div>
 												</td>
-												<td class="money"><strong><fmt:formatNumber value="${order.order_total }" type="number"/></strong>원<br>
-													<span>(${order.order_quantity }개)</span></td>
+												<td class="money"><strong><fmt:formatNumber value="${payDTO.payAmount}" type="number"/></strong>원<br>
+													
 											</tr>
-									    </c:forEach>
+									   
 									</tbody>
 								</table>
 								<br><br>
@@ -101,7 +102,7 @@
 												<label>상품금액</label>
 											</div>
 											<div class="col-lg-5 text-right">
-											    <strong id="total"><fmt:formatNumber value="${payVO.pay_total_price + payVO.pay_point - payVO.pay_shippingfee }" type="number"/></strong> 원
+											    <strong id="total"><fmt:formatNumber value="${payDTO.payAmount}" type="number"/></strong> 원
 											</div>
 										</div>
 									</div>
@@ -124,7 +125,7 @@
 						                <label>결제정보</label>
 						            </div>
 						            <div class="col-lg-5 text-right">
-						                <strong>카드결제</strong>
+						                <strong>${payDTO.payMethod} 결제!!</strong>
 						            </div>
 						        </div>
 						        <div class="row">
@@ -140,7 +141,7 @@
 						                <label>결제금액</label>
 						            </div>
 						            <div class="col-lg-5 text-right">
-						                <strong id="orderTotal"><fmt:formatNumber value="${payVO.pay_total_price }" type="number"/></strong> 원
+						                <strong id="orderTotal"><fmt:formatNumber value="${payDTO.payAmount}" type="number"/></strong> 원
 						            </div>
 						        </div>
 						    </div>
@@ -153,8 +154,8 @@
 				<br>
 				<div class="row text-center">
 					<div class="col-lg-12 mt-5">
-					    <button type="button" class="site-btn" onclick="location.href='/UnoMas';">홈</button>
-						<button type="button" class="site-btn" onclick="location.href='/UnoMas/user/mypage';">마이페이지</button>
+					    <button type="button" class="site-btn" onclick="location.href='/';">홈</button>
+						<button type="button" class="site-btn" onclick="location.href='/member/myPage';">마이페이지</button>
 					</div>
 				</div>
 			</form>

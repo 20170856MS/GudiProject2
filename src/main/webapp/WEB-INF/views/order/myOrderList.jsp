@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="/resources/css/myOrderList.css">
+<link rel="stylesheet" href="/resources/css/paging.css">
+
 </head>
 <body>
 	
@@ -44,21 +46,21 @@
 									<td colspan="4" class="null_text">상품 문의 내역이 없습니다.</td>
 								</c:when>
 								<c:otherwise>
-									<c:forEach var="map" items="${orderMap }" varStatus="it">
+									<c:forEach var="map" items="${orderMap}" varStatus="it">
 										<c:set var="index" value="${it.index}" />
-										<fmt:formatDate var="regdate" value="${map.value[0].order_date}" pattern="yyyy-MM-dd" />
+										<fmt:formatDate var="regdate" value="${map.value[0].orderDate}" pattern="yyyy-MM-dd" />
 										<tr>
-											<td class="order_num_td">${regdate }<br>
-													( ${map.key } )<br>
+											<td class="order_num_td">${regdate}<br>
+													( ${map.key} )<br>
 													<a href="/UnoMas/order/order_detail?code=${map.key }&pagingNum=${pagingNum }" class="table_btn">주문 상세보기</a>
 											</td>
-											<c:forEach var="val" items="${map.value }" varStatus="itt">
+											<c:forEach var="val" items="${map.value}" varStatus="itt">
 												<td class="order_info_td">
-													<img src='<spring:url value="/resources/upload/images/products/top/${val.prod_image1 }"></spring:url>' alt="이미지">
+													<img src="/resources/img/cafeimg1.jpg" width="50"> 
 													<div>
-														<a href="/UnoMas/product/product_detail?prod_num=${val.prod_num }"> ${val.prod_name } </a>
+														<a href="/UnoMas/product/product_detail?prod_num=${val.productNum }"> ${val.productName } </a>
 														<hr>
-														<span>${val.prod_price }원</span> / <span>${val.order_quantity }개</span>
+														<span>${val.totalPrice }원</span> 
 													 </div>
 												</td>
 											</c:forEach>

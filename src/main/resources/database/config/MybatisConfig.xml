@@ -20,13 +20,14 @@
 		<typeAlias type="com.iu.home.licenseList.VideoDTO" alias="VideoDTO"/>
 		
 		<typeAlias type="com.iu.home.licenseorder.OrderDTO" alias="OrderDTO"/>
+		<typeAlias type="com.iu.home.licenseorder.PayDTO" alias="PayDTO"/>
 		
 
 	
 	
 		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.lang.Long" alias="Long"/>		
-
+		<typeAlias type="java.lang.Integer" alias="int"/>		
 		<typeAlias type="java.util.List" alias="List"/>
 
 		<typeAlias type="com.iu.home.util.Pager" alias="Pager"/>

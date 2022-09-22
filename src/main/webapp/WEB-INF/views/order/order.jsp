@@ -17,8 +17,6 @@
 	href="/resources/css/order.css?after22">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
-<!-- 아임포트 -->
-<script src ="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 </head>
 <body>
 	
@@ -27,15 +25,14 @@
     <section class="checkout-section spad mt-5">
         <div class="container">
             <div class="checkout-form">
-                <input type="hidden" value="${order_code }" id="orderCode">
-                <input type="hidden" value="${sessionScope.saveNUM }" id="userNum">
-                <input type="hidden" value="${fn:length(orderList) }" id="prodCnt">
+                <input type="hidden" value="${orderNum}" id="orderCode">
+                <input type="hidden" value="${saveNum}" id="userNum">
                 <div class="row">
                     <div class="col-lg-6">
                         <h4>주문자 정보</h4>
                         <div class="row">
                             <div class="col-lg-12">
-                                <label for="fir" id="userName">${session.userName}</label>
+                                <label for="fir" id="userName">${check.userName}</label>
                             </div>
                             <div class="col-lg-12">
                                 <label for="cun-name">${fn:substring(userVO.user_phone, 0, 3) } 
@@ -212,7 +209,7 @@
                     </div>
                 </div>
                 <div>
-                    <button id="iamportPayment" type="button">결제테스트</button> 
+                    <button id="iamportPayment" type="submit">결제테스트</button> 
                 </div>
             </div>
         </div>
@@ -225,6 +222,9 @@
     <script src="/resources/js/order.js">
         
     </script>
+    <!-- 아임포트 -->
+<script src ="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
+
     <script src="/resources/js/common.js">
 
     </script>

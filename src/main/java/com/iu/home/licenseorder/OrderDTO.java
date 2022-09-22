@@ -4,39 +4,40 @@ import java.sql.Date;
 
 public class OrderDTO {
 
-	private String orderNum;
-	private String scNum;
-	private String num;
+	private Long orderNum;
+	private Long productNum;
+	private Long num;
+	private String productName;
 	private Date orderDate;
-	private String payMethod;
-	private String totalPrice;
+	private Long totalPrice;
 	private String imp_uid;
 	
 	
 	
-	public String getNum() {
-		return num;
-	}
-	public void setNum(String num) {
-		this.num = num;
-	}
-	public String getImp_uid() {
-		return imp_uid;
-	}
-	public void setImp_uid(String imp_uid) {
-		this.imp_uid = imp_uid;
-	}
-	public String getOrderNum() {
+	public Long getOrderNum() {
 		return orderNum;
 	}
-	public void setOrderNum(String orderNum) {
+	public void setOrderNum(Long orderNum) {
 		this.orderNum = orderNum;
 	}
-	public String getScNum() {
-		return scNum;
+	public Long getProductNum() {
+		return productNum;
 	}
-	public void setScNum(String scNum) {
-		this.scNum = scNum;
+	public void setProductNum(Long productNum) {
+		this.productNum = productNum;
+	}
+	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public Long getNum() {
+		return num;
+	}
+	public void setNum(Long num) {
+		this.num = num;
 	}
 	public Date getOrderDate() {
 		return orderDate;
@@ -44,19 +45,22 @@ public class OrderDTO {
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-	
-	public String getTotalPrice() {
+	public Long getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(String totalPrice) {
+	public void setTotalPrice(Long totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public String getPayMethod() {
-		return payMethod;
+	public String getImp_uid() {
+		return imp_uid;
 	}
-	public void setPayMethod(String payMethod) {
-		this.payMethod = payMethod;
+	public void setImp_uid(String imp_uid) {
+		this.imp_uid = imp_uid;
 	}
+	
+	
+	
+	
 	
 	
 }
