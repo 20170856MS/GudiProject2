@@ -14,6 +14,7 @@ public class PayDTO {
 	private String payName;
 	private Date payDate; // sysdate
 	private Long payAmount;
+	private String payTest;
 	
 	public Long getPayNum() {
 		return payNum;
@@ -22,13 +23,14 @@ public class PayDTO {
 		this.payNum = payNum;
 	}
 	
+	
+	
 	public Long getNum() {
 		return num;
 	}
 	public void setNum(Long num) {
 		this.num = num;
 	}
-	
 	public Long getOrderNum() {
 		return orderNum;
 	}
@@ -58,6 +60,12 @@ public class PayDTO {
 	}
 	public void setPayAmount(Long payAmount) {
 		this.payAmount = payAmount;
+	}
+	public String getPayTest() {
+		return payTest;
+	}
+	public void setPayTest(String payTest) {
+		this.payTest = payTest;
 	}
 	
 	

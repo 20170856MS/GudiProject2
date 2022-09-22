@@ -34,16 +34,21 @@ public class OrderService {
 	}
 	
 	// 총 주문 개수
-	public List<Integer> MyOrderCount(Long num) throws Exception {
+	public List<Long> MyOrderCount(String num) throws Exception {
 		
 		return orderDAO.myOrderCount(num);
 	}
 		
 
 	// 내 주문 목록
-	public Map<Integer, List> getMyOrderList(String num, List limitList) throws Exception {
+	public Map<Long, List> getMyOrderList(String num, List limitList) throws Exception {
 		
 		return orderDAO.getMyOrderList(num, limitList);
+	}
+	
+	public int getLastOrderNum() throws Exception{
+		
+		return orderDAO.getLastOrderNum();
 	}
 	
 	

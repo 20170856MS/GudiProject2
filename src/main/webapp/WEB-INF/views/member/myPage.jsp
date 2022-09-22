@@ -70,7 +70,7 @@
 		    		
 		    		
 		    		<div>
-						<a href="../order/complete">
+						<a href="../order/myOrderList">
 							<span class="img_box">
 								<img src="/resources/img/icon55.png" alt="주문내역">
 							</span>

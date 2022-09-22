@@ -7,9 +7,13 @@ public class OrderDTO {
 	private Long orderNum;
 	private Long productNum;
 	private Long num;
+	private String productName;
 	private Date orderDate;
 	private Long totalPrice;
 	private String imp_uid;
+	
+	
+	
 	public Long getOrderNum() {
 		return orderNum;
 	}
@@ -21,6 +25,13 @@ public class OrderDTO {
 	}
 	public void setProductNum(Long productNum) {
 		this.productNum = productNum;
+	}
+	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	public Long getNum() {
 		return num;

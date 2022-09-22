@@ -4,16 +4,26 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.iu.home.licenseorder.OrderDAO">
- 
+ 	
+ 	<!-- 주문 정보 생성 -->
  	<insert id ="insert_pay" parameterType="OrderDTO">
  		insert into SC_ORDER_USER
- 		values(#{orderNum},#{productNum}, #{num},#{orderDate},#{totalPrice}, #{imp_uid})
+ 		values(#{orderNum},#{productNum}, #{num},#{productName},#{orderDate},#{totalPrice}, #{imp_uid})
 	</insert>
     
+    <!-- 결제 정보 생성 -->
     <insert id ="insert_payinfo" parameterType="PayDTO">
     	INSERT INTO SCPAY
-    	VALUES(CAFE_SEQ.NEXTVAL,#{num},#{orderNum},#{payMethod},#{payName},SYSDATE,#{payAmount})   
+    	VALUES(CAFE_SEQ.NEXTVAL,#{num},#{orderNum},#{payMethod},#{payName},SYSDATE,#{payAmount},#{payTest})   
     </insert>
+    
+    <!-- 가장 마지막 주문번호 찾기 -->
+    <select id="getLastOrderNum" resultType="int">
+        SELECT MAX(orderNum)
+        FROM sc_order_NUM
+    </select>
+    
+    <!-- 마지막에 결제된 방금 결제된 주문정보 가져오기 -->
     <select id="getLastPay" parameterType = "PayDTO" resultType="PayDTO">
 	    SELECT *
 	        FROM scpay
@@ -21,23 +31,25 @@
 			FROM scpay)
     </select>
     
+    <!--  결제 정보 가져오기 -->
     <select id="getPay" resultType="PayDTO">
         SELECT *
         FROM SCpay
         WHERE payNum = #{payNum}
     </select>
     
-    <select id="orderCount" parameterType="Long" resultType="Long">
+    <!-- 주문개수  -->
+    <select id="orderCount" parameterType="String" resultType="Long">
     	SELECT orderNum
     	FROM SCPAY
     	WHERE num=#{num}
     </select>
     
     <!-- 주문 목록 -->
-    <select id="myOrderList" parameterType="Long" resultType="ORDERDTO">
+    <select id="myOrderList" parameterType="Long" resultType="OrderDTO">
 		SELECT *
 		from SC_ORDER_USER  o
-		JOIN STUDYCAFEDETAIL  p ON p.productNum= o.productNum
+		JOIN STUDYCAFEDETAIL p ON p.productNum= o.productNum
 		WHERE o.orderNum=#{orderNum}
     </select>
     

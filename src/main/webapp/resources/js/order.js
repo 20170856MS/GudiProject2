@@ -1,20 +1,29 @@
 const iamportPayment = document.querySelector("#iamportPayment")
+const orderCode = document.querySelector("orderCode")
+
+let count = 103;
 
 $(document).ready(function(){ 
+    
+    
 	$("#iamportPayment").click(function(){ 
     	requestPay(); //버튼 클릭하면 호출 
+    
     }); 
 })
 
+
 function requestPay() {
-    
+    let count1 = $('#orderNum');
+    console.log(count1);
+    count++;
     // IMP.request_pay(param, callback) 결제창 호출
     var uid = '';
     IMP.init('imp10453708');
     IMP.request_pay({ // param
         pg: "html5_inicis",
         pay_method: "card",
-        merchant_uid: 59, //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
+        merchant_uid: count, //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
         name: "구디스터디카페", //결제창에 노출될 상품명
         amount: 100, //금액
         buyer_email : "testiamport@naver.com", 
@@ -38,9 +47,10 @@ function requestPay() {
 		        	
                         // 데이터를 json으로 보내기 위해 바꿔준다.
                         data = JSON.stringify({
-                            "orderNum" : 59,
+                            "orderNum" :  count,
                             "productNum" : 54,
                             "num" : 44,
+                            "productName" : rsp.name,
                             "orderDate" : new Date().getTime(),
                             "totalPrice" : rsp.paid_amount,
                             "imp_uid" : rsp.imp_uid
