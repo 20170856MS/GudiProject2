@@ -167,5 +167,15 @@ public class OrderController {
 			model.addAttribute("pm", pm);
 			return "order/myOrderList";
 		}
+		
+		@PostMapping("payMentCancel")
+		@ResponseBody
+		public int payMentCancle(@RequestParam(value= "orderNum") String orderNum) throws Exception{
+			int result1 = 0;
+			System.out.println("1 : " + Long.valueOf(orderNum));
+			return result1;
+		}
+		
+		
 
 }

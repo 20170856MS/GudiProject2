@@ -1,7 +1,6 @@
 const iamportPayment = document.querySelector("#iamportPayment")
 const orderCode = document.querySelector("orderCode")
 
-
 $(document).ready(function(){ 
     
     
@@ -43,6 +42,7 @@ function requestPay() {
 		        	
                         // 데이터를 json으로 보내기 위해 바꿔준다.
                         data = JSON.stringify({
+
                             "orderNum" :  rsp.merchant_uid,
                             "productNum" : 54,
                             "num" : 44,

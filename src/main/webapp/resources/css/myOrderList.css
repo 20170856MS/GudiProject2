@@ -125,6 +125,11 @@ th, td {
     font-weight: normal;
 }
 
+.site-btn {
+	background: #caeced;
+    border: 1px solid #caeced;
+}
+
 
 /* 페이징 스타일*/
 .paging_container {

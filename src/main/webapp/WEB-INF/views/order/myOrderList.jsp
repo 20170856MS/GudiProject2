@@ -13,7 +13,8 @@
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <link rel="stylesheet" href="/resources/css/myOrderList.css">
 <link rel="stylesheet" href="/resources/css/paging.css">
 
@@ -64,7 +65,7 @@
 													 </div>
 												</td>
 												<td >
-													<a href="./myOrderList?orderNum=${val.orderNum}" class="table_btn">주문취소</a><br> 
+													<button type="button" id = "payMentCancel" order-num="${val.orderNum}" class="site-btn" >주문취소</a><br> 
 												</td>
 					
 											</c:forEach>
