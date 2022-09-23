@@ -21,5 +21,12 @@ public class cafeDAO {
 		return sqlSession.selectOne(NAMESPACE+"getDetail", cafeDTO);
 	}
 	
+	public List<cafeRoomDTO> getRoomList(cafeDetailDTO cafeDetailDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getRoomList", cafeDetailDTO);
+	}
+
+	public int addDate(reservationDTO reservationDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"addDate", reservationDTO);
+	}
 	
 }

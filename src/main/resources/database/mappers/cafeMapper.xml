@@ -9,7 +9,16 @@
     	</select>
     	
     	<select id="getDetail" parameterType="cafeDTO" resultType="cafeDetailDTO">
-    		SELECT * FROM STUDYCAFEDETAIL WHERE SCNAME = #{scName}
+    		SELECT * FROM STUDYCAFEDETAIL WHERE SCNAME IN (SELECT SCNAME FROM STUDYCAFE WHERE SCNAME = #{scName})
+    	</select>
+    	<select id="getRoomList" parameterType="cafeDetailDTO" resultType="cafeRoomDTO">
+    		SELECT * FROM STUDYROOMDETAIL WHERE DETAILNUM IN (SELECT DETAILNUM FROM STUDYCAFEDETAIL WHERE DETAILNUM = #{detailNum})
     	</select>
     	
+    	<insert id="addDate" parameterType="reservationDTO">
+    		INSERT INTO SCROOMDETAIL (RDNUM, STARTDATE, ENDDATE, STARTTIME, ENDTIME) VALUES (CAFEROOM_SEQ.NEXTVAL, #{startDate}, #{endDate}, #{startTime}, #{endTime})
+    	</insert>
+    	
     </mapper>
+    
+    

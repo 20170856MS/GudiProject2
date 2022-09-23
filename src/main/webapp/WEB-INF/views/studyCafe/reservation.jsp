@@ -38,16 +38,42 @@
 		<c:import url="../template/header.jsp"></c:import>
 		<section class="container-fluid col-lg-8 mt-5">
 			<div class="row">
-	         
+			
+		        <h1>방 선택</h1>
+		        <table>
+		         	<tr>
+		         		<td>방이름</td>
+		         		<td>방개수</td>
+	
+		         	</tr>
+			         	
+			        <c:forEach items="${roomList}" var="rdto">
+			         	<tr>
+			         		<td>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="radioBtn_${rdto.roomName}" id="radio_${rdto.roomName}">
+									<label class="form-check-label" for="flexRadioDefault1">
+										${rdto.roomName}
+									</label>
+								</div>
+							</td>
+							<td>${rdto.roomCount}</td>
+								
+			     		</tr>
+		         	</c:forEach>
+	         	
+		     	</table>
+		         	
+		         	
 				<h1>일자 예약</h1>
 				<article>
 					<div class="demo">
 						
-							<p id="datepairExample">
-								<input type="text" class="date start" />
-								<input type="text" class="time start" /> to
-								<input type="text" class="date end" />
-								<input type="text" class="time end" />
+							<p id="datepairExample">	
+								<input type="text" name="startDate" class="date start" />
+								<input type="text" name="startTime" class="time start" /> to
+								<input type="text" name="endDate" class="date end" />
+								<input type="text" name="endTime"class="time end" />
 							</p>
 					</div>
 					<script src="https://jonthornton.github.io/Datepair.js/dist/datepair.js"></script>
@@ -56,26 +82,29 @@
 					$('#datepairExample .time').timepicker({
 						'showDuration': true,				
 						'timeFormat': 'g:ia',
-							 
+								 
 						interval: 60,     
 						minTime: '07',     
 						maxTime: '11:00pm',              
 						dynamic: false,     
 						dropdown: true,     
 						scrollbar: true 
-			
+				
 					});
-			
+				
 					$('#datepairExample .date').datepicker({
 						'format': 'yyyy/mm/dd',
 						'autoclose': true
+							
 					});
-			
+				
 					$('#datepairExample').datepair();
 					</script>
-					
+						
 				</article>
-	         
+	        
+				
+				<button id="sendDate" type="button">예약완료</button>
 			
 		
 			</div>
@@ -86,5 +115,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 		<script src="/resources/js/common.js">
 	</script>
+	<script src="/resources/js/studyCafe.js"></script>
 </body>
 </html>
