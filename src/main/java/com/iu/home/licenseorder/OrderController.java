@@ -86,10 +86,16 @@ public class OrderController {
 	@ResponseBody
 	public int paymentComplete(@RequestBody OrderDTO orderDTO) throws Exception {
 
+		
 		System.out.println(orderDTO.getProductName());
 //		System.out.println(client.getBillingCustomer(pvo.getOrderNum()));
 //		System.out.println(client.getAuth());
 		int res = orderService.insert_pay(orderDTO);
+		String token = orderService.getToken();
+		System.out.println("토큰 : " + token);
+//		int amount = orderService.paymentInfo(orderDTO.getImp_uid(), token);
+
+		
 		if(res == 1) {
 				System.out.println("biz_member pay coupon insert complete");
 		} else {

@@ -63,10 +63,12 @@
 														<span>${val.totalPrice }원</span> 
 													 </div>
 												</td>
+												<td >
+													<a href="./myOrderList?orderNum=${val.orderNum}" class="table_btn">주문취소</a><br> 
+												</td>
+					
 											</c:forEach>
 											
-											
-				
 										</tr>
 										</c:forEach>
 									

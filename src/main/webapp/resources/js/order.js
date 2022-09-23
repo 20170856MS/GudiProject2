@@ -1,7 +1,6 @@
 const iamportPayment = document.querySelector("#iamportPayment")
 const orderCode = document.querySelector("orderCode")
 
-let count = 103;
 
 $(document).ready(function(){ 
     
@@ -14,16 +13,13 @@ $(document).ready(function(){
 
 
 function requestPay() {
-    let count1 = $('#orderNum');
-    console.log(count1);
-    count++;
     // IMP.request_pay(param, callback) 결제창 호출
     var uid = '';
     IMP.init('imp10453708');
     IMP.request_pay({ // param
         pg: "html5_inicis",
         pay_method: "card",
-        merchant_uid: count, //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
+        merchant_uid: createOrderNum(), //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
         name: "구디스터디카페", //결제창에 노출될 상품명
         amount: 100, //금액
         buyer_email : "testiamport@naver.com", 
@@ -47,7 +43,7 @@ function requestPay() {
 		        	
                         // 데이터를 json으로 보내기 위해 바꿔준다.
                         data = JSON.stringify({
-                            "orderNum" :  count,
+                            "orderNum" :  rsp.merchant_uid,
                             "productNum" : 54,
                             "num" : 44,
                             "productName" : rsp.name,
@@ -104,4 +100,18 @@ function createPayInfo(uid) {
             alert('결제정보 저장 통신 실패');
         }
     });
+}
+
+// 주문번호 만들기
+function createOrderNum(){
+	const date = new Date();
+	const year = date.getFullYear();
+	const month = String(date.getMonth() + 1).padStart(2, "0");
+	const day = String(date.getDate()).padStart(2, "0");
+	
+	let orderNum = year + month + day;
+	for(let i=0;i<10;i++) {
+		orderNum += Math.floor(Math.random() * 8);	
+	}
+	return orderNum;
 }

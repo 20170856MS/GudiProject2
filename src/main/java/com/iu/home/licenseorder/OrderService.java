@@ -14,22 +14,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
+import okhttp3.Response;
 
 @Service
 public class OrderService {
 	
-	@Value("${imp_key}")
+	//---------------------환불, 결제 토큰생성
+	@Value("7017488345532835")
 	private String impKey;
 
-	@Value("${imp_secret}")
+	@Value("r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM")
 	private String impSecret;
+	
+	
+//	private class Response {
+//		private PayDTO response;
+//	}
+	
+	
+	
+	
 
 	public String getToken() throws Exception {
 
 		HttpsURLConnection conn = null;
-
 		URL url = new URL("https://api.iamport.kr/users/getToken");
 
 		conn = (HttpsURLConnection) url.openConnection();
@@ -64,6 +76,77 @@ public class OrderService {
 
 		return token;
 	}
+	
+//	public int paymentInfo(PayDTO payDTO, String imp_uid, String access_token) throws Exception {
+//	    HttpsURLConnection conn = null;
+//	 
+//	    URL url = new URL("https://api.iamport.kr/payments/" + imp_uid);
+//	 
+//	    conn = (HttpsURLConnection) url.openConnection();
+//	 
+//	    conn.setRequestMethod("GET");
+//	    conn.setRequestProperty("Authorization", access_token);
+//	    conn.setDoOutput(true);
+//	 
+//	    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+//	    
+//	    Gson gson = new Gson();
+//	    
+//	    Response response = gson.fromJson(br.readLine(), Response.class);
+//	    
+//	    br.close();
+//	    conn.disconnect();
+//	    
+//	    return response.(payDTO.getPayAmount());
+//	}
+	
+	public void payMentCancle(String access_token, String imp_uid, int amount, String reason) throws Exception  {
+		System.out.println("결제 취소");
+		
+		System.out.println(access_token);
+		
+		System.out.println(imp_uid);
+		
+		HttpsURLConnection conn = null;
+		URL url = new URL("https://api.iamport.kr/payments/cancel");
+ 
+		conn = (HttpsURLConnection) url.openConnection();
+ 
+		conn.setRequestMethod("POST");
+ 
+		conn.setRequestProperty("Content-type", "application/json");
+		conn.setRequestProperty("Accept", "application/json");
+		conn.setRequestProperty("Authorization", access_token);
+ 
+		conn.setDoOutput(true);
+		
+		JsonObject json = new JsonObject();
+ 
+		json.addProperty("reason", reason);
+		json.addProperty("imp_uid", imp_uid);
+		json.addProperty("amount", amount);
+		json.addProperty("checksum", amount);
+ 
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+ 
+		bw.write(json.toString());
+		bw.flush();
+		bw.close();
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+ 
+		br.close();
+		conn.disconnect();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	//------------------------------------------------iamport 주문 
 	@Autowired
 	private OrderDAO orderDAO;
 	
