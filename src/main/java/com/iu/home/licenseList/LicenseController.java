@@ -1,12 +1,15 @@
 package com.iu.home.licenseList;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.util.Pager;
@@ -34,14 +37,14 @@ public class LicenseController {
 	@GetMapping("detail")
 	public ModelAndView getDetail(LicenseDTO licenseDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-
+		
 		int result = licenseService.setHits(licenseDTO);
 		LicenseDTO name=licenseService.getLicenseName(licenseDTO);
 		List<LicenseDTO> detailBook = licenseService.getDetailBook(licenseDTO);
 		List<LicenseDTO> detailVideo = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> detailJob = licenseService.getDetailJob(licenseDTO);
 		List<LicenseDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
-				
+		
 		mv.addObject("name",name);
 		mv.addObject("detailBook",detailBook);
 		mv.addObject("detailVideo",detailVideo);
@@ -50,6 +53,18 @@ public class LicenseController {
 		mv.setViewName("/info/detail");
 		return mv;	
 	}
+	@GetMapping("detailAjax")
+	@ResponseBody
+	public Map<String,Object> getDetailAjax(LicenseDTO licenseDTO) throws Exception{
+
+		
+		List<LicenseDTO> dj = licenseService.getDetailJob(licenseDTO);
+		
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("dj", dj);
+		return map;
+	}
+
 	
 	@GetMapping("update")
 	public ModelAndView setUpdate(LicenseDTO licenseDTO) throws Exception{

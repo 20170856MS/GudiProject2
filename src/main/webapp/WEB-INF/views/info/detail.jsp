@@ -43,7 +43,7 @@
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5 user-wrap">
                 <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" alt="..." /></div>
-                <div class="user-text">${name.licenseName}</div>
+                <div class="user-text" id="license" data-license-num="${name.licenseNum}">${name.licenseName}</div>
                 <div class="col-lg-5 user-schedule" >
                     <h1 class="font-weight-light user-texts">일정</h1>
                     <p>
@@ -54,9 +54,9 @@
 							</c:forEach>
 						</div>
 					</p>
-						<a class="btn btn-primary" href="./add?licenseNum=${name.licenseNum}">추가</a>
-						<a class="btn btn-primary" href="./update?licenseNum=${name.licenseNum}">수정</a>
-						<a class="btn btn-primary" href="#!">삭제</a>
+						<a class="btn btn-primary" id="as" href="./add?licenseNum=${name.licenseNum}">추가</a>
+						<a class="btn btn-primary" id="us" href="./update?licenseNum=${name.licenseNum}">수정</a>
+						<a class="btn btn-primary" id="ds" href="#!">삭제</a>
                 </div>
             </div>
             <!-- Call to Action-->
@@ -83,9 +83,9 @@
                             </p>
                         </div>
                         <div class="card-footer">
-							<a class="btn btn-primary btn-sm" href="#!">추가</a>
-							<a class="btn btn-primary btn-sm" href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm" id="ab"href="#!">추가</a>
+							<a class="btn btn-primary btn-sm" id="ub"href="#!">수정</a>
+							<a class="btn btn-primary btn-sm" id="db"href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -102,9 +102,9 @@
 							</p>
                         </div>
                         <div class="card-footer user-wrap">
-							<a class="btn btn-primary btn-sm" href="#!" id="add">추가</a>
-							<a class="btn btn-primary btn-sm" href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm" id="av" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm" id="uv" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm" id="dv" href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -136,33 +136,33 @@
 			<button type="button" style="display:none;"class="btn btn-primary" id="up" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Update</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<input type="hidden" id="num">
-						<div class="mb-3">
-							<label for="recipient-name" class="col-form-label">Writer</label>
-							<input type="text" class="form-control" id="updateWriter">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="mt"></h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
-						<div class="mb-3">
-							<label for="message-text" class="col-form-label">Contents</label>
-							<textarea class="form-control" id="updateContents"></textarea>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">취소</button>
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="update">수정</button>
-				</div>
-				</div>
-			</div>
-			</div>
+						<div class="modal-body">
+							<form id="mb">
+								<input type="hidden" id="num">
+								<div class="mb-3">
+									<label for="recipient-name" class="col-form-label">Writer</label>
+									<input type="text" class="form-control" id="updateWriter">
+								</div>
+								<div class="mb-3">
+									<label for="message-text" class="col-form-label">Contents</label>
+									<textarea class="form-control" id="updateContents"></textarea>
+								</div>
 
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">취소</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="update">수정</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	<!-- footer.jsp -->
