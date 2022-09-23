@@ -11,6 +11,24 @@
 
 <body>
     <div class="cards">
+        <c:forEach items="${requestScope.list}" var="dto">
+                <div class="card" >
+                    <div class="user-wrap">
+                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
+                        <div class="user-text">조회수 ${dto.licenseHits}</div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${dto.licenseName}</h5>
+                        
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+                        <div class="detail">
+                            <a href="./detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
+                        </div>
+                    </div>
+                </div><br>
+            </c:forEach> 
+        </div>
 
         <div class="card">
             <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
@@ -25,10 +43,15 @@
                 <div class="detail">
                     <a href="./info/detail?licenseNum=1" class="btn btn-primary">자격증 상세 보기</a>
                 </div>
-                <div class="subTxt" data-v-e2b56de6="">
-                    <p data-v-e2b56de6=""><strong data-v-e2b56de6="">필 기 접 수 일 : </strong> 2022-10-14</p>
-                    <p data-v-e2b56de6=""><strong data-v-e2b56de6="">실 기 접 수 일 : </strong> <span class="colorPoint"
-                            data-v-e2b56de6="">2022-11-14</span></p>
+                <div class="col-lg-5 user-schedule" >
+                    <p>
+                        <div>
+                            <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                ${detailSchedule.scheduleDTO.scheduleDate}<br><br>
+                            </c:forEach>
+                        </div>
+                    </p>
                 </div>
             </div>
         </div><br>

@@ -1,0 +1,126 @@
+package com.iu.home;
+
+
+public class HomeDTO {
+	
+	private Long licenseNum;
+	private Long licenseHits;
+	private String licenseName;
+	
+	private Long bookNum;
+	private String bookName;
+	private String bookImage;
+	private Long bookPrice;
+	
+	private Long jobNum;
+	private String jobName;
+	private String jobIntro;
+	
+	private Long scheduleNum;
+	private String scheduleName;
+	private String scheduleDate;
+	
+	private Long videoNum;
+	private String videoTitle;
+	private String videoLink;
+	
+	public Long getLicenseNum() {
+		return licenseNum;
+	}
+	public void setLicenseNum(Long licenseNum) {
+		this.licenseNum = licenseNum;
+	}
+	public Long getLicenseHits() {
+		return licenseHits;
+	}
+	public void setLicenseHits(Long licenseHits) {
+		this.licenseHits = licenseHits;
+	}
+	public String getLicenseName() {
+		return licenseName;
+	}
+	public void setLicenseName(String licenseName) {
+		this.licenseName = licenseName;
+	}
+	public Long getBookNum() {
+		return bookNum;
+	}
+	public void setBookNum(Long bookNum) {
+		this.bookNum = bookNum;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public String getBookImage() {
+		return bookImage;
+	}
+	public void setBookImage(String bookImage) {
+		this.bookImage = bookImage;
+	}
+	public Long getBookPrice() {
+		return bookPrice;
+	}
+	public void setBookPrice(Long bookPrice) {
+		this.bookPrice = bookPrice;
+	}
+	public Long getJobNum() {
+		return jobNum;
+	}
+	public void setJobNum(Long jobNum) {
+		this.jobNum = jobNum;
+	}
+	public String getJobName() {
+		return jobName;
+	}
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
+	}
+	public String getJobIntro() {
+		return jobIntro;
+	}
+	public void setJobIntro(String jobIntro) {
+		this.jobIntro = jobIntro;
+	}
+	public Long getScheduleNum() {
+		return scheduleNum;
+	}
+	public void setScheduleNum(Long scheduleNum) {
+		this.scheduleNum = scheduleNum;
+	}
+	public String getScheduleName() {
+		return scheduleName;
+	}
+	public void setScheduleName(String scheduleName) {
+		this.scheduleName = scheduleName;
+	}
+	public String getScheduleDate() {
+		return scheduleDate;
+	}
+	public void setScheduleDate(String scheduleDate) {
+		this.scheduleDate = scheduleDate;
+	}
+	public Long getVideoNum() {
+		return videoNum;
+	}
+	public void setVideoNum(Long videoNum) {
+		this.videoNum = videoNum;
+	}
+	public String getVideoTitle() {
+		return videoTitle;
+	}
+	public void setVideoTitle(String videoTitle) {
+		this.videoTitle = videoTitle;
+	}
+	public String getVideoLink() {
+		return videoLink;
+	}
+	public void setVideoLink(String videoLink) {
+		this.videoLink = videoLink;
+	}
+	
+	
+	
+}

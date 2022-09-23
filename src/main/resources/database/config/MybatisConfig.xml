@@ -8,7 +8,7 @@
 		<typeAlias type="com.iu.home.licensemembers.LicenseMembersDTO" alias="LicenseMembersDTO"/>
 		<typeAlias type="com.iu.home.licensemembers.AdminRoleDTO" alias="AdminRoleDTO"/>
 		
-		
+		<typeAlias type="com.iu.home.HomeDTO" alias="HomeDTO"/>
 		<typeAlias type="com.iu.home.licenseList.BookDTO" alias="BookDTO"/>
 		<typeAlias type="com.iu.home.licenseList.JobDTO" alias="JobDTO"/>
 		<typeAlias type="com.iu.home.licenseList.LicenseBookDTO" alias="LicenseBookDTO"/>

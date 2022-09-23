@@ -35,7 +35,6 @@
                 <!-- header.jsp -->
                 <c:import url="template/header.jsp"></c:import>
                 <section class="container-fluid col-lg-8 mt-5">
-
                     <!-- calendar -->
                     <div class="wrapper">
 
@@ -112,128 +111,66 @@
                     </div>
 
                 </section>
-                <!-- 자격증 종류 -->
+                <!-- 자격증종류 -->
                 <div class="cards">
+                    <c:forEach items="${requestScope.list}" var="dto">
+                            <div class="card" >
+                                <div class="user-wrap">
+                                    <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
+                                    <div class="user-text">조회수 ${dto.licenseHits}</div>
+                                </div>
+                                <div class="count"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title">${dto.licenseName}</h5>
+                                    
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                
+                                    <div class="detail">
+                                        <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
+                                    </div>
+                                    
+                                    <div class="col-lg-5 user-schedule" >
+                                        <p>
+                                            <div id ="test" schedule-Date="${dto.licenseNum}">
+                                                <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+                                                    ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                    ${detailSchedule.scheduleDTO.scheduleDate}<br><br>
+                                                </c:forEach>
+                                            </div>
+                                        </p>
+                                            <a class="btn btn-primary" href="./add?licenseNum=${name.licenseNum}">추가</a>
+                                            <a class="btn btn-primary" href="./update?licenseNum=${name.licenseNum}">수정</a>
+                                    </div>
 
-                    <div class="card">
-                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
-                        <!-- d-day -->
-                        <div class="count"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">정보처리기사</h5>
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-
-                            <div class="detail">
-                                <a href="./info/detail?licenseNum=1" class="btn btn-primary">자격증 상세 보기</a>
-                            </div>
-                            <!-- <div class="subTxt" data-v-e2b56de6="">
-                            	<input type="text" id="date11" value="${Time.scheduleDate}"/>
-                                <p data-v-e2b56de6=""><strong data-v-e2b56de6="">필 기 접 수 일 : </strong> 2022-10-14</p>
-                                <p data-v-e2b56de6=""><strong data-v-e2b56de6="">실 기 접 수 일 : </strong> <span class="colorPoint"
-                                        data-v-e2b56de6="">2022-11-14</span></p>
-                            </div> -->
-                            <div class="sub-text">
-                            	<input type="text" id="date11" value="${Time.scheduleDate}"/>
+                                </div>
+                            </div><br>
+                        </c:forEach> 
+                    </div>
+                    <!-- 페이지더보기 -->
+                    <div class="paging">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <c:if test="${pager.pre}">
+                                    <li class="page-item">
+                                        <a class="page-link" href="./info/main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                </c:if>
                                 
-                            </div>
-                        </div>
-                    </div><br>
-
-                    <div class="card">
-                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
-                        <!-- d-day -->
-                        <div class="count"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">전기기사</h5>
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-
-                            <div class="detail">
-                                <a href="./info/detail?licenseNum=2" class="btn btn-primary">자격증 상세 보기</a>
-                            </div>
-                        </div>
-                    </div><br>
-
-                    <div class="card">
-                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
-                        <!-- d-day -->
-                        <div class="count"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">한식조리기능사</h5>
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-
-                            <div class="detail">
-                                <a href="./info/detail?licenseNum=3" class="btn btn-primary">자격증 상세 보기</a>
-                            </div>
-                        </div>
-                    </div><br>
-
-                    <div class="card">
-                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
-                        <!-- d-day -->
-                        <div class="count"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">빅데이터분석기사</h5>
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-
-                            <div class="detail">
-                                <a href="./info/detail?licenseNum=4" class="btn btn-primary">자격증 상세 보기</a>
-                            </div>
-                        </div>
-                    </div><br>
-
-                    <div class="card">
-                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
-                        <!-- d-day -->
-                        <div class="count"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">정보처리기능사</h5>
-
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-
-                            <div class="detail">
-                                <a href="./info/detail?licenseNum=5" class="btn btn-primary">자격증 상세 보기</a>
-                            </div>
-                        </div>
-                    </div><br>
-
-                </div>
-
-                <div class="paging">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <c:if test="${pager.pre}">
-                                <li class="page-item">
-                                    <a class="page-link"
-                                        href="./main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}"
-                                        aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
+                                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+                                    <li class="page-item"><a class="page-link" href="./info/main?page=${i}">${i}</a></li>
+                                </c:forEach>
+                                
+                                <li class="page-item ${pager.next?'':'disabled'}">
+                                    <a class="page-link" href="./info/main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
-                            </c:if>
-
-                            <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                                <li class="page-item"><a class="page-link" href="./main?page=${i}">${i}</a></li>
-                            </c:forEach>
-
-                            <li class="page-item ${pager.next?'':'disabled'}">
-                                <a class="page-link"
-                                    href="./main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}"
-                                    aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                            </ul>
+                        </nav>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
 
             </div>
 
