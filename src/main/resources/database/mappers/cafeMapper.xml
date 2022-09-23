@@ -16,7 +16,7 @@
     	</select>
     	
     	<insert id="addDate" parameterType="reservationDTO">
-    		INSERT INTO SCROOMDETAIL (RDNUM, STARTDATE, ENDDATE, STARTTIME, ENDTIME) VALUES (CAFEROOM_SEQ, #{startDate}, #{endDate}, #{startTime}, #{endTime})
+    		INSERT INTO SCROOMDETAIL (RDNUM, STARTDATE, ENDDATE, STARTTIME, ENDTIME) VALUES (CAFEROOM_SEQ.NEXTVAL, #{startDate}, #{endDate}, #{startTime}, #{endTime})
     	</insert>
     	
     </mapper>

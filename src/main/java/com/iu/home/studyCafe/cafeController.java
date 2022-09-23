@@ -62,7 +62,7 @@ public class cafeController {
 	@RequestMapping(value="cafeList", method=RequestMethod.POST)
 	public ModelAndView addDate(reservationDTO reservationDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println("post 실행");
+		System.out.println("cafeList post 실행");
 		int result = cafeService.addDate(reservationDTO);
 		
 		mv.setViewName("redirect:./cafeList");
