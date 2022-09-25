@@ -44,21 +44,47 @@ payMentCancel.addEventListener("click",function(){
 
 function cancelPay(){
     // IMP.init('imp10453708');
-    $.ajax({
-        url: "/order/payMentCancel", // 예: http://www.myservice.com/payments/cancel
-        type: "POST",
-        contentType : 'application/x-www-form-urlencoded; charset = utf-8',
-        data : {
-          "orderNum": orderNum, // 예: ORD20180131-0000011
-          "payAmount": 100, // 환불금액
-        //   "refund_holder": "홍길동", // [가상계좌 환불시 필수입력] 환불 수령계좌 예금주
-        //   "refund_bank": "88" // [가상계좌 환불시 필수입력] 환불 수령계좌 은행코드(예: KG이니시스의 경우 신한은행은 88번)
+
+    const xhttp = new XMLHttpRequest;
+
+    // 2. url 준비
+    xhttp.open("POST","/order/payMentCancel");
+
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // 4. post 파라미터 전송
+    xhttp.send("orderNum="+orderNum);
+
+    xhttp.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200){
+            let result = xhttp.responseText.trim();
+            
+            result = JSON.parse(result);
+            console.log(result);
+            if(result == 1){
+                alert("성공");
+   
+            } else{
+                alert("실패");
             }
-        }).done(function(result){ //환불 성공
-           console.log("환불 성공 : "+ result);
-       }).fail(function(error){
-           console.log("환불 실패 : "+ error);
-       })
+        }
+    }
+
+    // $.ajax({
+    //     url: "/order/payMentCancel", // 예: http://www.myservice.com/payments/cancel
+    //     type: "POST",
+    //     contentType : 'application/x-www-form-urlencoded; charset = utf-8',
+    //     data : {
+    //       "orderNum": orderNum, // 예: ORD20180131-0000011
+    //       "payAmount": 100, // 환불금액
+    //     //   "refund_holder": "홍길동", // [가상계좌 환불시 필수입력] 환불 수령계좌 예금주
+    //     //   "refund_bank": "88" // [가상계좌 환불시 필수입력] 환불 수령계좌 은행코드(예: KG이니시스의 경우 신한은행은 88번)
+    //         }
+    //     }).done(function(result){ //환불 성공
+    //        console.log("환불 성공 : "+ result);
+    //    }).fail(function(error){
+    //        console.log("환불 실패 : "+ error);
+    //    })
     
 }
 

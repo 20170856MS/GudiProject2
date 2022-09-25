@@ -170,10 +170,14 @@ public class OrderController {
 		
 		@PostMapping("payMentCancel")
 		@ResponseBody
-		public int payMentCancle(@RequestParam(value= "orderNum") String orderNum) throws Exception{
-			int result1 = 0;
-			System.out.println("1 : " + Long.valueOf(orderNum));
-			return result1;
+		public int payMentCancle(OrderDTO orderDTO) throws Exception{
+			int result = 0;
+			
+			System.out.println("1 : " + orderDTO.getOrderNum());
+			if(orderDTO.getOrderNum() != null) {
+				result = 1;
+			}
+			return result;
 		}
 		
 		

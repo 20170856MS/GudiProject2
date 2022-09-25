@@ -1,5 +1,5 @@
 package com.iu.home.licenseAdmin;
 
-public class adminDTO {
+public class AdminDAO {
 
 }

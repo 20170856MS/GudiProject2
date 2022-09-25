@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequestMapping(value = "/admin/")
-public class adminController {
+public class AdminController {
 
 	
 	@RequestMapping(value = "adminTest", method = RequestMethod.GET)
