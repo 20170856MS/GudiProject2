@@ -37,14 +37,15 @@
                     <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
                     <div class="user-text">조회수 ${dto.licenseHits}</div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="schedule" data-license-num="${dto.licenseNum}">
                     <h5 class="card-title">${dto.licenseName}</h5>
                     
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
+                    <p class="card-text" id="asd">1</p>
+                    
                     <div class="detail">
                         <a href="./detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
                     </div>
+                    <p class="card-text" id="asd">2</p>
                 </div>
             </div><br>
         </c:forEach> 

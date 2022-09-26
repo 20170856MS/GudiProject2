@@ -46,7 +46,7 @@ uj.addEventListener("click",function(){
 
 function setUpdate(ln){
     const xhttp = new XMLHttpRequest();
-    xhttp.open("GET","./detailAjax?licenseNum="+ln);
+    xhttp.open("GET","./deta    ilAjax?licenseNum="+ln);
     xhttp.send();
     xhttp.addEventListener("readystatechange",function(){
 
@@ -76,7 +76,7 @@ function setUpdate(ln){
                 attr.value = "col-form-label";                                  //class=""
                 elel.setAttributeNode(attr);                                    //<label for="" class=""></label>
                 
-                let text = document.createTextNode("직업명");       //text
+                let text = document.createTextNode("직업명");                   //text
                 elel.appendChild(text);                                         //<label for="" class="">text</label>
                 ele.appendChild(elel);                                          //elel 끝
                 

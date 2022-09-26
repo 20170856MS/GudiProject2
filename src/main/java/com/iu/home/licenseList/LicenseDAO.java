@@ -42,7 +42,7 @@ public class LicenseDAO {
 		return sqlSession.selectList(NAMESPACE+"getDetailJob",licenseDTO);	
 	}
 	
-	public List<LicenseDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
+	public List<ScheduleDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getDetailSchedule",licenseDTO);	
 	}
 }

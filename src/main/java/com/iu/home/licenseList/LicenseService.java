@@ -46,7 +46,7 @@ public class LicenseService {
 		return licenseDAO.getDetailJob(licenseDTO);
 	}
 	
-	public List<LicenseDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
+	public List<ScheduleDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
 		
 		return licenseDAO.getDetailSchedule(licenseDTO);
 	}

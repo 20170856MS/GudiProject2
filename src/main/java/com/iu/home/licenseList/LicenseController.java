@@ -26,7 +26,7 @@ public class LicenseController {
 		ModelAndView mv = new ModelAndView();
 		pager.setPerPage(8L);
 		
-		List<LicenseDTO> ar = licenseService.getList(pager);
+		List<LicenseDTO> ar = licenseService.getList(pager);//여러자격증
 
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
@@ -43,7 +43,7 @@ public class LicenseController {
 		List<LicenseDTO> detailBook = licenseService.getDetailBook(licenseDTO);
 		List<LicenseDTO> detailVideo = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> detailJob = licenseService.getDetailJob(licenseDTO);
-		List<LicenseDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
+		List<ScheduleDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
 		
 		mv.addObject("name",name);
 		mv.addObject("detailBook",detailBook);
@@ -56,12 +56,21 @@ public class LicenseController {
 	@GetMapping("detailAjax")
 	@ResponseBody
 	public Map<String,Object> getDetailAjax(LicenseDTO licenseDTO) throws Exception{
-
 		
 		List<LicenseDTO> dj = licenseService.getDetailJob(licenseDTO);
 		
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("dj", dj);
+		return map;
+	}
+	@GetMapping("getScheduleAjax")
+	@ResponseBody
+	public Map<String,Object> getScheduleAjax(LicenseDTO licenseDTO) throws Exception{
+		
+		List<ScheduleDTO> sa = licenseService.getDetailSchedule(licenseDTO);
+		
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("sa", sa);
 		return map;
 	}
 

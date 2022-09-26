@@ -110,24 +110,25 @@
 	<select id="getDetailSchedule" parameterType="LicenseDTO" resultMap="getSchedule">
 		
 		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
-        FROM LICENSE L
+        FROM SCHEDULE S
 	            INNER JOIN
 	            LICENSESCHEDULE LS
-	            USING (LICENSENUM)
-	            INNER JOIN
-	            SCHEDULE S
 	            USING (SCHEDULENUM)
+	            INNER JOIN
+	            LICENSE L
+	            USING (LICENSENUM)
 		        WHERE LICENSENUM=#{licenseNum}
 		        ORDER BY R ASC
 	</select>
 	
-	<resultMap type="LicenseDTO" id="getSchedule">
-		<id column = "LICENSENUM" property="licenseNum"/>
-		<result column ="LICENSENAME" property="licenseName" />
-		<association property="scheduleDTO" javaType="ScheduleDTO">
-			<id column = "SCHEDULENUM" property="scheduleNum" />
-			<result column ="SCHEDULENAME" property="scheduleName"/>
-			<result column ="SCHEDULEDATE" property="scheduleDate"/>
+	<resultMap type="scheduleDTO" id="getSchedule">
+		<id column = "SCHEDULENUM" property="scheduleNum"/>
+		<result column ="SCHEDULENAME" property="scheduleName" />
+		<result column ="SCHEDULEDATE" property="scheduleDate" />
+		<association property="licenseDTO" javaType="licenseDTO">
+			<id column = "LICENSENUM" property="licenseNum" />
+			<result column ="LICENSENAME" property="licenseName"/>
+			<result column ="LICENSEHITS" property="licenseHits"/>
 		</association>
 	</resultMap>
 	

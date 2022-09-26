@@ -8,7 +8,6 @@ public class LicenseDTO {
 	private BookDTO bookDTO;
 	private VideoDTO videoDTO;
 	private JobDTO jobDTO;
-	private ScheduleDTO scheduleDTO;
 	
 	public Long getLicenseNum() {
 		return licenseNum;
@@ -39,12 +38,6 @@ public class LicenseDTO {
 	}
 	public void setJobDTO(JobDTO jobDTO) {
 		this.jobDTO = jobDTO;
-	}
-	public ScheduleDTO getScheduleDTO() {
-		return scheduleDTO;
-	}
-	public void setScheduleDTO(ScheduleDTO scheduleDTO) {
-		this.scheduleDTO = scheduleDTO;
 	}
 	public Long getLicenseHits() {
 		return licenseHits;

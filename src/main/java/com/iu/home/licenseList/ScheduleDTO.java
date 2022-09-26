@@ -1,4 +1,4 @@
-package com.iu.home.licenseList;
+	package com.iu.home.licenseList;
 
 import java.sql.Date;
 
@@ -7,7 +7,16 @@ public class ScheduleDTO {
 	private Long scheduleNum;
 	private String scheduleName;
 	private String scheduleDate;
+	private LicenseDTO licenseDTO;
+
 	
+	
+	public LicenseDTO getLicenseDTO() {
+		return licenseDTO;
+	}
+	public void setLicenseDTO(LicenseDTO licenseDTO) {
+		this.licenseDTO = licenseDTO;
+	}
 	public Long getScheduleNum() {
 		return scheduleNum;
 	}
