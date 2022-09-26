@@ -2,12 +2,22 @@ package com.iu.home.licenseList;
 
 import java.sql.Date;
 
+import com.iu.home.HomeDTO;
+
 public class ScheduleDTO {
 
 	private Long scheduleNum;
 	private String scheduleName;
 	private String scheduleDate;
+	private HomeDTO homeDTO;
 	
+	
+	public HomeDTO getHomeDTO() {
+		return homeDTO;
+	}
+	public void setHomeDTO(HomeDTO homeDTO) {
+		this.homeDTO = homeDTO;
+	}
 	public Long getScheduleNum() {
 		return scheduleNum;
 	}

@@ -3,9 +3,9 @@
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 		    
-<mapper namespace="com.iu.home.licenseList.LicenseDAO">
+<mapper namespace="com.iu.home.HomeDAO">
 
-	<select id="getList" resultType="LicenseDTO">
+	<select id="getList" resultType="HomeDTO">
 		SELECT * FROM
 			(SELECT * FROM
 				(SELECT ROWNUM R,L.* FROM
@@ -20,16 +20,16 @@
 		SELECT COUNT(LICENSENUM) FROM LICENSE
 	</select>
 	
-	<update id="setHits" parameterType="LicenseDTO">
+	<update id="setHits" parameterType="HomeDTO">
 		UPDATE LICENSE SET LICENSEHITS=LICENSEHITS+1 WHERE LICENSENUM=#{licenseNum}
 	</update>
-	<select id="getLicenseName" resultType="LicenseDTO" parameterType="LicenseDTO">
+	<select id="getLicenseName" resultType="HomeDTO" parameterType="HomeDTO">
 		SELECT LICENSENUM,LICENSENAME,LICENSEHITS FROM LICENSE WHERE LICENSENUM=#{licenseNum}
 	</select>
 	
 							<!--  BOOK  -->
 							
-	<select id="getDetailBook" parameterType="LicenseDTO" resultMap="getBook">
+	<select id="getDetailBook" parameterType="HomeDTO" resultMap="getBook">
 		
 		SELECT ROWNUM R,L.LICENSENAME,L.LICENSEHITS,B.BOOKNAME,B.BOOKPRICE,B.BOOKIMAGE
 		FROM    LICENSE L
@@ -43,7 +43,7 @@
 		        ORDER BY R ASC
 	</select>
 	
-	<resultMap type="LicenseDTO" id="getBook">
+	<resultMap type="HomeDTO" id="getBook">
 		<id column = "LICENSENUM" property="licenseNum"/>
 		<result column ="LICENSENAME" property="licenseName" />
 		<result column ="LICENSEHITS" property="licenseHits" />
@@ -57,7 +57,7 @@
 	
 							<!--  VIDEO  -->
 							
-	<select id="getDetailVideo" parameterType="LicenseDTO" resultMap="getVideo">
+	<select id="getDetailVideo" parameterType="HomeDTO" resultMap="getVideo">
 		
 		SELECT ROWNUM R,L.LICENSENAME,V.VIDEOTITLE,V.VIDEOLINK
         FROM LICENSE L
@@ -71,7 +71,7 @@
 		        ORDER BY R ASC
 	</select>
 	
-	<resultMap type="LicenseDTO" id="getVideo">
+	<resultMap type="HomeDTO" id="getVideo">
 		<id column = "LICENSENUM" property="licenseNum"/>
 		<result column ="LICENSENAME" property="licenseName" />
 		<association property="videoDTO" javaType="VideoDTO">
@@ -82,7 +82,7 @@
 	</resultMap>							
 							<!--  JOB  -->
 							
-	<select id="getDetailJob" parameterType="LicenseDTO" resultMap="getJob">
+	<select id="getDetailJob" parameterType="HomeDTO" resultMap="getJob">
 		
 		SELECT ROWNUM R,L.LICENSENAME,J.JOBNAME,J.JOBINTRO
         FROM LICENSE L
@@ -96,7 +96,7 @@
 		        ORDER BY R ASC
 	</select>
 	
-	<resultMap type="LicenseDTO" id="getJob">
+	<resultMap type="HomeDTO" id="getJob">
 		<id column = "LICENSENUM" property="licenseNum"/>
 		<result column ="LICENSENAME" property="licenseName" />
 		<association property="jobDTO" javaType="JobDTO">
@@ -107,7 +107,7 @@
 	</resultMap>
 							<!--  SCHEDULE  -->
 
-	<select id="getDetailSchedule" parameterType="LicenseDTO" resultMap="getSchedule">
+	<select id="getDetailSchedule" parameterType="HomeDTO" resultMap="getSchedule">
 		
 		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
         FROM LICENSE L
@@ -120,15 +120,28 @@
 		        WHERE LICENSENUM=#{licenseNum}
 		        ORDER BY R ASC
 	</select>
-		
-	<resultMap type="LicenseDTO" id="getSchedule">
+	
+<!-- 	<select id="getScheduleDate" parameterType="ScheduleDTO" resultMap="getSchduleDate">
+			SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
+        FROM LICENSE L
+	            INNER JOIN
+	            LICENSESCHEDULE LS
+	            USING (LICENSENUM)
+	            INNER JOIN
+	            SCHEDULE S
+	            USING (SCHEDULENUM)
+		        WHERE LICENSENUM=#{licenseNum}
+		        ORDER BY R ASC
+	</select> -->
+	
+	<resultMap type="HomeDTO" id="getSchedule">
 		<id column = "LICENSENUM" property="licenseNum"/>
 		<result column ="LICENSENAME" property="licenseName" />
-		<association property="scheduleDTO" javaType="ScheduleDTO">
+		<collection property="scheduleDTO" javaType="List" ofType="ScheduleDTO">
 			<id column = "SCHEDULENUM" property="scheduleNum" />
 			<result column ="SCHEDULENAME" property="scheduleName"/>
 			<result column ="SCHEDULEDATE" property="scheduleDate"/>
-		</association>
+		</collection>
 	</resultMap>
 	
 	
