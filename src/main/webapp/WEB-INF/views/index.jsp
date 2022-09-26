@@ -226,8 +226,9 @@
                                         <p>
                                             <div>
                                                 <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-                                                    ${detailSchedule.scheduleDTO.scheduleName}<br>
-                                                    ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                                     
+                                                    ${detailSchedule.scheduleName}<br>
+                                                    ${detailSchedule.scheduleDate}<br>
                                                 </c:forEach>
                                             </div>
                                         </p>

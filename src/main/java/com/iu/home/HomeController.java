@@ -37,22 +37,8 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		pager.setPerPage(8L);
 		
-		List<HomeDTO> ar = homeService.getList(pager);
-		System.out.println(homeDTO);
+	
 		
-		for(int i=0; i<ar.size();i++) {
-			System.out.println(ar.get(i).getLicenseNum());
-			homeDTO.setLicenseNum(ar.get(i).getLicenseNum());
-		}
-		
-		
-		List<HomeDTO> ds = homeService.getDetailSchedule(homeDTO);
-		ds.add(homeDTO);
-		System.out.println(ds);
-				
-		mv.addObject("list",ar);
-		mv.addObject("pager",pager);
-		mv.addObject("detailSchedule",ds);
 		mv.setViewName("index");
 		
 		//homeDTO.DATE  -> DATE

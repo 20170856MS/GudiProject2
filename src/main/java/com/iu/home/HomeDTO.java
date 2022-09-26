@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.iu.home.licenseList.ScheduleDTO;
 
-public class HomeDTO {
+public class HomeDTO extends ScheduleDTO {
 	
 	private Long licenseNum;
 	private Long licenseHits;

@@ -43,7 +43,7 @@ public class LicenseController {
 		List<LicenseDTO> detailVideo = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> detailJob = licenseService.getDetailJob(licenseDTO);
 		List<LicenseDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
-
+		
 		mv.addObject("name",name);
 		mv.addObject("detailBook",detailBook);
 		mv.addObject("detailVideo",detailVideo);
