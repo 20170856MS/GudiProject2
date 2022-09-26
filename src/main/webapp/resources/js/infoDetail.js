@@ -35,12 +35,16 @@ have.addEventListener("click",function(){
 });
 
 /***************************************************************************************************/
-
 aj.addEventListener("click",function(){
     setAdd(ln);
 });
 
-function setAdd(ln){
+uj.addEventListener("click",function(){
+    setUpdate(ln);
+});
+
+
+function setUpdate(ln){
     const xhttp = new XMLHttpRequest();
     xhttp.open("GET","./detailAjax?licenseNum="+ln);
     xhttp.send();
@@ -72,7 +76,7 @@ function setAdd(ln){
                 attr.value = "col-form-label";                                  //class=""
                 elel.setAttributeNode(attr);                                    //<label for="" class=""></label>
                 
-                let text = document.createTextNode(dj[i].jobDTO.jobName);       //text
+                let text = document.createTextNode("직업명");       //text
                 elel.appendChild(text);                                         //<label for="" class="">text</label>
                 ele.appendChild(elel);                                          //elel 끝
                 
@@ -88,31 +92,60 @@ function setAdd(ln){
                 attr=document.createAttribute("id");
                 attr.value="updateWriter";
                 elel.setAttributeNode(attr);
+
+                attr=document.createAttribute("value");
+                attr.value=dj[i].jobDTO.jobName;
+                elel.setAttributeNode(attr);
                 ele.appendChild(elel);                                          //elel끝
     
                 mb.append(ele);                                                 //ele끝
+
+                ////////////////////////////////////////////////////////////////
 
                 ele = document.createElement("div");                            //<div></div>
                 attr = document.createAttribute("class");                       //class
                 attr.value = "mb-3";                                            //class=""
                 ele.setAttributeNode(attr);                                     //<div class=""></div>
                 
+                elel = document.createElement("label");
+                attr = document.createAttribute("for");
+                attr.value="message-text";
+                elel.setAttributeNode(attr);
+
+                attr = document.createAttribute("class");
+                attr.value="col-form-label";
+                elel.setAttributeNode(attr);
+
+                text = document.createTextNode("직업소개");
+                elel.appendChild(text);
+                ele.appendChild(elel);
+
+                elel = document.createElement("textarea");
+                attr = document.createAttribute("class");
+                attr.value="form-control";
+                elel.setAttributeNode(attr);
+
+                attr = document.createAttribute("id");
+                attr.value="updateContents";
+                elel.setAttributeNode(attr);
+
+                text = document.createTextNode(dj[i].jobDTO.jobIntro);
+                elel.appendChild(text);
+                ele.appendChild(elel);
+
+                mb.append(ele);                
                 }
-
             }//innerhtml,innertext안써져서 if문사용
-
         }
     });
     // <div class="mb-3">
-    //     <label for="recipient-name" class="col-form-label">Writer</label>
-    //     <input type="text" class="form-control" id="updateWriter">
+    //     <label for="recipient-name" class="col-form-label"> 직업명 </label>
+    //     <input type="text" class="form-control" id="updateWriter" value="dj[i].jobDTO.jobName">
     // </div>
 
     // <div class="mb-3">
-    //     <label for="message-text" class="col-form-label">Contents</label>
-    //     <textarea class="form-control" id="updateContents"></textarea>
+    //     <label for="message-text" class="col-form-label"> 직업소개 </label>
+    //     <textarea class="form-control" id="updateContents"> dj[i].jobDTO.jobIntro </textarea>
     // </div>
-    
-
     document.querySelector("#up").click();
 }

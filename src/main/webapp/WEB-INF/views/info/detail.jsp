@@ -145,14 +145,15 @@
 						<div class="modal-body">
 							<form id="mb">
 								<input type="hidden" id="num">
-								<div class="mb-3">
-									<label for="recipient-name" class="col-form-label">Writer</label>
-									<input type="text" class="form-control" id="updateWriter">
+
+								<!-- <div class="mb-3">
+									<label for="recipient-name" class="col-form-label">직업명</label>
+									<input type="text" class="form-control" id="updateWriter" placeholder="ㅇㅅㅇㅂㅇ">
 								</div>
 								<div class="mb-3">
-									<label for="message-text" class="col-form-label">Contents</label>
-									<textarea class="form-control" id="updateContents"></textarea>
-								</div>
+									<label for="message-text" class="col-form-label">직업 소개</label>
+									<textarea class="form-control" id="updateContents" placeholder="ㅇㅅㅇㅂㅇ"></textarea>
+								</div> -->
 
 							</form>
 						</div>
