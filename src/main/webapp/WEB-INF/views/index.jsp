@@ -221,13 +221,13 @@
                                     <div class="detail">
                                         <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
                                     </div>
-                                    
+                                    <div class="user-text" id="license" data-license-num="${name.licenseNum}">${name.licenseName}</div>
                                     <div class="col-lg-5 user-schedule" >
                                         <p>
                                             <div>
                                                 <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-                                                    ${detailSchedule.scheduleDTO.scheduleName}<br>
-                                                    ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                                    ${detailSchedule.scheduleDTOs.scheduleName}<br>
+                                                    ${detailSchedule.scheduleDTOs.scheduleDate}<br>
                                                 </c:forEach>
                                             </div>
                                         </p>
@@ -278,6 +278,8 @@
             <script src="/resources/js/d-day.js"></script>
             <script src="/resources/js/calendar.js"></script>
             <script src="/resources/js/schedule.js"></script>
+            <script src="/resources/js/infoMain.js"></script>
+            <script src="/resources/js/infoDetail.js"></script>
             <script>
                 schedule();
             </script>

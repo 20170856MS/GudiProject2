@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licenseList.ScheduleDTO;
 import com.iu.home.util.Pager;
 
 /**
@@ -47,9 +48,8 @@ public class HomeController {
 		
 		
 		List<HomeDTO> ds = homeService.getDetailSchedule(homeDTO);
-		ds.add(homeDTO);
 		System.out.println(ds);
-				
+		
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
 		mv.addObject("detailSchedule",ds);

@@ -137,7 +137,7 @@
 	<resultMap type="HomeDTO" id="getSchedule">
 		<id column = "LICENSENUM" property="licenseNum"/>
 		<result column ="LICENSENAME" property="licenseName" />
-		<collection property="scheduleDTO" javaType="List" ofType="ScheduleDTO">
+		<collection property="scheduleDTOs" javaType="List" ofType="ScheduleDTO">
 			<id column = "SCHEDULENUM" property="scheduleNum" />
 			<result column ="SCHEDULENAME" property="scheduleName"/>
 			<result column ="SCHEDULEDATE" property="scheduleDate"/>
