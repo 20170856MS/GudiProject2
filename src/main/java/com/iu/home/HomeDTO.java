@@ -1,5 +1,8 @@
 package com.iu.home;
 
+import java.util.List;
+
+import com.iu.home.licenseList.ScheduleDTO;
 
 public class HomeDTO {
 	
@@ -16,13 +19,8 @@ public class HomeDTO {
 	private String jobName;
 	private String jobIntro;
 	
-	private Long scheduleNum;
-	private String scheduleName;
-	private String scheduleDate;
+	private List<ScheduleDTO> scheduleDTO;
 	
-	private Long videoNum;
-	private String videoTitle;
-	private String videoLink;
 	
 	public Long getLicenseNum() {
 		return licenseNum;
@@ -84,43 +82,13 @@ public class HomeDTO {
 	public void setJobIntro(String jobIntro) {
 		this.jobIntro = jobIntro;
 	}
-	public Long getScheduleNum() {
-		return scheduleNum;
+	public List<ScheduleDTO> getScheduleDTO() {
+		return scheduleDTO;
 	}
-	public void setScheduleNum(Long scheduleNum) {
-		this.scheduleNum = scheduleNum;
+	public void setScheduleDTO(List<ScheduleDTO> scheduleDTO) {
+		this.scheduleDTO = scheduleDTO;
 	}
-	public String getScheduleName() {
-		return scheduleName;
-	}
-	public void setScheduleName(String scheduleName) {
-		this.scheduleName = scheduleName;
-	}
-	public String getScheduleDate() {
-		return scheduleDate;
-	}
-	public void setScheduleDate(String scheduleDate) {
-		this.scheduleDate = scheduleDate;
-	}
-	public Long getVideoNum() {
-		return videoNum;
-	}
-	public void setVideoNum(Long videoNum) {
-		this.videoNum = videoNum;
-	}
-	public String getVideoTitle() {
-		return videoTitle;
-	}
-	public void setVideoTitle(String videoTitle) {
-		this.videoTitle = videoTitle;
-	}
-	public String getVideoLink() {
-		return videoLink;
-	}
-	public void setVideoLink(String videoLink) {
-		this.videoLink = videoLink;
-	}
-	
+
 	
 	
 }

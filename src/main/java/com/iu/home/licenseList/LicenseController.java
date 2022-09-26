@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,6 +40,7 @@ public class LicenseController {
 		List<LicenseDTO> detailVideo = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> detailJob = licenseService.getDetailJob(licenseDTO);
 		List<LicenseDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
+				System.out.println(detailSchedule);
 				
 		mv.addObject("name",name);
 		mv.addObject("detailBook",detailBook);

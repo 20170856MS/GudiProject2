@@ -10,8 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,23 +30,29 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping("/")
 	@ResponseBody
 	public ModelAndView home (Locale locale, Pager pager,HomeDTO homeDTO) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ModelAndView mv = new ModelAndView();
 		pager.setPerPage(8L);
-		System.out.println(homeDTO);
 		
 		List<HomeDTO> ar = homeService.getList(pager);
-		System.out.println(ar.get(0).getLicenseNum());
-		System.out.println(homeDTO.getLicenseNum());
-		System.out.println(homeDTO.getScheduleNum());
-//		List<HomeDTO> ar1 = homeService.getDetailSchedule(homeDTO);
-//		System.out.println(ar1);
+		System.out.println(homeDTO);
+		
+		for(int i=0; i<ar.size();i++) {
+			System.out.println(ar.get(i).getLicenseNum());
+			homeDTO.setLicenseNum(ar.get(i).getLicenseNum());
+		}
+		
+		
+		List<HomeDTO> ds = homeService.getDetailSchedule(homeDTO);
+		ds.add(homeDTO);
+		System.out.println(ds);
+				
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
-//		mv.addObject("ar1",ar1);
+		mv.addObject("detailSchedule",ds);
 		mv.setViewName("index");
 		
 		//homeDTO.DATE  -> DATE
@@ -61,25 +65,25 @@ public class HomeController {
 		return mv;
 	}
 	
-	@GetMapping("detail")
-	public ModelAndView getDetail(HomeDTO homeDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-
-		int result = homeService.setHits(homeDTO);
-		HomeDTO name=homeService.getLicenseName(homeDTO);
-		List<HomeDTO> detailBook = homeService.getDetailBook(homeDTO);
-		List<HomeDTO> detailVideo = homeService.getDetailVideo(homeDTO);
-		List<HomeDTO> detailJob = homeService.getDetailJob(homeDTO);
-		List<HomeDTO> detailSchedule = homeService.getDetailSchedule(homeDTO);
-				
-		mv.addObject("name",name);
-		mv.addObject("detailBook",detailBook);
-		mv.addObject("detailVideo",detailVideo);
-		mv.addObject("detailJob",detailJob);
-		mv.addObject("detailSchedule",detailSchedule);
-		//mv.setViewName("/info/detail");
-		return mv;
-	}
-	
+//	@GetMapping("detail")
+//	public ModelAndView getDetail(HomeDTO homeDTO) throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//
+//		int result = homeService.setHits(homeDTO);
+//		HomeDTO name=homeService.getLicenseName(homeDTO);
+//		List<HomeDTO> detailBook = homeService.getDetailBook(homeDTO);
+//		List<HomeDTO> detailVideo = homeService.getDetailVideo(homeDTO);
+//		List<HomeDTO> detailJob = homeService.getDetailJob(homeDTO);
+//		List<HomeDTO> detailSchedule = homeService.getDetailSchedule(homeDTO);
+//				System.out.println(detailSchedule);
+//				
+//		mv.addObject("name",name);
+//		mv.addObject("detailBook",detailBook);
+//		mv.addObject("detailVideo",detailVideo);
+//		mv.addObject("detailJob",detailJob);
+//		mv.addObject("detailSchedule",detailSchedule);
+//		mv.setViewName("/info/detail");
+//		return mv;	
+//	}
 	
 }
