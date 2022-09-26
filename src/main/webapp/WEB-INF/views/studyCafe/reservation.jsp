@@ -51,7 +51,7 @@
 			         	<tr>
 			         		<td>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="radioBtn_${rdto.roomName}" id="radio_${rdto.roomName}">
+									<input class="form-check-input_${rdto.roomName}" type="radio" name="radioBtn_${rdto.roomName}" id="radio_${rdto.roomName}">
 									<label class="form-check-label" for="flexRadioDefault1">
 										${rdto.roomName}
 									</label>

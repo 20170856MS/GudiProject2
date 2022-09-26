@@ -4,10 +4,32 @@ const endDate = document.getElementsByClassName("date end");
 const startTime = document.getElementsByClassName("time start");
 const endTime = document.getElementsByClassName("time end");
 
+//---------------
+//const testBtn = document.getElementById("radio_공부방1");
+const btnList =[];
+const radioBtn = document.getElementById("radio_${rdto.roomName}");
 
-// for(i=0; i<rdto.length; i++){
-//     const radioBtn = document.getElementById("radio_${rdto.roomName}");
+console.log(btnList);
+console.log(radioBtn);
+//console.log(testBtn);
+
+btnList.push = radioBtn;
+
+for(i=1; i < btnList.length; i++){
+    const testBtn = document.getElementById("radio_공부방"+i);
+    console.log("공부방"+i);
+    console.log(testBtn);
+}
+
+// for(i=1; i<6; i++){
+//     testBtn+i.addEventListener("click", function(){
+//         console.log("실험");
+//     });
 // }
+
+// testBtn+i.addEventListener("click", function(){
+//     console.log("실험");
+// });
 
 sendDate.addEventListener("click", function(){
     
@@ -17,11 +39,6 @@ sendDate.addEventListener("click", function(){
 
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    // console.log(startDate[0].value);
-    // console.log(endDate[0].value);
-    // console.log(startTime[0].value);
-    // console.log(endTime[0].value);
-    // console.log(radioBtn);
     
     xhttp.send("startDate="+startDate[0].value+"&endDate="+endDate[0].value+"&startTime="+startTime[0].value+"&endTime="+endTime[0].value);
     
