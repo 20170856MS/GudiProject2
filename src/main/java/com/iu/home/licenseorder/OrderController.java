@@ -46,6 +46,9 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
+	@Autowired
+	private PayService payService;
+	
 	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
 	
 	
@@ -82,27 +85,57 @@ public class OrderController {
 		return client.paymentByImpUid(imp_uid);
 	}
 	
+//	@RequestMapping(value ="complete", method = RequestMethod.POST)
+//	@ResponseBody
+//	public int paymentComplete(@RequestBody OrderDTO orderDTO) throws Exception {
+//
+//		
+//		System.out.println(orderDTO.getProductName());
+////		System.out.println(client.getBillingCustomer(pvo.getOrderNum()));
+////		System.out.println(client.getAuth());
+//		int res = orderService.insert_pay(orderDTO);
+//		String token = payService.getToken();
+//		System.out.println("토큰 : " + token);
+////		int amount = orderService.paymentInfo(orderDTO.getImp_uid(), token);
+//
+//		
+//		if(res == 1) {
+//				System.out.println("biz_member pay coupon insert complete");
+//		} else {
+//			System.out.println("not");
+//		}
+//		return res;
+//	}
+	
 	@RequestMapping(value ="complete", method = RequestMethod.POST)
 	@ResponseBody
-	public int paymentComplete(@RequestBody OrderDTO orderDTO) throws Exception {
-
-		
-		System.out.println(orderDTO.getProductName());
-//		System.out.println(client.getBillingCustomer(pvo.getOrderNum()));
-//		System.out.println(client.getAuth());
-		int res = orderService.insert_pay(orderDTO);
-		String token = orderService.getToken();
-		System.out.println("토큰 : " + token);
-//		int amount = orderService.paymentInfo(orderDTO.getImp_uid(), token);
-
-		
-		if(res == 1) {
-				System.out.println("biz_member pay coupon insert complete");
-		} else {
-			System.out.println("not");
+	public ResponseEntity<String> paymentComplete(String imp_uid, String merchant_uid,HttpSession session,@RequestBody OrderDTO orderDTO) throws Exception {
+	    
+	    String token = payService.getToken();
+	    
+	    System.out.println("토큰 : " + token);
+	    // 결제 완료된 금액
+	    String amount = payService.paymentInfo(orderDTO.getImp_uid(), token);
+	    
+	    System.out.println(amount);
+	    
+	    
+	    if (50L != Long.parseLong(amount)) {
+			
+			// 결제 취소
+			payService.payMentCancle(token, orderDTO.getImp_uid(), amount,"결제 금액 오류");
+			return new ResponseEntity<String>("결제 금액 오류, 결제 취소", HttpStatus.BAD_REQUEST);
 		}
-		return res;
+	    System.out.println("check44 : " + orderDTO.getImp_uid());
+		orderService.insert_pay(orderDTO);
+		
+
+		return new ResponseEntity<String>("주문이 완료되었습니다", HttpStatus.OK);
+	 
 	}
+	    
+	    
+	
 	
 	@RequestMapping(value = "pay_info", method = RequestMethod.GET)
 	@ResponseBody
@@ -119,6 +152,7 @@ public class OrderController {
 		payDTO.setPayAmount(result.getResponse().getAmount().longValue());
 		payDTO.setPayTest(result.getResponse().getImpUid());
 		orderService.insert_payinfo(payDTO);
+		
 		
 		payDTO = orderService.getLastPay(payDTO);
 		System.out.println(payDTO);

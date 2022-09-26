@@ -62,6 +62,7 @@ function requestPay() {
                             if (res > 0) {
                                 console.log(res);
                                 alert('주문정보 저장 성공');
+                                createPayInfo(uid);
                             }
                             else {
                                 console.log(data);
@@ -69,7 +70,7 @@ function requestPay() {
                             }
                         }
                     })
-                    createPayInfo(uid);
+                    
                 }
                 else {
                     alert('결제 실패');

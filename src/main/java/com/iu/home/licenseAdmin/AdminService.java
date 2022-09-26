@@ -15,14 +15,14 @@ public class AdminService {
 	@Autowired
 	private OrderService payment;
 	
-	public int orderCancle(OrderDTO orderDTO, String cancleReason) throws Exception {
-		if(!orderDTO.getImp_uid().equals("")) {
-			String token = payment.getToken(); 
-			Long price = orderDTO.getTotalPrice();
-			Long refundPrice = price ;
-			
-			payment.payMentCancle(token, orderDTO.getImp_uid(), refundPrice);
-		}
+	public int orderCancle(OrderDTO orderDTO) throws Exception {
+//		if(!orderDTO.getImp_uid().equals("")) {
+//			String token = payment.getToken(); 
+//			Long price = orderDTO.getTotalPrice();
+//			Long refundPrice = price ;
+//			
+//			payment.payMentCancle(token, orderDTO.getImp_uid(), refundPrice);
+//		}
 		
 		return adminDAO.orderCancle(orderDTO.getOrderNum());
 	}

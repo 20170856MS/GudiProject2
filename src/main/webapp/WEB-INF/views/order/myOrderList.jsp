@@ -65,7 +65,8 @@
 													 </div>
 												</td>
 												<td >
-													<button type="button" id = "payMentCancel" order-num="${val.orderNum}" class="site-btn" >주문취소</a><br> 
+													<button type="button" id = "payMentChange"  class="site-btn mb-2" >예약변경</button> <br> 
+													<button type="button" id = "payMentCancel" order-num="${val.orderNum}" class="site-btn" >주문취소</button><br> 
 												</td>
 					
 											</c:forEach>
