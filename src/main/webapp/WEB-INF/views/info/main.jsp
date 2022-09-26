@@ -31,59 +31,58 @@
         <c:import url="../template/header.jsp"></c:import>
         
         <div class="cards">
-    <c:forEach items="${requestScope.list}" var="dto">
-            <div class="card" >
-                <div class="user-wrap">
-                    <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
-                    <div class="user-text">조회수 ${dto.licenseHits}</div>
-                </div>
-                <div class="card-body" id="schedule" data-license-num="${dto.licenseNum}">
-                    <h5 class="card-title">${dto.licenseName}</h5>
-                    
-                    <p class="card-text" id="asd">1</p>
-                    
-                    <div class="detail">
-                        <a href="./detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
+            <c:forEach items="${requestScope.list}" var="dto">
+                
+                <div class="card" >
+                    <div class="user-wrap">
+                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
+                        <div class="user-text">조회수 ${dto.licenseHits}</div>
                     </div>
-                    <p class="card-text" id="asd">2</p>
-                </div>
-            </div><br>
-        </c:forEach> 
-    </div>
-    <div class="paging">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <c:if test="${pager.pre}">
-                    <li class="page-item">
-                        <a class="page-link" href="./main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
+                    <div class="card-body">
+                        <h5 class="card-title">${dto.licenseName}</h5>
+                        <p class="card-text schedule" data-license-num="${dto.licenseNum}">ㅇㅅㅇ</p>                        
+                        <div class="detail">
+                            <a href="./detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
+                        </div>
+                    </div>
+                </div><br>
+            </c:forEach> 
+        </div>
+
+        <div class="paging">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <c:if test="${pager.pre}">
+                        <li class="page-item">
+                            <a class="page-link" href="./main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    </c:if>
+                    
+                    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+                        <li class="page-item"><a class="page-link" href="./main?page=${i}">${i}</a></li>
+                    </c:forEach>
+                    
+                    <li class="page-item ${pager.next?'':'disabled'}">
+                        <a class="page-link" href="./main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
-                </c:if>
-                
-                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                    <li class="page-item"><a class="page-link" href="./main?page=${i}">${i}</a></li>
-                </c:forEach>
-                
-                <li class="page-item ${pager.next?'':'disabled'}">
-                    <a class="page-link" href="./main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        &nbsp;&nbsp;&nbsp;
-        <div>
-            <a href="./add" class="btn btn-primary">자격증 추가</a>
+                </ul>
+            </nav>
+            &nbsp;&nbsp;&nbsp;
+            <div>
+                <a href="./add" class="btn btn-primary">자격증 추가</a>
+            </div>
         </div>
-    </div>
     
     <!-- footer.jsp -->
     <c:import url="../template/footer.jsp"></c:import>
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="/resources/js/infoMain.js"></script>
     <script src="/resources/js/common.js"></script>
+    <script src="/resources/js/infoMain.js"></script>
 </body>
 </html>
