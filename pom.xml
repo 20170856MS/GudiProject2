@@ -21,6 +21,29 @@
 		  </repository>
 		</repositories>
    <dependencies>
+   
+   <!-- json 변환 -->
+
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+		
+		<!-- log4jdbc -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.11.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.11.2</version>
+		</dependency>
+		
+		<!-- iamport -->
 	   <dependency>
 		  <groupId>com.github.iamport</groupId>
 		  <artifactId>iamport-rest-client-java</artifactId>
@@ -32,6 +55,12 @@
  	   <artifactId>jackson-databind</artifactId>
  	   <version>2.13.4</version>
 	</dependency>
+	 <dependency>
+      	<groupId>org.projectlombok</groupId>
+      	<artifactId>lombok</artifactId>
+      	<version>1.18.12</version>
+      	<scope>provided</scope>
+      </dependency>
     <!-- commons-fileupload -->
       <dependency>
           <groupId>commons-fileupload</groupId>
