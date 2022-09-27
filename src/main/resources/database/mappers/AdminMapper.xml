@@ -5,8 +5,19 @@
     
 <mapper namespace="com.iu.home.licenseAdmin.AdminDAO">
  	
-    <update id="orderCancle">
+    <delete id="orderCancle" parameterType="AdminDTO">
 		delete sc_order_user WHERE orderNum=#{orderNum}
-	</update>
+	</delete>
+	
+	<delete id="payMentCancle" parameterType="PayDTO">
+		delete SCPAY WHERE orderNum=#{orderNum}
+	</delete>
+	
+	
+	<select id="adminList" parameterType="AdminDTO" resultType="AdminDTO">
+		SELECT *
+		from SC_ORDER_USER
+		WHERE orderNum=#{orderNum}
+	</select>
     
 </mapper>

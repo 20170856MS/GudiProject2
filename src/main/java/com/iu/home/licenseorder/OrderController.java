@@ -120,7 +120,7 @@ public class OrderController {
 	    System.out.println(amount);
 	    
 	    
-	    if (50L != Long.parseLong(amount)) {
+	    if (100L != Long.parseLong(amount)) {
 			
 			// 결제 취소
 			payService.payMentCancle(token, orderDTO.getImp_uid(), amount,"결제 금액 오류");

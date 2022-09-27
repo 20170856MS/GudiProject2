@@ -1,5 +1,7 @@
 package com.iu.home.licenseAdmin;
 
-public class AdminDTO {
+import com.iu.home.licenseorder.OrderDTO;
+
+public class AdminDTO extends OrderDTO {
 
 }

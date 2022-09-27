@@ -57,20 +57,23 @@ function requestPay() {
                             type: "POST",
                             dataType: 'json',
                             contentType: 'application/json',
-                            data
-                        ,success: function(res) {
-                            if (res > 0) {
+                            data : data
+                        })
+                        .done(function(data) {
+                            console.log(data)
+                            console.log(data.orderNum)
+                            console.log(success)
+                            if (data != null) {
                                 console.log(res);
                                 alert('주문정보 저장 성공');
-                                createPayInfo(uid);
+                                
                             }
                             else {
                                 console.log(data);
                                 alert('주문정보 저장 실패');
                             }
-                        }
-                    })
-                    
+                        })
+                    createPayInfo(uid);
                 }
                 else {
                     alert('결제 실패');
