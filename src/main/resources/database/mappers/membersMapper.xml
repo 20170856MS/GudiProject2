@@ -18,7 +18,7 @@
 
 	<select id="getLogin" parameterType="LicenseMembersDTO"
 		resultMap="getRoleResult">
-		SELECT LM.NUM, LM.USERNAME, LM.NAME, LR.ROLENUM,AR.ROLENAME
+		SELECT LM.NUM, LM.USERNAME,LM.PASSWORD, LM.NAME, LR.ROLENUM,AR.ROLENAME
 		FROM 
 		    LiCENSEMEMBERS LM
 		    INNER JOIN
@@ -27,7 +27,7 @@
 		    	INNER JOIN
 		   		 ADMINROLE AR
 		  		  ON (LR.ROLENUM = AR.ROLENUM)
-		WHERE LM.USERNAME=#{userName} AND LM.PASSWORD=#{password}
+		WHERE LM.USERNAME=#{userName}
 		ORDER BY AR.ROLENUM ASC
 	</select>
 	
@@ -35,6 +35,8 @@
     	<id column="USERNAME" property="userName"></id>
     	<result column="NUM" property="num"></result>
 		<result column="NAME" property="name"></result>
+		<result column="PASSWORD" property="password"></result>
+		
 		<collection property="adminRoleDTOs" javaType="List" ofType="AdminRoleDTO">
 			<id column="ROLENUM" property="roleNum"></id>
 			<result column="ROLENAME" property="roleName"></result>

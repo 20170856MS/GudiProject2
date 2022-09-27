@@ -18,7 +18,7 @@ public class AdminDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private final String NAMESPACE="com.iu.home.licenseAdmin.AdminDAO.";
+	private final String NAMESPACE="com.iu.home.licenseadmin.AdminDAO.";
 	
 	
 	public int orderCancle(Long orderNum) {

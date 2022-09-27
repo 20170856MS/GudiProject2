@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,8 @@ public class LicenseMembersController {
 	@Autowired
 	private LicenseMembersService licenseMembersService;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
@@ -52,14 +55,21 @@ public class LicenseMembersController {
 		// "Redirect: 다시 접속할 URL 주소(절대경로,상대경로)"
 		ModelAndView mv = new ModelAndView();
 		
-		licenseMembersDTO = licenseMembersService.getLogin(licenseMembersDTO);
+		LicenseMembersDTO loginUser = licenseMembersService.getLogin(licenseMembersDTO);
+		
 		int result = 0;
-		String message = "로그인실패";
-		String url ="./login";
-		if(licenseMembersDTO!=null) {
+		String message = "";
+		String url ="";
+		
+		if(licenseMembersDTO!=null && bCryptPasswordEncoder.matches(licenseMembersDTO.getPassword(), loginUser.getPassword())) {
 			result = 1;
 			url = "../";
 			message = "로그인성공";
+			
+		}else {
+			result =0;
+			url = "./login";
+			message = "로그인실패";
 		}
 		
 		mv.addObject("result", result);
@@ -70,8 +80,9 @@ public class LicenseMembersController {
 		
 		HttpSession session =request.getSession();
 		
-		session.setAttribute("check", licenseMembersDTO);
-		session.setAttribute("saveNum", licenseMembersDTO.getNum());
+		session.setAttribute("check", loginUser);
+		session.setAttribute("saveNum", loginUser.getNum());
+		
 		
 		System.out.println("2"+licenseMembersDTO);
 		return mv;
@@ -103,9 +114,13 @@ public class LicenseMembersController {
 //		BankMembersDTO bankMembersDTO = new BankMembersDTO();
 		
 		System.out.println("조인 POST");
-		System.out.println(licenseMembersDTO.getAreaName());
-		System.out.println(licenseMembersDTO.getName());
-       
+		System.out.println("암호화 전 : " + licenseMembersDTO.getPassword());
+		
+		licenseMembersDTO.setPassword(bCryptPasswordEncoder.encode(licenseMembersDTO.getPassword()));
+		
+
+		System.out.println("암호화 후 : " + licenseMembersDTO.getPassword());
+		
 	    int result = licenseMembersService.setJoin(licenseMembersDTO);
 	    System.out.println(result);
 		if(result > 0) {
