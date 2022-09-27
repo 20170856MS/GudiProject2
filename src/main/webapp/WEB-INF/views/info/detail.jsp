@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div class="col-12">
-		<button type="submit" class="btn btn-primary">검색어찾기</button>
+		<button type="submit" class="btn btn-primary ex1">검색어찾기</button>
 	</div>
 					<!-------------------------------------infoDetailBootStrap 시작 ----------------------------------------------------->
         <!-- Page Content-->
@@ -54,9 +54,9 @@
 							</c:forEach>
 						</div>
 					</p>
-						<a class="btn btn-primary" id="as" href="./add?licenseNum=${name.licenseNum}">추가</a>
-						<a class="btn btn-primary" id="us" href="./update?licenseNum=${name.licenseNum}">수정</a>
-						<a class="btn btn-primary" id="ds" href="#!">삭제</a>
+					<a class="btn btn-primary add s" href="#!">추가</a>
+					<a class="btn btn-primary alt s" href="#!">수정</a> <!--class="col-lg-5 user-schedule"-->
+					<a class="btn btn-primary del s" href="#!">삭제</a>
                 </div>
             </div>
             <!-- Call to Action-->
@@ -83,9 +83,9 @@
                             </p>
                         </div>
                         <div class="card-footer">
-							<a class="btn btn-primary btn-sm" id="ab"href="#!">추가</a>
-							<a class="btn btn-primary btn-sm" id="ub"href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" id="db"href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm add b" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm alt b" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm del b" href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -102,9 +102,9 @@
 							</p>
                         </div>
                         <div class="card-footer user-wrap">
-							<a class="btn btn-primary btn-sm" id="av" href="#!">추가</a>
-							<a class="btn btn-primary btn-sm" id="uv" href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" id="dv" href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm add v" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm alt v" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm del v" href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -120,9 +120,9 @@
 							</p>
                         </div>
                         <div class="card-footer">
-							<a class="btn btn-primary btn-sm" id="aj" href="#!">추가</a>
-							<a class="btn btn-primary btn-sm" id="uj"href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" id="dj"href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm add j" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm alt j" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm del j" href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="mt"></h5>
+							<h5 class="modal-title">${name.licenseName}</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
@@ -147,7 +147,7 @@
 								<input type="hidden" id="num">
 
 								<!-- <div class="mb-3">
-									<label for="recipient-name" class="col-form-label">직업명</label>
+									<label for="recipient-name" class="col-form-label">직업이름</label>
 									<input type="text" class="form-control" id="updateWriter" placeholder="ㅇㅅㅇㅂㅇ">
 								</div>
 								<div class="mb-3">

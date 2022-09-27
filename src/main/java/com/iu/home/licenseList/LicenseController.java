@@ -57,9 +57,15 @@ public class LicenseController {
 	@ResponseBody
 	public Map<String,Object> getDetailAjax(LicenseDTO licenseDTO) throws Exception{
 		
+		List<ScheduleDTO> ds = licenseService.getDetailSchedule(licenseDTO);
+		List<LicenseDTO> db = licenseService.getDetailBook(licenseDTO);
+		List<LicenseDTO> dv = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> dj = licenseService.getDetailJob(licenseDTO);
 		
 		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("ds", ds);
+		map.put("db", db);
+		map.put("dv", dv);
 		map.put("dj", dj);
 		return map;
 	}
