@@ -22,8 +22,7 @@
 		
 		<typeAlias type="com.iu.home.licenseorder.OrderDTO" alias="OrderDTO"/>
 		<typeAlias type="com.iu.home.licenseorder.PayDTO" alias="PayDTO"/>
-		
-		<typeAlias type="com.iu.home.licenseAdmin.AdminDTO" alias="AdminDTO"/>
+		<typeAlias type="com.iu.home.licenseadmin.AdminDTO" alias="AdminDTO"/>		
 
 	
 	

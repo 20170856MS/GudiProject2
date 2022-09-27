@@ -1,4 +1,4 @@
-package com.iu.home.licenseAdmin;
+package com.iu.home.licenseadmin;
 
 import java.text.ParseException;
 
