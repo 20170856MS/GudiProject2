@@ -44,7 +44,7 @@
             
 			<div id="oauth_login">
 				<div>
-					<a href="/oauth2/authorization/kakao"></a>
+					<a href=/oauth1/code/kakao></a>
 				</div>
 			</div>
 			

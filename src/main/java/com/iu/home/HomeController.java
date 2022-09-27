@@ -1,6 +1,7 @@
 package com.iu.home;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licenseList.ScheduleDTO;
 import com.iu.home.util.Pager;
 
 /**
@@ -31,13 +33,30 @@ public class HomeController {
 	 */
 	 
 	@GetMapping("/")
-	@ResponseBody
 	public ModelAndView home (Locale locale, Pager pager,HomeDTO homeDTO) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ModelAndView mv = new ModelAndView();
 		pager.setPerPage(8L);
 		
+		List<HomeDTO> ar = homeService.getList(pager);
+		
+		List<HomeDTO> ds = new ArrayList<HomeDTO>();
 	
+		System.out.println(homeDTO.getLicenseNum());
+		
+		
+		
+		homeDTO.setLicenseNum(ar.get(0).getLicenseNum());
+		System.out.println(homeDTO.getLicenseNum());
+		ds = homeService.getDetailSchedule(homeDTO);
+
+		mv.addObject("detailSchedule",ds);
+		
+		
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+		
+		
 		
 		mv.setViewName("index");
 		
@@ -46,8 +65,6 @@ public class HomeController {
 		//DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		//String formattedDate = dateFormat.format(date);
 	
-		//test
-//		model.addAttribute("Time", scheduleDTO);
 		return mv;
 	}
 	

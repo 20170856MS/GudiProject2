@@ -216,22 +216,19 @@
                                 <div class="card-body">
                                     <h5 class="card-title">${dto.licenseName}</h5>
                                     
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p class="card-text">Content</p>
                 
                                     <div class="detail">
                                         <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
                                     </div>
                                     
-                                    <div class="col-lg-5 user-schedule" >
-                                        <p>
-                                            <div>
-                                                <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+                                    <div class="user-schedule" >
+                                        <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
                                                      
-                                                    ${detailSchedule.scheduleName}<br>
-                                                    ${detailSchedule.scheduleDate}<br>
-                                                </c:forEach>
-                                            </div>
-                                        </p>
+                                                 ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                 ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                        </c:forEach>
+                                            
                                     </div>
 
                                 </div>
@@ -279,9 +276,7 @@
             <script src="/resources/js/d-day.js"></script>
             <script src="/resources/js/calendar.js"></script>
             <script src="/resources/js/schedule.js"></script>
-            <script>
-                schedule();
-            </script>
+            
         </body>
 
         </html>
