@@ -11,13 +11,6 @@ public class ScheduleDTO {
 	private String scheduleDate;
 	private HomeDTO homeDTO;
 	
-	
-	public HomeDTO getHomeDTO() {
-		return homeDTO;
-	}
-	public void setHomeDTO(HomeDTO homeDTO) {
-		this.homeDTO = homeDTO;
-	}
 	public Long getScheduleNum() {
 		return scheduleNum;
 	}
@@ -36,8 +29,11 @@ public class ScheduleDTO {
 	public void setScheduleDate(String scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
-
-	
-	
+	public HomeDTO getHomeDTO() {
+		return homeDTO;
+	}
+	public void setHomeDTO(HomeDTO homeDTO) {
+		this.homeDTO = homeDTO;
+	}
 	
 }

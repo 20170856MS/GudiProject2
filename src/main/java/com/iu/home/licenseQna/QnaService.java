@@ -17,6 +17,9 @@ public class QnaService implements BoardService {
 	@Autowired
 	private QnaDAO qnaDAO;
 	
+	@Autowired
+	private FileManager fileManager;
+	
 	
 	@Override
 	public List<QnaDTO> getList(Pager pager) throws Exception {
@@ -34,17 +37,63 @@ public class QnaService implements BoardService {
 	}
 	
 	@Override
-	public int setAdd(QnaDTO qnaDTO) throws Exception {
+	public int setAdd(QnaDTO qnaDTO, MultipartFile[]files, ServletContext servletContext) throws Exception {
 		// TODO Auto-generated method stub
 		int result = qnaDAO.setAdd(qnaDTO);
+		String path = "resources/upload/qna";
+		
+		for(MultipartFile multipartFile: files) {
+			if(multipartFile.isEmpty()) {
+				continue;
+			}
+			
+			String fileName = fileManager.saveFile(servletContext, path, multipartFile);
+			QnaFileDTO qnaFileDTO = new QnaFileDTO();
+			qnaFileDTO.setFileName(fileName);
+			qnaFileDTO.setOriName(multipartFile.getOriginalFilename());
+			qnaFileDTO.setNum(qnaDTO.getQnaNum());
+			qnaDAO.setAddFile(qnaFileDTO);
+		}
 
+		return result;//qnaDAO.setAdd(qnaDTO)
+	}
+	
+	@Override
+	public int setUpdate(QnaDTO qnaDTO, MultipartFile[]files, ServletContext servletContext) throws Exception {
+		// TODO Auto-generated method stub
+		String path="resources/upload/qna";
+		int result = qnaDAO.setUpdate(qnaDTO);
+		
+		if(result>1) {
+			return result;
+		}
+		
+		for(MultipartFile multipartFile : files) {
+			if(multipartFile.isEmpty()) {
+				continue;
+			}
+			String fileName = fileManager.saveFile(servletContext, path, multipartFile);
+			QnaFileDTO qnaFileDTO = new QnaFileDTO();
+			qnaFileDTO.setFileName(fileName);
+			qnaFileDTO.setOriName(multipartFile.getOriginalFilename());
+			qnaFileDTO.setNum(qnaDTO.getQnaNum());
+			
+		}
 		return result;
 	}
 	
 	@Override
-	public int setUpdate(QnaDTO qnaDTO, ServletContext servletContext) throws Exception {
+	public int setFileDelete(QnaFileDTO qnaFileDTO, ServletContext servletContext) throws Exception {
 		// TODO Auto-generated method stub
-		return qnaDAO.setUpdate(qnaDTO);
+		qnaFileDTO = qnaDAO.getFileDetail(qnaFileDTO);
+		int result = qnaDAO.setFileDelete(qnaFileDTO);
+		String path="resources/upload/qna";
+		
+		if(result>0) {
+			fileManager.deleteFile(servletContext, path, qnaFileDTO);
+		}
+		
+		return result;
 	}
 	
 	@Override
@@ -65,6 +114,7 @@ public class QnaService implements BoardService {
 		
 		return 0;
 	}
+
 	
 	
 }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.licensemembers.LicenseMembersDTO;
@@ -46,16 +48,21 @@ public class QnaController {
 	@GetMapping("add")
 	public String setAdd(HttpSession session)throws Exception {
 		LicenseMembersDTO licenseMembersDTO=(LicenseMembersDTO)session.getAttribute("member");
+//		if(licenseMembersDTO != null) {
 			return "qna/add";
+//		}else {
+//			return "redirect:../member/login";
+//		}
+
 	}
 	
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(QnaDTO qnaDTO)throws Exception {
+	public ModelAndView setAdd(QnaDTO qnaDTO, MultipartFile [] files, HttpSession session)throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(qnaDTO.getWriter());
 		System.out.println(qnaDTO.getQnaNum());
-		int result =qnaService.setAdd(qnaDTO);
+		int result =qnaService.setAdd(qnaDTO,files,session.getServletContext());
 		String message="글쓰기실패!!!";
 		
 		if(result > 0) {
@@ -78,8 +85,8 @@ public class QnaController {
 	}
 	
 	@PostMapping("update")
-	public String setUpdate(QnaDTO qnaDTO, HttpSession session)throws Exception {
-		int result = qnaService.setUpdate(qnaDTO, session.getServletContext());
+	public String setUpdate(QnaDTO qnaDTO, MultipartFile[]files, HttpSession session)throws Exception {
+		int result = qnaService.setUpdate(qnaDTO, files, session.getServletContext());
 		return "redirect:./detail?qnaNum="+qnaDTO.getQnaNum();
 	}
 	//글삭제
@@ -101,6 +108,14 @@ public class QnaController {
 	public String setReply(QnaDTO qnaDTO)throws Exception {
 		int result = qnaService.setReply(qnaDTO);
 		return "redirect:./list";
+	}
+	
+	//파일삭제
+	@PostMapping("fileDelete")
+	@ResponseBody
+	public int setFileDelete(QnaFileDTO qnaFileDTO, HttpSession session)throws Exception {
+		int result = qnaService.setFileDelete(qnaFileDTO, session.getServletContext());
+		return result;
 	}
 
 }

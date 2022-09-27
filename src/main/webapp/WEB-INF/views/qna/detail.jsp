@@ -19,6 +19,15 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<h1>Detail Page</h1>
 	
+		<div class="row">
+		<a href="./reply?qnaNum=${qnaDTO.qnaNum}" class="btn btn-danger">Reply</a>
+	</div>
+	<c:forEach items="${qnaDTO.qnaFileDTOs}" var="fileDTO">
+	<p>
+		<a href="../resources/upload/${qna}/${fileDTO.fileName}">${fileDTO.oriName}</a>
+		</p>
+	</c:forEach>
+	
 	<section class="container-fluid">
 		<table border="1">
 			<tr>
