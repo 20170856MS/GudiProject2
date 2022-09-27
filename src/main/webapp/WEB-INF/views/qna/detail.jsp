@@ -19,15 +19,12 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<h1>Detail Page</h1>
 	
-		<div class="row">
-		<a href="./reply?qnaNum=${qnaDTO.qnaNum}" class="btn btn-danger">Reply</a>
-	</div>
 	<c:forEach items="${qnaDTO.qnaFileDTOs}" var="fileDTO">
-	<p>
-		<a href="../resources/upload/${qna}/${fileDTO.fileName}">${fileDTO.oriName}</a>
+		<p>
+			<a href="../resources/upload/${qna}/${fileDTO.fileName}">${fileDTO.oriName}</a>
 		</p>
 	</c:forEach>
-	
+
 	<section class="container-fluid">
 		<table border="1">
 			<tr>
@@ -49,8 +46,9 @@
 		</table>
 	</section>
 	<a href = "./list" class="btn btn-info">글목록 보기</a>
-	<a href="update?qnaNum=${qnaDTO.qnaNum}" class="btn btn-primary">수정</a>
-	<a href="delete?qnaNum=${qnaDTO.qnaNum}" class="btn btn-danger">삭제</a>
+	<a href="update?qnaNum=${qnaDTO.qnaNum}" class="btn btn-primary">글수정</a>
+	<a href="delete?qnaNum=${qnaDTO.qnaNum}" class="btn btn-danger">글삭제</a>
+	<a href="./reply?qnaNum=${qnaDTO.qnaNum}" class="btn btn-secondary">답글</a>
 
 	<c:import url="../template/footer.jsp"></c:import>
 	<script
