@@ -156,6 +156,40 @@ function nextCalendar(){
 							
 	         	
 		     	</table>
+
+
+				<table>
+					<tr>
+						<td>
+							<button>07:00</button>
+							<button>08:00</button>
+							<button>09:00</button>
+							<button>10:00</button>
+							<button>11:00</button>
+							<button>12:00</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button>13:00</button>
+							<button>14:00</button>
+							<button>15:00</button>
+							<button>16:00</button>
+							<button>17:00</button>
+							<button>18:00</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button>19:00</button>
+							<button>20:00</button>
+							<button>21:00</button>
+							<button>22:00</button>
+							<button>23:00</button>
+							
+						</td>
+					</tr>
+				</table>
 				
 			</div>
 		</section>
