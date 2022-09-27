@@ -32,6 +32,7 @@
 
 		<typeAlias type="com.iu.home.util.Pager" alias="Pager"/>
 		<typeAlias type="com.iu.home.licenseQna.QnaDTO" alias="QnaDTO"/>
+		<typeAlias type="com.iu.home.licenseQna.QnaFileDTO" alias="QnaFileDTO"/>
 
 		
 		<typeAlias type="com.iu.home.studyCafe.cafeDTO" alias="cafeDTO"/>

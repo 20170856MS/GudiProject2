@@ -10,12 +10,16 @@
 	rel="stylesheet"
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 	crossorigin="anonymous">
+	<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>Insert title here</title>
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
     <link href="/resources/css/font.css" rel="stylesheet" type="text/css">
     <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- include summernote css/js-->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
 	<h1>Update Page</h1>
@@ -25,7 +29,7 @@
 	<section class="container-fluid col-lg-4">
 
 		<div class="row">
-			<form action="./update" method="post">
+			<form action="./update" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="qnaNum" value="${qnaDTO.qnaNum}">
 				<div class="mb-3">
 
@@ -45,6 +49,17 @@
 					<textarea class="form-control" name="contents" id="contents"
 						rows="3">${qnaDTO.contents}</textarea>
 				</div>
+				
+				<c:forEach items="${qnaDTO.qnaFileDTOs}" var="fileDTO">
+            <div class="mb-3">
+               <span class="form-control">${fileDTO.oriName}</span>
+               <button type="button" class="fileDelete" data-file-num="${fileDTO.fileNum}">삭제</button>
+               </div>
+         </c:forEach>
+         
+         <div id="addFiles">
+			<button type="button" id="fileAdd">파일추가</button>
+		</div>
 
 				<div class="mb-3">
 					<button class="btn btn-success">제출</button>
@@ -60,6 +75,10 @@
 		integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 		crossorigin="anonymous"></script>
 <script src="/resources/js/common.js">
+</script>
+<script>
+	setCount(${qnaDTO.qnaFileDTOs.size()});
+	$("#contents").summernote();
 </script>
 </body>
 </html>

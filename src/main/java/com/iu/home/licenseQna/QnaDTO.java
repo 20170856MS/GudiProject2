@@ -1,6 +1,7 @@
 package com.iu.home.licenseQna;
 
 import java.sql.Date;
+import java.util.List;
 
 public class QnaDTO {
 	
@@ -24,6 +25,8 @@ public class QnaDTO {
 	private Long licenseNum;
 	//작성자
 	private String writer;
+	
+	private List<QnaFileDTO> qnaFileDTOs;
 	
 	
 	public String getTitle() {
@@ -86,6 +89,14 @@ public class QnaDTO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+	public List<QnaFileDTO> getQnaFileDTOs() {
+		return qnaFileDTOs;
+	}
+	public void setQnaFileDTOs(List<QnaFileDTO> qnaFileDTOs) {
+		this.qnaFileDTOs = qnaFileDTOs;
+	}
+	
+	
 	
 	
 	

@@ -42,11 +42,6 @@ public class QnaDAO {
 		
 		return sqlSession.delete(NAMESPACE+"setDelete",qnaDTO);
 	}
-	//파일추가(addFile)
-	public int setAddFile(QnaDTO qnaDTO)throws Exception {
-		
-		return sqlSession.insert(NAMESPACE+"setAddFile", qnaDTO);
-	}
 	//답글(reply)
 	public int setReplyAdd(QnaDTO qnaDTO)throws Exception {
 		
@@ -63,6 +58,20 @@ public class QnaDAO {
 		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
 	
+	//fileDetail
+	public QnaFileDTO getFileDetail(QnaFileDTO qnaFileDTO)throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getFileDetail", qnaFileDTO);
+	}
 	
+	//파일추가(addFile)
+	public int setAddFile(QnaFileDTO qnaFileDTO)throws Exception {
+		
+		return sqlSession.insert(NAMESPACE+"setAddFile", qnaFileDTO);
+	}
+	
+	//fileDelete
+	public int setFileDelete(QnaFileDTO qnaFileDTO)throws Exception {
+		return sqlSession.delete(NAMESPACE+"setFileDelete" , qnaFileDTO);
+	}
 
 }
