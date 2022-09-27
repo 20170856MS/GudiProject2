@@ -34,8 +34,8 @@
 				class="form-control" id="search" placeholder="Search">
 		</div>
 	</div>
-	<div class="col-12">
-		<button type="submit" class="btn btn-primary ex1">검색어찾기</button>
+	<div class="col-12" id="ex1">
+		<button type="submit" class="btn btn-primary">검색어찾기</button>
 	</div>
 					<!-------------------------------------infoDetailBootStrap 시작 ----------------------------------------------------->
         <!-- Page Content-->
@@ -139,7 +139,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">${name.licenseName}</h5>
+							<h5 class="modal-title" id="exampleModalLabel">${name.licenseName}</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">

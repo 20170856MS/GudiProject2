@@ -1,9 +1,10 @@
-const ex1 = document.querySelectorAll(".ex1");
-ex1[0].addEventListener("click",function(){
+const ex1 = document.querySelector("#ex1");
+ex1.addEventListener("click",function(){
     console.log("ex1클릭");
-    ex1.remove();
+    ex1. .removeChild(ex1);
     
 });
+
 
 
 
@@ -80,10 +81,9 @@ function setUpdate(ln,group){
             let result = JSON.parse(xhttp.responseText.trim());
             console.log(group);
 
-            if(group=="ds" && check==0){
+            if(group=="ds"){
                 let ds = result.ds; //ds[i].scheduleName, ds[i].scheduleDate;
-
-                check++;
+                
                 for(let i=0;i<ds.length;i++){
 
                 let ele = document.createElement("div");                        //<div></div>
@@ -158,9 +158,9 @@ function setUpdate(ln,group){
                 mb.append(ele);                
                 }
 
-            }else if(group=="db" && check==0){
+            }else if(group=="db"){
                 let db = result.db;//db[i].bookDTO.bookName; db[i].bookDTO.bookImage; db[i].bookDTO.bookPrice;
-                check++;
+                
                 for(let i=0;i<db.length;i++){
 
                     let ele = document.createElement("div");                        //<div></div>
@@ -234,9 +234,9 @@ function setUpdate(ln,group){
     
                     mb.append(ele);                
                     }
-            }else if(group=="dv" && check==0){
+            }else if(group=="dv"){
                 let dv = result.dv; //dv[i].videoDTO.videoTitle; dv[i].videoDTO.videoLink;
-                check++;
+                
                 for(let i=0;i<dv.length;i++){
 
                     let ele = document.createElement("div");                        //<div></div>
@@ -310,9 +310,9 @@ function setUpdate(ln,group){
     
                     mb.append(ele);                
                     }
-            }else if(group=="dj" && check==0){
+            }else if(group=="dj"){
                 let dj = result.dj; //dj[i].jobDTO.jobName, dj[i].jobDTO.jobIntro
-                check++;
+                
                 for(let i=0;i<dj.length;i++){
 
                     let ele = document.createElement("div");                        //<div></div>

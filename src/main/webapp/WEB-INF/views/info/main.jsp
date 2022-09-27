@@ -44,6 +44,16 @@
                         <div class="detail">
                             <a href="./detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
                         </div>
+                        <div class="user-schedule">
+
+                            <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+                                <c:if test="${requestScope.detailSchedule.licenseName} eq dto.licenseName">같습니다.</c:if>
+
+                                <!-- ${detailSchedule.scheduleName}<br>
+                                ${detailSchedule.scheduleDate}<br> -->
+                            </c:forEach>
+
+                        </div>
                     </div>
                 </div><br>
             </c:forEach> 

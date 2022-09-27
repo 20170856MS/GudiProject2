@@ -1,5 +1,6 @@
 package com.iu.home.licenseList;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,14 +23,25 @@ public class LicenseController {
 	private LicenseService licenseService;
 	
 	@GetMapping("main")
-	public ModelAndView getInfo(Pager pager) throws Exception{
+	public ModelAndView getInfo(Pager pager,LicenseDTO licenseDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		pager.setPerPage(8L);
-		
 		List<LicenseDTO> ar = licenseService.getList(pager);//여러자격증
-
+		
+		List<ScheduleDTO> ds = new ArrayList<ScheduleDTO>();
+		
+		for(int i =0; i<ar.size();i++) {
+//			licenseDTO.setLicenseNum(ar.get(i).getLicenseNum());
+//			ds = licenseService.getDetailSchedule(licenseDTO);
+		}
+		licenseDTO.setLicenseNum(ar.get(0).getLicenseNum());
+		ds = licenseService.getDetailSchedule(licenseDTO);
+		mv.addObject("detailSchedule", ds);
+		
+		
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
+		
 		mv.setViewName("/info/main");
 		return mv;
 	}
