@@ -45,18 +45,14 @@ public class HomeController {
 		System.out.println(homeDTO.getLicenseNum());
 		
 		
-		
 		homeDTO.setLicenseNum(ar.get(0).getLicenseNum());
 		System.out.println(homeDTO.getLicenseNum());
 		ds = homeService.getDetailSchedule(homeDTO);
 
 		mv.addObject("detailSchedule",ds);
 		
-		
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
-		
-		
 		
 		mv.setViewName("index");
 		

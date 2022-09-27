@@ -19,10 +19,9 @@ public class HomeDTO extends ScheduleDTO {
 	private String jobName;
 	private String jobIntro;
 
+	private ScheduleDTO scheduleDTO;
 	private Long licenseScheduleNum;
 	private Long scheduleNum;
-	
-	private List<ScheduleDTO> scheduleDTOs;
 	
 	
 	public Long getLicenseNum() {
@@ -97,12 +96,15 @@ public class HomeDTO extends ScheduleDTO {
 	public void setScheduleNum(Long scheduleNum) {
 		this.scheduleNum = scheduleNum;
 	}
-	public List<ScheduleDTO> getScheduleDTOs() {
-		return scheduleDTOs;
+	public ScheduleDTO getScheduleDTO() {
+		return scheduleDTO;
 	}
-	public void setScheduleDTOs(List<ScheduleDTO> scheduleDTOs) {
-		this.scheduleDTOs = scheduleDTOs;
+	public void setScheduleDTO(ScheduleDTO scheduleDTO) {
+		this.scheduleDTO = scheduleDTO;
 	}
+	
+	
+
 
 
 
