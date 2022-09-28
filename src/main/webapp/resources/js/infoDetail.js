@@ -1,12 +1,9 @@
-const ex1 = document.querySelector("#ex1");
-ex1.addEventListener("click",function(){
-    console.log("ex1클릭");
-    ex1. .removeChild(ex1);
-    
+
+const ex2 = document.querySelector(".ex2");
+ex2.addEventListener("click",function(){
+    console.log("ex2클릭");
+    ex2.parentNode.removeChild(ex2);
 });
-
-
-
 
 const interest = document.querySelector("#interest");
 const board = document.querySelector("#board");
@@ -79,10 +76,16 @@ function setUpdate(ln,group){
         
         if(xhttp.readyState==4 && xhttp.status==200){
             let result = JSON.parse(xhttp.responseText.trim());
-            console.log(group);
 
             if(group=="ds"){
                 let ds = result.ds; //ds[i].scheduleName, ds[i].scheduleDate;
+
+                if(mb.children.length>1){
+                    let mb3 = document.querySelectorAll(".mb-3");
+                    for(let i=0;i<mb3.length;i++){
+                        mb3[i].remove();
+                    }
+                }
                 
                 for(let i=0;i<ds.length;i++){
 
@@ -155,12 +158,21 @@ function setUpdate(ln,group){
                 elel.appendChild(text);
                 ele.appendChild(elel);
 
-                mb.append(ele);                
+                mb.append(ele);
+            
+
                 }
 
             }else if(group=="db"){
                 let db = result.db;//db[i].bookDTO.bookName; db[i].bookDTO.bookImage; db[i].bookDTO.bookPrice;
                 
+                if(mb.children.length>1){
+                    let mb3 = document.querySelectorAll(".mb-3");
+                    for(let i=0;i<mb3.length;i++){
+                        mb3[i].remove();
+                    }
+                }
+
                 for(let i=0;i<db.length;i++){
 
                     let ele = document.createElement("div");                        //<div></div>
@@ -191,7 +203,7 @@ function setUpdate(ln,group){
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("id");
-                    attr.value="updateWriter";
+                    attr.value="updateBookName";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
@@ -225,7 +237,7 @@ function setUpdate(ln,group){
                     elel.setAttributeNode(attr);
     
                     attr = document.createAttribute("id");
-                    attr.value="updateContents";
+                    attr.value="updateBookPrice";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(db[i].bookDTO.bookPrice);//두번째목록
@@ -236,7 +248,14 @@ function setUpdate(ln,group){
                     }
             }else if(group=="dv"){
                 let dv = result.dv; //dv[i].videoDTO.videoTitle; dv[i].videoDTO.videoLink;
-                
+
+                if(mb.children.length>1){
+                    let mb3 = document.querySelectorAll(".mb-3");
+                    for(let i=0;i<mb3.length;i++){
+                        mb3[i].remove();
+                    }
+                }
+
                 for(let i=0;i<dv.length;i++){
 
                     let ele = document.createElement("div");                        //<div></div>
@@ -267,7 +286,7 @@ function setUpdate(ln,group){
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("id");
-                    attr.value="updateWriter";
+                    attr.value="updateVideoTitle";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
@@ -301,7 +320,7 @@ function setUpdate(ln,group){
                     elel.setAttributeNode(attr);
     
                     attr = document.createAttribute("id");
-                    attr.value="updateContents";
+                    attr.value="updateVideoLink";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(dv[i].videoDTO.videoLink);//두번째목록
@@ -312,7 +331,14 @@ function setUpdate(ln,group){
                     }
             }else if(group=="dj"){
                 let dj = result.dj; //dj[i].jobDTO.jobName, dj[i].jobDTO.jobIntro
-                
+
+                if(mb.children.length>1){
+                    let mb3 = document.querySelectorAll(".mb-3");
+                    for(let i=0;i<mb3.length;i++){
+                        mb3[i].remove();
+                    }
+                }
+
                 for(let i=0;i<dj.length;i++){
 
                     let ele = document.createElement("div");                        //<div></div>
@@ -343,7 +369,7 @@ function setUpdate(ln,group){
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("id");
-                    attr.value="updateWriter";
+                    attr.value="updateJobName";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
@@ -377,7 +403,7 @@ function setUpdate(ln,group){
                     elel.setAttributeNode(attr);
     
                     attr = document.createAttribute("id");
-                    attr.value="updateContents";
+                    attr.value="updateJobIntro";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(dj[i].jobDTO.jobIntro);//두번째목록

@@ -34,7 +34,7 @@
 				class="form-control" id="search" placeholder="Search">
 		</div>
 	</div>
-	<div class="col-12" id="ex1">
+	<div class="col-12 ex2">
 		<button type="submit" class="btn btn-primary">검색어찾기</button>
 	</div>
 					<!-------------------------------------infoDetailBootStrap 시작 ----------------------------------------------------->
@@ -131,8 +131,8 @@
 					<!-------------------------------------infoDetailBootStrap 끝 ----------------------------------------------------->
 
 
-					<!-------------------------------------Modal----------------------------------------------------------------------->
-		<div>
+						<!-------------------------------------Modal----------------------------------------------------------------------->
+			<div>
 			<button type="button" style="display:none;"class="btn btn-primary" id="up" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -148,11 +148,11 @@
 
 								<!-- <div class="mb-3">
 									<label for="recipient-name" class="col-form-label">직업이름</label>
-									<input type="text" class="form-control" id="updateWriter" placeholder="ㅇㅅㅇㅂㅇ">
+									<input type="text" class="form-control re" id="updateWriter" placeholder="ㅇㅅㅇㅂㅇ">
 								</div>
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label">직업 소개</label>
-									<textarea class="form-control" id="updateContents" placeholder="ㅇㅅㅇㅂㅇ"></textarea>
+									<textarea class="form-control re" id="updateContents" placeholder="ㅇㅅㅇㅂㅇ"></textarea>
 								</div> -->
 
 							</form>
