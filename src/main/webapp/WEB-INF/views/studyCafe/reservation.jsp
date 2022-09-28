@@ -119,6 +119,7 @@
 	
 	
 </script>
+
 <body>
 	
 	<!-- header.jsp -->
@@ -202,7 +203,7 @@
 			         	<tr>
 			         		<td>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="radioBtn_${rdto.roomName}" id="radio_${rdto.roomName}">
+									<input class="form-check-input" value="${rdto.roomName}" type="radio" name="radioBtn" id="radio_${rdto.roomName}">
 									<label class="form-check-label" for="flexRadioDefault1">
 										${rdto.roomName}
 									</label>
@@ -211,11 +212,11 @@
 							<td>${rdto.roomCount}</td>
 								
 			     		</tr>
-		         	</c:forEach>
-					
-	         	
-		     	</table>
-
+		         	</c:forEach>	 
+				</table>
+				<text id="radioText"></text>
+				
+				
 				 <table>
 					<tr>
 						<td>
@@ -248,8 +249,11 @@
 						</td>
 					</tr>
 				</table>
-				
-				<text id="timeText"></text>
+
+				<div>
+					<button id="complete">선택완료</button>
+					<text id="timeText"></text>
+				</div>
 				
 				<button id="sendDate" type="button">예약완료</button>
 			

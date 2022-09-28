@@ -5,45 +5,35 @@ import java.sql.Time;
 
 public class reservationDTO {
 	
-	private String startDate;
-	private String endDate;
-	private String startTime;
-	private String endTime;
-	private Long seat;
+	private Long roomNum;
+	private String roomName;
+	private String seDate;
+	private String seTime;
 	
 	
-	public String getStartDate() {
-		return startDate;
+	public Long getRoomNum() {
+		return roomNum;
 	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setRoomNum(Long roomNum) {
+		this.roomNum = roomNum;
 	}
-	public String getEndDate() {
-		return endDate;
+	public String getRoomName() {
+		return roomName;
 	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
 	}
-	public String getStartTime() {
-		return startTime;
+	public String getSeDate() {
+		return seDate;
 	}
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setSeDate(String seDate) {
+		this.seDate = seDate;
 	}
-	public String getEndTime() {
-		return endTime;
+	public String getSeTime() {
+		return seTime;
 	}
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
+	public void setSeTime(String seTime) {
+		this.seTime = seTime;
 	}
-	public Long getSeat() {
-		return seat;
-	}
-	public void setSeat(Long seat) {
-		this.seat = seat;
-	}
-
-	
-	
 	
 }
