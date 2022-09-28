@@ -32,8 +32,10 @@
 		<typeAlias type="java.util.List" alias="List"/>
 
 		<typeAlias type="com.iu.home.util.Pager" alias="Pager"/>
+		<typeAlias type="com.iu.home.util.CommentPager" alias="CommentPager"/>
 		<typeAlias type="com.iu.home.licenseQna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.iu.home.licenseQna.QnaFileDTO" alias="QnaFileDTO"/>
+		<typeAlias type="com.iu.home.licenseQna.QnaCommentDTO" alias="QnaCommentDTO"/>
 
 		
 		<typeAlias type="com.iu.home.studyCafe.cafeDTO" alias="cafeDTO"/>

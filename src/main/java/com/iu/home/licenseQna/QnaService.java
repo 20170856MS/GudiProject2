@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.iu.home.util.CommentPager;
 import com.iu.home.util.FileManager;
 import com.iu.home.util.Pager;
 
@@ -114,6 +115,31 @@ public class QnaService implements BoardService {
 		
 		return 0;
 	}
+	
+	//comment
+		@Autowired
+		private QnaCommentDAO qnaCommentDAO;
+		
+		public List<QnaCommentDTO> getCommentList(CommentPager commentPager)throws Exception {
+			commentPager.getRowNum();
+			Long totalCount = qnaCommentDAO.getCommentListTotalCount(commentPager);
+			commentPager.makePage(totalCount);
+			return qnaCommentDAO.getCommentList(commentPager);
+		}
+		
+		
+		public int setCommentAdd(QnaCommentDTO qnaCommentDTO)throws Exception {
+			return qnaCommentDAO.setCommentAdd(qnaCommentDTO);
+			
+		}
+		
+		int setCommentUpdate(QnaCommentDTO qnaCommentDTO) throws Exception {
+			return qnaCommentDAO.setCommentUpdate(qnaCommentDTO);
+		}
+		
+		int setCommentDelete(QnaCommentDTO qnaCommentDTO) throws Exception {
+			return qnaCommentDAO.setCommentDelete(qnaCommentDTO);
+		}
 
 	
 	

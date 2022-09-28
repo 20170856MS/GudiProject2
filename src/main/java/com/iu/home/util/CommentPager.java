@@ -3,7 +3,7 @@ package com.iu.home.util;
 public class CommentPager {
 	private Long startRow;
 	private Long lastRow;
-	private Long bookNum;
+	private Long qnaNum;
 	private Long page;
 	private Long perPage;
 	
@@ -37,7 +37,6 @@ public class CommentPager {
 		return page;
 	}
 	
-
 	public void setPage(Long page) {
 		this.page = page;
 	}
@@ -66,12 +65,15 @@ public class CommentPager {
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
 	}
-	public Long getBookNum() {
-		return bookNum;
+	
+	public Long getQnaNum() {
+		return qnaNum;
 	}
-	public void setBookNum(Long bookNum) {
-		this.bookNum = bookNum;
+	
+	public void setQnaNum(Long qnaNum) {
+		this.qnaNum = qnaNum;
 	}
+	
 	
 	
 }

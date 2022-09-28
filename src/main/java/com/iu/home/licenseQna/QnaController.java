@@ -1,6 +1,8 @@
 package com.iu.home.licenseQna;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licenseQna.QnaCommentDTO;
 import com.iu.home.licensemembers.LicenseMembersDTO;
+import com.iu.home.util.CommentPager;
 import com.iu.home.util.Pager;
 
 @Controller
@@ -97,18 +101,19 @@ public class QnaController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("reply")
-	public ModelAndView setReply(QnaDTO qnaDTO, ModelAndView mv)throws Exception {
-		mv.addObject("qnaDTO", qnaDTO);
-		mv.setViewName("qna/reply");
-		return mv;
-	}
-	
-	@PostMapping("reply")
-	public String setReply(QnaDTO qnaDTO)throws Exception {
-		int result = qnaService.setReply(qnaDTO);
-		return "redirect:./list";
-	}
+// 답글 	
+//	@GetMapping("reply")
+//	public ModelAndView setReply(QnaDTO qnaDTO, ModelAndView mv)throws Exception {
+//		mv.addObject("qnaDTO", qnaDTO);
+//		mv.setViewName("qna/reply");
+//		return mv;
+//	}
+//	
+//	@PostMapping("reply")
+//	public String setReply(QnaDTO qnaDTO)throws Exception {
+//		int result = qnaService.setReply(qnaDTO);
+//		return "redirect:./list";
+//	}
 	
 	//파일삭제
 	@PostMapping("fileDelete")
@@ -117,5 +122,56 @@ public class QnaController {
 		int result = qnaService.setFileDelete(qnaFileDTO, session.getServletContext());
 		return result;
 	}
-
+	
+	//댓글
+	@PostMapping("commentAdd")
+	@ResponseBody
+	public String setCommentAdd(QnaCommentDTO qnaCommentDTO)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = qnaService.setCommentAdd(qnaCommentDTO);
+		String jsonResult="{\"result\":\""+result+"\"}";
+		return jsonResult;
+	}
+	
+//	@GetMapping("commentList")
+//	public ModelAndView getCommentList(CommentPager commentPager)throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//		List<QnaCommentDTO> ar = qnaService.getCommentList(commentPager);
+//		System.out.println("CommentList");
+//		System.out.println(ar.size());
+//		mv.addObject("commentList",ar);
+//		mv.setViewName("common/commentList");
+//		return mv;
+//	}
+	
+	@GetMapping("commentList")
+	@ResponseBody
+	public Map<String, Object> getCommentList(CommentPager commentPager)throws Exception {
+		List<QnaCommentDTO> ar = qnaService.getCommentList(commentPager);
+		System.out.println("CommentList");
+		System.out.println(ar.size());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", ar);
+		map.put("pager", commentPager);
+		
+		return map;
+		
+	}
+	
+	@PostMapping("commentUpdate")
+	@ResponseBody
+	public int setCommentUpdate(QnaCommentDTO qnaCommentDTO)throws Exception {
+		int result = qnaService.setCommentUpdate(qnaCommentDTO);
+		return result;
+	}
+	
+	@PostMapping("commentDelete")
+	@ResponseBody
+	public int setCommentDelete(QnaCommentDTO qnaCommentDTO)throws Exception {
+		int result = qnaService.setCommentDelete(qnaCommentDTO);
+		return result;
+	}
+	
+	
 }
