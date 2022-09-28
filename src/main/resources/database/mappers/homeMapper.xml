@@ -13,7 +13,7 @@
 					FROM LICENSE ORDER BY LICENSENUM ASC) L
 				)
 				WHERE R BETWEEN #{startRow} AND #{lastRow}
-			)	<!-- ORDER BY LICENSEHITS DESC -->
+			)	ORDER BY LICENSEHITS DESC
 	</select>
 	
 	<select id="getCount" resultType="Long" parameterType="Pager">

@@ -79,39 +79,13 @@
                         <div class="rankingBox" data-v-19226b75="">
                             <h3 data-v-19226b75=""><span data-v-19226b75="">자격증TOP10</span></h3>
                             <ul data-v-19226b75="">
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=1" data-v-19226b75="">정보처리기사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=2" data-v-19226b75="">전기기사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=3" data-v-19226b75="">한식조리기능사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=4" data-v-19226b75="">빅데이터분석기사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=5" data-v-19226b75="">정보처리기능사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=51" data-v-19226b75="">기사1</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=52" data-v-19226b75="">기사2</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=53" data-v-19226b75="">기사3</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=54" data-v-19226b75="">기사4</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=55" data-v-19226b75="">기사5</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
+                                <c:forEach items="${requestScope.list}" var="dto">
+                                    <li data-v-19226b75=""><a href="./info/detail?licenseNum=${dto.licenseNum}" data-v-19226b75="">${dto.licenseName}</a>
+                                        <div data-v-19226b75="${dto.licenseHits}"></div>
+                                    </li>
+                            </c:forEach>
                             </ul>
                         </div>
-                    </div>
 
                         <div id="content">
                             <form name="form1"></form>

@@ -36,7 +36,7 @@ public class HomeController {
 	public ModelAndView home (Locale locale, Pager pager,HomeDTO homeDTO) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ModelAndView mv = new ModelAndView();
-		pager.setPerPage(8L);
+		pager.setPerPage(10L);
 		
 		List<HomeDTO> ar = homeService.getList(pager);
 		
