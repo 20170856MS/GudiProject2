@@ -1,6 +1,8 @@
 package com.iu.home.licensemembers;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,8 +15,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.iu.home.licenseorder.OrderDTO;
 
 
 @Controller
@@ -31,6 +36,9 @@ public class LicenseMembersController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
+	private KakaoService kakaoService;
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
@@ -152,4 +160,37 @@ public class LicenseMembersController {
 		mv.setViewName("/member/myPage");
 		return mv;
 	}
+	
+	@RequestMapping(value="kakaologin")
+    public String kakaoLogin() {
+        StringBuffer loginUrl = new StringBuffer();
+        loginUrl.append("https://kauth.kakao.com/oauth/authorize?client_id=");
+        loginUrl.append("29ac8f50075dbf10d6f7a7dbb8178e8a"); 
+        loginUrl.append("&redirect_uri=");
+        loginUrl.append("http://localhost:8080/member/kakao_callback"); 
+        loginUrl.append("&response_type=code");
+        
+        return "redirect:"+loginUrl.toString();
+    }
+	
+	@RequestMapping(value = "kakao_callback", method = RequestMethod.GET)
+    public String redirectkakao(@RequestParam String code, HttpSession session) throws IOException {
+            System.out.println("test 1 : " + code);
+            
+            //접속토큰 get
+            String kakaoToken = kakaoService.getReturnAccessToken(code);
+            
+            //접속자 정보 get
+            Map<String,Object> result = kakaoService.getUserInfo(kakaoToken);
+            System.out.println("컨트롤러 출력"+result.get("nickname")+result.get("profile_image"));
+            LicenseMembersDTO licenseMembersDTO =new LicenseMembersDTO();
+            licenseMembersDTO.setUserName((String)result.get("nickname"));
+            
+            session.setAttribute("sessionConfigVO", licenseMembersDTO);
+            /*로그아웃 처리 시, 사용할 토큰 값*/
+            session.setAttribute("kakaoToken", kakaoToken);
+        return "redirect:/";
+    }
+
+
 }
