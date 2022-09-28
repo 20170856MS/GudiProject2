@@ -89,6 +89,8 @@ public class LicenseController {
 		Map<String,Object> map = new HashMap<String,Object>();
 		System.out.println(arr.getArr1());
 		System.out.println(arr.getArr2());
+		System.out.println(arr.getSbvj());
+//		int result = licenseService.setUpdate(arr);
 		
 		return map;
 	}

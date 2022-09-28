@@ -110,7 +110,7 @@ function getUpdate(ln,group){
                 elel.setAttributeNode(attr);
     
                 attr=document.createAttribute("class");
-                attr.value="form-control form1";
+                attr.value="form-control form1 s";
                 elel.setAttributeNode(attr);
     
                 attr=document.createAttribute("value");
@@ -140,7 +140,7 @@ function getUpdate(ln,group){
 
                 elel = document.createElement("textarea");
                 attr = document.createAttribute("class");
-                attr.value="form-control form2";
+                attr.value="form-control form2 s";
                 elel.setAttributeNode(attr);
 
                 text = document.createTextNode(ds[i].scheduleDate);//두번째목록
@@ -186,7 +186,7 @@ function getUpdate(ln,group){
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("class");
-                    attr.value="form-control form1";
+                    attr.value="form-control form1 b";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
@@ -216,7 +216,7 @@ function getUpdate(ln,group){
     
                     elel = document.createElement("textarea");
                     attr = document.createAttribute("class");
-                    attr.value="form-control form2";
+                    attr.value="form-control form2 b";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(db[i].bookDTO.bookPrice);//두번째목록
@@ -261,7 +261,7 @@ function getUpdate(ln,group){
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("class");
-                    attr.value="form-control form1";
+                    attr.value="form-control form1 v";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
@@ -291,7 +291,7 @@ function getUpdate(ln,group){
     
                     elel = document.createElement("textarea");
                     attr = document.createAttribute("class");
-                    attr.value="form-control form2";
+                    attr.value="form-control form2 v";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(dv[i].videoDTO.videoLink);//두번째목록
@@ -336,7 +336,7 @@ function getUpdate(ln,group){
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("class");
-                    attr.value="form-control form1";
+                    attr.value="form-control form1 j";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
@@ -366,7 +366,7 @@ function getUpdate(ln,group){
     
                     elel = document.createElement("textarea");
                     attr = document.createAttribute("class");
-                    attr.value="form-control form2";
+                    attr.value="form-control form2 j";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(dj[i].jobDTO.jobIntro);//두번째목록
@@ -394,6 +394,7 @@ update.addEventListener("click",function(){
     if(chk==true){
         let form1 = document.querySelectorAll(".form1");
         let form2 = document.querySelectorAll(".form2");
+
         let arr1 = [];
         let arr2 = [];
         for(let i=0; i<form1.length;i++){            
@@ -407,7 +408,22 @@ update.addEventListener("click",function(){
         xhttp.open("POST","setUpdate");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         console.log(arr1,arr2);
-        xhttp.send("arr1="+arr1+"&arr2="+arr2);
+        let sbvj="";
+
+        if(form1[0].classList.contains("s")){
+            sbvj = "s";
+        }
+        if(form1[0].classList.contains("b")){
+            sbvj = "b";
+        }
+        if(form1[0].classList.contains("v")){
+            sbvj = "v";
+        }
+        if(form1[0].classList.contains("j")){
+            sbvj = "j";
+        }
+        
+        xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj);
         xhttp.onreadystatechange=function(){
         if(xhttp.readyState == 4 && xhttp.status == 200){
             console.log("js 완료");

@@ -6,6 +6,8 @@ public class ArrDTO {
 
 	private List<String> arr1;
 	private List<String> arr2;
+	private String sbvj;
+	
 	
 	public List<String> getArr1() {
 		return arr1;
@@ -19,9 +21,12 @@ public class ArrDTO {
 	public void setArr2(List<String> arr2) {
 		this.arr2 = arr2;
 	}
-	
-	
-	
+	public String getSbvj() {
+		return sbvj;
+	}
+	public void setSbvj(String sbvj) {
+		this.sbvj = sbvj;
+	}
 
 	
 }

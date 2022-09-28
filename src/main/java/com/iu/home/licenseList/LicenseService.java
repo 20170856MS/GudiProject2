@@ -50,7 +50,9 @@ public class LicenseService {
 		
 		return licenseDAO.getDetailSchedule(licenseDTO);
 	}
-	
+	public int setUpdate(ArrDTO arr) throws Exception{
+		return licenseDAO.setUpdate(arr);
+	}
 	
 
 }

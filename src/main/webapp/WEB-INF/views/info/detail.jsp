@@ -148,11 +148,11 @@
 
 						<!--	<div class="mb-3">
 									<label for="recipient-name" class="col-form-label">일정</label>
-									<input type="text" class="form-control form1" value=ds[i].scheduleName, >
+									<input type="text" class="form-control form1 s" value=ds[i].scheduleName, >
 								</div>
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label">날짜</label>
-									<textarea class="form-control form2"> ds[i].scheduleDate </textarea>
+									<textarea class="form-control form2 s"> ds[i].scheduleDate </textarea>
 								</div>	-->
 
 							</form>

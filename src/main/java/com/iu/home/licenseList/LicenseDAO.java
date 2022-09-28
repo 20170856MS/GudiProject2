@@ -45,4 +45,8 @@ public class LicenseDAO {
 	public List<ScheduleDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getDetailSchedule",licenseDTO);	
 	}
+	
+	public int setUpdate(ArrDTO arr) throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdate",arr);
+	}
 }
