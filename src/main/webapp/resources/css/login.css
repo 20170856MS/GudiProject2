@@ -82,9 +82,15 @@ input[type="checkbox"]:checked ~ i{
 #oauth_login div:nth-child(1) a {
 	background: url("/resources/img/kakao_login_btn.png") no-repeat center;
 	background-size: cover;	
-	
 }
- 
+#oauth_login div:nth-child(2) a {
+	background: url("/resources/img/naver_login_btn2.png") no-repeat center;
+	background-size: cover;	
+}
+#oauth_login div:nth-child(3) a {
+	background: url("/resources/img/google_login_btn.png") no-repeat center;
+	background-size: cover;	
+}
  
  
 .join {

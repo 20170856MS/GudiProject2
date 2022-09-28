@@ -44,8 +44,14 @@ public class LicenseMembersController {
 	public String logout(HttpSession session) throws Exception{
 		System.out.println("로그아웃");
 		//session 소멸
+		System.out.println((String)session.getAttribute("access_Token"));
+		if((String)session.getAttribute("access_Token") != null) {
+			
+			kakaoService.kakaoLogout((String)session.getAttribute("access_Token"));
+			session.removeAttribute("access_Token");
+			session.removeAttribute("userId");
+		}
 		session.invalidate();
-		
 		return "redirect:../";
 	}
 	
@@ -97,8 +103,9 @@ public class LicenseMembersController {
 	}
 	
 	@RequestMapping(value = "join0", method = RequestMethod.GET)
-	public String join0() {
+	public String join0(LicenseMembersDTO licenseMembersDTO) {
 		System.out.println("join get");
+		
 		
 		return "member/join0";
 	}
@@ -106,6 +113,7 @@ public class LicenseMembersController {
 	@RequestMapping(value = "join0", method = RequestMethod.POST)
 	public String join0(Model model) {
 		System.out.println("join POST");
+		
 		
 		return "member/join";
 	}
@@ -161,35 +169,40 @@ public class LicenseMembersController {
 		return mv;
 	}
 	
-	@RequestMapping(value="kakaologin")
-    public String kakaoLogin() {
+	@RequestMapping(value="/oauth2/authorization/kakao")
+    public String kakaoLogin() throws Exception {
         StringBuffer loginUrl = new StringBuffer();
         loginUrl.append("https://kauth.kakao.com/oauth/authorize?client_id=");
         loginUrl.append("29ac8f50075dbf10d6f7a7dbb8178e8a"); 
         loginUrl.append("&redirect_uri=");
         loginUrl.append("http://localhost:8080/member/kakao_callback"); 
         loginUrl.append("&response_type=code");
-        
+        System.out.println("test0 : "+loginUrl.toString());
         return "redirect:"+loginUrl.toString();
     }
 	
 	@RequestMapping(value = "kakao_callback", method = RequestMethod.GET)
-    public String redirectkakao(@RequestParam String code, HttpSession session) throws IOException {
+    public ModelAndView redirectkakao(@RequestParam String code, HttpSession session) throws Exception {
             System.out.println("test 1 : " + code);
-            
+            ModelAndView mv = new ModelAndView();
             //접속토큰 get
             String kakaoToken = kakaoService.getReturnAccessToken(code);
             
             //접속자 정보 get
             Map<String,Object> result = kakaoService.getUserInfo(kakaoToken);
-            System.out.println("컨트롤러 출력"+result.get("nickname")+result.get("profile_image"));
+            System.out.println("컨트롤러 출력1 : "+result.get("nickname")+"/"+result.get("email")+"/"+result.get("id"));
+
             LicenseMembersDTO licenseMembersDTO =new LicenseMembersDTO();
-            licenseMembersDTO.setUserName((String)result.get("nickname"));
+            licenseMembersDTO.setName((String)result.get("nickname"));
+            licenseMembersDTO.setEmail((String)result.get("email"));
+            System.out.println(licenseMembersDTO.getName());
+            System.out.println(licenseMembersDTO.getEmail());
+            mv.setViewName("redirect:/member/join0");
             
             session.setAttribute("sessionConfigVO", licenseMembersDTO);
             /*로그아웃 처리 시, 사용할 토큰 값*/
             session.setAttribute("kakaoToken", kakaoToken);
-        return "redirect:/";
+        return mv;
     }
 
 

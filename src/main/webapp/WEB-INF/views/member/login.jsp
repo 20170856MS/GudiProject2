@@ -44,7 +44,15 @@
             
 			<div id="oauth_login">
 				<div>
-					<a href="./kakaologin"></a>
+					<a href="./oauth2/authorization/kakao"></a>
+				</div>
+
+				<div>
+					<a href="./oauth2/authorization/naver"></a>
+				</div>
+				
+				<div>
+					<a href="./oauth2/authorization/google"></a>
 				</div>
 			</div>
 			

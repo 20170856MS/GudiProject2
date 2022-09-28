@@ -37,6 +37,7 @@ public class OrderService {
 		return orderDAO.insert_pay(orderDTO);
 	}
 	
+	
 	public int insert_payinfo(PayDTO payDTO) throws Exception{
 		
 		return orderDAO.insert_payinfo(payDTO);

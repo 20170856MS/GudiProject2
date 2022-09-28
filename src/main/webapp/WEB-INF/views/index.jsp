@@ -25,6 +25,8 @@
 
 </head>
 <body>
+
+
     <div id="wrap">
 			<div class="progress-container">
             <div class="progress-bar" id="myBar" style="width: 0%;"></div>

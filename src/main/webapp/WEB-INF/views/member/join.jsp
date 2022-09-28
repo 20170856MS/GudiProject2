@@ -58,52 +58,97 @@
 				<div><h4>야나두 자격증 사이트에 오신것을 환영합니다.</h4></div>
 				<main>
 				<form class="align-center" action="join" method="post" id="frm3">
-					<div class="input_aera">
-			                <select class="form-select" name="areaName" id="areaName">
-						        <option>지역선택</option>
-								<option>금천구</option>
-						        <option>서울시 강남구</option>
-						        <option>서울시 강동구</option>
-						        <option>서울시 강북구</option>
-						        <option>서울시 강서구</option>
-						        <option>서울시 관악구</option>
-						        <option>서울시 광진구</option>
-						        <option>서울시 금천구</option>
-						     </select>
-         
-					</div>  
-				
-					<div class="input_aera">
-		            	<input type="text" name="userName" id="userName" maxlength="20"  placeholder="아이디를 입력해 주세요" >
+					<c:choose>
+						<c:when test="${not empty sessionConfigVO}">
+							<div class="input_aera">
+								<select class="form-select" name="areaName" id="areaName">
+									<option>지역선택</option>
+									<option>금천구</option>
+									<option>서울시 강남구</option>
+									<option>서울시 강동구</option>
+									<option>서울시 강북구</option>
+									<option>서울시 강서구</option>
+									<option>서울시 관악구</option>
+									<option>서울시 광진구</option>
+									<option>서울시 금천구</option>
+								</select>
+			
+							</div> 
+							<div class="input_aera">
+							
+								
+								<input type="text" id="name1" name="name" maxlength="20"  value="${sessionConfigVO.name}" placeholder="사용하실 닉네임을 입력해 주세요">
+								
+							</div>
+							
+							<div class="input_aera">
+							
+								
+								<input type="text" name="email" id="email" value="${sessionConfigVO.email}" placeholder="이메일을 입력해 주세요" >
+								
+							</div>
+							
+							
+							<div class="input_aera">
+								<input type="text" name="phone" id="phone" placeholder="'-' 까지 입력해 주세요" maxlength="11" >
+								
+							</div>
+						</c:when>
+						<c:otherwise>
+						<div class="input_aera">
+								<select class="form-select" name="areaName" id="areaName">
+									<option>지역선택</option>
+									<option>금천구</option>
+									<option>서울시 강남구</option>
+									<option>서울시 강동구</option>
+									<option>서울시 강북구</option>
+									<option>서울시 강서구</option>
+									<option>서울시 관악구</option>
+									<option>서울시 광진구</option>
+									<option>서울시 금천구</option>
+								</select>
+			
+						</div>  
+					
+						<div class="input_aera">
+							
+							<input type="text" name="userName" id="userName" maxlength="20"  placeholder="아이디를 입력해 주세요" >
+							
+						</div>          
 						
-	            	</div>          
-		               
-					<div class="input_aera">
-						<input type="password" id="password" name="password" maxlength="20"  placeholder="비밀번호를 입력해 주세요">
-						<div id ="password_check1"></div>
-					</div>
-	               
-					<div class="input_aera">
-						<input type="password" id="password_check" maxlength="20"  placeholder="비밀번호를 한번더 입력해 주세요">
-						<div id="password_check2"></div>
+						<div class="input_aera">
+							<input type="password" id="password" name="password" maxlength="20"  placeholder="비밀번호를 입력해 주세요">
+							<div id ="password_check1"></div>
+						</div>
+					
+						<div class="input_aera">
+							<input type="password" id="password_check" maxlength="20"  placeholder="비밀번호를 한번더 입력해 주세요">
+							<div id="password_check2"></div>
+							
+						</div>
 						
-	               	</div>
-					   
-					 <div class="input_aera">
-						<input type="text" id="name1" name="name" maxlength="20"  placeholder="사용하실 닉네임을 입력해 주세요">
+						<div class="input_aera">
 						
-					 </div>
-		               
-	               	<div class="input_aera">
-	               		<input type="text" name="email" id="email"  placeholder="이메일을 입력해 주세요" >
-		                
-               		</div>
-		               
-		               
-					<div class="input_aera">
-						<input type="text" name="phone" id="phone" placeholder="'-' 까지 입력해 주세요" maxlength="11" >
-	                    
-	                </div>
+							
+							<input type="text" id="name1" name="name" maxlength="20"  placeholder="사용하실 닉네임을 입력해 주세요">
+							
+						</div>
+						
+						<div class="input_aera">
+						
+							
+							<input type="text" name="email" id="email"  placeholder="이메일을 입력해 주세요" >
+							
+						</div>
+						
+						
+						<div class="input_aera">
+							<input type="text" name="phone" id="phone" placeholder="'-' 까지 입력해 주세요" maxlength="11" >
+							
+						</div>
+					</c:otherwise>
+					
+					</c:choose>
 	                
 	               <input type="button" value="회원가입" id="join1" class="login_btn" >
 			</form>

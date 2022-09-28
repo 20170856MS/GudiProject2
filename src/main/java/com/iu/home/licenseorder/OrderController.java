@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -49,7 +50,14 @@ public class OrderController {
 	@Autowired
 	private PayService payService;
 	
-	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
+	
+	@Value("imp_key")
+	private String impKey;
+
+	@Value("imp_secret")
+	private String impSecret;
+	
+	private IamportClient client = new IamportClient(impKey, impSecret);
 	
 	
 	@GetMapping("order")

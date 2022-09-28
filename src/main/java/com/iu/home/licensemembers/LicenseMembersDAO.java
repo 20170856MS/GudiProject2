@@ -2,6 +2,7 @@ package com.iu.home.licensemembers;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -29,5 +30,7 @@ public class LicenseMembersDAO {
 		
 		return sqlSession.selectOne(NAMESPACE+"getMyPage", licenseMembersDTO);
 	}
+	
+
 	
 }
