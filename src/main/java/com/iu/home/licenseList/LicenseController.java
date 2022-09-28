@@ -81,6 +81,26 @@ public class LicenseController {
 		map.put("dj", dj);
 		return map;
 	}
+
+	
+	@PostMapping("setUpdate")
+	@ResponseBody
+	public Map<String,Object> setUpdate(ArrDTO arr) throws Exception{
+		Map<String,Object> map = new HashMap<String,Object>();
+		System.out.println(arr.getArr1());
+		System.out.println(arr.getArr2());
+		
+		return map;
+	}
+	
+	@GetMapping("add")
+	public ModelAndView setAdd(LicenseDTO licenseDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/info/add");
+		return mv;
+	}
+	
 	@GetMapping("getScheduleAjax")
 	@ResponseBody
 	public Map<String,Object> getScheduleAjax(LicenseDTO licenseDTO) throws Exception{
@@ -90,22 +110,5 @@ public class LicenseController {
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("sa", sa);
 		return map;
-	}
-
-	
-	@GetMapping("update")
-	public ModelAndView setUpdate(LicenseDTO licenseDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("/info/update");
-		return mv;
-	}
-	
-	@GetMapping("add")
-	public ModelAndView setAdd(LicenseDTO licenseDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("/info/add");
-		return mv;
 	}
 }

@@ -1,10 +1,9 @@
-
 const ex2 = document.querySelector(".ex2");
 ex2.addEventListener("click",function(){
     console.log("ex2클릭");
     ex2.parentNode.removeChild(ex2);
 });
-
+const update = document.querySelector("#update");
 const interest = document.querySelector("#interest");
 const board = document.querySelector("#board");
 const have = document.querySelector("#have");
@@ -33,42 +32,40 @@ have.addEventListener("click",function(){
     }
 });
 
-/***************************************************************************************************/
+/*****************************************추가,수정,삭제****************************************************/
 for(let i=0;i<add.length;i++){
     add[i].addEventListener("click",function(){
-        setUpdate(ln);
-    });
-}
-
-for(let i=0;i<del.length;i++){
-    del[i].addEventListener("click",function(){
-        setUpdate(ln);
+        getUpdate(ln);
     });
 }
 
 for(let i=0;i<alt.length;i++){
     alt[i].addEventListener("click",function(event){
         if(event.target.classList.contains('s')){
-                group="ds";
-                setUpdate(ln,group);
+            group="ds";
+            getUpdate(ln,group);
+            }
+        if(event.target.classList.contains('b')){
+            group="db";
+            getUpdate(ln,group);                
+            }
+        if(event.target.classList.contains('v')){
+            group="dv";
+            getUpdate(ln,group);                
+            }
+        if(event.target.classList.contains('j')){
+            group="dj";
+            getUpdate(ln,group);    
+            }
+        })
+    }
 
-            }else if(event.target.classList.contains('b')){
-                group="db";
-                setUpdate(ln,group);
-                
-            }else if(event.target.classList.contains('v')){
-                group="dv";
-                setUpdate(ln,group);
-                
-            }else if(event.target.classList.contains('j')){
-                group="dj";
-                setUpdate(ln,group);
-    
-            };
-        });
-}
-
-function setUpdate(ln,group){
+for(let i=0;i<del.length;i++){
+    del[i].addEventListener("click",function(){
+        getUpdate(ln);
+    });
+}    
+function getUpdate(ln,group){
     const xhttp = new XMLHttpRequest();
     xhttp.open("GET","./detailAjax?licenseNum="+ln);
     xhttp.send();
@@ -89,48 +86,44 @@ function setUpdate(ln,group){
                 
                 for(let i=0;i<ds.length;i++){
 
-                let ele = document.createElement("div");                        //<div></div>
-                let attr = document.createAttribute("class");                   //class
-                attr.value = "mb-3";                                            //class=""
-                ele.setAttributeNode(attr);                                     //<div class=""></div>
+                let ele = document.createElement("div");                        
+                let attr = document.createAttribute("class");                   
+                attr.value = "mb-3";                                            
+                ele.setAttributeNode(attr);                                     
+
+                let elel = document.createElement("label");                     
+                attr = document.createAttribute("for");                         
+                attr.value = "recipient-name";                                  
+                elel.setAttributeNode(attr);                                    
     
-                let elel = document.createElement("label");                     //<label></label>
-                attr = document.createAttribute("for");                         //for
-                attr.value = "recipient-name";                                  //for=""
-                elel.setAttributeNode(attr);                                    //<label for=""></label>
-    
-                attr = document.createAttribute("class");                       //class
-                attr.value = "col-form-label";                                  //class=""
-                elel.setAttributeNode(attr);                                    //<label for="" class=""></label>
+                attr = document.createAttribute("class");                       
+                attr.value = "col-form-label";                                  
+                elel.setAttributeNode(attr);                                    
                 
-                let text = document.createTextNode("일정");                   //text
-                elel.appendChild(text);                                         //<label for="" class="">text</label>
-                ele.appendChild(elel);                                          //elel 끝
+                let text = document.createTextNode("일정");                     
+                elel.appendChild(text);                                         
+                ele.appendChild(elel);                                          
                 
-                elel=document.createElement("input");                           //<input></input>
+                elel=document.createElement("input");                           
                 attr=document.createAttribute("type");
                 attr.value="text";
                 elel.setAttributeNode(attr);
     
                 attr=document.createAttribute("class");
-                attr.value="form-control";
+                attr.value="form-control form1";
                 elel.setAttributeNode(attr);
     
-                attr=document.createAttribute("id");
-                attr.value="updateWriter";
-                elel.setAttributeNode(attr);
-
                 attr=document.createAttribute("value");
                 attr.value=ds[i].scheduleName;//첫번째목록
                 elel.setAttributeNode(attr);
-                ele.appendChild(elel);                                          //elel끝
+                ele.appendChild(elel);                                          
     
-                mb.append(ele);                                                 //ele끝
+                mb.append(ele);                                                 
                 
-                ele = document.createElement("div");                            //<div></div>
-                attr = document.createAttribute("class");                       //class
-                attr.value = "mb-3";                                            //class=""
-                ele.setAttributeNode(attr);                                     //<div class=""></div>
+                ele = document.createElement("div");                            
+                attr = document.createAttribute("class");                       
+                attr.value = "mb-3";                                            
+                ele.setAttributeNode(attr);                                     
                 
                 elel = document.createElement("label");
                 attr = document.createAttribute("for");
@@ -147,11 +140,7 @@ function setUpdate(ln,group){
 
                 elel = document.createElement("textarea");
                 attr = document.createAttribute("class");
-                attr.value="form-control";
-                elel.setAttributeNode(attr);
-
-                attr = document.createAttribute("id");
-                attr.value="updateContents";
+                attr.value="form-control form2";
                 elel.setAttributeNode(attr);
 
                 text = document.createTextNode(ds[i].scheduleDate);//두번째목록
@@ -159,8 +148,6 @@ function setUpdate(ln,group){
                 ele.appendChild(elel);
 
                 mb.append(ele);
-            
-
                 }
 
             }else if(group=="db"){
@@ -175,48 +162,44 @@ function setUpdate(ln,group){
 
                 for(let i=0;i<db.length;i++){
 
-                    let ele = document.createElement("div");                        //<div></div>
-                    let attr = document.createAttribute("class");                   //class
-                    attr.value = "mb-3";                                            //class=""
-                    ele.setAttributeNode(attr);                                     //<div class=""></div>
+                    let ele = document.createElement("div");                        
+                    let attr = document.createAttribute("class");                   
+                    attr.value = "mb-3";                                            
+                    ele.setAttributeNode(attr);                                     
         
-                    let elel = document.createElement("label");                     //<label></label>
-                    attr = document.createAttribute("for");                         //for
-                    attr.value = "recipient-name";                                  //for=""
-                    elel.setAttributeNode(attr);                                    //<label for=""></label>
+                    let elel = document.createElement("label");                     
+                    attr = document.createAttribute("for");                         
+                    attr.value = "recipient-name";                                  
+                    elel.setAttributeNode(attr);                                    
         
-                    attr = document.createAttribute("class");                       //class
-                    attr.value = "col-form-label";                                  //class=""
-                    elel.setAttributeNode(attr);                                    //<label for="" class=""></label>
+                    attr = document.createAttribute("class");                       
+                    attr.value = "col-form-label";                                  
+                    elel.setAttributeNode(attr);                                    
                     
-                    let text = document.createTextNode("교재이름");                   //text
-                    elel.appendChild(text);                                         //<label for="" class="">text</label>
-                    ele.appendChild(elel);                                          //elel 끝
+                    let text = document.createTextNode("교재이름");                 
+                    elel.appendChild(text);                                         
+                    ele.appendChild(elel);                                          
                     
-                    elel=document.createElement("input");                           //<input></input>
+                    elel=document.createElement("input");                           
                     attr=document.createAttribute("type");
                     attr.value="text";
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("class");
-                    attr.value="form-control";
-                    elel.setAttributeNode(attr);
-        
-                    attr=document.createAttribute("id");
-                    attr.value="updateBookName";
+                    attr.value="form-control form1";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
                     attr.value=db[i].bookDTO.bookName;//첫번째목록
                     elel.setAttributeNode(attr);
-                    ele.appendChild(elel);                                          //elel끝
+                    ele.appendChild(elel);                                          
         
-                    mb.append(ele);                                                 //ele끝
+                    mb.append(ele);                                                 
                     
-                    ele = document.createElement("div");                            //<div></div>
-                    attr = document.createAttribute("class");                       //class
-                    attr.value = "mb-3";                                            //class=""
-                    ele.setAttributeNode(attr);                                     //<div class=""></div>
+                    ele = document.createElement("div");                            
+                    attr = document.createAttribute("class");                       
+                    attr.value = "mb-3";                                            
+                    ele.setAttributeNode(attr);                                     
                     
                     elel = document.createElement("label");
                     attr = document.createAttribute("for");
@@ -233,11 +216,7 @@ function setUpdate(ln,group){
     
                     elel = document.createElement("textarea");
                     attr = document.createAttribute("class");
-                    attr.value="form-control";
-                    elel.setAttributeNode(attr);
-    
-                    attr = document.createAttribute("id");
-                    attr.value="updateBookPrice";
+                    attr.value="form-control form2";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(db[i].bookDTO.bookPrice);//두번째목록
@@ -258,48 +237,44 @@ function setUpdate(ln,group){
 
                 for(let i=0;i<dv.length;i++){
 
-                    let ele = document.createElement("div");                        //<div></div>
-                    let attr = document.createAttribute("class");                   //class
-                    attr.value = "mb-3";                                            //class=""
-                    ele.setAttributeNode(attr);                                     //<div class=""></div>
+                    let ele = document.createElement("div");                        
+                    let attr = document.createAttribute("class");                   
+                    attr.value = "mb-3";                                            
+                    ele.setAttributeNode(attr);                                     
         
-                    let elel = document.createElement("label");                     //<label></label>
-                    attr = document.createAttribute("for");                         //for
-                    attr.value = "recipient-name";                                  //for=""
-                    elel.setAttributeNode(attr);                                    //<label for=""></label>
+                    let elel = document.createElement("label");                     
+                    attr = document.createAttribute("for");                         
+                    attr.value = "recipient-name";                                  
+                    elel.setAttributeNode(attr);                                    
         
-                    attr = document.createAttribute("class");                       //class
-                    attr.value = "col-form-label";                                  //class=""
-                    elel.setAttributeNode(attr);                                    //<label for="" class=""></label>
+                    attr = document.createAttribute("class");                       
+                    attr.value = "col-form-label";                                  
+                    elel.setAttributeNode(attr);                                    
                     
-                    let text = document.createTextNode("동영상 제목");                   //text
-                    elel.appendChild(text);                                         //<label for="" class="">text</label>
-                    ele.appendChild(elel);                                          //elel 끝
+                    let text = document.createTextNode("동영상 제목");              
+                    elel.appendChild(text);                                         
+                    ele.appendChild(elel);                                          
                     
-                    elel=document.createElement("input");                           //<input></input>
+                    elel=document.createElement("input");                           
                     attr=document.createAttribute("type");
                     attr.value="text";
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("class");
-                    attr.value="form-control";
-                    elel.setAttributeNode(attr);
-        
-                    attr=document.createAttribute("id");
-                    attr.value="updateVideoTitle";
+                    attr.value="form-control form1";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
                     attr.value=dv[i].videoDTO.videoTitle;//첫번째목록
                     elel.setAttributeNode(attr);
-                    ele.appendChild(elel);                                          //elel끝
+                    ele.appendChild(elel);                                          
         
-                    mb.append(ele);                                                 //ele끝
+                    mb.append(ele);                                                 
                     
-                    ele = document.createElement("div");                            //<div></div>
-                    attr = document.createAttribute("class");                       //class
-                    attr.value = "mb-3";                                            //class=""
-                    ele.setAttributeNode(attr);                                     //<div class=""></div>
+                    ele = document.createElement("div");                            
+                    attr = document.createAttribute("class");                       
+                    attr.value = "mb-3";                                            
+                    ele.setAttributeNode(attr);                                     
                     
                     elel = document.createElement("label");
                     attr = document.createAttribute("for");
@@ -316,11 +291,7 @@ function setUpdate(ln,group){
     
                     elel = document.createElement("textarea");
                     attr = document.createAttribute("class");
-                    attr.value="form-control";
-                    elel.setAttributeNode(attr);
-    
-                    attr = document.createAttribute("id");
-                    attr.value="updateVideoLink";
+                    attr.value="form-control form2";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(dv[i].videoDTO.videoLink);//두번째목록
@@ -341,48 +312,44 @@ function setUpdate(ln,group){
 
                 for(let i=0;i<dj.length;i++){
 
-                    let ele = document.createElement("div");                        //<div></div>
-                    let attr = document.createAttribute("class");                   //class
-                    attr.value = "mb-3";                                            //class=""
-                    ele.setAttributeNode(attr);                                     //<div class=""></div>
+                    let ele = document.createElement("div");                        
+                    let attr = document.createAttribute("class");                   
+                    attr.value = "mb-3";                                            
+                    ele.setAttributeNode(attr);                                     
         
-                    let elel = document.createElement("label");                     //<label></label>
-                    attr = document.createAttribute("for");                         //for
-                    attr.value = "recipient-name";                                  //for=""
-                    elel.setAttributeNode(attr);                                    //<label for=""></label>
+                    let elel = document.createElement("label");                     
+                    attr = document.createAttribute("for");                         
+                    attr.value = "recipient-name";                                  
+                    elel.setAttributeNode(attr);                                    
         
-                    attr = document.createAttribute("class");                       //class
-                    attr.value = "col-form-label";                                  //class=""
-                    elel.setAttributeNode(attr);                                    //<label for="" class=""></label>
+                    attr = document.createAttribute("class");                       
+                    attr.value = "col-form-label";                                  
+                    elel.setAttributeNode(attr);                                    
                     
-                    let text = document.createTextNode("직업 이름");                   //text
-                    elel.appendChild(text);                                         //<label for="" class="">text</label>
-                    ele.appendChild(elel);                                          //elel 끝
+                    let text = document.createTextNode("직업 이름");                
+                    elel.appendChild(text);                                         
+                    ele.appendChild(elel);                                          
                     
-                    elel=document.createElement("input");                           //<input></input>
+                    elel=document.createElement("input");                           
                     attr=document.createAttribute("type");
                     attr.value="text";
                     elel.setAttributeNode(attr);
         
                     attr=document.createAttribute("class");
-                    attr.value="form-control";
-                    elel.setAttributeNode(attr);
-        
-                    attr=document.createAttribute("id");
-                    attr.value="updateJobName";
+                    attr.value="form-control form1";
                     elel.setAttributeNode(attr);
     
                     attr=document.createAttribute("value");
                     attr.value=dj[i].jobDTO.jobName;//첫번째목록
                     elel.setAttributeNode(attr);
-                    ele.appendChild(elel);                                          //elel끝
+                    ele.appendChild(elel);                                          
         
-                    mb.append(ele);                                                 //ele끝
+                    mb.append(ele);                                                 
                     
-                    ele = document.createElement("div");                            //<div></div>
-                    attr = document.createAttribute("class");                       //class
-                    attr.value = "mb-3";                                            //class=""
-                    ele.setAttributeNode(attr);                                     //<div class=""></div>
+                    ele = document.createElement("div");                            
+                    attr = document.createAttribute("class");                       
+                    attr.value = "mb-3";                                            
+                    ele.setAttributeNode(attr);                                     
                     
                     elel = document.createElement("label");
                     attr = document.createAttribute("for");
@@ -399,31 +366,51 @@ function setUpdate(ln,group){
     
                     elel = document.createElement("textarea");
                     attr = document.createAttribute("class");
-                    attr.value="form-control";
-                    elel.setAttributeNode(attr);
-    
-                    attr = document.createAttribute("id");
-                    attr.value="updateJobIntro";
+                    attr.value="form-control form2";
                     elel.setAttributeNode(attr);
     
                     text = document.createTextNode(dj[i].jobDTO.jobIntro);//두번째목록
                     elel.appendChild(text);
                     ele.appendChild(elel);
     
-                    mb.append(ele);                
+                    mb.append(ele);     
                     }
             }
         }
     });
-
     // <div class="mb-3">
     //     <label for="recipient-name" class="col-form-label"> 직업명 </label>
-    //     <input type="text" class="form-control" id="updateWriter" value="dj[i].jobDTO.jobName">
+    //     <input type="text" class="form-control" value="dj[i].jobDTO.jobName">
     // </div>
 
     // <div class="mb-3">
     //     <label for="message-text" class="col-form-label"> 직업소개 </label>
-    //     <textarea class="form-control" id="updateContents"> dj[i].jobDTO.jobIntro </textarea>
+    //     <textarea class="form-control"> dj[i].jobDTO.jobIntro </textarea>
     // </div>
     document.querySelector("#up").click();
 }
+update.addEventListener("click",function(){
+    let chk = window.confirm("수정하시겠습니까?");//위치가운데로
+    if(chk==true){
+        let form1 = document.querySelectorAll(".form1");
+        let form2 = document.querySelectorAll(".form2");
+        let arr1 = [];
+        let arr2 = [];
+        for(let i=0; i<form1.length;i++){            
+            arr1[i]=form1[i].value;
+        }
+        for(let i=0; i<form2.length;i++){            
+            arr2[i]=form2[i].value;
+        }    
+        //--------------ajax---------------------
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST","setUpdate");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        console.log(arr1,arr2);
+        xhttp.send("arr1="+arr1+"&arr2="+arr2);
+        xhttp.onreadystatechange=function(){
+        if(xhttp.readyState == 4 && xhttp.status == 200){
+            console.log("js 완료");
+        }
+    }}
+})
