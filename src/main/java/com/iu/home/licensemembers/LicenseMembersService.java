@@ -28,8 +28,6 @@ public class LicenseMembersService {
 	}
 	
 	
- 
-	
 	public LicenseMembersDTO getMyPage(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
 		

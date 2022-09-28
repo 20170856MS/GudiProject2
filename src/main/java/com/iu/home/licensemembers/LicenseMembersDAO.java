@@ -25,6 +25,7 @@ public class LicenseMembersDAO {
 		return sqlSession.selectOne(NAMESPACE+"getLogin", licenseMembersDTO);
 	}
 	
+	
 	public LicenseMembersDTO getMyPage(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
 		

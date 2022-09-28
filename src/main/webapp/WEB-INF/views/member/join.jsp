@@ -76,6 +76,23 @@
 							</div> 
 							<div class="input_aera">
 							
+								<input type="text" name="userName" id="userName" maxlength="20"  placeholder="아이디를 입력해 주세요" >
+								
+							</div>          
+							
+							<div class="input_aera">
+								<input type="password" id="password" name="password" maxlength="20"  placeholder="비밀번호를 입력해 주세요">
+								<div id ="password_check1"></div>
+							</div>
+						
+							<div class="input_aera">
+								<input type="password" id="password_check" maxlength="20"  placeholder="비밀번호를 한번더 입력해 주세요">
+								<div id="password_check2"></div>
+								
+							</div>
+							
+							<div class="input_aera">
+							
 								
 								<input type="text" id="name1" name="name" maxlength="20"  value="${sessionConfigVO.name}" placeholder="사용하실 닉네임을 입력해 주세요">
 								

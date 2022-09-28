@@ -44,12 +44,12 @@ public class LicenseMembersController {
 	public String logout(HttpSession session) throws Exception{
 		System.out.println("로그아웃");
 		//session 소멸
-		System.out.println((String)session.getAttribute("access_Token"));
+		System.out.println((String)session.getAttribute("kakaoToken"));
 		if((String)session.getAttribute("access_Token") != null) {
 			
-			kakaoService.kakaoLogout((String)session.getAttribute("access_Token"));
-			session.removeAttribute("access_Token");
-			session.removeAttribute("userId");
+			kakaoService.kakaoLogout((String)session.getAttribute("kakaoToken"));
+			session.removeAttribute("kakaoToken");
+			session.removeAttribute("sessionConfigVO");
 		}
 		session.invalidate();
 		return "redirect:../";
@@ -74,7 +74,8 @@ public class LicenseMembersController {
 		int result = 0;
 		String message = "";
 		String url ="";
-		
+		System.out.println(licenseMembersDTO.getPassword());
+		System.out.println(loginUser.getPassword());
 		if(licenseMembersDTO!=null && bCryptPasswordEncoder.matches(licenseMembersDTO.getPassword(), loginUser.getPassword())) {
 			result = 1;
 			url = "../";
@@ -197,7 +198,8 @@ public class LicenseMembersController {
             licenseMembersDTO.setEmail((String)result.get("email"));
             System.out.println(licenseMembersDTO.getName());
             System.out.println(licenseMembersDTO.getEmail());
-            mv.setViewName("redirect:/member/join0");
+            
+            mv.setViewName("redirect:/");
             
             session.setAttribute("sessionConfigVO", licenseMembersDTO);
             /*로그아웃 처리 시, 사용할 토큰 값*/

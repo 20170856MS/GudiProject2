@@ -63,6 +63,8 @@ public class OrderController {
 	@GetMapping("order")
 	public void orderGET(OrderDTO orderDTO) throws Exception {
 		System.out.println("order");
+		System.out.println(impKey);
+		System.out.println(impSecret);
 	}
 	
 	@PostMapping("order")

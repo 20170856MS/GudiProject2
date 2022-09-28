@@ -31,6 +31,8 @@
 		ORDER BY AR.ROLENUM ASC
 	</select>
 	
+	
+	
 	<resultMap type="LicenseMembersDTO" id="getRoleResult">
     	<id column="USERNAME" property="userName"></id>
     	<result column="NUM" property="num"></result>

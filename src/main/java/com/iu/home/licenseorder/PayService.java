@@ -26,10 +26,10 @@ public class PayService {
 
 //	private static final Logger LOGGER = LogManager.getLogger(PayService.class);
 	//---------------------환불, 결제 토큰생성
-		@Value("imp_key")
+		@Value("${imp_key}")
 		private String impKey;
 
-		@Value("imp_secret")
+		@Value("${imp_secret}")
 		private String impSecret;
 
 		

@@ -29,7 +29,24 @@
                            			</div>
 			                  	   </c:when>
   
-                            
+                            <c:when test="${sessionConfigVO ne null}">
+                                <ul style="height:30px;float:right;margin-bottom:20px;" class="fn-font">
+                                    <li><a style="color:#f97088;text-decoration:none;" class="" >${sessionConfigVO.name}' s come in</a></li>
+                                    
+                                        <li>
+                                            <img src="/resources/img/btn_kakao_m.png" style="width:30px;">
+                                            <a style="color:black;">KAKAO 계정 접속중 </a>
+                                            
+                                        </li>
+                                        <div class="text-end">
+                                          <a href = "/member/myPage" class="btn_memb myPage">마이페이지</a>
+                                          <a href = "/member/logout" class="btn_memb logout">로그아웃</a>
+                                       </div>
+                                    
+                                </ul>
+                                
+                            </c:when>
+					            
                               <c:otherwise>
                              		<div class="text-end">
                             				<a href = "/member/join0" class="btn_memb join">회원가입</a>
