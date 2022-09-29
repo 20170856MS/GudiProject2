@@ -14,16 +14,16 @@ public class cafeTest extends MyAbstractTest{
 	@Autowired
 	private com.iu.home.studyCafe.cafeDAO cafeDAO;
 	
-	@Test
-	public void test() throws Exception {
-		reservationDTO reservationDTO = new reservationDTO();
-		reservationDTO.setStartDate("2022/09/23");
-		reservationDTO.setEndDate("2022/09/23");
-		reservationDTO.setStartTime("8:00am");
-		reservationDTO.setEndTime("10:00am");
-		
-		cafeDAO.addDate(reservationDTO);
-		
-	}
+//	@Test
+//	public void test() throws Exception {
+//		reservationDTO reservationDTO = new reservationDTO();
+//		reservationDTO.setStartDate("2022/09/23");
+//		reservationDTO.setEndDate("2022/09/23");
+//		reservationDTO.setStartTime("8:00am");
+//		reservationDTO.setEndTime("10:00am");
+//		
+//		cafeDAO.addDate(reservationDTO);
+//		
+//	}
 
 }

@@ -18,6 +18,9 @@ public class HomeDAO {
 	public List<HomeDTO> getList(Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList",pager);
 	}
+	public List<HomeDTO> getTopList(Pager pager1) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getTopList",pager1);
+	}
 	public Long getCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getCount",pager);
 	}

@@ -29,6 +29,18 @@
 <body>
     <!-- header.jsp -->
         <c:import url="../template/header.jsp"></c:import>
+
+    <!---------------------------------------search--------------------------------------------------------------------->
+	<div class="col-12">
+		<label class="visually-hidden" for="search">Search</label>
+		<div class="input-group">
+			<input type="text" name="search" value="${param.search}"
+				class="form-control" id="search" placeholder="Search">
+		</div>
+	</div>
+	<div class="col-12">
+		<button type="submit" class="btn btn-primary">검색어찾기</button>
+	</div>
         
         <div class="cards">
     <c:forEach items="${requestScope.list}" var="dto">

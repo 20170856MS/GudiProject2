@@ -79,7 +79,8 @@
                         <div class="rankingBox" data-v-19226b75="">
                             <h3 data-v-19226b75=""><span data-v-19226b75="">자격증TOP10</span></h3>
                             <ul data-v-19226b75="">
-                                <c:forEach items="${requestScope.list}" var="dto">
+                                <c:forEach items="${requestScope.toplist}" var="dto">
+                                    
                                     <li data-v-19226b75=""><a href="./info/detail?licenseNum=${dto.licenseNum}" data-v-19226b75="">${dto.licenseName}</a>
                                         <div data-v-19226b75="${dto.licenseHits}"></div>
                                     </li>
@@ -190,7 +191,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">${dto.licenseName}</h5>
                                     
-                                    <p class="card-text">Content</p>
+                                    <!-- <p class="card-text">Content</p> -->
                 
                                     <div class="detail">
                                         <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
@@ -211,32 +212,6 @@
                             </div>
                         </c:forEach> 
                     </div>
-                    <!-- 페이지더보기 -->
-                    <div class="paging">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <c:if test="${pager.pre}">
-                                    <li class="page-item">
-                                        <a class="page-link" href="./info/main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                </c:if>
-                                
-                                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                                    <li class="page-item"><a class="page-link" href="./info/main?page=${i}">${i}</a></li>
-                                </c:forEach>
-                                
-                                <li class="page-item ${pager.next?'':'disabled'}">
-                                    <a class="page-link" href="./info/main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        &nbsp;&nbsp;&nbsp;
-                    </div>
-
             </div>
 
 

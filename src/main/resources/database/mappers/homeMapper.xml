@@ -16,6 +16,17 @@
 			)	ORDER BY LICENSEHITS DESC
 	</select>
 	
+	<select id="getTopList" resultType="HomeDTO">
+		SELECT * FROM
+			(SELECT * FROM
+				(SELECT ROWNUM R,L.* FROM
+					(SELECT *
+					FROM LICENSE ORDER BY LICENSENUM ASC) L
+				)
+				WHERE R BETWEEN #{startRow} AND #{lastRow}
+			)	ORDER BY LICENSEHITS DESC
+	</select>
+	
 	<select id="getCount" resultType="Long" parameterType="Pager">
 		SELECT COUNT(LICENSENUM) FROM LICENSE
 	</select>
