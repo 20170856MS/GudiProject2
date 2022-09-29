@@ -114,7 +114,7 @@
                             <ul class="depth2" style="display: none;">
                               <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
                               <li><a href="/studyCafe/map" title="지도">지도</a></li>
-                               
+                              <li><a href="/studyCafe/calender" title="달력">달력</a></li>
                             </ul>
                          </div>
                        </li>
