@@ -43,8 +43,8 @@ function requestPay() {
                         // 데이터를 json으로 보내기 위해 바꿔준다.
                         data = JSON.stringify({
                             "orderNum" :  rsp.merchant_uid,
-                            "productNum" : 54,
-                            "num" : 44,
+                            "productNum" : 54, //상품번호
+                            "num" : 44, // 회원번호
                             "productName" : rsp.name,
                             "orderDate" : new Date().getTime(),
                             "totalPrice" : rsp.paid_amount,

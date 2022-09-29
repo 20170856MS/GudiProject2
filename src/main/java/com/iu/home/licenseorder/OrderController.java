@@ -51,10 +51,10 @@ public class OrderController {
 	private PayService payService;
 	
 	
-	@Value("imp_key")
+	@Value("7017488345532835")
 	private String impKey;
 
-	@Value("imp_secret")
+	@Value("r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM")
 	private String impSecret;
 	
 	private IamportClient client = new IamportClient(impKey, impSecret);
