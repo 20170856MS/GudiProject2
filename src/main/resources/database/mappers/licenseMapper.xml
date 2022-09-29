@@ -136,8 +136,33 @@
 		UPDATE SCHEDULE SET SCHEDULENAME=#{scheduleName}, SCHEDULEDATE=#{scheduleDate} WHERE SCHEDULENUM =#{scheduleNum}
 	</update>
 	
+	<update id="setUpdateBook" parameterType="BookDTO">
+		UPDATE BOOK SET BOOKNAME=#{bookName}, BOOKPRICE=#{bookPrice} WHERE BOOKNUM =#{bookNum}
+	</update>
+	
+	<update id="setUpdateVideo" parameterType="VideoDTO">
+		UPDATE VIDEO SET VIDEOTITLE=#{videoTitle}, VIDEOLINK=#{videoLink} WHERE VIDEONUM =#{videoNum}
+	</update>
+	
+	<update id="setUpdateJob" parameterType="JobDTO">
+		UPDATE JOB SET JOBNAME=#{jobName}, JOBINTRO=#{jobIntro} WHERE JOBNUM =#{jobNum}
+	</update>
+	
+	
 	<select id="getScheduleNum" parameterType="ArrDTO" resultType="ArrDTO">
 		SELECT SCHEDULENUM FROM LICENSESCHEDULE WHERE LICENSENUM=#{licenseNum}
+	</select>
+	
+	<select id="getBookNum" parameterType="ArrDTO" resultType="ArrDTO">
+		SELECT BOOKNUM FROM LICENSEBOOK WHERE LICENSENUM=#{licenseNum}
+	</select>
+	
+	<select id="getVideoNum" parameterType="ArrDTO" resultType="ArrDTO">
+		SELECT VIDEONUM FROM LICENSEVIDEO WHERE LICENSENUM=#{licenseNum}
+	</select>
+	
+	<select id="getJobNum" parameterType="ArrDTO" resultType="ArrDTO">
+		SELECT JOBNUM FROM LICENSEJOB WHERE LICENSENUM=#{licenseNum}
 	</select>
 
 </mapper>

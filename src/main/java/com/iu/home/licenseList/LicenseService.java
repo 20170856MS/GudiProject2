@@ -52,9 +52,7 @@ public class LicenseService {
 		return licenseDAO.getDetailSchedule(licenseDTO);
 	}
 	public int setUpdate(ArrDTO arrDTO) throws Exception{
-		if(arrDTO.getSbvj().equals("s")) {
-			List<ScheduleDTO> dtos = new ArrayList<ScheduleDTO>();
-			
+		if(arrDTO.getSbvj().equals("s")) {			
 			for(int i=0;i<arrDTO.getArr1().size();i++) {
 				Long scheduleNum = licenseDAO.getScheduleNum(arrDTO).get(i).getScheduleNum();
 				ScheduleDTO scheduleDTO = new ScheduleDTO();
@@ -62,11 +60,43 @@ public class LicenseService {
 				scheduleDTO.setScheduleName(arrDTO.getArr1().get(i));
 				scheduleDTO.setScheduleDate(arrDTO.getArr2().get(i));
 				licenseDAO.setUpdateSchedule(scheduleDTO);
-//				dtos.add(scheduleDTO);
-			}//for문
-			System.out.println("update후");
-//			licenseDAO.setUpdateSchedule(dtos);
-		}//if문(sechedule)
+			}
+		}else if(arrDTO.getSbvj().equals("b")) {//booknum,bookname,bookprice
+			for(int i=0;i<arrDTO.getArr1().size();i++) {
+				Long bookNum = licenseDAO.getBookNum(arrDTO).get(i).getBookNum();
+				BookDTO bookDTO = new BookDTO();
+				bookDTO.setBookNum(bookNum);
+				bookDTO.setBookName(arrDTO.getArr1().get(i));
+				bookDTO.setBookPrice(Long.parseLong(arrDTO.getArr2().get(i)));
+				licenseDAO.setUpdateBook(bookDTO);
+			}
+		}else if(arrDTO.getSbvj().equals("v")) {//videonum,videotitle,videolink
+			for(int i=0;i<arrDTO.getArr1().size();i++) {
+				Long videoNum = licenseDAO.getVideoNum(arrDTO).get(i).getVideoNum();
+				VideoDTO videoDTO = new VideoDTO();
+				videoDTO.setVideoNum(videoNum);
+				videoDTO.setVideoTitle(arrDTO.getArr1().get(i));
+				videoDTO.setVideoLink(arrDTO.getArr2().get(i));
+				licenseDAO.setUpdateVideo(videoDTO);
+			}
+		}else if(arrDTO.getSbvj().equals("j")) {//jobnum,jobname,jobintro
+			for(int i=0;i<arrDTO.getArr1().size();i++) {
+				Long jobNum = licenseDAO.getJobNum(arrDTO).get(i).getJobNum();
+				JobDTO jobDTO = new JobDTO();
+				jobDTO.setJobNum(jobNum);
+				
+				System.out.println(i+arrDTO.getArr1().get(i));
+				System.out.println(i+arrDTO.getArr2().get(i));
+				
+				jobDTO.setJobName(arrDTO.getArr1().get(i));
+				jobDTO.setJobIntro(arrDTO.getArr2().get(i));
+				
+				System.out.println(i+jobDTO.getJobName());
+				System.out.println(i+jobDTO.getJobIntro());
+				
+				licenseDAO.setUpdateJob(jobDTO);
+			}
+		}
 		return 1;
 	}
 	

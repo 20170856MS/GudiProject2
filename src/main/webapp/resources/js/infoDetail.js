@@ -424,9 +424,10 @@ update.addEventListener("click",function(){
         }
         
         xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj+"&licenseNum="+ln);
+        window.location.reload()
         xhttp.onreadystatechange=function(){
         if(xhttp.readyState == 4 && xhttp.status == 200){
-            console.log("js 완료");
+            console.log("js 완료");//응답 안오는 이유??
         }
     }}
 })

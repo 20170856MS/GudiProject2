@@ -10,10 +10,28 @@ public class ArrDTO {
 	private String sbvj;
 	private Long licenseNum;
 	private Long scheduleNum;
+	private Long bookNum;
+	private Long videoNum;
+	private Long jobNum;
 	
-	
-	
-	
+	public Long getBookNum() {
+		return bookNum;
+	}
+	public void setBookNum(Long bookNum) {
+		this.bookNum = bookNum;
+	}
+	public Long getVideoNum() {
+		return videoNum;
+	}
+	public void setVideoNum(Long videoNum) {
+		this.videoNum = videoNum;
+	}
+	public Long getJobNum() {
+		return jobNum;
+	}
+	public void setJobNum(Long jobNum) {
+		this.jobNum = jobNum;
+	}
 	public Long getScheduleNum() {
 		return scheduleNum;
 	}
