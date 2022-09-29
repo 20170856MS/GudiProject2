@@ -58,20 +58,54 @@ let test = " ";
 
 
 sendDate.addEventListener("click", function(){
+    console.log(listTime);
+    console.log(timeText.textContent.sort);
+    listTime.sort();
+    
+    radioList.forEach((node) => {
+        if(node.checked){
+            radioText.innerText = node.value;
+        }
+    });
+
+
+    timeText.textContent = listTime.toString();
+    
+    
     const xhttp = new XMLHttpRequest();
     xhttp.open("POST", "./cafeList");
     console.log("xhttp="+xhttp);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    xhttp.send("roomName="+radioText+"&seDate="+dateText+"&seTime="+timeText);
+    xhttp.send("roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent);
 
     xhttp.onreadystatechange = function(){
         if(xhttp.readyState==4 && xhttp.status==200){
             let result = xhttp.responseText.trim();
+            
             console.log(result);
 
-            alert('저장완료');
-            location.replace("./cafeList");
+            console.log(radioText.textContent);
+            console.log(dateText.textContent);
+            console.log(timeText.textContent);
+
+            if(radioText.value == "" || dateText.value == "" || timeText.value == ""){
+                alert("공백이 있습니다.")
+            }else{
+                alert('저장완료');
+                location.replace("./cafeList");
+
+            }
+            
+            // if(result.result==1){
+            //     console.log("수정 성공");
+            //     alert('수정 성공');
+            //     document.querySelector("#up"+replyNum).innerHTML=contents;
+            //     location.replace("studyCafe/cafeList");
+            // }else{
+            //     console.log("수정 실패");
+            //     alert('수정 실패');
+            // }
         }
     }
 });
@@ -255,14 +289,16 @@ complete.addEventListener("click", function(){
     console.log(timeText.textContent.sort);
     listTime.sort();
     
-    timeText.textContent = listTime.toString();
-    //timeText.textContent = test;
-
     radioList.forEach((node) => {
         if(node.checked){
             radioText.innerText = node.value;
         }
     });
+
+
+    timeText.textContent = listTime.toString();
+    //timeText.textContent = test;
+
 
 });
 // for(i=0; i<timeBtn.length; i++){
