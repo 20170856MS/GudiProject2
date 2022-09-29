@@ -423,7 +423,7 @@ update.addEventListener("click",function(){
             sbvj = "j";
         }
         
-        xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj);
+        xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj+"&licenseNum="+ln);
         xhttp.onreadystatechange=function(){
         if(xhttp.readyState == 4 && xhttp.status == 200){
             console.log("js 완료");

@@ -83,14 +83,12 @@ public class LicenseController {
 	}
 
 	
-	@PostMapping("setUpdate")
+	@PostMapping(value = "setUpdate", produces = "application/text; charset=utf8")
 	@ResponseBody
-	public Map<String,Object> setUpdate(ArrDTO arr) throws Exception{
+	public Map<String,Object> setUpdate(ArrDTO arrDTO) throws Exception{
 		Map<String,Object> map = new HashMap<String,Object>();
-		System.out.println(arr.getArr1());
-		System.out.println(arr.getArr2());
-		System.out.println(arr.getSbvj());
-//		int result = licenseService.setUpdate(arr);
+		
+		int result = licenseService.setUpdate(arrDTO);
 		
 		return map;
 	}

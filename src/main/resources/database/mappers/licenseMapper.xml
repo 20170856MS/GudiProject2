@@ -132,7 +132,12 @@
 		</association>
 	</resultMap>
 	
+	<update id="setUpdateSchedule" parameterType="ScheduleDTO">
+		UPDATE SCHEDULE SET SCHEDULENAME=#{scheduleName}, SCHEDULEDATE=#{scheduleDate} WHERE SCHEDULENUM =#{scheduleNum}
+	</update>
 	
-	
+	<select id="getScheduleNum" parameterType="ArrDTO" resultType="ArrDTO">
+		SELECT SCHEDULENUM FROM LICENSESCHEDULE WHERE LICENSENUM=#{licenseNum}
+	</select>
 
 </mapper>

@@ -46,7 +46,16 @@ public class LicenseDAO {
 		return sqlSession.selectList(NAMESPACE+"getDetailSchedule",licenseDTO);	
 	}
 	
-	public int setUpdate(ArrDTO arr) throws Exception{
-		return sqlSession.update(NAMESPACE+"setUpdate",arr);
+	public int setUpdateSchedule(ScheduleDTO scheduleDTO) throws Exception{
+		System.out.println("update전");
+		System.out.println(scheduleDTO.getScheduleNum());
+		System.out.println(scheduleDTO.getScheduleName());
+		System.out.println(scheduleDTO.getScheduleDate());
+		return sqlSession.update(NAMESPACE+"setUpdateSchedule",scheduleDTO);
 	}
+	
+	public List<ArrDTO> getScheduleNum(ArrDTO arrDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getScheduleNum",arrDTO);
+	}
+	
 }
