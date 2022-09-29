@@ -1,6 +1,8 @@
 package com.iu.home.licenseList;
 
-public class LicenseDTO {
+import com.iu.home.licenseQna.QnaDTO;
+
+public class LicenseDTO extends QnaDTO {
 
 	private Long licenseNum;
 	private Long licenseHits;
@@ -52,7 +54,5 @@ public class LicenseDTO {
 	public void setLicenseHits(Long licenseHits) {
 		this.licenseHits = licenseHits;
 	}
-	
-	
 	
 }

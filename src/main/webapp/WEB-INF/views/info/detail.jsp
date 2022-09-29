@@ -126,6 +126,55 @@
 						</div>
                     </div>
                 </div>
+				<!-- 게시 -->
+				<table border="1">
+					<thead>
+						<tr>
+							<th>글번호</th>
+							<th>글제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th>조회수</th>
+						</tr>
+					</thead>
+	
+					<tbody>
+						<c:forEach items="${list}" var="qnaDTO">
+							<tr>
+								<c:catch>
+									<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
+								</c:catch>
+								<td><a href="./detail?qnaNum=${qnaDTO.qnaNum}">${qnaDTO.qnaNum}</a></td>
+								<td>${qnaDTO.title}</td>
+								<td>${qnaDTO.writer}</td>
+								<td>${qnaDTO.regDate}</td>
+								<td>${qnaDTO.hit}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<c:if test="${pager.pre}">
+							<li class="page-item"><a class="page-link"
+								href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
+						</c:if>
+						<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+							<li class="page-item"><a class="page-link"
+								href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+						</c:forEach>
+	
+						<li class="page-item ${pager.next?'':'disabled'}"><a
+							class="page-link"
+							href="./list?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">Next</a></li>
+					</ul>
+				</nav>
+	
+				<div class="mb-3">
+					<a href="./add" class="btn btn-primary">글쓰기</a>
+				</div>
+
             </div>
         </div>
 					<!-------------------------------------infoDetailBootStrap 끝 ----------------------------------------------------->
