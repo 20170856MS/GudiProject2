@@ -43,8 +43,6 @@ public class LicenseMembersController {
 	@Autowired
 	private NaverService naverService;
 	
-	@Autowired
-	private GoogleService googleService;
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
@@ -209,22 +207,7 @@ public class LicenseMembersController {
         // https://nid.naver.com/oauth2.0/authorize?client_id=jHUXCDEEtc8_uaRSgjoW&redirect_uri=http://localhost:8080/member/naver_callback&response_type=code
     }
 	
-	// google 간편로그인
-	@RequestMapping(value="/oauth2/authorization/google")
-	public String googleLogin() throws Exception {
-        StringBuffer loginUrl = new StringBuffer();
-        loginUrl.append("https://accounts.google.com/o/oauth2/v2/auth");
-        loginUrl.append("?scope=https://www.googleapis.com/auth/analytics.readonly&"); 
-        loginUrl.append("access_type=offline&include_granted_scopes=true&state=state_parameter_passthrough_value");
-
-        loginUrl.append("&redirect_uri=");
-        loginUrl.append("http://localhost:8080/member/google_callback"); 
-        loginUrl.append("&response_type=code");
-        loginUrl.append("&client_id=345742005185-vereevepe335har16ot3cfsodr3knh7i.apps.googleusercontent.com");
-        System.out.println("test0 : "+loginUrl.toString());
-        return "redirect:"+loginUrl.toString();
-        // https://nid.naver.com/oauth2.0/authorize?client_id=jHUXCDEEtc8_uaRSgjoW&redirect_uri=http://localhost:8080/member/naver_callback&response_type=code
-    }
+	
 	
 	@RequestMapping(value = "kakao_callback", method = RequestMethod.GET)
     public ModelAndView redirectkakao(@RequestParam String code, HttpSession session) throws Exception {
@@ -278,32 +261,7 @@ public class LicenseMembersController {
         return mv;
     }
 	
-	@RequestMapping(value = "google_callback", method = RequestMethod.GET)
-    public ModelAndView redirectGoogle(@RequestParam String code, HttpSession session) throws Exception {
-            System.out.println("test 11111  : " + code);
-            ModelAndView mv = new ModelAndView();
-            //접속토큰 get
-            String googleToken = googleService.getReturnAccessToken(code);
-            
-            //접속자 정보 get
-            Map<String,Object> result = naverService.getUserInfo(googleToken);
-            System.out.println("컨트롤러 출력1 : "+result.get("nickname")+"/"+result.get("email")+"/"+result.get("mobile"));
-
-            LicenseMembersDTO licenseMembersDTO =new LicenseMembersDTO();
-            licenseMembersDTO.setName((String)result.get("nickname"));
-            licenseMembersDTO.setEmail((String)result.get("email"));
-
-            licenseMembersDTO.setPhone((String)result.get("mobile"));
-            System.out.println(licenseMembersDTO.getName());
-            System.out.println(licenseMembersDTO.getEmail());
-            
-            mv.setViewName("redirect:/");
-            
-            session.setAttribute("sessionConfigVO2", licenseMembersDTO);
-            /*로그아웃 처리 시, 사용할 토큰 값*/
-            session.setAttribute("googleToken", googleToken);
-        return mv;
-    }
+	
 
 
 }

@@ -50,10 +50,7 @@
 				<div>
 					<a href="./oauth2/authorization/naver"></a>
 				</div>
-				
-				<div>
-					<a href="./oauth2/authorization/google"></a>
-				</div>
+			
 			</div>
 			
 			<div class="join"><a href="join0" >회원 가입하러 가기</a></div>
@@ -75,6 +72,8 @@
 <script src="/resources/js/member.js">
 
 </script>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="/resources/js/common.js">
 
 </script> 
