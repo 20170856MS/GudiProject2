@@ -93,12 +93,13 @@ public class LicenseController {
 		return map;
 	}
 	
-	@GetMapping("add")
-	public ModelAndView setAdd(LicenseDTO licenseDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("/info/add");
-		return mv;
+	@PostMapping("setAdd")
+	@ResponseBody
+	public Map<String,Object> setAdd(ArrDTO arrDTO) throws Exception{
+		Map<String,Object> map = new HashMap<String,Object>();
+		int result = licenseService.setAdd(arrDTO);
+		map.put("result", result);
+		return map;
 	}
 	
 	@GetMapping("getScheduleAjax")
@@ -111,4 +112,13 @@ public class LicenseController {
 		map.put("sa", sa);
 		return map;
 	}
+	
+//	@PostMapping("setLicenseLike")
+//	@ResponseBody
+//	public Map<String,Object> setLicenseLike(LicenseDTO licenseDTO) throws Exception{
+//		Map<String,Object> map = new HashMap<String,Object>();
+//		int test = licenseService.setLicenseLike(licenseDTO);
+//		map.put("test", test);
+//	}
+	
 }

@@ -147,7 +147,7 @@
 	<update id="setUpdateJob" parameterType="JobDTO">
 		UPDATE JOB SET JOBNAME=#{jobName}, JOBINTRO=#{jobIntro} WHERE JOBNUM =#{jobNum}
 	</update>
-	
+	<!-- ----------------------------------- -->
 	
 	<select id="getScheduleNum" parameterType="ArrDTO" resultType="ArrDTO">
 		SELECT SCHEDULENUM FROM LICENSESCHEDULE WHERE LICENSENUM=#{licenseNum}
@@ -164,5 +164,58 @@
 	<select id="getJobNum" parameterType="ArrDTO" resultType="ArrDTO">
 		SELECT JOBNUM FROM LICENSEJOB WHERE LICENSENUM=#{licenseNum}
 	</select>
+	<!-- ----------------------------------- -->
+	
+	<insert id="setAddSchedule" parameterType="ScheduleDTO">
+		INSERT INTO SCHEDULE VALUES(LI_SEQ.NEXTVAL,#{scheduleName},#{scheduleDate})
+	</insert>
+	
+	<select id="getScheduleNumSeq" parameterType="ScheduleDTO" resultType="Long">
+		SELECT SCHEDULENUM FROM SCHEDULE WHERE SCHEDULENAME=#{scheduleName}
+	</select>
+	
+	<insert id="setScheduleLink" parameterType="ArrDTO">
+		INSERT INTO LICENSESCHEDULE VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{scheduleNum})
+	</insert>
+	<!-- ----------------------------------- -->
+	
+	<!-- sadasdadsad -->
+	<insert id="setAddBook" parameterType="BookDTO">
+		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},#{bookPrice})
+	</insert>
+	
+	<select id="getBookNumSeq" parameterType="BookDTO" resultType="Long">
+		SELECT BOOKNUM FROM BOOK WHERE BOOKNAME=#{bookName}
+	</select>
+	
+	<insert id="setBookLink" parameterType="ArrDTO">
+		INSERT INTO LICENSEBOOK VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{bookNum})
+	</insert>
+	<!-- ----------------------------------- -->
+	
+	<insert id="setAddVideo" parameterType="VideoDTO">
+		INSERT INTO VIDEO VALUES(LI_SEQ.NEXTVAL,#{videoTitle},#{videoLink})
+	</insert>
+	<select id="getVideoNumSeq" parameterType="VideoDTO" resultType="Long">
+		SELECT VIDEONUM FROM VIDEO WHERE VIDEONAME=#{videoName}
+	</select>
+	
+	<insert id="setVideoLink" parameterType="ArrDTO">
+		INSERT INTO LICENSEVIDEO VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{videoNum})
+	</insert>
+	<!-- ----------------------------------- -->
+	<insert id="setAddJob" parameterType="JobDTO">
+		INSERT INTO JOB VALUES(LI_SEQ.NEXTVAL,#{jobName},#{jobIntro})
+	</insert>
+	
+	<select id="getJobNumSeq" parameterType="JobDTO" resultType="Long">
+		SELECT JOBNUM FROM JOB WHERE JOBNAME=#{jobName}
+	</select>
+	
+	<insert id="setJobLink" parameterType="ArrDTO">
+		INSERT INTO LICENSEJOB VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{jobNum})
+	</insert>
+	<!-- ----------------------------------- -->
+	
 
 </mapper>

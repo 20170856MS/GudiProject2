@@ -159,7 +159,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">취소</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="update">수정</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btnModal"></button>
 						</div>
 					</div>
 				</div>
