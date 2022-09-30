@@ -20,6 +20,7 @@
 	SELECT * FROM
 	(SELECT ROWNUM R,N.* FROM
 	(SELECT * FROM LICENSEQNA
+	
 	<include refid="search"></include> 
 	ORDER BY REF DESC, STEP ASC) N)
 	WHERE R BETWEEN
@@ -31,6 +32,14 @@
 	SELECT * FROM LICENSEQNA WHERE QNANUM = #{qnaNum}
 	</select>
 	
+	<resultMap type="QnaDTO" id="getFile">
+		<collection property="qnaFileDTOs" javaType="List" ofType="QnaFileDTO">
+		<id column="FILENUM" property="fileNum"/>
+		<result column="FILENAME" property="fileName"/>
+		<result column="ORINAME" property="oriName"/>
+		</collection>
+	</resultMap>
+	
 	<insert id="setAdd" parameterType="QnaDTO">
 		<selectKey keyProperty="qnaNum" order="BEFORE" resultType="Long">
 		SELECT LICENSE_SEQ.NEXTVAL FROM DUAL
@@ -40,6 +49,21 @@
 	(QNANUM,LICENSENUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
 	VALUES(#{qnaNum},6,#{title},#{contents},#{writer},SYSDATE,0,#{qnaNum},0,0)
 	</insert>
+	
+			<insert id="setAddFile" parameterType="QnaFileDTO">
+		INSERT INTO QNAFILE (FILENUM,ORINAME,NUM,FILENAME)
+		VALUES(FILE_SEQ.NEXTVAL,#{oriName},#{num},#{fileName})
+	</insert>
+	
+	<select id="getFileDetail" resultType="QnaFileDTO" parameterType="QnaFileDTO">
+	SELECT * FROM QNAFILE WHERE
+	FILENUM=#{fileNum}
+	</select>
+	
+		<delete id="setFileDelete" parameterType="QnaFileDTO">
+		DELETE QNAFILE WHERE
+		FILENUM=#{fileNum}
+		</delete>
 	
 	<insert id="setReplyAdd" parameterType="QnaDTO">
 	<selectKey keyProperty="qnaNum" order="BEFORE" resultType="Long">

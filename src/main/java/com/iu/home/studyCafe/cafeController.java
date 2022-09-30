@@ -69,6 +69,11 @@ public class cafeController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "calender")
+	public String calender() throws Exception{
+		
+		return "studyCafe/calender";
+	}
 	
 	
 }

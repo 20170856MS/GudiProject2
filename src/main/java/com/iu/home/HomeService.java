@@ -20,6 +20,14 @@ public class HomeService {
 		
 		return homeDAO.getList(pager);
 	}
+	
+	public List<HomeDTO> getTopList(Pager pager1) throws Exception{
+		Long totalCount = homeDAO.getCount(pager1);
+		pager1.getNum(totalCount);
+		pager1.getRowNum();
+		
+		return homeDAO.getTopList(pager1);
+	}
 	public Long getCount(Pager pager) throws Exception{
 		return homeDAO.getCount(pager);
 	}

@@ -11,11 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iu.home.licenseList.ScheduleDTO;
 import com.iu.home.util.Pager;
 
 /**
@@ -33,30 +30,29 @@ public class HomeController {
 	 */
 	 
 	@GetMapping("/")
-	public ModelAndView home (Locale locale, Pager pager,HomeDTO homeDTO) throws Exception{
+	public ModelAndView home (Locale locale, Pager pager,Pager pager1,HomeDTO homeDTO) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ModelAndView mv = new ModelAndView();
-		pager.setPerPage(8L);
-		
-		List<HomeDTO> ar = homeService.getList(pager);
+		//top10
+		pager1.setPerPage(10L);
+		List<HomeDTO> ar = homeService.getTopList(pager1);
+		//자격증
+		pager.setPerPage(50L);
+		List<HomeDTO> ar1 = homeService.getList(pager);
 		
 		List<HomeDTO> ds = new ArrayList<HomeDTO>();
 	
 		System.out.println(homeDTO.getLicenseNum());
-		
-		
-		
+			
 		homeDTO.setLicenseNum(ar.get(0).getLicenseNum());
 		System.out.println(homeDTO.getLicenseNum());
 		ds = homeService.getDetailSchedule(homeDTO);
 
 		mv.addObject("detailSchedule",ds);
 		
-		
-		mv.addObject("list",ar);
+		mv.addObject("toplist",ar);
+		mv.addObject("list",ar1);
 		mv.addObject("pager",pager);
-		
-		
 		
 		mv.setViewName("index");
 		

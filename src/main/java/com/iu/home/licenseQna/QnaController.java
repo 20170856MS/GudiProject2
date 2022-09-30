@@ -1,6 +1,8 @@
 package com.iu.home.licenseQna;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,9 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licenseQna.QnaCommentDTO;
 import com.iu.home.licensemembers.LicenseMembersDTO;
+import com.iu.home.util.CommentPager;
 import com.iu.home.util.Pager;
 
 @Controller
@@ -46,16 +52,21 @@ public class QnaController {
 	@GetMapping("add")
 	public String setAdd(HttpSession session)throws Exception {
 		LicenseMembersDTO licenseMembersDTO=(LicenseMembersDTO)session.getAttribute("member");
+//		if(licenseMembersDTO != null) {
 			return "qna/add";
+//		}else {
+//			return "redirect:../member/login";
+//		}
+
 	}
 	
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(QnaDTO qnaDTO)throws Exception {
+	public ModelAndView setAdd(QnaDTO qnaDTO, MultipartFile [] files, HttpSession session)throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(qnaDTO.getWriter());
 		System.out.println(qnaDTO.getQnaNum());
-		int result =qnaService.setAdd(qnaDTO);
+		int result =qnaService.setAdd(qnaDTO,files,session.getServletContext());
 		String message="글쓰기실패!!!";
 		
 		if(result > 0) {
@@ -78,8 +89,8 @@ public class QnaController {
 	}
 	
 	@PostMapping("update")
-	public String setUpdate(QnaDTO qnaDTO, HttpSession session)throws Exception {
-		int result = qnaService.setUpdate(qnaDTO, session.getServletContext());
+	public String setUpdate(QnaDTO qnaDTO, MultipartFile[]files, HttpSession session)throws Exception {
+		int result = qnaService.setUpdate(qnaDTO, files, session.getServletContext());
 		return "redirect:./detail?qnaNum="+qnaDTO.getQnaNum();
 	}
 	//글삭제
@@ -90,17 +101,77 @@ public class QnaController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("reply")
-	public ModelAndView setReply(QnaDTO qnaDTO, ModelAndView mv)throws Exception {
-		mv.addObject("qnaDTO", qnaDTO);
-		mv.setViewName("qna/reply");
-		return mv;
+// 답글 	
+//	@GetMapping("reply")
+//	public ModelAndView setReply(QnaDTO qnaDTO, ModelAndView mv)throws Exception {
+//		mv.addObject("qnaDTO", qnaDTO);
+//		mv.setViewName("qna/reply");
+//		return mv;
+//	}
+//	
+//	@PostMapping("reply")
+//	public String setReply(QnaDTO qnaDTO)throws Exception {
+//		int result = qnaService.setReply(qnaDTO);
+//		return "redirect:./list";
+//	}
+	
+	//파일삭제
+	@PostMapping("fileDelete")
+	@ResponseBody
+	public int setFileDelete(QnaFileDTO qnaFileDTO, HttpSession session)throws Exception {
+		int result = qnaService.setFileDelete(qnaFileDTO, session.getServletContext());
+		return result;
 	}
 	
-	@PostMapping("reply")
-	public String setReply(QnaDTO qnaDTO)throws Exception {
-		int result = qnaService.setReply(qnaDTO);
-		return "redirect:./list";
+	//댓글
+	@PostMapping("commentAdd")
+	@ResponseBody
+	public String setCommentAdd(QnaCommentDTO qnaCommentDTO)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = qnaService.setCommentAdd(qnaCommentDTO);
+		String jsonResult="{\"result\":\""+result+"\"}";
+		return jsonResult;
 	}
-
+	
+//	@GetMapping("commentList")
+//	public ModelAndView getCommentList(CommentPager commentPager)throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//		List<QnaCommentDTO> ar = qnaService.getCommentList(commentPager);
+//		System.out.println("CommentList");
+//		System.out.println(ar.size());
+//		mv.addObject("commentList",ar);
+//		mv.setViewName("common/commentList");
+//		return mv;
+//	}
+	
+	@GetMapping("commentList")
+	@ResponseBody
+	public Map<String, Object> getCommentList(CommentPager commentPager)throws Exception {
+		List<QnaCommentDTO> ar = qnaService.getCommentList(commentPager);
+		System.out.println("CommentList");
+		System.out.println(ar.size());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", ar);
+		map.put("pager", commentPager);
+		
+		return map;
+		
+	}
+	
+	@PostMapping("commentUpdate")
+	@ResponseBody
+	public int setCommentUpdate(QnaCommentDTO qnaCommentDTO)throws Exception {
+		int result = qnaService.setCommentUpdate(qnaCommentDTO);
+		return result;
+	}
+	
+	@PostMapping("commentDelete")
+	@ResponseBody
+	public int setCommentDelete(QnaCommentDTO qnaCommentDTO)throws Exception {
+		int result = qnaService.setCommentDelete(qnaCommentDTO);
+		return result;
+	}
+	
+	
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iu.home.licenseQna.QnaCommentDAO">
+
+	<insert id="setCommentAdd"
+		parameterType="QnaCommentDTO">
+		INSERT INTO QNA_COMMENT
+		(NUM,QNANUM,WRITER,CONTENTS,REGDATE)
+		VALUES(LI_SEQ.NEXTVAL,#{qnaNum},#{writer},#{contents},SYSDATE)
+	</insert>
+
+ 	<select id="getCommentList" resultType="QnaCommentDTO"
+		parameterType="CommentPager">
+		SELECT * FROM
+		(SELECT ROWNUM R, C.*FROM
+		(SELECT * FROM QNA_COMMENT
+		WHERE QNANUM=#{qnaNum}
+		ORDER BY NUM DESC) C)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<select id="getCommentListTotalCount" resultType="Long"
+	parameterType="CommentPager">
+	SELECT COUNT(NUM) FROM QNA_COMMENT
+	WHERE QNANUM=#{qnaNum}
+	
+	
+	</select>
+
+ 	<insert id="setCommentUpdate" parameterType="QnaCommentDTO">
+		UPDATE QNA_COMMENT SET
+		CONTENTS=#{contents} WHERE NUM=#{num}
+	</insert>
+
+	<delete id="setCommentDelete" parameterType="QnaCommentDTO">
+		DELETE QNA_COMMENT WHERE NUM=#{num}
+	</delete>  
+
+</mapper>
+	
+	
+	
+	
+	

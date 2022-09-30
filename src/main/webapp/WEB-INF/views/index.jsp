@@ -79,39 +79,14 @@
                         <div class="rankingBox" data-v-19226b75="">
                             <h3 data-v-19226b75=""><span data-v-19226b75="">자격증TOP10</span></h3>
                             <ul data-v-19226b75="">
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=1" data-v-19226b75="">정보처리기사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=2" data-v-19226b75="">전기기사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=3" data-v-19226b75="">한식조리기능사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=4" data-v-19226b75="">빅데이터분석기사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=5" data-v-19226b75="">정보처리기능사</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=51" data-v-19226b75="">기사1</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=52" data-v-19226b75="">기사2</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=53" data-v-19226b75="">기사3</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=54" data-v-19226b75="">기사4</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
-                                <li data-v-19226b75=""><a href="./info/detail?licenseNum=55" data-v-19226b75="">기사5</a>
-                                    <div data-v-19226b75=""></div>
-                                </li>
+                                <c:forEach items="${requestScope.toplist}" var="dto">
+                                    
+                                    <li data-v-19226b75=""><a href="./info/detail?licenseNum=${dto.licenseNum}" data-v-19226b75="">${dto.licenseName}</a>
+                                        <div data-v-19226b75="${dto.licenseHits}"></div>
+                                    </li>
+                            </c:forEach>
                             </ul>
                         </div>
-                    </div>
 
                         <div id="content">
                             <form name="form1"></form>
@@ -216,51 +191,27 @@
                                 <div class="card-body">
                                     <h5 class="card-title">${dto.licenseName}</h5>
                                     
-                                    <p class="card-text">Content</p>
+                                    <!-- <p class="card-text">Content</p> -->
                 
                                     <div class="detail">
                                         <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
                                     </div>
-                                    
-                                    <div class="user-schedule" >
-                                        <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-                                                     
-                                                 ${detailSchedule.scheduleDTO.scheduleName}<br>
-                                                 ${detailSchedule.scheduleDTO.scheduleDate}<br>
-                                        </c:forEach>
-                                            
+                                    <div class="user-text" id="license" data-license-num="${name.licenseNum}">${name.licenseName}</div>
+                                    <div class="col-lg-5 user-schedule" >
+                                        <p>
+                                            <div>
+                                                <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+                                                    ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                    ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                                </c:forEach>
+                                            </div>
+                                        </p>
                                     </div>
 
                                 </div>
                             </div>
                         </c:forEach> 
                     </div>
-                    <!-- 페이지더보기 -->
-                    <div class="paging">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <c:if test="${pager.pre}">
-                                    <li class="page-item">
-                                        <a class="page-link" href="./info/main?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                </c:if>
-                                
-                                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                                    <li class="page-item"><a class="page-link" href="./info/main?page=${i}">${i}</a></li>
-                                </c:forEach>
-                                
-                                <li class="page-item ${pager.next?'':'disabled'}">
-                                    <a class="page-link" href="./info/main?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        &nbsp;&nbsp;&nbsp;
-                    </div>
-
             </div>
 
 
@@ -276,7 +227,8 @@
             <script src="/resources/js/d-day.js"></script>
             <script src="/resources/js/calendar.js"></script>
             <script src="/resources/js/schedule.js"></script>
-            
+            <script src="/resources/js/infoMain.js"></script>
+            <script src="/resources/js/infoDetail.js"></script>
         </body>
 
         </html>
