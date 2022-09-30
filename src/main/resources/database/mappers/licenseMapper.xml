@@ -121,7 +121,7 @@
 		        ORDER BY R ASC
 	</select>
 	
-	<resultMap type="ScheduleDTO" id="getSchedule">
+	<resultMap type="scheduleDTO" id="getSchedule">
 		<id column = "SCHEDULENUM" property="scheduleNum"/>
 		<result column ="SCHEDULENAME" property="scheduleName" />
 		<result column ="SCHEDULEDATE" property="scheduleDate" />

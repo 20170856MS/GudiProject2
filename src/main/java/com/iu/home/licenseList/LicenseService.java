@@ -89,8 +89,11 @@ public class LicenseService {
 				System.out.println(i+arrDTO.getArr2().get(i));
 				
 				jobDTO.setJobName(arrDTO.getArr1().get(i));
-				jobDTO.setJobIntro(arrDTO.getArr2().get(i));				
-
+				jobDTO.setJobIntro(arrDTO.getArr2().get(i));
+				
+				System.out.println(i+jobDTO.getJobName());
+				System.out.println(i+jobDTO.getJobIntro());
+				
 				licenseDAO.setUpdateJob(jobDTO);
 			}
 		}

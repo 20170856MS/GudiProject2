@@ -8,6 +8,7 @@
 		<typeAlias type="com.iu.home.licensemembers.LicenseMembersDTO" alias="LicenseMembersDTO"/>
 		<typeAlias type="com.iu.home.licensemembers.AdminRoleDTO" alias="AdminRoleDTO"/>
 		
+		
 		<typeAlias type="com.iu.home.HomeDTO" alias="HomeDTO"/>
 		<typeAlias type="com.iu.home.licenseList.BookDTO" alias="BookDTO"/>
 		<typeAlias type="com.iu.home.licenseList.JobDTO" alias="JobDTO"/>
@@ -23,7 +24,8 @@
 		
 		<typeAlias type="com.iu.home.licenseorder.OrderDTO" alias="OrderDTO"/>
 		<typeAlias type="com.iu.home.licenseorder.PayDTO" alias="PayDTO"/>
-		<typeAlias type="com.iu.home.licenseadmin.AdminDTO" alias="AdminDTO"/>		
+				<typeAlias type="com.iu.home.licenseadmin.AdminDTO" alias="AdminDTO"/>
+		
 
 	
 	
@@ -31,6 +33,7 @@
 		<typeAlias type="java.lang.Long" alias="Long"/>		
 		<typeAlias type="java.lang.Integer" alias="int"/>		
 		<typeAlias type="java.util.List" alias="List"/>
+		<typeAlias type="java.util.ArrayList" alias="ArrayList"/>
 
 		<typeAlias type="com.iu.home.util.Pager" alias="Pager"/>
 		<typeAlias type="com.iu.home.util.CommentPager" alias="CommentPager"/>
