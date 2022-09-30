@@ -138,7 +138,7 @@
 	
 	INSERT INTO LICENSEQNA
 	(QNANUM,LICENSENUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
-	VALUES(#{qnaNum},#{licenseNum},#{title},#{contents},#{writer},SYSDATE,0,#{qnaNum},0,0)
+	VALUES(#{qnaNum},1,#{title},#{contents},#{writer},SYSDATE,0,#{qnaNum},0,0)
 	</insert>
 	
 	

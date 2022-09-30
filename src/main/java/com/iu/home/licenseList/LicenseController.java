@@ -29,6 +29,8 @@ public class LicenseController {
 	@Autowired
 	private QnaService qnaService;
 	
+	private HttpSession session;
+	
 	@GetMapping("main")
 	public ModelAndView getInfo(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -109,7 +111,7 @@ public class LicenseController {
 		}
 		mv.addObject("result",result);
 		mv.addObject("message",message);
-		mv.addObject("url", "list");
+		//mv.addObject("url", "detail");
 		mv.setViewName("common/result");
 		
 		return mv;

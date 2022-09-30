@@ -50,7 +50,7 @@ public class HomeController {
 
 		mv.addObject("detailSchedule",ds);
 		
-		mv.addObject("toplist",ar);
+		mv.addObject("topList",ar);
 		mv.addObject("list",ar1);
 		mv.addObject("pager",pager);
 		
@@ -63,26 +63,5 @@ public class HomeController {
 	
 		return mv;
 	}
-	
-//	@GetMapping("detail")
-//	public ModelAndView getDetail(HomeDTO homeDTO) throws Exception{
-//		ModelAndView mv = new ModelAndView();
-//
-//		int result = homeService.setHits(homeDTO);
-//		HomeDTO name=homeService.getLicenseName(homeDTO);
-//		List<HomeDTO> detailBook = homeService.getDetailBook(homeDTO);
-//		List<HomeDTO> detailVideo = homeService.getDetailVideo(homeDTO);
-//		List<HomeDTO> detailJob = homeService.getDetailJob(homeDTO);
-//		List<HomeDTO> detailSchedule = homeService.getDetailSchedule(homeDTO);
-//				System.out.println(detailSchedule);
-//				
-//		mv.addObject("name",name);
-//		mv.addObject("detailBook",detailBook);
-//		mv.addObject("detailVideo",detailVideo);
-//		mv.addObject("detailJob",detailJob);
-//		mv.addObject("detailSchedule",detailSchedule);
-//		mv.setViewName("/info/detail");
-//		return mv;	
-//	}
 	
 }
