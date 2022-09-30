@@ -42,7 +42,34 @@ public class LicenseDAO {
 		return sqlSession.selectList(NAMESPACE+"getDetailJob",licenseDTO);	
 	}
 	
-	public List<LicenseDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
+	public List<ScheduleDTO> getDetailSchedule(LicenseDTO licenseDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getDetailSchedule",licenseDTO);	
+	}
+	
+	public int setUpdateSchedule(ScheduleDTO scheduleDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdateSchedule",scheduleDTO);
+	}
+	public int setUpdateBook(BookDTO bookDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdateBook",bookDTO);
+	}
+	public int setUpdateVideo(VideoDTO videoDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdateVideo",videoDTO);
+	}
+	public int setUpdateJob(JobDTO jobDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdateJob",jobDTO);
+	}
+	
+	
+	public List<ArrDTO> getScheduleNum(ArrDTO arrDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getScheduleNum",arrDTO);
+	}
+	public List<ArrDTO> getBookNum(ArrDTO arrDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getBookNum",arrDTO);
+	}
+	public List<ArrDTO> getVideoNum(ArrDTO arrDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getVideoNum",arrDTO);
+	}
+	public List<ArrDTO> getJobNum(ArrDTO arrDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getJobNum",arrDTO);
 	}
 }

@@ -34,7 +34,7 @@
 				class="form-control" id="search" placeholder="Search">
 		</div>
 	</div>
-	<div class="col-12">
+	<div class="col-12 ex2">
 		<button type="submit" class="btn btn-primary">검색어찾기</button>
 	</div>
 					<!-------------------------------------infoDetailBootStrap 시작 ----------------------------------------------------->
@@ -49,14 +49,14 @@
                     <p>
                     	<div>
 							<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-								${detailSchedule.scheduleDTO.scheduleName}<br>
-								${detailSchedule.scheduleDTO.scheduleDate}<br><br>
+								${detailSchedule.scheduleName}<br>
+								${detailSchedule.scheduleDate}<br><br>
 							</c:forEach>
 						</div>
 					</p>
-						<a class="btn btn-primary" id="as" href="./add?licenseNum=${name.licenseNum}">추가</a>
-						<a class="btn btn-primary" id="us" href="./update?licenseNum=${name.licenseNum}">수정</a>
-						<a class="btn btn-primary" id="ds" href="#!">삭제</a>
+					<a class="btn btn-primary add s" href="#!">추가</a>
+					<a class="btn btn-primary alt s" href="#!">수정</a> <!--class="col-lg-5 user-schedule"-->
+					<a class="btn btn-primary del s" href="#!">삭제</a>
                 </div>
             </div>
             <!-- Call to Action-->
@@ -83,9 +83,9 @@
                             </p>
                         </div>
                         <div class="card-footer">
-							<a class="btn btn-primary btn-sm" id="ab"href="#!">추가</a>
-							<a class="btn btn-primary btn-sm" id="ub"href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" id="db"href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm add b" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm alt b" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm del b" href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -102,9 +102,9 @@
 							</p>
                         </div>
                         <div class="card-footer user-wrap">
-							<a class="btn btn-primary btn-sm" id="av" href="#!">추가</a>
-							<a class="btn btn-primary btn-sm" id="uv" href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" id="dv" href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm add v" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm alt v" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm del v" href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -120,9 +120,9 @@
 							</p>
                         </div>
                         <div class="card-footer">
-							<a class="btn btn-primary btn-sm" id="aj" href="#!">추가</a>
-							<a class="btn btn-primary btn-sm" id="uj"href="#!">수정</a>
-							<a class="btn btn-primary btn-sm" id="dj"href="#!">삭제</a>
+							<a class="btn btn-primary btn-sm add j" href="#!">추가</a>
+							<a class="btn btn-primary btn-sm alt j" href="#!">수정</a>
+							<a class="btn btn-primary btn-sm del j" href="#!">삭제</a>
 						</div>
                     </div>
                 </div>
@@ -180,28 +180,29 @@
 					<!-------------------------------------infoDetailBootStrap 끝 ----------------------------------------------------->
 
 
-					<!-------------------------------------Modal----------------------------------------------------------------------->
-		<div>
+						<!-------------------------------------Modal----------------------------------------------------------------------->
+			<div>
 			<button type="button" style="display:none;"class="btn btn-primary" id="up" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="mt"></h5>
+							<h5 class="modal-title" id="exampleModalLabel">${name.licenseName}</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
 							<form id="mb">
 								<input type="hidden" id="num">
-								<div class="mb-3">
-									<label for="recipient-name" class="col-form-label">Writer</label>
-									<input type="text" class="form-control" id="updateWriter">
+
+						<!--	<div class="mb-3">
+									<label for="recipient-name" class="col-form-label">일정</label>
+									<input type="text" class="form-control form1 s" value=ds[i].scheduleName, >
 								</div>
 								<div class="mb-3">
-									<label for="message-text" class="col-form-label">Contents</label>
-									<textarea class="form-control" id="updateContents"></textarea>
-								</div>
+									<label for="message-text" class="col-form-label">날짜</label>
+									<textarea class="form-control form2 s"> ds[i].scheduleDate </textarea>
+								</div>	-->
 
 							</form>
 						</div>

@@ -1,5 +1,6 @@
 package com.iu.home.licenseList;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,14 +33,25 @@ public class LicenseController {
 	private HttpSession session;
 	
 	@GetMapping("main")
-	public ModelAndView getInfo(Pager pager) throws Exception{
+	public ModelAndView getInfo(Pager pager,LicenseDTO licenseDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		pager.setPerPage(10L);
+		List<LicenseDTO> ar = licenseService.getList(pager);//여러자격증
 		
-		List<LicenseDTO> ar = licenseService.getList(pager);
-
+		List<ScheduleDTO> ds = new ArrayList<ScheduleDTO>();
+		
+		for(int i =0; i<ar.size();i++) {
+//			licenseDTO.setLicenseNum(ar.get(i).getLicenseNum());
+//			ds = licenseService.getDetailSchedule(licenseDTO);
+		}
+		licenseDTO.setLicenseNum(ar.get(0).getLicenseNum());
+		ds = licenseService.getDetailSchedule(licenseDTO);
+		mv.addObject("detailSchedule", ds);
+		
+		
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
+		
 		mv.setViewName("/info/main");
 		return mv;
 	}
@@ -53,11 +65,12 @@ public class LicenseController {
 		List<LicenseDTO> detailBook = licenseService.getDetailBook(licenseDTO);
 		List<LicenseDTO> detailVideo = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> detailJob = licenseService.getDetailJob(licenseDTO);
-		List<LicenseDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
+		List<ScheduleDTO> detailSchedule = licenseService.getDetailSchedule(licenseDTO);
+
 		//상세보기 게시판부분
 		List<QnaDTO> ar = qnaService.getList(pager);
 		mv.addObject("pager",pager);
-		
+
 		mv.addObject("name",name);
 		mv.addObject("detailBook",detailBook);
 		mv.addObject("detailVideo",detailVideo);
@@ -72,22 +85,29 @@ public class LicenseController {
 	@GetMapping("detailAjax")
 	@ResponseBody
 	public Map<String,Object> getDetailAjax(LicenseDTO licenseDTO) throws Exception{
-
 		
+		List<ScheduleDTO> ds = licenseService.getDetailSchedule(licenseDTO);
+		List<LicenseDTO> db = licenseService.getDetailBook(licenseDTO);
+		List<LicenseDTO> dv = licenseService.getDetailVideo(licenseDTO);
 		List<LicenseDTO> dj = licenseService.getDetailJob(licenseDTO);
 		
 		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("ds", ds);
+		map.put("db", db);
+		map.put("dv", dv);
 		map.put("dj", dj);
 		return map;
 	}
 
 	
-	@GetMapping("update")
-	public ModelAndView setUpdate(LicenseDTO licenseDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
+	@PostMapping(value = "setUpdate", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public Map<String,Object> setUpdate(ArrDTO arrDTO) throws Exception{
+		Map<String,Object> map = new HashMap<String, Object>();
+		int result = licenseService.setUpdate(arrDTO);
 		
-		mv.setViewName("/info/update");
-		return mv;
+		map.put("result", result);
+		return map;
 	}
 	
 	@GetMapping("add")
@@ -97,6 +117,7 @@ public class LicenseController {
 		mv.setViewName("/info/add");
 		return mv;
 	}
+
 	//글추가
 	@PostMapping("add")
 	public ModelAndView setAdd(QnaDTO qnaDTO, MultipartFile [] files, HttpSession session)throws Exception {
@@ -115,6 +136,17 @@ public class LicenseController {
 		mv.setViewName("common/result");
 		
 		return mv;
+	}
+	
+	@GetMapping("getScheduleAjax")
+	@ResponseBody
+	public Map<String,Object> getScheduleAjax(LicenseDTO licenseDTO) throws Exception{
+		
+		List<ScheduleDTO> sa = licenseService.getDetailSchedule(licenseDTO);
+		
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("sa", sa);
+		return map;
 	}
 
 }
