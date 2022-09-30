@@ -25,7 +25,7 @@ public class LicenseController {
 	@GetMapping("main")
 	public ModelAndView getInfo(Pager pager,LicenseDTO licenseDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		pager.setPerPage(8L);
+		pager.setPerPage(10L);
 		List<LicenseDTO> ar = licenseService.getList(pager);//여러자격증
 		
 		List<ScheduleDTO> ds = new ArrayList<ScheduleDTO>();
