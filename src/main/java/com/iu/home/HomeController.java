@@ -50,7 +50,7 @@ public class HomeController {
 
 		mv.addObject("detailSchedule",ds);
 		
-		mv.addObject("toplist",ar);
+		mv.addObject("topList",ar);
 		mv.addObject("list",ar1);
 		mv.addObject("pager",pager);
 		

@@ -431,3 +431,34 @@ update.addEventListener("click",function(){
         }
     }}
 })
+
+const test = document.querySelector("#test");
+const licenseNum = test.getAttribute("licenseNum");
+
+
+test.addEventListener("click",function(){
+    
+    const xhttp = new XMLHttpRequest;
+
+    xhttp.open("GET","./add")
+
+    xhttp.send("licenseNum="+licenseNum)
+
+    xhttp.onreadystatechange = function(){
+        if(xhttp.readyState==4 && xhttp.status==200){
+            let result = xhttp.responseText.trim();
+            
+            console.log(result);
+
+
+            if(result == 1){
+                console.log("rr")
+            }else{
+
+            }
+            
+            
+        }
+    }
+
+})
