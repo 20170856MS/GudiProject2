@@ -9,7 +9,7 @@ public class reservationDTO {
 	private String roomName;
 	private String seDate;
 	private String seTime;
-	
+	private Long detailNum;
 	
 	public Long getRoomNum() {
 		return roomNum;
@@ -34,6 +34,12 @@ public class reservationDTO {
 	}
 	public void setSeTime(String seTime) {
 		this.seTime = seTime;
+	}
+	public Long getDetailNum() {
+		return detailNum;
+	}
+	public void setDetailNum(Long detailNum) {
+		this.detailNum = detailNum;
 	}
 	
 }

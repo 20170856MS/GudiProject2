@@ -165,7 +165,6 @@
 					</script>
 						
 				</article> -->
-
 				<table id="calendar" align="center">
 					<tr>
 						<td align="center"><label onclick="prevCalendar()"> ◀ </label></td>
@@ -190,6 +189,9 @@
 				<div magin : 50px 0>
 					<br>
 				</div>
+				<c:forEach items="${roomList}" var="rdto" end="0">
+					<text id="detailNum">${rdto.detailNum}</text>
+				</c:forEach>
 
 				<h1>방 선택</h1>
 		        <table>
@@ -198,7 +200,6 @@
 		         		<td>방개수</td>
 	
 		         	</tr>
-			         	
 			        <c:forEach items="${roomList}" var="rdto">
 			         	<tr>
 			         		<td>
