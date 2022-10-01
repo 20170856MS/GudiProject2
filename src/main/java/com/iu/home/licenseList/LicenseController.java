@@ -122,6 +122,7 @@ public class LicenseController {
 		mv.addObject("dto", licenseDTO);
 		mv.setViewName("/info/add");
 		return mv;
+	}
 	
 	@PostMapping("setAdd")
 	@ResponseBody

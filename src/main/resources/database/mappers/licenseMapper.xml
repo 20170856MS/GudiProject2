@@ -174,7 +174,6 @@
 		UPDATE JOB SET
 		JOBNAME=#{jobName}, JOBINTRO=#{jobIntro} WHERE JOBNUM =#{jobNum}
 	</update>
-	<!-- ----------------------------------- -->
 	
 	<select id="getScheduleNum" parameterType="ArrDTO" resultType="ArrDTO">
 		SELECT SCHEDULENUM FROM LICENSESCHEDULE WHERE LICENSENUM=#{licenseNum}
@@ -197,7 +196,6 @@
 		SELECT JOBNUM FROM LICENSEJOB WHERE
 		LICENSENUM=#{licenseNum}
 	</select>
-	<!-- ----------------------------------- -->
 	
 	<insert id="setAddSchedule" parameterType="ScheduleDTO">
 		INSERT INTO SCHEDULE VALUES(LI_SEQ.NEXTVAL,#{scheduleName},#{scheduleDate})
@@ -210,9 +208,7 @@
 	<insert id="setScheduleLink" parameterType="ArrDTO">
 		INSERT INTO LICENSESCHEDULE VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{scheduleNum})
 	</insert>
-	<!-- ----------------------------------- -->
-	
-	<!-- sadasdadsad -->
+
 	<insert id="setAddBook" parameterType="BookDTO">
 		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},#{bookPrice})
 	</insert>
@@ -224,7 +220,6 @@
 	<insert id="setBookLink" parameterType="ArrDTO">
 		INSERT INTO LICENSEBOOK VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{bookNum})
 	</insert>
-	<!-- ----------------------------------- -->
 	
 	<insert id="setAddVideo" parameterType="VideoDTO">
 		INSERT INTO VIDEO VALUES(LI_SEQ.NEXTVAL,#{videoTitle},#{videoLink})
@@ -236,7 +231,6 @@
 	<insert id="setVideoLink" parameterType="ArrDTO">
 		INSERT INTO LICENSEVIDEO VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{videoNum})
 	</insert>
-	<!-- ----------------------------------- -->
 	<insert id="setAddJob" parameterType="JobDTO">
 		INSERT INTO JOB VALUES(LI_SEQ.NEXTVAL,#{jobName},#{jobIntro})
 	</insert>
@@ -248,7 +242,6 @@
 	<insert id="setJobLink" parameterType="ArrDTO">
 		INSERT INTO LICENSEJOB VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{jobNum})
 	</insert>
-	<!-- ----------------------------------- -->
 	
 
 </mapper>
