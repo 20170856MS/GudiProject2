@@ -2,177 +2,200 @@
 <!DOCTYPE mapper
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-		    
+
 <mapper namespace="com.iu.home.licenseList.LicenseDAO">
 
 	<select id="getList" resultType="LicenseDTO">
 		SELECT * FROM
-			(SELECT * FROM
-				(SELECT ROWNUM R,L.* FROM
-					(SELECT *
-					FROM LICENSE ORDER BY LICENSENUM ASC) L
-				)
-				WHERE R BETWEEN #{startRow} AND #{lastRow}
-			)	ORDER BY LICENSEHITS DESC
+		(SELECT * FROM
+		(SELECT ROWNUM R,L.* FROM
+		(SELECT *
+		FROM LICENSE ORDER BY LICENSENUM ASC) L
+		)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+		) ORDER BY LICENSEHITS DESC
 	</select>
-	
-	<select id="getCount" resultType="Long" parameterType="Pager">
-		SELECT COUNT(LICENSENUM) FROM LICENSE
-	</select>
-	
-	<update id="setHits" parameterType="LicenseDTO">
-		UPDATE LICENSE SET LICENSEHITS=LICENSEHITS+1 WHERE LICENSENUM=#{licenseNum}
-	</update>
-	<select id="getLicenseName" resultType="LicenseDTO" parameterType="LicenseDTO">
-		SELECT LICENSENUM,LICENSENAME,LICENSEHITS FROM LICENSE WHERE LICENSENUM=#{licenseNum}
-	</select>
-	
-							<!--  BOOK  -->
-							
-	<select id="getDetailBook" parameterType="LicenseDTO" resultMap="getBook">
-		
-		SELECT ROWNUM R,L.LICENSENAME,L.LICENSEHITS,B.BOOKNAME,B.BOOKPRICE,B.BOOKIMAGE
-		FROM    LICENSE L
-		        INNER JOIN
-		        LICENSEBOOK LB
-		        USING (LICENSENUM)
-		        INNER JOIN
-		        BOOK B
-		        USING (BOOKNUM)
-		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY R ASC
-	</select>
-	
-	<resultMap type="LicenseDTO" id="getBook">
-		<id column = "LICENSENUM" property="licenseNum"/>
-		<result column ="LICENSENAME" property="licenseName" />
-		<result column ="LICENSEHITS" property="licenseHits" />
-		<association property="bookDTO" javaType="BookDTO">
-			<id column = "BOOKNUM" property="bookNum" />
-			<result column ="BOOKNAME" property="bookName"/>
-			<result column ="BOOKIMAGE" property="bookImage"/>
-			<result column ="BOOKPRICE" property="bookPrice"/>
-		</association>
-	</resultMap>
-	
-							<!--  VIDEO  -->
-							
-	<select id="getDetailVideo" parameterType="LicenseDTO" resultMap="getVideo">
-		
-		SELECT ROWNUM R,L.LICENSENAME,V.VIDEOTITLE,V.VIDEOLINK
-        FROM LICENSE L
-	            INNER JOIN
-	            LICENSEVIDEO LV
-	            USING (LICENSENUM)
-	            INNER JOIN
-	            VIDEO V
-	            USING (VIDEONUM)
-		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY R ASC
-	</select>
-	
-	<resultMap type="LicenseDTO" id="getVideo">
-		<id column = "LICENSENUM" property="licenseNum"/>
-		<result column ="LICENSENAME" property="licenseName" />
-		<association property="videoDTO" javaType="VideoDTO">
-			<id column = "VIDEONUM" property="videoNum" />
-			<result column ="VIDEOTITLE" property="videoTitle"/>
-			<result column ="VIDEOLINK" property="videoLink"/>
-		</association>
-	</resultMap>							
-							<!--  JOB  -->
-							
-	<select id="getDetailJob" parameterType="LicenseDTO" resultMap="getJob">
-		
-		SELECT ROWNUM R,L.LICENSENAME,J.JOBNAME,J.JOBINTRO
-        FROM LICENSE L
-	            INNER JOIN
-	            LICENSEJOB LJ
-	            USING (LICENSENUM)
-	            INNER JOIN
-	            JOB J
-	            USING (JOBNUM)
-		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY R ASC
-	</select>
-	
-	<resultMap type="LicenseDTO" id="getJob">
-		<id column = "LICENSENUM" property="licenseNum"/>
-		<result column ="LICENSENAME" property="licenseName" />
-		<association property="jobDTO" javaType="JobDTO">
-			<id column = "JOBNUM" property="jobNum" />
-			<result column ="JOBNAME" property="jobName"/>
-			<result column ="JOBINTRO" property="jobIntro"/>
-		</association>
-	</resultMap>
-							<!--  SCHEDULE  -->
 
-	<select id="getDetailSchedule" parameterType="LicenseDTO" resultMap="getSchedule">
-		
-		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
-        FROM SCHEDULE S
-	            INNER JOIN
-	            LICENSESCHEDULE LS
-	            USING (SCHEDULENUM)
-	            INNER JOIN
-	            LICENSE L
-	            USING (LICENSENUM)
-		        WHERE LICENSENUM=#{licenseNum}
-		        ORDER BY R ASC
+	<select id="getCount" resultType="Long" parameterType="Pager">
+		SELECT
+		COUNT(LICENSENUM) FROM LICENSE
 	</select>
-	
-	<resultMap type="scheduleDTO" id="getSchedule">
-		<id column = "SCHEDULENUM" property="scheduleNum"/>
-		<result column ="SCHEDULENAME" property="scheduleName" />
-		<result column ="SCHEDULEDATE" property="scheduleDate" />
-		<association property="licenseDTO" javaType="licenseDTO">
-			<id column = "LICENSENUM" property="licenseNum" />
-			<result column ="LICENSENAME" property="licenseName"/>
-			<result column ="LICENSEHITS" property="licenseHits"/>
+
+	<update id="setHits" parameterType="LicenseDTO">
+		UPDATE LICENSE SET
+		LICENSEHITS=LICENSEHITS+1 WHERE LICENSENUM=#{licenseNum}
+	</update>
+	<select id="getLicenseName" resultType="LicenseDTO"
+		parameterType="LicenseDTO">
+		SELECT LICENSENUM,LICENSENAME,LICENSEHITS FROM LICENSE
+		WHERE LICENSENUM=#{licenseNum}
+	</select>
+
+	<!-- BOOK -->
+
+	<select id="getDetailBook" parameterType="LicenseDTO"
+		resultMap="getBook">
+
+		SELECT ROWNUM
+		R,L.LICENSENAME,L.LICENSEHITS,B.BOOKNAME,B.BOOKPRICE,B.BOOKIMAGE
+		FROM
+		LICENSE L
+		INNER JOIN
+		LICENSEBOOK LB
+		USING (LICENSENUM)
+		INNER JOIN
+		BOOK B
+		USING (BOOKNUM)
+		WHERE LICENSENUM=#{licenseNum}
+		ORDER BY R ASC
+	</select>
+
+	<resultMap type="LicenseDTO" id="getBook">
+		<id column="LICENSENUM" property="licenseNum" />
+		<result column="LICENSENAME" property="licenseName" />
+		<result column="LICENSEHITS" property="licenseHits" />
+		<association property="bookDTO" javaType="BookDTO">
+			<id column="BOOKNUM" property="bookNum" />
+			<result column="BOOKNAME" property="bookName" />
+			<result column="BOOKIMAGE" property="bookImage" />
+			<result column="BOOKPRICE" property="bookPrice" />
 		</association>
 	</resultMap>
-	
+
+	<!-- VIDEO -->
+
+	<select id="getDetailVideo" parameterType="LicenseDTO"
+		resultMap="getVideo">
+
+		SELECT ROWNUM R,L.LICENSENAME,V.VIDEOTITLE,V.VIDEOLINK
+		FROM LICENSE L
+		INNER JOIN
+		LICENSEVIDEO LV
+		USING (LICENSENUM)
+		INNER JOIN
+		VIDEO V
+		USING (VIDEONUM)
+		WHERE LICENSENUM=#{licenseNum}
+		ORDER BY R ASC
+	</select>
+
+	<resultMap type="LicenseDTO" id="getVideo">
+		<id column="LICENSENUM" property="licenseNum" />
+		<result column="LICENSENAME" property="licenseName" />
+		<association property="videoDTO" javaType="VideoDTO">
+			<id column="VIDEONUM" property="videoNum" />
+			<result column="VIDEOTITLE" property="videoTitle" />
+			<result column="VIDEOLINK" property="videoLink" />
+		</association>
+	</resultMap>
+	<!-- JOB -->
+
+	<select id="getDetailJob" parameterType="LicenseDTO"
+		resultMap="getJob">
+
+		SELECT ROWNUM R,L.LICENSENAME,J.JOBNAME,J.JOBINTRO
+		FROM LICENSE L
+		INNER JOIN
+		LICENSEJOB LJ
+		USING (LICENSENUM)
+		INNER JOIN
+		JOB J
+		USING (JOBNUM)
+		WHERE LICENSENUM=#{licenseNum}
+		ORDER BY R ASC
+	</select>
+
+	<resultMap type="LicenseDTO" id="getJob">
+		<id column="LICENSENUM" property="licenseNum" />
+		<result column="LICENSENAME" property="licenseName" />
+		<association property="jobDTO" javaType="JobDTO">
+			<id column="JOBNUM" property="jobNum" />
+			<result column="JOBNAME" property="jobName" />
+			<result column="JOBINTRO" property="jobIntro" />
+		</association>
+	</resultMap>
+	<!-- SCHEDULE -->
+
+	<select id="getDetailSchedule" parameterType="LicenseDTO"
+		resultMap="getSchedule">
+
+		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
+		FROM SCHEDULE S
+		INNER JOIN
+		LICENSESCHEDULE LS
+		USING (SCHEDULENUM)
+		INNER JOIN
+		LICENSE L
+		USING (LICENSENUM)
+		WHERE LICENSENUM=#{licenseNum}
+		ORDER BY R ASC
+	</select>
+
+	<resultMap type="scheduleDTO" id="getSchedule">
+		<id column="SCHEDULENUM" property="scheduleNum" />
+		<result column="SCHEDULENAME" property="scheduleName" />
+		<result column="SCHEDULEDATE" property="scheduleDate" />
+		<association property="licenseDTO" javaType="licenseDTO">
+			<id column="LICENSENUM" property="licenseNum" />
+			<result column="LICENSENAME" property="licenseName" />
+			<result column="LICENSEHITS" property="licenseHits" />
+		</association>
+	</resultMap>
+
 	<insert id="setAdd" parameterType="LicenseDTO">
-		<selectKey keyProperty="licenseNum" order="BEFORE" resultType="Long">
-		SELECT LICENSE_SEQ.NEXTVAL FROM DUAL
+		<selectKey keyProperty="licenseNum" order="BEFORE"
+			resultType="Long">
+			SELECT LICENSE_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
-	
-	INSERT INTO LICENSEQNA
-	(QNANUM,LICENSENUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
-	VALUES(#{qnaNum},1,#{title},#{contents},#{writer},SYSDATE,0,#{qnaNum},0,0)
+
+		INSERT INTO LICENSEQNA
+		(QNANUM,LICENSENUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
+		VALUES(#{qnaNum},#{licenseNum},#{title},#{contents},#{writer},SYSDATE,0,#{qnaNum},0,0)
 	</insert>
-	
+
 	<update id="setUpdateSchedule" parameterType="ScheduleDTO">
-		UPDATE SCHEDULE SET SCHEDULENAME=#{scheduleName}, SCHEDULEDATE=#{scheduleDate} WHERE SCHEDULENUM =#{scheduleNum}
+		UPDATE SCHEDULE SET
+		SCHEDULENAME=#{scheduleName}, SCHEDULEDATE=#{scheduleDate} WHERE
+		SCHEDULENUM =#{scheduleNum}
 	</update>
-	
+
 	<update id="setUpdateBook" parameterType="BookDTO">
-		UPDATE BOOK SET BOOKNAME=#{bookName}, BOOKPRICE=#{bookPrice} WHERE BOOKNUM =#{bookNum}
+		UPDATE BOOK SET
+		BOOKNAME=#{bookName}, BOOKPRICE=#{bookPrice} WHERE BOOKNUM =#{bookNum}
 	</update>
-	
+
 	<update id="setUpdateVideo" parameterType="VideoDTO">
-		UPDATE VIDEO SET VIDEOTITLE=#{videoTitle}, VIDEOLINK=#{videoLink} WHERE VIDEONUM =#{videoNum}
+		UPDATE VIDEO SET
+		VIDEOTITLE=#{videoTitle}, VIDEOLINK=#{videoLink} WHERE VIDEONUM
+		=#{videoNum}
 	</update>
-	
+
 	<update id="setUpdateJob" parameterType="JobDTO">
-		UPDATE JOB SET JOBNAME=#{jobName}, JOBINTRO=#{jobIntro} WHERE JOBNUM =#{jobNum}
+		UPDATE JOB SET
+		JOBNAME=#{jobName}, JOBINTRO=#{jobIntro} WHERE JOBNUM =#{jobNum}
 	</update>
 	<!-- ----------------------------------- -->
 	
 	<select id="getScheduleNum" parameterType="ArrDTO" resultType="ArrDTO">
 		SELECT SCHEDULENUM FROM LICENSESCHEDULE WHERE LICENSENUM=#{licenseNum}
 	</select>
-	
-	<select id="getBookNum" parameterType="ArrDTO" resultType="ArrDTO">
-		SELECT BOOKNUM FROM LICENSEBOOK WHERE LICENSENUM=#{licenseNum}
+
+	<select id="getBookNum" parameterType="ArrDTO"
+		resultType="ArrDTO">
+		SELECT BOOKNUM FROM LICENSEBOOK WHERE
+		LICENSENUM=#{licenseNum}
 	</select>
-	
-	<select id="getVideoNum" parameterType="ArrDTO" resultType="ArrDTO">
-		SELECT VIDEONUM FROM LICENSEVIDEO WHERE LICENSENUM=#{licenseNum}
+
+	<select id="getVideoNum" parameterType="ArrDTO"
+		resultType="ArrDTO">
+		SELECT VIDEONUM FROM LICENSEVIDEO WHERE
+		LICENSENUM=#{licenseNum}
 	</select>
-	
-	<select id="getJobNum" parameterType="ArrDTO" resultType="ArrDTO">
-		SELECT JOBNUM FROM LICENSEJOB WHERE LICENSENUM=#{licenseNum}
+
+	<select id="getJobNum" parameterType="ArrDTO"
+		resultType="ArrDTO">
+		SELECT JOBNUM FROM LICENSEJOB WHERE
+		LICENSENUM=#{licenseNum}
 	</select>
 	<!-- ----------------------------------- -->
 	

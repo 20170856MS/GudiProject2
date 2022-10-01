@@ -24,6 +24,11 @@
 	
 	<form action="add" method="post" enctype="multipart/form-data">
 		<div>
+			자격증번호
+			<input type="text" name="licenseNum" value="${dto.licenseNum}">
+		</div>
+
+		<div>
 			작성자 <input type="text" value="${check.userName}" name="writer">
 		</div>
 

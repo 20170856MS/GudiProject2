@@ -10,7 +10,7 @@ public class Pager {
 	 * perPage : 한페이지에 출력할 글의 개수
 	 * perBlock : 한페이지에 출력할 번호의 개수
 	 */
-	
+
 	private Long page;
 	private Long startNum;
 	private Long lastNum;
@@ -18,19 +18,20 @@ public class Pager {
 	private Long lastRow;
 	private Long perPage;
 	private Long perBlock;
-	
+	private Long LicenseNum;
+
 	//이전 블럭의 유무
 	private boolean pre = false;
 	//다음 블럭의 유무
 	private boolean next = false;
-	
-	
+
+
 	//검색 컬럼의 종류
 	private String kind;
 	//검색어
 	private String search; 
-	
-	
+
+
 	public String getKind() {
 		return kind;
 	}
@@ -38,15 +39,15 @@ public class Pager {
 		this.kind = kind;
 	}
 	public String getSearch() {
-	      if(this.search == null)
-	         this.search = "";
-	         
-	      return search;
-	   }
+		if(this.search == null)
+			this.search = "";
+
+		return search;
+	}
 	public void setSearch(String search) {
 		this.search = search;
 	}
-	
+
 	public boolean isPre() {
 		return pre;
 	}
@@ -60,7 +61,7 @@ public class Pager {
 		this.next = next;
 	}
 
-	
+
 	public Pager() {
 		this.perPage=10L;
 		this.perBlock=5L;
@@ -69,8 +70,8 @@ public class Pager {
 		if(this.page ==null || this.page<1) {
 			this.page =1L;
 		}
-		
-		
+
+
 		return page;
 	}
 	public void setPage(Long page) {
@@ -100,12 +101,12 @@ public class Pager {
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
 	}
-	
+
 	public Long getPerPage() {
 		if(this.perPage ==null) {
 			this.page =10L;
 		}
-		
+
 		return perPage;
 	}
 	public void setPerPage(Long perPage) {
@@ -120,53 +121,59 @@ public class Pager {
 	public void setPerBlock(Long perBlock) {
 		this.perBlock = perBlock;
 	}
-	
+
+	public Long getLicenseNum() {
+		return LicenseNum;
+	}
+	public void setLicenseNum(Long licenseNum) {
+		LicenseNum = licenseNum;
+	}
 	// 1. mapper에서 사용할 값
 	public void getRowNum() throws Exception{
 		this.startRow = (this.getPage()-1)*this.getPerPage()+1;
 		this.lastRow = this.getPage()*this.getPerPage();
 	}
-	
+
 	// 2. jsp에서 사용할 값
 	public void getNum(Long totalCount) throws Exception{
-		
-		
+
+
 		Long totalPage = totalCount/this.getPerPage();
 		if(totalCount%this.getPerPage() !=0) {
 			totalPage++;
 		}
-		
+
 		if(this.getPage()>totalPage) {
 			this.setPage(totalPage);
 		}
-		
+
 		Long totalBlock = totalPage/this.getPerBlock();
 		if(totalPage%this.getPerBlock() != 0 ) {
 			totalBlock++;
 		}
-		
+
 		Long curBlock = this.getPage()/this.getPerBlock();
 		if(this.getPage()%this.getPerBlock() != 0) {
 			curBlock++;
 		}
-		
+
 		this.startNum = (curBlock-1)*this.getPerBlock()+1;
 		this.lastNum = curBlock*this.getPerBlock();
-	
+
 		//6. curBlock이 마지막Block(totalBlock과 같을 때)
-		
+
 		if(curBlock==totalBlock) {
 			this.lastNum=totalPage;
 		}
-		
+
 		// 7. curBlock 이전, 다음 블럭의 유무
 		if(curBlock>1) {
 			pre=true;
 		}
-	
+
 		if(curBlock<totalBlock) {
 			next=true;
 		}
 	}
-	
- }
+
+}

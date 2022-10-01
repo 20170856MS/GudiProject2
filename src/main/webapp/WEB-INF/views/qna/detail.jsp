@@ -35,12 +35,12 @@
 						<th>조회수</th>
 					</tr>
 					<tr>
-						<td>${qnaDTO.qnaNum}</td>
-						<td>${qnaDTO.title}</td>
-						<td>${qnaDTO.contents}</td>
-						<td>${qnaDTO.writer}</td>
-						<td>${qnaDTO.regDate}</td>
-						<td>${qnaDTO.hit}</td>
+						<td>${detail.qnaNum}</td>
+						<td>${detail.title}</td>
+						<td>${detail.contents}</td>
+						<td>${detail.writer}</td>
+						<td>${detail.regDate}</td>
+						<td>${detail.hit}</td>
 					</tr>
 				</table>
 			</section>
@@ -51,8 +51,8 @@
 			<!-- 댓글 -->
 			<div class="row">
 				<div class="mb-3">
-					<label for="writer" class="form-label">USERNAME</label>
-					<input type="text" class="form-control" id="writer" placeholder="Enter USERNAME">
+					<label for="writer" class="form-label">USERNAME</label> <input type="text" class="form-control"
+						id="writer" placeholder="Enter USERNAME">
 				</div>
 
 				<div class="mb-3">
