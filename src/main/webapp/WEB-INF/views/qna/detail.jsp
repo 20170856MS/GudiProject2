@@ -16,7 +16,7 @@
 
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
-			<h1>Qna Detail Page</h1>
+			<h1>게시판 글 상세보기</h1>
 
 			<c:forEach items="${qnaDTO.qnaFileDTOs}" var="fileDTO">
 				<p>

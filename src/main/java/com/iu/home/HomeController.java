@@ -42,7 +42,7 @@ public class HomeController {
 		
 		List<HomeDTO> ds = new ArrayList<HomeDTO>();
 	
-		System.out.println(homeDTO.getLicenseNum());
+		//System.out.println(homeDTO.getLicenseNum());
 			
 		homeDTO.setLicenseNum(ar.get(0).getLicenseNum());
 		System.out.println(homeDTO.getLicenseNum());

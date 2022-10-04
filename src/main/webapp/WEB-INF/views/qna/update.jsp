@@ -15,34 +15,33 @@
 			<link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
 			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-			<!-- include summernote css/js-->
-			<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-			<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
 		</head>
 
 		<body>
-			<h1>Update Page</h1>
 
 			<c:import url="../template/header.jsp"></c:import>
-
-			<section class="container-fluid col-lg-4">
-
+			<section class="container-fluid">
 				<div class="row">
+				<h1>게시판 글 수정하기</h1>
+				
+					
+					<div class="row mb-3">
 					<form action="./update" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="qnaNum" value="${qnaDTO.qnaNum}">
 						<div class="mb-3">
 
-							<label for="title" class="form-label">Title</label> <input type="text" name="title"
+							<label for="title" class="form-label">글제목</label> <input type="text" name="title"
 								value="${qnaDTO.title}" class="form-control" id="title" placeholder="제목 입력">
 						</div>
 						<div class="mb-3">
 
-							<label for="writer" class="form-label">Writer</label> <input type="text" name="writer"
+							<label for="writer" class="form-label">작성자</label> <input type="text" name="writer"
 								value="${qnaDTO.writer}" class="form-control" id="Writer" placeholder="작성자 입력">
 						</div>
 						<div class="mb-3">
 
-							<label for="contents" class="form-label">Contents</label>
+							<label for="contents" class="form-label">글내용</label>
 							<textarea class="form-control" name="contents" id="contents"
 								rows="3">${qnaDTO.contents}</textarea>
 						</div>
@@ -64,6 +63,7 @@
 
 					</form>
 				</div>
+				</div>
 			</section>
 			<c:import url="../template/footer.jsp"></c:import>
 
@@ -71,10 +71,6 @@
 				integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 				crossorigin="anonymous"></script>
 			<script src="/resources/js/common.js">
-			</script>
-			<script>
-				setCount(${ qnaDTO.qnaFileDTOs.size() });
-				$("#contents").summernote();
 			</script>
 		</body>
 

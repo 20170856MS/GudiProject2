@@ -27,10 +27,10 @@ body {
 .container-calendar {
     background: #ffffff;
     padding: 5px;
-    max-width: 400px;
+    /* max-width: 400px; */
     /* margin: 0 auto; */
-    overflow: auto;
-    margin-left: 59%;
+    /* overflow: auto;
+    margin-left: 59%; */
 }
 
 .button-container-calendasr button {

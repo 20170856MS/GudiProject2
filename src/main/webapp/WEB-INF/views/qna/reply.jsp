@@ -14,7 +14,7 @@
 
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
-			<h1>Reply Page</h1>
+			<h1>댓글달기</h1>
 			<form action="./reply" method="post">
 				<input type="hidden" name="qnaNum" value="${qnaDTO.qnaNum}">
 

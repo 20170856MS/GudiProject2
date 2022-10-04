@@ -70,7 +70,6 @@ public class LicenseController {
 		//상세보기 게시판부분
 		//		List<QnaDTO> ar = qnaService.getList(pager);
 		//		mv.addObject("pager",pager);
-
 		List<QnaDTO> ar = qnaService.getDetailList(pager);
 		mv.addObject("pager",pager);
 

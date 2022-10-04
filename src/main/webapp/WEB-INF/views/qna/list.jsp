@@ -18,7 +18,7 @@
 			<c:import url="../template/header.jsp"></c:import>
 			<section class="container-fluid">
 				<div class="row">
-					<h1>Q&A 게시판 리스트</h1>
+					<h1>게시판 리스트</h1>
 
 					<div class="row mb-3">
 						<form action="./list" class="row row-cols-lg-auto g-3 align-items-center">

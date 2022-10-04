@@ -42,6 +42,20 @@
                     <!-- calendar -->
                     <div class="wrapper">
 
+                         <!-- top10 -->
+                         <div class="rankingBox" data-v-19226b75="">
+                            <h3 data-v-19226b75=""><span data-v-19226b75="">자격증TOP10</span></h3>
+                            <ul data-v-19226b75="">
+                                <c:forEach items="${requestScope.topList}" var="dto">
+
+                                    <li data-v-19226b75=""><a href="./info/detail?licenseNum=${dto.licenseNum}"
+                                            data-v-19226b75="">${dto.licenseName}</a>
+                                        <div data-v-19226b75="${dto.licenseHits}"></div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+
                         <div class="container-calendar">
                             
                             <h3 id="monthAndYear"></h3>
@@ -76,19 +90,6 @@
                             </div>
                         </div>
 
-                        <!-- top10 -->
-                        <div class="rankingBox" data-v-19226b75="">
-                            <h3 data-v-19226b75=""><span data-v-19226b75="">자격증TOP10</span></h3>
-                            <ul data-v-19226b75="">
-                                <c:forEach items="${requestScope.topList}" var="dto">
-
-                                    <li data-v-19226b75=""><a href="./info/detail?licenseNum=${dto.licenseNum}"
-                                            data-v-19226b75="">${dto.licenseName}</a>
-                                        <div data-v-19226b75="${dto.licenseHits}"></div>
-                                    </li>
-                                </c:forEach>
-                            </ul>
-                        </div>
 
                         <!-- 월간 시험일정 -->
                         <div id="content">
@@ -179,6 +180,7 @@
 
                             </div>
                         </div>
+                    </div>
 
 
 
@@ -221,7 +223,7 @@
                 </div>
             </div>
 
-            <div class="meImg"><img src="/resources/img/awarded.png" alt="자바스 공공데이터 활용 공모전 수상내역"></div>
+            <div class="meImg"><img src="/resources/img/awarded.png"></div>
             
             <!-- footer.jsp -->
             <c:import url="template/footer.jsp"></c:import>
