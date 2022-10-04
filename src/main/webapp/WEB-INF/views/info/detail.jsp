@@ -107,6 +107,7 @@
 								<h2 class="card-title">동영상</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
+										${detailVideo.videoDTO.videoTitle}<br>
 										<iframe width="280" height="157.5" src="${detailVideo.videoDTO.videoLink}"
 											title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
 									  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

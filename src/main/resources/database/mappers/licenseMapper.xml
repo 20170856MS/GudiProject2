@@ -210,7 +210,7 @@
 	</insert>
 
 	<insert id="setAddBook" parameterType="BookDTO">
-		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},#{bookPrice})
+		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},'https://previews.123rf.com/images/oasis15/oasis151506/oasis15150600005/40908970-%EB%B9%88-%EC%B1%85-%ED%91%9C%EC%A7%80.jpg',#{bookPrice})
 	</insert>
 	
 	<select id="getBookNumSeq" parameterType="BookDTO" resultType="Long">
@@ -225,7 +225,7 @@
 		INSERT INTO VIDEO VALUES(LI_SEQ.NEXTVAL,#{videoTitle},#{videoLink})
 	</insert>
 	<select id="getVideoNumSeq" parameterType="VideoDTO" resultType="Long">
-		SELECT VIDEONUM FROM VIDEO WHERE VIDEONAME=#{videoName}
+		SELECT VIDEONUM FROM VIDEO WHERE VIDEOTITLE=#{videoTitle}
 	</select>
 	
 	<insert id="setVideoLink" parameterType="ArrDTO">
