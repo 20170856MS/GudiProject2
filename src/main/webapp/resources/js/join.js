@@ -82,11 +82,11 @@ email.addEventListener("blur",function(){
     }
 })
 
-email.addEventListener("blur",function(){
+phone.addEventListener("blur",function(){
 
-    if(email.value.length>0){
+    if(phone.value.length>0){
         check6 = true;
-        email.className += ' is-vaild';
+        phone.className += ' is-vaild';
     }else {
         swal("입력필수");
     }

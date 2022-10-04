@@ -192,9 +192,7 @@
 	                      <li><a href="/qna/list" title="QNA">QNA</a>
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
-	                              <li><a href="#" title="test0">${check.adminRoleDTOs[0].roleName}</a></li>
 	                              <li><a href="#" title="test1">test</a></li>
-	                               
 	                            </ul>
 	                         </div>
 	                       </li>

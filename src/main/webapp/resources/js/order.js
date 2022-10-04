@@ -58,21 +58,20 @@ function requestPay() {
                             contentType: 'application/json',
                             data : data
                         })
-                        .done(function(data) {
+                        .done(function(res) {
                             console.log(data)
                             console.log(data.orderNum)
-                            console.log(success)
-                            if (data != null) {
+                            console.log(res)
+                            if (res > 0) {
                                 console.log(res);
-                                swal('주문정보 저장 성공');
-                                
+                                swal('주문정보 저장 성공')
+                                createPayInfo(uid);
                             }
                             else {
                                 console.log(data);
                                 swal('주문정보 저장 실패');
                             }
                         })
-                    createPayInfo(uid);
                 }
                 else {
                     alert('결제 실패');
@@ -95,15 +94,15 @@ function createPayInfo(uid) {
         },
         success: function(data) {
             
-        swal('결제 성공 !',"결제완료 페이지로 이동합니다.","success").then(function(){
-            
-            // 결제완료 페이지로 이동
-            location.replace('/order/complete?payNum='+data);
+            swal('결제 성공 !',"결제완료 페이지로 이동합니다.","success").then(function(){
+                
+                // 결제완료 페이지로 이동
+                location.replace('/order/complete?payNum='+data);
 
-        })
+            })
         },
         error: function() {
-            alert('결제정보 저장 통신 실패');
+            swal('결제정보 저장 통신 실패');
         }
     });
 }

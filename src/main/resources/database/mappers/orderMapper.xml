@@ -14,7 +14,7 @@
     <!-- 결제 정보 생성 -->
     <insert id ="insert_payinfo" parameterType="PayDTO">
     	INSERT INTO SCPAY
-    	VALUES(CAFE_SEQ.NEXTVAL,#{num},#{orderNum},#{payMethod},#{payName},SYSDATE,#{payAmount},#{payTest})   
+    	VALUES(CAFE_SEQ.NEXTVAL,#{num},#{orderNum},#{payMethod},#{payName},SYSDATE,#{payAmount})   
     </insert>
     
     <!-- 가장 마지막 주문번호 찾기 -->

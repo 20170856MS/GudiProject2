@@ -91,6 +91,10 @@ public class LicenseMembersController {
 			url = "../";
 			message = "로그인성공";
 			
+			HttpSession session =request.getSession();
+			session.setAttribute("check", loginUser);
+			session.setAttribute("saveNum", loginUser.getNum());
+			
 		}else {
 			result =0;
 			url = "./login";
@@ -103,10 +107,8 @@ public class LicenseMembersController {
 		mv.addObject("url", url);
 		mv.setViewName("common/result");
 		
-		HttpSession session =request.getSession();
 		
-		session.setAttribute("check", loginUser);
-		session.setAttribute("saveNum", loginUser.getNum());
+		
 		
 		
 		System.out.println("2"+licenseMembersDTO);

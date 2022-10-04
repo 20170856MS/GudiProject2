@@ -14,7 +14,7 @@
 	
 	<insert id="setRole" parameterType="LicenseMembersDTO">
 		INSERT INTO LICENSEROLE
-		VALUES(board_seq.nextval,#{userName},8)
+		VALUES(board_seq.nextval,#{userName},3)
 	</insert>
 	
 	

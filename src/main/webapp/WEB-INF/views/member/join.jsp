@@ -33,7 +33,6 @@
 							<div class="input_aera">
 								<select class="form-select" name="areaName" id="areaName">
 									<option>지역선택</option>
-									<option>금천구</option>
 									<option>서울시 강남구</option>
 									<option>서울시 강동구</option>
 									<option>서울시 강북구</option>
@@ -85,7 +84,6 @@
 						<div class="input_aera">
 								<select class="form-select" name="areaName" id="areaName">
 									<option>지역선택</option>
-									<option>금천구</option>
 									<option>서울시 강남구</option>
 									<option>서울시 강동구</option>
 									<option>서울시 강북구</option>
@@ -130,7 +128,7 @@
 						
 						
 						<div class="input_aera">
-							<input type="text" name="phone" id="phone" placeholder="'-' 까지 입력해 주세요" maxlength="11" >
+							<input type="text" name="phone" id="phone" placeholder="'-' 까지 입력해 주세요" maxlength="13" >
 							
 						</div>
 					</c:otherwise>

@@ -66,19 +66,26 @@ public class AdminController {
 		System.out.println("2 : "+orderList.getImp_uid());
 		System.out.println("2 : "+orderList.getOrderNum());
 		
-		int result = adminService.orderCancle(orderList);
-		
 		int result1 = adminService.payMentCancle(payDTO);
+		System.out.println("rrr");
 		
+		int result = adminService.orderCancle(orderList);
+
 		if(result>0) {
 			System.out.println("DB 삭제성공");
 		}
-		
 		if(result1>0) {
 			System.out.println("Pay DB 삭제성공");
 		}
 		
 		return result;
+	}
+	
+	@GetMapping(value = "adminDetail")
+	public void test(OrderDTO orderDTO,HttpSession session, Model model,
+			@RequestParam(value = "pagingNum", required = false, defaultValue = "1") String pagingNum) throws Exception{
+
+		
 	}
 	
 	@GetMapping(value = "adminOrderInfo")
