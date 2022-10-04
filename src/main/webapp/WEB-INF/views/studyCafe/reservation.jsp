@@ -190,7 +190,7 @@
 					<br>
 				</div>
 				<c:forEach items="${roomList}" var="rdto" end="0">
-					<text id="detailNum">${rdto.detailNum}</text>
+					<text id="test1" detail-Num="${rdto.detailNum}">${rdto.detailNum}</text>
 				</c:forEach>
 
 				<h1>방 선택</h1>

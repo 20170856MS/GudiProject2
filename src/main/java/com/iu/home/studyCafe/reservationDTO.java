@@ -5,17 +5,17 @@ import java.sql.Time;
 
 public class reservationDTO {
 	
-	private Long roomNum;
+	private Long reserNum;
 	private String roomName;
 	private String seDate;
 	private String seTime;
 	private Long detailNum;
 	
-	public Long getRoomNum() {
-		return roomNum;
+	public Long getreserNum() {
+		return reserNum;
 	}
-	public void setRoomNum(Long roomNum) {
-		this.roomNum = roomNum;
+	public void setreserNum(Long reserNum) {
+		this.reserNum = reserNum;
 	}
 	public String getRoomName() {
 		return roomName;

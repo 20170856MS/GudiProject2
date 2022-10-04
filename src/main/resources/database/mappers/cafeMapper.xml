@@ -16,9 +16,11 @@
     	</select>
     	
     	<insert id="addDate" parameterType="reservationDTO">
-    		INSERT INTO RESERVATION (RESERNUM, ROOMNAME, SEDATE, SETIME) VALUES (RESER_SEQ.NEXTVAL, #{roomName}, #{seDate}, #{seTime})
+    		INSERT INTO RESERVATION (RESERNUM, ROOMNAME, SEDATE, SETIME, DETAILNUM) VALUES (RESER_SEQ.NEXTVAL, #{roomName}, #{seDate}, #{seTime}, #{detailNum})
     	</insert>
-    	
+    	<!-- <update id="updateSit">
+    		UPDATE STUDYROOMDETAIL SET ROOMCOUNT= #{roomCount} WHERE ROOMNUM = #{roomNum} 
+    	</update> -->
     </mapper>
     
     
