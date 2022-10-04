@@ -51,20 +51,13 @@ public class OrderController {
 	private PayService payService;
 	
 	
-	@Value("7017488345532835")
-	private String impKey;
-
-	@Value("r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM")
-	private String impSecret;
 	
-	private IamportClient client = new IamportClient(impKey, impSecret);
+	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
 	
 	
 	@GetMapping("order")
 	public void orderGET(OrderDTO orderDTO) throws Exception {
 		System.out.println("order");
-		System.out.println(impKey);
-		System.out.println(impSecret);
 	}
 	
 	@PostMapping("order")

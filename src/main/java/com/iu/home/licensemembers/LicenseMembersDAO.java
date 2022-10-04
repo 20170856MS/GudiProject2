@@ -20,6 +20,24 @@ public class LicenseMembersDAO {
 		return sqlSession.insert(NAMESPACE+"setJoin", licenseMembersDTO);
 	}
 	
+	public int setSimpleJoin(SimpleMembersDTO simpleMembersDTO) throws Exception{
+		
+		
+		return sqlSession.insert(NAMESPACE+"setSimpleJoin", simpleMembersDTO);
+	}
+	
+	public SimpleMembersDTO  getsosialMyPage(SimpleMembersDTO  simpleMembersDTO) throws Exception{
+		
+		
+		return sqlSession.selectOne(NAMESPACE+"getsosialMyPage", simpleMembersDTO);
+	}
+	
+	public int setRole(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		
+		return sqlSession.insert(NAMESPACE+"setRole", licenseMembersDTO);
+	}
+	
 	public LicenseMembersDTO getLogin(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
 		return sqlSession.selectOne(NAMESPACE+"getLogin", licenseMembersDTO);

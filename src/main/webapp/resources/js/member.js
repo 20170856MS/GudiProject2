@@ -14,7 +14,7 @@ btn.addEventListener("click",function(){
     if(u.length>0 && p.length>0){
         frm.submit();
     } else{
-        swal("Hello world!");
+        swal("로그인 실패 !","입력되지 않은 값이 있습니다.","error");
     }
     
     

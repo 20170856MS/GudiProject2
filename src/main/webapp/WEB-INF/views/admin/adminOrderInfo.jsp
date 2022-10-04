@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 					
-					<h3>${check.userName}님의 전체 주문 내역</h3>
+					<h3>${check.adminRoleDTOs[0].roleName} 님의 전체 주문 내역</h3>
 		
 					<div class="point_list_box">
 					  
@@ -55,21 +55,23 @@
 													( ${map.key} )<br>
 													<a href="/UnoMas/order/order_detail?code=${map.key }&pagingNum=${pagingNum }" class="table_btn">주문 상세보기</a>
 											</td>
-											<c:forEach var="val" items="${map.value}" varStatus="itt">
-												<td class="order_info_td">
-													<img src="/resources/img/cafeimg1.jpg" width="50"> 
-													<div>
-														<a href="/UnoMas/product/product_detail?prod_num=${val.productNum }"> ${val.productName } </a>
-														<hr>
-														<span>${val.totalPrice }원</span> 
-													 </div>
-												</td>
-												<td >
-													<button type="button" id = "payMentChange"  class="site-btn mb-2" >예약변경</button> <br> 
-													<button type="button" id = "payMentCancel" order-num="${val.orderNum}" class="site-btn" >주문취소</button><br> 
-												</td>
-					
-											</c:forEach>
+											<c:set var="val" value="true" />
+												<c:forEach var="val" items="${map.value}" varStatus="itt">
+													<td class="order_info_td">
+														<img src="/resources/img/cafeimg1.jpg" width="50"> 
+														<div>
+															<a href="/UnoMas/product/product_detail?prod_num=${val.productNum }"> ${val.productName } </a>
+															<hr>
+															<span>${val.totalPrice }원</span> 
+														</div>
+													</td>
+													<td >
+														<button type="button" id = "payMentChange"  class="site-btn mb-2" >예약변경</button> <br> 
+														<button type="button" id = "payMentCancel" order-num="${val.orderNum}" class="site-btn" >주문취소</button><br> 
+													</td>
+
+													<c:set var="val" value="false" />
+												</c:forEach>
 											
 										</tr>
 										</c:forEach>
@@ -81,22 +83,22 @@
 								
 							<div class="paging_container">
 								<c:if test="${pm.prev }">
-									<a href="myOrderList?pagingNum=${pm.startPage - 1}" class="paging_a">이전</a>
+									<a href="adminOrderInfo?pagingNum=${pm.startPage - 1}" class="paging_a">이전</a>
 								</c:if>
 				
 								<c:forEach var="block" varStatus="pg" begin="${pm.startPage }" end="${pm.endPage }" step="1">
 									<c:choose>
 										<c:when test="${pg.index == pagingNum }">
-											<a href="myOrderList?pagingNum=${pg.index }" class="paging_num_yes">${pg.index }</a>
+											<a href="adminOrderInfo?pagingNum=${pg.index }" class="paging_num_yes">${pg.index }</a>
 										</c:when>
 										<c:otherwise>
-											<a href="myOrderList?pagingNum=${pg.index }" class="paging_num">${pg.index }</a>
+											<a href="adminOrderInfo?pagingNum=${pg.index }" class="paging_num">${pg.index }</a>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
 				
 								<c:if test="${pm.next }">
-									<a href="myOrderList?pagingNum=${pm.endPage + 1}" class="paging_a">다음</a>
+									<a href="adminOrderInfo?pagingNum=${pm.endPage + 1}" class="paging_a">다음</a>
 								</c:if>
 							</div>
 					

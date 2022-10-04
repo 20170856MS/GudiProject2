@@ -44,6 +44,8 @@ public class LicenseMembersController {
 	private NaverService naverService;
 	
 	
+	
+	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
 		System.out.println("로그아웃");
@@ -147,6 +149,9 @@ public class LicenseMembersController {
 		System.out.println("암호화 후 : " + licenseMembersDTO.getPassword());
 		
 	    int result = licenseMembersService.setJoin(licenseMembersDTO);
+	    licenseMembersService.setRole(licenseMembersDTO);
+	    System.out.println(licenseMembersDTO.getUserName());
+	    
 	    System.out.println(result);
 		if(result > 0) {
 				System.out.println("성공");
@@ -168,6 +173,10 @@ public class LicenseMembersController {
 //		Map<String, Object> map = bankMembersService.getmyPage(bankMemberDTO);
 //		
 //		model.addAttribute("map", map);
+		if((String)session.getAttribute("access_Token") != null) {
+			
+			
+		} 
 		licenseMembersDTO = licenseMembersService.getMyPage(licenseMembersDTO);
 //		List<BankAccountDTO> ar = bankAccountService.getListByUserName(bankMemberDTO);
 //		model.addAttribute("list", ar);
@@ -220,15 +229,28 @@ public class LicenseMembersController {
             Map<String,Object> result = kakaoService.getUserInfo(kakaoToken);
             System.out.println("컨트롤러 출력1 : "+result.get("nickname")+"/"+result.get("email")+"/"+result.get("id"));
 
-            LicenseMembersDTO licenseMembersDTO =new LicenseMembersDTO();
-            licenseMembersDTO.setName((String)result.get("nickname"));
-            licenseMembersDTO.setEmail((String)result.get("email"));
-            System.out.println(licenseMembersDTO.getName());
-            System.out.println(licenseMembersDTO.getEmail());
+            SimpleMembersDTO simpleMembersDTO = new SimpleMembersDTO();
+            simpleMembersDTO.setUserName((String)result.get("nickname"));
+            simpleMembersDTO.setEmail((String)result.get("email"));
+            simpleMembersDTO.setPhone("null");
             
+            int result1 = licenseMembersService.setSimpleJoin(simpleMembersDTO);
+            
+            if(result1>1) {
+            	System.out.println("성공");
+            }else {
+            	System.out.println("실패");
+            }
             mv.setViewName("redirect:/");
-            
-            session.setAttribute("sessionConfigVO", licenseMembersDTO);
+            //            LicenseMembersDTO licenseMembersDTO =new LicenseMembersDTO();
+//            licenseMembersDTO.setName((String)result.get("nickname"));
+//            licenseMembersDTO.setEmail((String)result.get("email"));
+//            System.out.println(licenseMembersDTO.getName());
+//            System.out.println(licenseMembersDTO.getEmail());
+//            
+//            mv.setViewName("redirect:/");
+//            
+            session.setAttribute("sessionConfigVO", simpleMembersDTO);
             /*로그아웃 처리 시, 사용할 토큰 값*/
             session.setAttribute("kakaoToken", kakaoToken);
         return mv;
@@ -245,17 +267,17 @@ public class LicenseMembersController {
             Map<String,Object> result = naverService.getUserInfo(naverToken);
             System.out.println("컨트롤러 출력1 : "+result.get("nickname")+"/"+result.get("email")+"/"+result.get("mobile"));
 
-            LicenseMembersDTO licenseMembersDTO =new LicenseMembersDTO();
-            licenseMembersDTO.setName((String)result.get("nickname"));
-            licenseMembersDTO.setEmail((String)result.get("email"));
-
-            licenseMembersDTO.setPhone((String)result.get("mobile"));
-            System.out.println(licenseMembersDTO.getName());
-            System.out.println(licenseMembersDTO.getEmail());
+            SimpleMembersDTO simpleMembersDTO = new SimpleMembersDTO();
+            simpleMembersDTO.setUserName((String)result.get("nickname"));
+            simpleMembersDTO.setEmail((String)result.get("email"));
+            simpleMembersDTO.setPhone((String)result.get("mobile"));
+            int result1 = licenseMembersService.setSimpleJoin(simpleMembersDTO);
+            
+            
             
             mv.setViewName("redirect:/");
             
-            session.setAttribute("sessionConfigVO1", licenseMembersDTO);
+            session.setAttribute("sessionConfigVO1", simpleMembersDTO);
             /*로그아웃 처리 시, 사용할 토큰 값*/
             session.setAttribute("naverToken", naverToken);
         return mv;

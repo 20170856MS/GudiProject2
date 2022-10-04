@@ -20,6 +20,21 @@ public class LicenseMembersService {
 	
 		return licenseMembersDAO.setJoin(licenseMembersDTO);
 	}
+	public int setRole(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		return licenseMembersDAO.setRole(licenseMembersDTO);
+	}
+	
+	public int setSimpleJoin(SimpleMembersDTO simpleMembersDTO) throws Exception{
+		
+		return licenseMembersDAO.setSimpleJoin(simpleMembersDTO);
+	}
+	
+	public SimpleMembersDTO getsosialMyPage(SimpleMembersDTO simpleMembersDTO) throws Exception{
+		
+		
+		return licenseMembersDAO.getsosialMyPage(simpleMembersDTO);
+	}
 	
 	public LicenseMembersDTO getLogin(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		

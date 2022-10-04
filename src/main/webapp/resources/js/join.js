@@ -102,8 +102,9 @@ join1.addEventListener("click",function(){
 
 
     if(check1 == true && check2 == true && check3 ==true && check4 == true && check5==true && check6 == true){
-         frm3.submit();
-         swal("회원가입 성공!", "환영합니다.", "success");
+        swal("회원가입 성공!", "환영합니다.", "success");
+        setTimeout(() => console.log("after"), 3000);
+        frm3.submit();
     }else{
         swal("정보가 입력되어있지 않습니다.");
     }

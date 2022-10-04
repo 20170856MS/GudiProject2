@@ -64,12 +64,12 @@ function requestPay() {
                             console.log(success)
                             if (data != null) {
                                 console.log(res);
-                                alert('주문정보 저장 성공');
+                                swal('주문정보 저장 성공');
                                 
                             }
                             else {
                                 console.log(data);
-                                alert('주문정보 저장 실패');
+                                swal('주문정보 저장 실패');
                             }
                         })
                     createPayInfo(uid);
@@ -79,7 +79,7 @@ function requestPay() {
                 }
             })
             } else {
-                alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+                swal("결제에 실패하였습니다.","에러 내용: " +  rsp.error_msg,"error");
             }
         });
 }
@@ -95,9 +95,12 @@ function createPayInfo(uid) {
         },
         success: function(data) {
             
-            alert('결제가 완료 되었습니다.');
+        swal('결제 성공 !',"결제완료 페이지로 이동합니다.","success").then(function(){
+            
             // 결제완료 페이지로 이동
             location.replace('/order/complete?payNum='+data);
+
+        })
         },
         error: function() {
             alert('결제정보 저장 통신 실패');

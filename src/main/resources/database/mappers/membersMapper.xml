@@ -6,13 +6,29 @@
          
 <mapper namespace="com.iu.home.licensemembers.LicenseMembersDAO">
 	
+	
 	<insert id="setJoin" parameterType="LicenseMembersDTO">
 		INSERT INTO LICENSEMEMBERS
 		VALUES(area_seq.nextval,#{areaName},#{userName},#{password},#{name},#{email},#{phone})
 	</insert>
 	
+	<insert id="setRole" parameterType="LicenseMembersDTO">
+		INSERT INTO LICENSEROLE
+		VALUES(board_seq.nextval,#{userName},8)
+	</insert>
+	
+	
+	<insert id="setSimpleJoin" parameterType="SimpleMembersDTO">
+		INSERT INTO SIMPLEMEMBERS
+		VALUES(area_seq.nextval,#{userName},#{email},#{phone})
+	</insert>
+	
 	<select id="getMyPage" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
 		SELECT USERNAME,NAME,EMAIL,PHONE FROM LICENSEMEMBERS WHERE USERNAME =#{userName}
+	</select>
+	
+	<select id="getsosialMyPage" parameterType="SimpleMembersDTO" resultType="SimpleMembersDTO">
+		SELECT * LICENSEMEMBERS WHERE USERNAME =#{userName}
 	</select>
 	
 

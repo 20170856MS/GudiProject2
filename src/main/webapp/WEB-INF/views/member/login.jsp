@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="/resources/css/login.css" type="text/css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link href="/resources/css/theme.css" rel="stylesheet" />	 
-     
     <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
 </head>
 <style>

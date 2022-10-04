@@ -17,15 +17,30 @@
           <form class="d-flex mt-4 mt-lg-0 ms-lg-0 ms-xl-0">
             <c:choose>
                             <c:when test="${not empty check}">
-                               	<div class="text-end">
-                            				<a href = "/member/myPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
-					                  	      <a href = "/member/logout" class="btn btn-white shadow-warning text-primary logout">로그아웃</a>
+                            	<c:choose>
+                            	
+                            	<c:when test="${check.adminRoleDTOs[0].roleName == 'admin'}">
+                            		<div class="text-end">
+                            			
+                                            <a style="color:black; ">${check.adminRoleDTOs[0].roleName} 계정 접속중 </a>
+                                          
+                            				<a href = "/simplemember/myPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
+					                  	     <a href = "/member/logout" class="btn btn-white shadow-warning text-primary logout">로그아웃</a>
                            			</div>
-			                  	   </c:when>
+                            	
+                            	</c:when>
+	                            	<c:otherwise>
+	                               	<div class="text-end">
+	                            				<a href = "/member/myPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
+						                  	     <a href = "/member/logout" class="btn btn-white shadow-warning text-primary logout">로그아웃</a>
+	                           		</div>
+	                           		</c:otherwise>
+                           		</c:choose>
+			                 </c:when>
   
                             <c:when test="${sessionConfigVO ne null}">
                                 <ul style="height:30px;float:right;margin-bottom:20px;" class="fn-font">
-                                    <li><a style="color:#f97088;text-decoration:none;" class="" >${sessionConfigVO.name}' s come in</a></li>
+                                    <li><a style="color:#f97088;text-decoration:none;" class="" >${sessionConfigVO.userName}' s come in</a></li>
                                     
                                         <li>
                                             <img src="/resources/img/btn_kakao_m.png" style="width:30px;">
@@ -43,7 +58,7 @@
 
                             <c:when test="${sessionConfigVO1 ne null}">
                                 <ul style="height:30px;float:right;margin-bottom:20px;" class="fn-font">
-                                    <li><a style="color:#f97088;text-decoration:none;" class="" >${sessionConfigVO1.name}' s come in</a></li>
+                                    <li><a style="color:#f97088;text-decoration:none;" class="" >${sessionConfigVO1.userName}' s come in</a></li>
 
                                         <li>
                                             <img src="/resources/img/btn_naver_m.png" style="width:30px;">
@@ -69,87 +84,176 @@
         </div>
       </div>      
  </nav>
-    <div class="gnb_wrap mt-8">
-      <!-- gnb_inner -->
-      <div class="gnb_inner">
-          <!-- container -->
-          <div class="container">
-              <!-- gnb_menu -->
-              <div id="navBg" style="height: 0px;"></div>
-              <nav class="gnb_menu">
-                  <ul id="skip_gnb" class="gnb">
-                      <li><a href="/admin/adminTest" title="관리자테스트">관리자 테스트</a>
-                          <div class="dep2" style="height: 0px;">
-                              <ul class="depth2" style="display: none;">
-                                <li><a href="/order/complete" title="test0">결제완료 테스트</a></li>
-                                <li><a href="/order/order" title="test1">결제화면 테스트</a></li>
-                                 
-                              </ul>
-                          </div>
-                      </li>
-                      <li><a href="/qna/list" title="QNA">QNA</a>
-                        <div class="dep2" style="height: 0px;">
-                            <ul class="depth2" style="display: none;">
-                              <li><a href="#" title="test0">test0</a></li>
-                              <li><a href="#" title="test1">test</a></li>
-                               
-                            </ul>
-                         </div>
-                       </li>
-                       <li><a href="/info/main" title="TEST2">자격증 정보</a>
-                        <div class="dep2" style="height: 0px;">
-                            <ul class="depth2" style="display: none;">
-                              <li><a href="#" title="test0">test0</a></li>
-                              <li><a href="#" title="test1">test</a></li>
-                               
-                            </ul>
-                         </div>
-                       </li>
-                       <li><a href="#" title="TEST3">TEST3</a>
-                        <div class="dep2" style="height: 0px;">
-                            <ul class="depth2" style="display: none;">
-                              <li><a href="#" title="test0">test0</a></li>
-                              <li><a href="#" title="test1">test</a></li>
-                               
-                            </ul>
-                         </div>
-                       </li>
-                       <li><a href="#" title="TEST4">TEST4</a>
-                        <div class="dep2" style="height: 0px;">
-                            <ul class="depth2" style="display: none;">
-                              <li><a href="#" title="test0">test0</a></li>
-                              <li><a href="#" title="test1">test</a></li>
-                               
-                            </ul>
-                         </div>
-                       </li>
-                       <li><a href="#" title="TEST5">TEST5</a>
-                        <div class="dep2" style="height: 0px;">
-                            <ul class="depth2" style="display: none;">
-                              <li><a href="#" title="test0">test0</a></li>
-                              <li><a href="#" title="test1">test</a></li>
-                               
-                            </ul>
-                         </div>
-                       </li>
-                       <li><a href="#" title="TEST6">StudyCafe</a>
-                        <div class="dep2" style="height: 0px;">
-                            <ul class="depth2" style="display: none;">
-                              <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
-                              <li><a href="#" title="test1">test</a></li>
-                               
-                            </ul>
-                         </div>
-                       </li>
-                  </ul>
-              </nav>
-              <!-- /.gnb_menu -->
 
-          </div>
-          <!-- /.container -->
-      </div>
-      <!-- /.gnb_inner -->
-  </div>
+	<c:choose>
+    <c:when test="${check.adminRoleDTOs[0].roleName == 'admin'}">
+	      <div class="gnb_wrap mt-8">
+	        <!-- gnb_inner -->
+	        <div class="gnb_inner">
+	            <!-- container -->
+	            <div class="container">
+	                <!-- gnb_menu -->
+	                <div id="navBg" style="height: 0px;"></div>
+	                <nav class="gnb_menu">
+	                    <ul id="skip_gnb" class="gnb">
+	                        <li><a href="/admin/adminTest" title="관리자테스트">결제 테스트</a>
+	                            <div class="dep2" style="height: 0px;">
+	                                <ul class="depth2" style="display: none;">
+	                                  <li><a href="/order/complete" title="test0">결제완료 테스트</a></li>
+	                                  <li><a href="/order/order" title="test1">결제화면 테스트</a></li>
+	                                  
+	                                </ul>
+	                            </div>
+	                        </li>
+	                        <li><a href="/qna/list" title="QNA">QNA</a>
+	                          <div class="dep2" style="height: 0px;">
+	                              <ul class="depth2" style="display: none;">
+	                                <li><a href="#" title="test0">test0</a></li>
+	                                <li><a href="#" title="test1">test</a></li>
+	                                
+	                              </ul>
+	                          </div>
+	                        </li>
+	                        <li><a href="/info/main" title="TEST2">자격증 정보</a>
+	                          <div class="dep2" style="height: 0px;">
+	                              <ul class="depth2" style="display: none;">
+	                                <li><a href="#" title="test0">test0</a></li>
+	                                <li><a href="#" title="test1">test</a></li>
+	                                
+	                              </ul>
+	                          </div>
+	                        </li>
+	                        <li><a href="#" title="${check.adminRoleDTOs[0].roleName}">관리자 페이지</a>
+	                          <div class="dep2" style="height: 0px;">
+	                              <ul class="depth2" style="display: none;">
+	                                <li><a href="/admin/adminOrderInfo" title="test0">정보</a></li>
+	                                <li><a href="/admin/modal_adminDetail" title="test1">매장 정보 수정</a></li>
+	                                
+	                              </ul>
+	                          </div>
+	                        </li>
+	                        <li><a href="#" title="TEST4">TEST4</a>
+	                          <div class="dep2" style="height: 0px;">
+	                              <ul class="depth2" style="display: none;">
+	                                <li><a href="#" title="test0">test0</a></li>
+	                                <li><a href="#" title="test1">test</a></li>
+	                                
+	                              </ul>
+	                          </div>
+	                        </li>
+	                        <li><a href="#" title="TEST5">TEST5</a>
+	                          <div class="dep2" style="height: 0px;">
+	                              <ul class="depth2" style="display: none;">
+	                                <li><a href="#" title="test0">test0</a></li>
+	                                <li><a href="#" title="test1">test</a></li>
+	                                
+	                              </ul>
+	                          </div>
+	                        </li>
+	                        <li><a href="#" title="TEST6">StudyCafe</a>
+	                          <div class="dep2" style="height: 0px;">
+	                              <ul class="depth2" style="display: none;">
+	                                <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
+	                                <li><a href="#" title="test1">test</a></li>
+	                                
+	                              </ul>
+	                          </div>
+	                        </li>
+	                    </ul>
+	                </nav>
+	                <!-- /.gnb_menu -->
+	
+	            </div>
+	            <!-- /.container -->
+	        </div>
+	        <!-- /.gnb_inner -->
+	    </div>
+    </c:when>
+  
+	<c:otherwise>
+	    <div class="gnb_wrap mt-8">
+	      <!-- gnb_inner -->
+	      <div class="gnb_inner">
+	          <!-- container -->
+	          <div class="container">
+	              <!-- gnb_menu -->
+	              <div id="navBg" style="height: 0px;"></div>
+	              <nav class="gnb_menu">
+	                  <ul id="skip_gnb" class="gnb">
+	                      <li><a href="/admin/adminTest" title="결제테스트">결제 테스트</a>
+	                          <div class="dep2" style="height: 0px;">
+	                              <ul class="depth2" style="display: none;">
+	                                <li><a href="/order/complete" title="test0">결제완료 테스트</a></li>
+	                                <li><a href="/order/order" title="test1">결제화면 테스트</a></li>
+	                                 
+	                              </ul>
+	                          </div>
+	                      </li>
+	                      <li><a href="/qna/list" title="QNA">QNA</a>
+	                        <div class="dep2" style="height: 0px;">
+	                            <ul class="depth2" style="display: none;">
+	                              <li><a href="#" title="test0">${check.adminRoleDTOs[0].roleName}</a></li>
+	                              <li><a href="#" title="test1">test</a></li>
+	                               
+	                            </ul>
+	                         </div>
+	                       </li>
+	                       <li><a href="/info/main" title="TEST2">자격증 정보</a>
+	                        <div class="dep2" style="height: 0px;">
+	                            <ul class="depth2" style="display: none;">
+	                              <li><a href="#" title="test0">test0</a></li>
+	                              <li><a href="#" title="test1">test</a></li>
+	                               
+	                            </ul>
+	                         </div>
+	                       </li>
+	                       <li><a href="#" title="TEST3">TEST3</a>
+	                        <div class="dep2" style="height: 0px;">
+	                            <ul class="depth2" style="display: none;">
+	                              <li><a href="#" title="test0">test0</a></li>
+	                              <li><a href="#" title="test1">test</a></li>
+	                               
+	                            </ul>
+	                         </div>
+	                       </li>
+	                       <li><a href="#" title="TEST4">TEST4</a>
+	                        <div class="dep2" style="height: 0px;">
+	                            <ul class="depth2" style="display: none;">
+	                              <li><a href="#" title="test0">test0</a></li>
+	                              <li><a href="#" title="test1">test</a></li>
+	                               
+	                            </ul>
+	                         </div>
+	                       </li>
+	                       <li><a href="#" title="TEST5">TEST5</a>
+	                        <div class="dep2" style="height: 0px;">
+	                            <ul class="depth2" style="display: none;">
+	                              <li><a href="#" title="test0">test0</a></li>
+	                              <li><a href="#" title="test1">test</a></li>
+	                               
+	                            </ul>
+	                         </div>
+	                       </li>
+	                       <li><a href="#" title="TEST6">StudyCafe</a>
+	                        <div class="dep2" style="height: 0px;">
+	                            <ul class="depth2" style="display: none;">
+	                              <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
+	                              <li><a href="#" title="test1">test</a></li>
+	                               
+	                            </ul>
+	                         </div>
+	                       </li>
+	                  </ul>
+	              </nav>
+	              <!-- /.gnb_menu -->
+	
+	          </div>
+	          <!-- /.container -->
+	      </div>
+	      <!-- /.gnb_inner -->
+	  </div>
+	  </c:otherwise>
+  </c:choose>
   <!-- /.gnb_wrap -->
 </header>
 

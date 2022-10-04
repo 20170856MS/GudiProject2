@@ -35,41 +35,6 @@ payMentCancel.addEventListener("click",function(){
 });
 
 
-
-// function cancelPay(){
-		
-// 		let cancleReason = "";
-
-// 		// 거부하기
-// 		const totalPrice = 100;
-			
-			
-// 		const data = JSON.stringify({
-// 			"orderNum" : orderNum,
-//             "totalPrice" : totalPrice,
-
-// 		});
-			
-// 			$.ajax({
-// 				url: "../admin/orderCancle",
-// 				type: "POST",
-//                 dataType: 'json',
-//                 contentType: 'application/json',
-// 				data: data
-// 			})
-// 			.done(function(){
-// 				alert("취소완료");
-// 				// 결제 취소하기
-				
-// 			})
-// 			.fail(function(){
-// 				alert("취소실패");;
-// 			})
-		
-         
-// }
-
-
 function cancelPay(){
 		
 		let cancleReason = "";
