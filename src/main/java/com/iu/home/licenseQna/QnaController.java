@@ -154,8 +154,8 @@ public class QnaController {
 	@ResponseBody
 	public Map<String, Object> getCommentList(CommentPager commentPager)throws Exception {
 		List<QnaCommentDTO> ar = qnaService.getCommentList(commentPager);
-		System.out.println("CommentList");
-		System.out.println(ar.size());
+//		System.out.println("CommentList");
+//		System.out.println(ar.size());
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", ar);
 		map.put("pager", commentPager);

@@ -12,9 +12,6 @@
 			<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 			<!-- summernote jQuery -->
 			<title>Insert title here</title>
-			<!-- include summernote css/js-->
-			<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-			<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 		</head>
 
@@ -48,9 +45,6 @@
 				integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 				crossorigin="anonymous"></script>
 			<script src="/resources/js/add.js"></script>
-			<script type="text/javascript">
-				$("#contents").summernote();
-			</script>
 		</body>
 
 		</html>

@@ -42,8 +42,8 @@
                     <!-- calendar -->
                     <div class="wrapper">
 
-                         <!-- top10 -->
-                         <div class="rankingBox" data-v-19226b75="">
+                        <!-- top10 -->
+                        <div class="rankingBox" data-v-19226b75="">
                             <h3 data-v-19226b75=""><span data-v-19226b75="">자격증TOP10</span></h3>
                             <ul data-v-19226b75="">
                                 <c:forEach items="${requestScope.topList}" var="dto">
@@ -57,19 +57,19 @@
                         </div>
 
                         <div class="container-calendar">
-                            
+
                             <h3 id="monthAndYear"></h3>
-                            
+
                             <div class="button-container-calendar">
                                 <button id="previous" onclick="previous()">&#8249;</button>
                                 <button id="next" onclick="next()">&#8250;</button>
                             </div>
-                            
+
                             <table class="table-calendar" id="calendar" data-lang="en">
                                 <thead id="thead-month"></thead>
                                 <tbody id="calendar-body"></tbody>
                             </table>
-                            
+
                             <div class="footer-container-calendar">
                                 <label for="month">Jump To: </label>
                                 <select id="month" onchange="jump()">
@@ -224,7 +224,7 @@
             </div>
 
             <div class="meImg"><img src="/resources/img/awarded.png"></div>
-            
+
             <!-- footer.jsp -->
             <c:import url="template/footer.jsp"></c:import>
 
