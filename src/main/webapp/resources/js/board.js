@@ -44,7 +44,7 @@ function check(){
         console.log(cb[1].checked)
         for(let i =0; i<cb.length;i++){
             if(!cb[i].checked){
-                alert("약관 동의 바람");
+                swal("약관 동의 바람");
                 result = false;
                 break;
             }

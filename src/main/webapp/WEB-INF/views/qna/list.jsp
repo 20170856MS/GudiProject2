@@ -14,6 +14,8 @@
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link href="/resources/css/theme.css" rel="stylesheet" />
+
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>

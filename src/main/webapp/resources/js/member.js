@@ -14,7 +14,7 @@ btn.addEventListener("click",function(){
     if(u.length>0 && p.length>0){
         frm.submit();
     } else{
-        alert("입력 필수") 
+        swal("Hello world!");
     }
     
     

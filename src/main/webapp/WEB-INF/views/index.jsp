@@ -12,11 +12,12 @@
     <title>License</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    
 	<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/theme.css" rel="stylesheet" />
 
      <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-     <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
      <link rel="stylesheet" href="/resources/css/top10.css">
      <link rel="stylesheet" href="/resources/css/d-day.css">
      <link rel="stylesheet" href="/resources/css/calendar.css">
@@ -25,12 +26,9 @@
 
 </head>
 <body>
-
+    
 
     <div id="wrap">
-			<div class="progress-container">
-            <div class="progress-bar" id="myBar" style="width: 0%;"></div>
-        </div>
         <!-- header.jsp -->
         <c:import url="template/header.jsp"></c:import>
         <section class="container-fluid col-lg-8 mt-5">
@@ -180,29 +178,28 @@
                 </div>
             </div><br>
          
+        </div>
+
+        <div class="paging">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    
+                    
+                    
+                        <li class="page-item"><a class="page-link" href="./main?page=1">1</a></li>
+                    
+                    
+                    <li class="page-item disabled">
+                        <a class="page-link" href="./main?page=2&amp;kind=&amp;search=" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
-    <div class="paging">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                
-                
-                
-                    <li class="page-item"><a class="page-link" href="./main?page=1">1</a></li>
-                
-                
-                <li class="page-item disabled">
-                    <a class="page-link" href="./main?page=2&amp;kind=&amp;search=" aria-label="Next">
-                        <span aria-hidden="true">»</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    </div>
-
-
-
+</main>
         
 
 

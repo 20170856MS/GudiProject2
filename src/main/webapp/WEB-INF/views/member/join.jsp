@@ -9,44 +9,14 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/theme.css" rel="stylesheet" />   
     <link rel="stylesheet" href="/resources/css/sub.css" >
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link href="/resources/css/login.css" rel="stylesheet">
-</head>
-<style>
-    
-    .bg-light{
-		height: 1053px;
-		padding-top:55px;
-		padding-bottom:75px;
-	}
-	.flex-fill.mx-xl-5.mb-2{
-		margin: 0 auto;
-		width : 700px;
-		padding-right: 7rem;
-		padding-left: 7rem;
-	}
-    <!-- 입력창 -->
-	.container.py-4{
-		margin: 0 auto;
-		width : 503px;
-	}
-    <!-- 가입하기 -->
-	.d-grid.gap-2{
-		padding-top: 30px;
-	}
-    
-    <!-- 생년월일 -->
-	.bir_yy,.bir_mm,.bir_dd{
-		width:160px;
-		display:table-cell;
-	}
-	.bir_mm+.bir_dd, .bir_yy+.bir_mm{
-		padding-left:10px;
-	}
 	
-</style>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
 <body>
 	
 		<c:import url="../template/header.jsp"></c:import>

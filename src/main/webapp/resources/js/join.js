@@ -24,7 +24,7 @@ userName.addEventListener("blur",function(){
     console.log(userName.value.length);
 
     if(userName.value.length<1){
-        alert("1글자 이하입니다")
+        swal("1글자 이하입니다")
         check1 = false;
         ch = true;
         
@@ -68,7 +68,7 @@ name1.addEventListener("blur",function(){
         name1.className += ' is-vaild';
     }else {
         
-        alert("입력필수");
+        swal("입력필수");
     }
     
 })
@@ -78,7 +78,7 @@ email.addEventListener("blur",function(){
         check5= true;
         email.className += ' is-vaild';
     }else {
-        alert("입력필수");
+        swal("입력필수");
     }
 })
 
@@ -88,7 +88,7 @@ email.addEventListener("blur",function(){
         check6 = true;
         email.className += ' is-vaild';
     }else {
-        alert("입력필수");
+        swal("입력필수");
     }
 })
 
@@ -103,9 +103,9 @@ join1.addEventListener("click",function(){
 
     if(check1 == true && check2 == true && check3 ==true && check4 == true && check5==true && check6 == true){
          frm3.submit();
-         alert("회원가입 성공")
+         swal("회원가입 성공!", "환영합니다.", "success");
     }else{
-        alert("정보가 입력되어있지 않습니다.")
+        swal("정보가 입력되어있지 않습니다.");
     }
 
 });
