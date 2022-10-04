@@ -24,7 +24,7 @@
                             			
                                             <a style="color:black; ">${check.adminRoleDTOs[0].roleName} 계정 접속중 </a>
                                           
-                            				<a href = "/simplemember/myPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
+                            				<a href = "/member/myPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
 					                  	     <a href = "/member/logout" class="btn btn-white shadow-warning text-primary logout">로그아웃</a>
                            			</div>
                             	
@@ -48,7 +48,7 @@
                                             
                                         </li>
                                         <div class="text-end">
-                                          <a href = "/member/myPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
+                                          <a href = "/member/sosialMyPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
                                           <a href = "/member/logout" class="btn btn-white shadow-warning text-primary logout">로그아웃</a>
                                        </div>
                                     
@@ -66,7 +66,7 @@
 
                                         </li>
                                         <div class="text-end">
-                                          <a href = "/member/myPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
+                                          <a href = "/member/sosialMyPage" class="btn btn-white shadow-warning text-primary myPage">마이페이지</a>
                                           <a href = "/member/logout"class="btn btn-white shadow-warning text-primary logout">로그아웃</a>
                                        </div>
                                     

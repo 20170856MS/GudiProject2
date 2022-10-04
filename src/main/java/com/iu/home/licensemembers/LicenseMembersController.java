@@ -187,6 +187,29 @@ public class LicenseMembersController {
 		return mv;
 	}
 	
+	@GetMapping("sosialMyPage")
+	public ModelAndView sosialmyPage(HttpSession session) throws Exception{
+		SimpleMembersDTO simpleMembersDTO= (SimpleMembersDTO)session.getAttribute("sessionConfigVO1");
+		
+		ModelAndView mv = new ModelAndView();
+		System.out.println("myPage");
+//		Map<String, Object> map = bankMembersService.getmyPage(bankMemberDTO);
+//		
+//		model.addAttribute("map", map);
+		if((String)session.getAttribute("access_Token") != null) {
+			
+			
+		} 
+		simpleMembersDTO = licenseMembersService.getsosialMyPage(simpleMembersDTO);
+//		List<BankAccountDTO> ar = bankAccountService.getListByUserName(bankMemberDTO);
+//		model.addAttribute("list", ar);
+		mv.addObject("dto", simpleMembersDTO);
+		System.out.println("myPage");
+	
+		mv.setViewName("/member/sosialMyPage");
+		return mv;
+	}
+	
 	// KAKAO 간편로그인
 	@RequestMapping(value="/oauth2/authorization/kakao")
     public String kakaoLogin() throws Exception {
@@ -233,13 +256,15 @@ public class LicenseMembersController {
             simpleMembersDTO.setUserName((String)result.get("nickname"));
             simpleMembersDTO.setEmail((String)result.get("email"));
             simpleMembersDTO.setPhone("null");
-            
-            int result1 = licenseMembersService.setSimpleJoin(simpleMembersDTO);
-            
-            if(result1>1) {
-            	System.out.println("성공");
-            }else {
-            	System.out.println("실패");
+            if(licenseMembersService.getsosialMyPage(simpleMembersDTO) == null) {
+            	
+            	int result1 = licenseMembersService.setSimpleJoin(simpleMembersDTO);
+            	
+            	if(result1>0) {
+            		System.out.println("성공");
+            	}else {
+            		System.out.println("실패");
+            	}
             }
             mv.setViewName("redirect:/");
             //            LicenseMembersDTO licenseMembersDTO =new LicenseMembersDTO();
@@ -271,8 +296,16 @@ public class LicenseMembersController {
             simpleMembersDTO.setUserName((String)result.get("nickname"));
             simpleMembersDTO.setEmail((String)result.get("email"));
             simpleMembersDTO.setPhone((String)result.get("mobile"));
-            int result1 = licenseMembersService.setSimpleJoin(simpleMembersDTO);
-            
+            if(licenseMembersService.getsosialMyPage(simpleMembersDTO) == null) {
+            	
+            	int result1 = licenseMembersService.setSimpleJoin(simpleMembersDTO);
+            	
+            	if(result1>0) {
+            		System.out.println("성공");
+            	}else {
+            		System.out.println("실패");
+            	}
+            }
             
             
             mv.setViewName("redirect:/");

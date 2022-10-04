@@ -18,18 +18,21 @@
 	</insert>
 	
 	
-	<insert id="setSimpleJoin" parameterType="SimpleMembersDTO">
-		INSERT INTO SIMPLEMEMBERS
-		VALUES(area_seq.nextval,#{userName},#{email},#{phone})
-	</insert>
 	
 	<select id="getMyPage" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
 		SELECT USERNAME,NAME,EMAIL,PHONE FROM LICENSEMEMBERS WHERE USERNAME =#{userName}
 	</select>
 	
+	<insert id="setSimpleJoin" parameterType="SimpleMembersDTO">
+		INSERT INTO SIMPLEMEMBERS
+		VALUES(area_seq.nextval,#{userName},#{email},#{phone})
+	</insert>
+	
 	<select id="getsosialMyPage" parameterType="SimpleMembersDTO" resultType="SimpleMembersDTO">
-		SELECT * LICENSEMEMBERS WHERE USERNAME =#{userName}
+		SELECT * FROM SIMPLEMEMBERS WHERE USERNAME =#{userName}
 	</select>
+	
+	
 	
 
 	<select id="getLogin" parameterType="LicenseMembersDTO"
