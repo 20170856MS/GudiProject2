@@ -29,6 +29,30 @@
 <body>
     <!-- header.jsp -->
         <c:import url="../template/header.jsp"></c:import>
+        <!---------------------------------------search--------------------------------------------------------------------->
+		<div class="row mb-3">
+            <form action="./main" class="row row-cols-lg-auto g-3 align-items-center">
+
+                <div class="col-12">
+                    <label class="visually-hidden" for="Kind">Kind</label> <select name="kind"
+                        class="form-select" id="Kind">
+                        <option class="kinds" value="licenseName">자격증이름</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <label class="visually-hidden" for="search">Search</label>
+                    <div class="input-group">
+                        <input type="text" name="search" value="${param.search}" class="form-control"
+                            id="search" placeholder="Search">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">검색어찾기</button>
+                </div>
+            </form>
+
+        </div>
         
         <div class="cards">
             <c:forEach items="${requestScope.list}" var="dto">

@@ -5,13 +5,24 @@
 
 <mapper namespace="com.iu.home.licenseList.LicenseDAO">
 
+<sql id="search">
+		WHERE
+		<choose>
+			<when test="kind =='licenseName'">licenseName</when>
+			<otherwise>licenseNum</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+	</sql>
+
+
 	<select id="getList" resultType="LicenseDTO">
 		SELECT * FROM
 		(SELECT * FROM
 		(SELECT ROWNUM R,L.* FROM
 		(SELECT *
-		FROM LICENSE ORDER BY LICENSENUM ASC) L
-		)
+		FROM LICENSE 
+		<include refid="search"></include>
+		ORDER BY LICENSENUM ASC) L)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 		) ORDER BY LICENSEHITS DESC
 	</select>
