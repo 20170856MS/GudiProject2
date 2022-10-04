@@ -43,18 +43,19 @@
                     <div class="wrapper">
 
                         <div class="container-calendar">
+                            
                             <h3 id="monthAndYear"></h3>
-
+                            
                             <div class="button-container-calendar">
                                 <button id="previous" onclick="previous()">&#8249;</button>
                                 <button id="next" onclick="next()">&#8250;</button>
                             </div>
-
+                            
                             <table class="table-calendar" id="calendar" data-lang="en">
                                 <thead id="thead-month"></thead>
                                 <tbody id="calendar-body"></tbody>
                             </table>
-
+                            
                             <div class="footer-container-calendar">
                                 <label for="month">Jump To: </label>
                                 <select id="month" onchange="jump()">
@@ -145,7 +146,7 @@
                                 </style>
                                 <style type="text/css">
                                     BODY {
-                                        FONT-SIZE: 12pt;
+                                        FONT-SIZE: 11pt;
                                         FONT-FAMILY: Malgun Gothic;
                                         COLOR: #000000;
                                         MARGIN: 0px
@@ -210,7 +211,7 @@
                                             ${detailSchedule.scheduleDTO.scheduleName}<br>
                                             ${detailSchedule.scheduleDTO.scheduleDate}<br>
                                         </c:forEach>
-                                    </div>
+                                    </div><br>
                                     </p>
                                 </div>
 
@@ -220,7 +221,8 @@
                 </div>
             </div>
 
-
+            <div class="meImg"><img src="/resources/img/awarded.png" alt="자바스 공공데이터 활용 공모전 수상내역"></div>
+            
             <!-- footer.jsp -->
             <c:import url="template/footer.jsp"></c:import>
 

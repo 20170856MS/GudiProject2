@@ -27,7 +27,7 @@
 								<label class="visually-hidden" for="Kind">Kind</label> <select name="kind"
 									class="form-select" id="Kind">
 									<option class="kinds" value="qnaNum">글번호</option>
-									<option class="kinds" value="contents">글내용</option>
+									<!-- <option class="kinds" value="contents">글내용</option> -->
 									<option class="kinds" value="title">글제목</option>
 									<option class="kinds" value="writer">작성자</option>
 								</select>

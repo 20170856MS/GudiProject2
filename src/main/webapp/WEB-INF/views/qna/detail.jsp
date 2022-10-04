@@ -25,7 +25,7 @@
 			</c:forEach>
 
 			<section class="container-fluid">
-				<table border="1">
+				<table class="table table-sm">
 					<tr>
 						<th>글번호</th>
 						<th>글제목</th>
@@ -70,7 +70,7 @@
 				<table id="commentList" class="table table-success table-striped"></table>
 			</div>
 
-			<button id="more" class="btn btn-info">더보기</button>
+			<!-- <button id="more" class="btn btn-info">더보기</button> -->
 
 			<div>
 				<!-- modal -->

@@ -8,6 +8,7 @@
 	<sql id="search">
 		WHERE
 		<choose>
+			<when test="kind =='qnaNum'">qnaNum</when>
 			<when test="kind == 'title'">Title</when>
 			<when test="kind =='writer'">Writer</when>
 			<otherwise>contents</otherwise>
