@@ -30,9 +30,10 @@
          		<div id="map" style="width:500px;height:400px;"></div>
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e50c1a3d843524281f35f43447abac4a"></script>
 				<script>
+					
 					var container = document.getElementById('map');
 					var options = {
-						center: new kakao.maps.LatLng(33.450701, 126.570667),
+						center: new kakao.maps.LatLng(${dto.latitude}, ${dto.longitude}),
 						level: 3
 					};
 			
@@ -41,14 +42,14 @@
 
 					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 					mapOption = { 
-						center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+						center: new kakao.maps.LatLng(${dto.latitude}, ${dto.longitude}), // 지도의 중심좌표
 						level: 3 // 지도의 확대 레벨
 					};
 
 					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 					// 마커가 표시될 위치입니다 
-					var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+					var markerPosition  = new kakao.maps.LatLng(${dto.latitude}, ${dto.longitude}); 
 
 					// 마커를 생성합니다
 					var marker = new kakao.maps.Marker({
@@ -58,8 +59,8 @@
 					// 마커가 지도 위에 표시되도록 설정합니다
 					marker.setMap(map);
 
-					var iwContent = '<div style="padding:5px;">스터디카페<br><a href="https://map.kakao.com/link/map/스터디카페,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/스터디카페,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    				iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+					var iwContent = '<div style="padding:5px;">${dto.scName}<br><a href="https://map.kakao.com/link/map/스터디카페,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/${dto.scName},${dto.latitude},${dto.longitude}" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    				iwPosition = new kakao.maps.LatLng(${dto.latitude}, ${dto.longitude}); //인포윈도우 표시 위치입니다
 
 					// 인포윈도우를 생성합니다
 					var infowindow = new kakao.maps.InfoWindow({
@@ -89,6 +90,8 @@
 		        <tr>
 		        	<td>설명</td>
 		        	<td>${dto.scExplain}</td>
+		        	<td>${dto.latitude}</td>
+					<td>${dto.longitude}</td>
 		        </tr>
 		    </table>
 		    

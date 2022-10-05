@@ -9,10 +9,10 @@ let timeBtn = document.querySelectorAll(".timeBtn");
 const complete = document.getElementById("complete");
 const radioText = document.getElementById("radioText");
 const radioList = document.getElementsByName("radioBtn");
-const detailNum = document.getElementById("detailNum");
+const test1 = document.getElementById("test1");
+const detailNum = test1.getAttribute("detail-Num");
 let listTime = [];
 let test = " ";
-
 
 // -----TimePicker------
 // sendDate.addEventListener("click", function(){
@@ -79,7 +79,7 @@ sendDate.addEventListener("click", function(){
     console.log("xhttp="+xhttp);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    xhttp.send("roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&detailNum"+detailNum.textContent);
+    xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&detailNum="+detailNum);
 
     xhttp.onreadystatechange = function(){
         if(xhttp.readyState==4 && xhttp.status==200){
@@ -92,8 +92,8 @@ sendDate.addEventListener("click", function(){
             console.log(timeText.textContent);
             console.log(detailNum.textContent);
 
-            if(radioText.value == "" || dateText.value == "" || timeText.value == ""){
-                alert("공백이 있습니다.")
+            if(radioText.textContent == "" || dateText.textContent == "" || timeText.textContent == ""){
+                alert("공백이 있습니다.");
             }else{
                 alert('저장완료');
                 location.replace("./cafeList");
@@ -589,6 +589,7 @@ complete.addEventListener("click", function(){
     console.log("dateText= "+dateText.textContent);
     console.log("timeText= "+timeText.textContent);
     console.log("detailNum= "+detailNum.textContent);
+    console.log(detailNum)
     radioList.forEach((node) => {
         if(node.checked){
             radioText.innerText = node.value;

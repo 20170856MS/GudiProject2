@@ -37,6 +37,7 @@ public class cafeController {
 		
 		mv.setViewName("studyCafe/cafeDetail");
 		mv.addObject("dto", cafeDetailDTO);
+		System.out.println(cafeDetailDTO.getLatitude());
 		return mv;
 	}
 	
@@ -64,6 +65,25 @@ public class cafeController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("cafeList post 실행");
 		int result = cafeService.addDate(reservationDTO);
+		
+//		-------------
+//		String time07;
+//		String time08;
+//		String time09;
+//		String time10;
+//		String time11;
+//		String time12;
+//		String time13;
+//		String time14;
+//		String time15;
+//		String time16;
+//		String time17;
+//		String time18;
+//		String time19;
+//		String time20;
+		
+		
+//		int result = cafeService.update(cafeRoomDTO);
 		
 		mv.setViewName("redirect:./cafeList");
 		return mv;

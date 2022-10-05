@@ -30,7 +30,6 @@
 	<link rel="stylesheet" type="text/css" href="/resources/css/TimePicker/bootstrap-datepicker.css" />
 	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/site.js"%></script>
 	
-	
 </head>
 <script type="text/javascript">
 	var today = new Date();
@@ -190,7 +189,7 @@
 					<br>
 				</div>
 				<c:forEach items="${roomList}" var="rdto" end="0">
-					<text id="detailNum">${rdto.detailNum}</text>
+					<text id="test1" detail-Num="${rdto.detailNum}">${rdto.detailNum}</text>
 				</c:forEach>
 
 				<h1>방 선택</h1>

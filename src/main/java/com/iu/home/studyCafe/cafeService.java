@@ -27,4 +27,8 @@ public class cafeService {
 		return cafeDAO.addDate(reservationDTO);
 	}
 	
+	public int updateSit(cafeRoomDTO cafeRoomDTO) throws Exception{
+		return cafeDAO.updateSit(cafeRoomDTO);
+	}
+	
 }

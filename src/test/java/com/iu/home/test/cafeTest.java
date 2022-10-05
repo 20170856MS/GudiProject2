@@ -25,5 +25,15 @@ public class cafeTest extends MyAbstractTest{
 //		cafeDAO.addDate(reservationDTO);
 //		
 //	}
+	@Test
+	public void test() throws Exception{
+		reservationDTO reservationDTO = new reservationDTO();
+		reservationDTO.setRoomName("공부방1");
+		reservationDTO.setSeDate("2022-09-30");
+		reservationDTO.setSeTime("18:00,19:00,20:00,21:00");
+		
+		cafeDAO.addDate(reservationDTO);
+		
+	}
 
 }

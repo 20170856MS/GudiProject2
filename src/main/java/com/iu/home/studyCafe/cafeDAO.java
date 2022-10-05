@@ -29,4 +29,8 @@ public class cafeDAO {
 		return sqlSession.insert(NAMESPACE+"addDate", reservationDTO);
 	}
 	
+	public int updateSit(cafeRoomDTO cafeRoomDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"updateSit", cafeRoomDTO);
+	}
+	
 }
