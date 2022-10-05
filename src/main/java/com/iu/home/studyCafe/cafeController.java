@@ -37,6 +37,7 @@ public class cafeController {
 		
 		mv.setViewName("studyCafe/cafeDetail");
 		mv.addObject("dto", cafeDetailDTO);
+		System.out.println(cafeDetailDTO.getLatitude());
 		return mv;
 	}
 	

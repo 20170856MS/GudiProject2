@@ -10,10 +10,9 @@ const complete = document.getElementById("complete");
 const radioText = document.getElementById("radioText");
 const radioList = document.getElementsByName("radioBtn");
 const test1 = document.getElementById("test1");
-const detailNum = test1.getAttribute("detail-Num")
+const detailNum = test1.getAttribute("detail-Num");
 let listTime = [];
 let test = " ";
-
 
 // -----TimePicker------
 // sendDate.addEventListener("click", function(){
@@ -94,7 +93,7 @@ sendDate.addEventListener("click", function(){
             console.log(detailNum.textContent);
 
             if(radioText.textContent == "" || dateText.textContent == "" || timeText.textContent == ""){
-                alert("공백이 있습니다.")
+                alert("공백이 있습니다.");
             }else{
                 alert('저장완료');
                 location.replace("./cafeList");

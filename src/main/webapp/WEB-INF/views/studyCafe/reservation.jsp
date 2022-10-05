@@ -30,7 +30,6 @@
 	<link rel="stylesheet" type="text/css" href="/resources/css/TimePicker/bootstrap-datepicker.css" />
 	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/site.js"%></script>
 	
-	
 </head>
 <script type="text/javascript">
 	var today = new Date();
