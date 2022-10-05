@@ -5,24 +5,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>License</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link href="/resources/css/theme.css" rel="stylesheet" />
-    <!-- <link href="/resources/css/reset.css" rel="stylesheet" type="text/css"> 글자크기 달라져서 reset 대신 resetInfo 참조함--> 
-    <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    
-    <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/infoDetailBootStrap.css" rel="stylesheet" type="text/css">
-    
-    
-</head>
 <body>
 		<head>
 			<meta charset="UTF-8">
@@ -35,17 +17,16 @@
 
 			<!-- <link href="/resources/css/reset.css" rel="stylesheet" type="text/css"> 글자크기 달라져서 reset 대신 resetInfo 참조함-->
 			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+			<link href="/resources/css/theme.css" rel="stylesheet"/>
 			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 			<link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/infoDetailBootStrap.css" rel="stylesheet" type="text/css">
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 		</head>
-
-		<body>
-
 			<!------------------------------------- header.jsp ----------------------------------------------------------------->
 			<c:import url="../template/header.jsp"></c:import>
 			
@@ -151,7 +132,7 @@
 					</div>
 
 					<!-- 게시판 상세보기 -->
-					<table border="1">
+					<table class="table table-sm">
 						<thead>
 							<tr>
 								<th>글번호</th>

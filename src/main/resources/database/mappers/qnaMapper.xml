@@ -31,9 +31,11 @@
 		parameterType="Pager">
 		SELECT * FROM
 		(SELECT ROWNUM R,N.*FROM
-		(SELECT * FROM LICENSEQNA
+		(SELECT * FROM
+		LICENSEQNA
 		WHERE LICENSENUM = #{licenseNum}
-		ORDER BY REF DESC, STEP ASC) N)
+		ORDER BY REF DESC, STEP ASC)
+		N)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 

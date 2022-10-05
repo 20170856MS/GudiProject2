@@ -1,25 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		<!DOCTYPE html>
+		<html>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-	crossorigin="anonymous">
-	
-	<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-	<link href="/resources/css/theme.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body>
+		<head>
+			<meta charset="UTF-8">
+			<title>Insert title here</title>
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+				crossorigin="anonymous">
+
+			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+			<link href="/resources/css/theme.css" rel="stylesheet" />
+			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
+			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		</head>
+
+		<body>
 			<c:import url="../template/header.jsp"></c:import>
 			<h1>게시판 글 상세보기</h1>
 
@@ -66,7 +64,7 @@
 				</div>
 
 				<div class="mb-3">
-					<button type="button" id="b1" data-qnaNum="${qnaDTO.qnaNum}" class="btn btn-success">댓글작성</button>
+					<button type="button" id="b1" data-qnaNum="${qnaDTO.qnaNum}" class="btn btn-success">댓글등록</button>
 				</div>
 			</div>
 

@@ -24,19 +24,15 @@
 				<div>
 					작성자 <input type="text" value="${check.userName}" name="writer">
 				</div>
-
 				<div>
 					글제목 <input type="text" name="title">
 				</div>
-
 				<div>
 					글내용 <input type="text" name="contents">
 				</div>
-
 				<div id="addFiles">
 					<button type="button" id="fileAdd" class="btn btn-warning">파일추가</button>
 				</div>
-
 				<div class="mb-3">
 					<button type="submit" class="btn btn-primary">작성완료</button>
 				</div>
