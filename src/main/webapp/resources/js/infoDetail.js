@@ -1,8 +1,3 @@
-const ex2 = document.querySelector(".ex2");
-ex2.addEventListener("click",function(){
-    console.log("ex2클릭");
-    ex2.parentNode.removeChild(ex2);
-});
 const btnModal = document.querySelector("#btnModal");
 const interest = document.querySelector("#interest");
 const board = document.querySelector("#board");
