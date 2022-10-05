@@ -119,7 +119,7 @@ function getAdd(ln,group){                                      //추가모달�
         console.log(arr[0],arr[1],arr[2]);
     }
     if(group=="dv"){
-        arr=['동영상 제목','동영상 링크','v'];
+        arr=['동영상 제목','동영상 링크 (youtube - 공유 - 퍼가기 - src)','v'];
         console.log(arr[0],arr[1],arr[2]);
     }
     if(group=="dj"){
@@ -430,7 +430,7 @@ function getUpdate(ln,group){                                   //수정모달�
                     attr.value="col-form-label";
                     elel.setAttributeNode(attr);
     
-                    text = document.createTextNode("동영상 링크");
+                    text = document.createTextNode("동영상 링크 (youtube - 공유 - 퍼가기 - src)");
                     elel.appendChild(text);
                     ele.appendChild(elel);
     
@@ -567,7 +567,7 @@ btnModal.addEventListener("click",function(){                           //모달
         xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj+"&licenseNum="+ln);
         xhttp.onreadystatechange=function(){
         if(xhttp.readyState == 4 && xhttp.status == 200){
-            // window.location.reload()
+            window.location.reload()
             console.log("js 완료");//응답 안오는 이유??
         }
     }}
