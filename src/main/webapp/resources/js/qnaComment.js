@@ -2,7 +2,7 @@ const b1 = document.querySelector("#b1");
 const writer = document.querySelector("#writer");
 const contents = document.querySelector("#contents");
 const commentList = document.querySelector("#commentList");
-const more = document.querySelector("#more");
+// const more = document.querySelector("#more");
 const update = document.querySelector("#update");
 
 

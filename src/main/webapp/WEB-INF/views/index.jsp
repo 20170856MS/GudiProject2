@@ -25,7 +25,7 @@
 
 </head>
 <body>
-    
+<div id = "background">
     <div id="wrap">
         <!-- header.jsp -->
         <c:import url="template/header.jsp"></c:import>
@@ -177,46 +177,46 @@
 
                 
                 <!-- 자격증종류 -->
-                <div class="cards">
-                    <c:forEach items="${requestScope.list}" var="dto">
-                        <div class="card" id="check" license-Num="${dto.licenseNum}">
-                            <div class="user-wrap">
-                                <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top"
-                                    alt="...">
-                                <div class="user-text">조회수 ${dto.licenseHits}</div>
-                            </div>
-                            <div class="count"></div>
-                            <div class="card-body">
-                                <h5 class="card-title">${dto.licenseName}</h5>
-
-                                <!-- <p class="card-text">Content</p> -->
-
-                                <div class="detail">
-                                    <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세
-                                        보기</a>
-                                </div>
-                                <div class="user-text" id="license" data-license-num="${name.licenseNum}">
-                                    ${name.licenseName}</div>
-                                <div class="col-lg-5 user-schedule">
-                                    <p>
-                                    <div>
-                                        <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-                                            ${detailSchedule.scheduleDTO.scheduleName}<br>
-                                            ${detailSchedule.scheduleDTO.scheduleDate}<br>
-                                        </c:forEach>
-                                    </div><br>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
             </div>
         </section>
-    </div>
-            <div class="meImg"><img src="/resources/img/awarded.png"></div>
+        <div class="cards">
+            <c:forEach items="${requestScope.list}" var="dto">
+                <div class="card" id="check" license-Num="${dto.licenseNum}">
+                    <div class="user-wrap">
+                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top"
+                            alt="...">
+                        <div class="user-text">조회수 ${dto.licenseHits}</div>
+                    </div>
+                    <div class="count"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">${dto.licenseName}</h5>
 
+                        <!-- <p class="card-text">Content</p> -->
+
+                        <div class="detail">
+                            <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세
+                                보기</a>
+                        </div>
+                        <div class="user-text" id="license" data-license-num="${name.licenseNum}">
+                            ${name.licenseName}</div>
+                        <div class="col-lg user-schedule">
+                            <p>
+                            <div>
+                                <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
+                                    ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                    ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                </c:forEach>
+                            </div><br>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+        <div class="meImg"><img src="/resources/img/awarded.png"></div>
+    </div>
+</div>
 <!-- footer.jsp -->
 <c:import url="template/footer.jsp"></c:import>
    

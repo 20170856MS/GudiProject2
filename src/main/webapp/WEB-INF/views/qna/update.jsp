@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
+
 		<body>
 
 			<c:import url="../template/header.jsp"></c:import>
@@ -73,4 +74,4 @@
 			<script src="/resources/js/add.js"></script>
 		</body>
 
-		</html>
+</html>

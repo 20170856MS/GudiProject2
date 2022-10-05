@@ -9,6 +9,7 @@
 				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 				crossorigin="anonymous">
 			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+			<link href="/resources/css/theme.css" rel="stylesheet" />
 			<title>Insert title here</title>
 		</head>
 

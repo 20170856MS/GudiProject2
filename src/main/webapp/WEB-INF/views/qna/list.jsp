@@ -1,23 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		<!DOCTYPE html>
+		<html>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-	crossorigin="anonymous">
-<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<link href="/resources/css/theme.css" rel="stylesheet" />
+		<head>
+			<meta charset="UTF-8">
+			<title>Insert title here</title>
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+				crossorigin="anonymous">
+			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+			<link href="/resources/css/theme.css" rel="stylesheet"/>
+			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
+			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-</head>
+		</head>
+
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
 			<section class="container-fluid">
@@ -52,7 +50,7 @@
 					</div>
 
 
-					<table border="1">
+					<table class="table table-sm">
 						<thead>
 							<tr>
 								<th>글번호</th>
