@@ -45,9 +45,19 @@
 						<p>
 						<div>
 							<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-								${detailSchedule.scheduleName}<br>
-								${detailSchedule.scheduleDate}<br>
-								<br>
+								<div class="divrow form3">
+									${detailSchedule.scheduleName}
+									<div class="form-check-s">
+										<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+											<label class="form-check-label" for="flexCheckDefault">
+										</label>
+									</div>
+								</div>
+								
+								<div class="form4">
+									${detailSchedule.scheduleDate}
+								</div><br><br>
+								
 							</c:forEach>
 						</div>
 						</p>
@@ -55,6 +65,7 @@
 							href="#!">수정</a>
 						<!--class="col-lg-5 user-schedule"-->
 						<a class="btn btn-primary del s" href="#!">삭제</a>
+						<a class="btn btn-primary chks" href="#!">확인</a>
 					</div>
 				</div>
 				<!-- Call to Action-->
@@ -76,11 +87,19 @@
 								<h2 class="card-title">책</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailBook}" var="detailBook">
-										책이름: ${detailBook.bookDTO.bookName}<br>
-										책가격: ${detailBook.bookDTO.bookPrice}<br>
-										<img src="${detailBook.bookDTO.bookImage}" width="140" height="140" alt="..." />
-										<br>
-										<br>
+										<div class="divrow form5">
+											책이름: ${detailBook.bookDTO.bookName}
+											<div class="form-check-b">
+												<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+												</label>
+											</div>
+										</div>
+										
+										<div class="form6">
+											책가격: ${detailBook.bookDTO.bookPrice}
+										</div>
+										<img src="${detailBook.bookDTO.bookImage}" width="140" height="140" alt="..." /><br><br><br>
 									</c:forEach>
 								</p>
 							</div>
@@ -88,6 +107,7 @@
 								<a class="btn btn-primary btn-sm add b" href="#!">추가</a> <a
 									class="btn btn-primary btn-sm alt b" href="#!">수정</a> <a
 									class="btn btn-primary btn-sm del b" href="#!">삭제</a>
+									<a class="btn btn-primary chkb" href="#!">확인</a>
 							</div>
 						</div>
 					</div>
@@ -97,11 +117,21 @@
 								<h2 class="card-title">동영상</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
-										${detailVideo.videoDTO.videoTitle}<br>
+										<div class="divrow form7">
+											${detailVideo.videoDTO.videoTitle}
+											<div class="form-check-v">
+												<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+												</label>
+											</div>
+										</div>
+										
+										<div class="form8" data-link="${detailVideo.videoDTO.videoLink}">
 										<iframe width="280" height="157.5" src="${detailVideo.videoDTO.videoLink}"
 											title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-									  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-										<br>
+									  		encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+										<br><br>
 									</c:forEach>
 								</p>
 							</div>
@@ -109,6 +139,7 @@
 								<a class="btn btn-primary btn-sm add v" href="#!">추가</a> <a
 									class="btn btn-primary btn-sm alt v" href="#!">수정</a> <a
 									class="btn btn-primary btn-sm del v" href="#!">삭제</a>
+									<a class="btn btn-primary chkv" href="#!">확인</a>
 							</div>
 						</div>
 					</div>
@@ -118,9 +149,18 @@
 								<h2 class="card-title">직업소개</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailJob}" var="detailJob">
-										${detailJob.jobDTO.jobName}<br>
-										${detailJob.jobDTO.jobIntro}<br>
-										<br>
+
+										<div class="divrow form9">
+											${detailJob.jobDTO.jobName}
+											<div class="form-check-j">
+												<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+												</label>
+											</div>
+										</div>
+										<div class="form10">
+										${detailJob.jobDTO.jobIntro}
+										</div><br><br>
 									</c:forEach>
 								</p>
 							</div>
@@ -128,6 +168,7 @@
 								<a class="btn btn-primary btn-sm add j" href="#!">추가</a> <a
 									class="btn btn-primary btn-sm alt j" href="#!">수정</a> <a
 									class="btn btn-primary btn-sm del j" href="#!">삭제</a>
+									<a class="btn btn-primary chkj" href="#!">확인</a>
 							</div>
 						</div>
 					</div>

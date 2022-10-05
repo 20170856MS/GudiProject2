@@ -13,6 +13,16 @@ const mb = document.querySelector("#mb");
 let sbvj="";
 let check=0;
 let group="";
+const formCheckS = document.querySelectorAll(".form-check-s");
+const formCheckB = document.querySelectorAll(".form-check-b");
+const formCheckV = document.querySelectorAll(".form-check-v");
+const formCheckJ = document.querySelectorAll(".form-check-j");
+const chks = document.querySelector(".chks");
+const chkb = document.querySelector(".chkb");
+const chkv = document.querySelector(".chkv");
+const chkj = document.querySelector(".chkj");
+let delCheck=0;
+
 
 interest.addEventListener("click",function(){
     let chk = window.confirm("관심 등록 하시겠습니까?");
@@ -103,6 +113,107 @@ for(let i=0;i<del.length;i++){                          //삭제이벤트
             }
     });
 }
+function getDel(ln,group){                      //삭제버튼활성화
+    if(sbvj=="s"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckS.length;i++){
+                formCheckS[i].style.visibility="visible";
+                chks.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckS.length;i++){
+                formCheckS[i].style.visibility="hidden";
+                chks.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+    if(sbvj=="b"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckB.length;i++){
+                formCheckB[i].style.visibility="visible";
+                chkb.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckB.length;i++){
+                formCheckB[i].style.visibility="hidden";
+                chkb.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+    if(sbvj=="v"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckV.length;i++){
+                formCheckV[i].style.visibility="visible";
+                chkv.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckV.length;i++){
+                formCheckV[i].style.visibility="hidden";
+                chkv.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+    if(sbvj=="j"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckJ.length;i++){
+                formCheckJ[i].style.visibility="visible";
+                chkj.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckJ.length;i++){
+                formCheckJ[i].style.visibility="hidden";
+                chkj.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+}
+chks.addEventListener("click",function(event){                          //삭제확인
+    const form3 = document.querySelectorAll(".form3");
+    const form4 = document.querySelectorAll(".form4");
+    for(let i=0;i<formCheckS.length;i++){
+        console.log(form3[i].innerText);
+        console.log(form4[i].innerText);
+    }
+    const fci = document.querySelectorAll(".form-check-input");
+    console.log(fci.length);
+    if(fci[0].getAttribute("checked") == "checked"){
+        console.log("체크")
+    }else{console.log("미체크")};
+});
+chkb.addEventListener("click",function(event){
+    const form5 = document.querySelectorAll(".form5");
+    const form6 = document.querySelectorAll(".form6");
+    for(let i=0;i<formCheckB.length;i++){
+        console.log(form5[i].innerText);    
+        console.log(form6[i].innerText);
+    }
+});
+chkv.addEventListener("click",function(event){
+    const form7 = document.querySelectorAll(".form7");
+    const form8 = document.querySelectorAll(".form8");
+    for(let i=0;i<formCheckV.length;i++){
+        console.log(form7[i].innerText);    
+        const link = form8[i].getAttribute("data-link");
+        console.log(link);
+        
+    }
+});
+chkj.addEventListener("click",function(event){
+    const form9 = document.querySelectorAll(".form9");
+    const form10 = document.querySelectorAll(".form10");
+    for(let i=0;i<formCheckJ.length;i++){
+        console.log(form9[i].innerText);    
+        console.log(form10[i].innerText);
+    }
+});
 function getAdd(ln,group){                                      //추가모달창
     let arr = [];
     if(group=="ds"){
