@@ -42,7 +42,7 @@ b1.addEventListener("click", function(){
             contents.value="";
 
             if(result.result==1) {
-                alert("댓글등록성공");
+                swal("댓글등록성공");
 
                 for(let i=0;i<commentList.children.length;) {
                     commentList.children[0].remove();
@@ -128,11 +128,11 @@ function getCommentList(p, bn){
 
                 commentList.append(tr);
 
-                if(page >= pager.totalPage) {
-                    more.classList.add("disabled");
-                }else {
-                    more.classList.remove("disabled");
-                }
+                // if(page >= pager.totalPage) {
+                //     more.classList.add("disabled");
+                // }else {
+                //     more.classList.remove("disabled");
+                // }
 
             }
         }
@@ -142,17 +142,18 @@ function getCommentList(p, bn){
 
 //------------------------------더보기------------------------------
 
-more.addEventListener("click",function(){
-    page++;
-    //const bookNum = b1.getAttribute("data-qnaNum");
+// more.addEventListener("click",function(){
+//     page++;
+//     //const bookNum = b1.getAttribute("data-qnaNum");
 
-    getCommentList(page, qnaNum);
-})
+//     getCommentList(page, qnaNum);
+// })
 
 //------------------------------수정 삭제------------------------------
 //-----update-----
 commentList.addEventListener("click",function(event){
 
+    console.log(event.target.className);
     if(event.target.className=="update") {
 
         let contents = event.target.previousSibling.previousSibling.previousSibling.innerHTML;
@@ -192,7 +193,7 @@ commentList.addEventListener("click",function(event){
                 if(xhttp.readyState==4 && xhttp.status==200) {
                     let result = xhttp.responseText.trim();
                     if(result==1) {
-                        alert("삭제를 성공 했습니다");
+                        swal("삭제를 성공 했습니다");
                         page=1;
 
                         for(let i=0;i<commentList.children.length;) {
@@ -201,7 +202,7 @@ commentList.addEventListener("click",function(event){
 
                         getCommentList(page, qnaNum);
                     }else {
-                        alert("삭제를 실패 했습니다");
+                        swal("삭제를 실패 했습니다");
                     }
                 }
             }

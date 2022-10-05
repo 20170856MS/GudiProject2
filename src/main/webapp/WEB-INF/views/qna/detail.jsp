@@ -17,47 +17,9 @@
 	<link href="/resources/css/theme.css" rel="stylesheet" />
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-	<c:import url="../template/header.jsp"></c:import>
-	<h1>Detail Page</h1>
-	
-	<section class="container-fluid">
-		<table border="1">
-			<tr>
-				<th>글번호</th>
-				<th>글제목</th>
-				<th>글내용</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
-			</tr>
-			<tr>
-				<td>${qnaDTO.qnaNum}</td>
-				<td>${qnaDTO.title}</td>
-				<td>${qnaDTO.contents}</td>
-				<td>${qnaDTO.writer}</td>
-				<td>${qnaDTO.regDate}</td>
-				<td>${qnaDTO.hit}</td>
-			</tr>
-		</table>
-	</section>
-	<a href = "./list" class="btn btn-info">글목록 보기</a>
-	<a href="update?qnaNum=${qnaDTO.qnaNum}" class="btn btn-primary">수정</a>
-	<a href="delete?qnaNum=${qnaDTO.qnaNum}" class="btn btn-danger">삭제</a>
-
-		<head>
-			<meta charset="UTF-8">
-			<title>Insert title here</title>
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-				crossorigin="anonymous">
-			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		</head>
-
-		<body>
 			<c:import url="../template/header.jsp"></c:import>
 			<h1>게시판 글 상세보기</h1>
 

@@ -17,24 +17,6 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
-<body>
-	<h1>Update Page</h1>
-
-		<head>
-			<meta charset="UTF-8">
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-				crossorigin="anonymous">
-			<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-			<title>Insert title here</title>
-			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-			<link href="/resources/css/font.css" rel="stylesheet" type="text/css">
-			<link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
-			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-		</head>
-
 		<body>
 
 			<c:import url="../template/header.jsp"></c:import>

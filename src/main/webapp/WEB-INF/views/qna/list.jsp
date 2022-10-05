@@ -18,23 +18,6 @@
 <link href="/resources/css/theme.css" rel="stylesheet" />
 
 </head>
-<body>
-	<c:import url="../template/header.jsp"></c:import>
-	<section class="container-fluid">
-		<div class="row">
-			<h1>Q&A 게시판 리스트</h1>
-
-		<head>
-			<meta charset="UTF-8">
-			<title>Insert title here</title>
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-				crossorigin="anonymous">
-			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		</head>
-
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
 			<section class="container-fluid">

@@ -11,10 +11,13 @@
 			<!-- bootStrap -->
 			<title>Insert title here</title>
 			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+			<link href="/resources/css/theme.css" rel="stylesheet" />
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		</head>
 
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
+
 			<h1>게시판 글 작성하기</h1>
 
 			<form action="add" method="post" enctype="multipart/form-data">
