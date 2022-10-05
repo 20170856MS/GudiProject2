@@ -75,6 +75,10 @@ public class QnaController {
 		if(result > 0) {
 			message="글쓰기완료!!!";
 		}
+		System.out.println(qnaDTO.getWriter());
+		System.out.println(qnaDTO.getTitle());
+		System.out.println(qnaDTO.getContents());
+		
 		mv.addObject("result",result);
 		mv.addObject("message",message);
 		mv.addObject("url", "list");

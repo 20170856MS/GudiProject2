@@ -49,7 +49,7 @@
     <select id="myOrderList" parameterType="Long" resultType="OrderDTO">
 		SELECT *
 		from SC_ORDER_USER  o
-		JOIN STUDYCAFEDETAIL p ON p.productNum= o.productNum
+		JOIN STUDYCAFEDETAIL p ON p.detailNum= o.productNum
 		WHERE o.orderNum=#{orderNum}
     </select>
     
@@ -63,7 +63,7 @@
     <select id="adminOrderList" parameterType="Long" resultType="OrderDTO">
 		SELECT *
 		from SC_ORDER_USER  o
-		JOIN STUDYCAFEDETAIL p ON p.productNum= o.productNum
+		JOIN STUDYCAFEDETAIL p ON p.detailNum= o.productNum
 		WHERE o.orderNum=#{orderNum}
     </select>
     

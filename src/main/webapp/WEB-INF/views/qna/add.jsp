@@ -9,8 +9,6 @@
 				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 				crossorigin="anonymous">
 			<!-- bootStrap -->
-			<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-			<!-- summernote jQuery -->
 			<title>Insert title here</title>
 			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 		</head>
