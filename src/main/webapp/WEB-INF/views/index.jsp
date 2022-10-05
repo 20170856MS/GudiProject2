@@ -1,44 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    
+	<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/theme.css" rel="stylesheet" />
 
+     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
+     <link rel="stylesheet" href="/resources/css/top10.css">
+     <link rel="stylesheet" href="/resources/css/d-day.css">
+     <link rel="stylesheet" href="/resources/css/calendar.css">
+    <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/infoMain.css" rel="stylesheet" type="text/css">
+    
+    <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
 
-        <!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>License</title>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-                integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-                crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-            <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-
-            <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-            <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
-            <link href="/resources/css/top10.css" rel="stylesheet" type="text/css">
-            <link href="/resources/css/d-day.css" rel="stylesheet" type="text/css">
-            <link href="/resources/css/calendar.css" rel="stylesheet" type="text/css">
-            <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
-            <link href="/resources/css/infoMain.css" rel="stylesheet" type="text/css">
-            <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
-
-        </head>
-
-        <body>
-
-
-            <div id="wrap">
-                <div class="progress-container">
-                    <div class="progress-bar" id="myBar" style="width: 0%;"></div>
-                </div>
-                <!-- header.jsp -->
-                <c:import url="template/header.jsp"></c:import>
-                <section class="container-fluid col-lg-8 mt-5">
-
+</head>
+<body>
+    
+    <div id="wrap">
+        <!-- header.jsp -->
+        <c:import url="template/header.jsp"></c:import>
+        <section class="container-fluid col-lg-8 mt-5">
                     <!-- calendar -->
                     <div class="wrapper">
 
@@ -184,7 +175,7 @@
 
 
 
-                </section>
+                
                 <!-- 자격증종류 -->
                 <div class="cards">
                     <c:forEach items="${requestScope.list}" var="dto">
@@ -222,23 +213,25 @@
                     </c:forEach>
                 </div>
             </div>
-
+        </section>
+    </div>
             <div class="meImg"><img src="/resources/img/awarded.png"></div>
 
-            <!-- footer.jsp -->
-            <c:import url="template/footer.jsp"></c:import>
+<!-- footer.jsp -->
+<c:import url="template/footer.jsp"></c:import>
+   
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="/resources/js/common.js" type="text/javascript"></script>
+
+<script src="/resources/js/top10.js"></script>
+<script src="/resources/js/d-day.js"></script>
+<script src="/resources/js/calendar.js"></script>
+
+<script src="/resources/js/schedule.js"></script>
+<script src="/resources/js/infoMain.js"></script>
+<script src="/resources/js/infoDetail.js"></script>
 
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-                crossorigin="anonymous"></script>
-            <script src="/resources/js/common.js" type="text/javascript"></script>
-            <script src="/resources/js/top10.js"></script>
-            <script src="/resources/js/d-day.js"></script>
-            <script src="/resources/js/calendar.js"></script>
-            <script src="/resources/js/schedule.js"></script>
-            <script src="/resources/js/infoMain.js"></script>
-            <script src="/resources/js/infoDetail.js"></script>
-        </body>
-
-        </html>
+</body>
+</html>	

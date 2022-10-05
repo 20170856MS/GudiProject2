@@ -13,7 +13,13 @@ public class LicenseMembersDTO {
 	
 	private List<AdminRoleDTO> adminRoleDTOs;
 
-	
+//	public LicenseMembersDTO(String userName, String password, String email, String name, String phone) {
+//		this.userName = userName;
+//		this.password = password;
+//		this.email = email;
+//		this.name = name;
+//		this.phone = phone;
+//	}
 	
 	public List<AdminRoleDTO> getAdminRoleDTOs() {
 		return adminRoleDTOs;

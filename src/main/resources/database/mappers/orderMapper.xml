@@ -14,7 +14,7 @@
     <!-- 결제 정보 생성 -->
     <insert id ="insert_payinfo" parameterType="PayDTO">
     	INSERT INTO SCPAY
-    	VALUES(CAFE_SEQ.NEXTVAL,#{num},#{orderNum},#{payMethod},#{payName},SYSDATE,#{payAmount},#{payTest})   
+    	VALUES(CAFE_SEQ.NEXTVAL,#{num},#{orderNum},#{payMethod},#{payName},SYSDATE,#{payAmount})   
     </insert>
     
     <!-- 가장 마지막 주문번호 찾기 -->
@@ -38,20 +38,35 @@
         WHERE payNum = #{payNum}
     </select>
     
-    <!-- 주문개수  -->
+    <!-- 회원의 주문개수  -->
     <select id="orderCount" parameterType="String" resultType="Long">
     	SELECT orderNum
     	FROM SCPAY
     	WHERE num=#{num}
     </select>
     
-    <!-- 주문 목록 -->
+    <!-- 회원의 주문 목록 -->
     <select id="myOrderList" parameterType="Long" resultType="OrderDTO">
 		SELECT *
 		from SC_ORDER_USER  o
 		JOIN STUDYCAFEDETAIL p ON p.productNum= o.productNum
 		WHERE o.orderNum=#{orderNum}
     </select>
+    
+    <!-- 관리자 회원주문개수 -->
+    <select id="orderAdminCount" parameterType="String" resultType="Long">
+    	SELECT orderNum
+    	FROM SCPAY
+    </select>
+    
+    <!-- 관리자 회원주문목록 -->
+    <select id="adminOrderList" parameterType="Long" resultType="OrderDTO">
+		SELECT *
+		from SC_ORDER_USER  o
+		JOIN STUDYCAFEDETAIL p ON p.productNum= o.productNum
+		WHERE o.orderNum=#{orderNum}
+    </select>
+    
     
     
     

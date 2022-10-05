@@ -37,6 +37,7 @@ public class OrderService {
 		return orderDAO.insert_pay(orderDTO);
 	}
 	
+	
 	public int insert_payinfo(PayDTO payDTO) throws Exception{
 		
 		return orderDAO.insert_payinfo(payDTO);
@@ -58,12 +59,23 @@ public class OrderService {
 		
 		return orderDAO.myOrderCount(num);
 	}
+	
+	public List<Long> MyOrderAdminCount() throws Exception {
+		
+		return orderDAO.myOrderAdminCount();
+	}
 		
 
 	// 내 주문 목록
 	public Map<Long, List> getMyOrderList(String num, List limitList) throws Exception {
 		
 		return orderDAO.getMyOrderList(num, limitList);
+	}
+	
+	
+	public Map<Long, List> getAdminOrderList(List limitList) throws Exception {
+		
+		return orderDAO.getAdminOrderList(limitList);
 	}
 	
 	public int getLastOrderNum() throws Exception{

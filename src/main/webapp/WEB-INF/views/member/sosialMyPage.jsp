@@ -41,7 +41,7 @@
 	                    <h1>마이페이지</h1>
 	                    <c:if test="${empty SPRING_SECURITY_CONTEXT }">
                             <c:set var="name1" value="${SPRING_SECURITY_CONTEXT.authentication.principal.user.nickname }" />
-	                        <a href="/user/myInfo"><span class="name1" data-nickname=${name} >${dto.name}</span></a>
+	                        <a href="/user/myInfo"><span class="name1" data-nickname=${name} >${dto.userName}</span></a>
 							
 							<button type="button" class="logout">로그아웃</button>
 	                    </c:if>

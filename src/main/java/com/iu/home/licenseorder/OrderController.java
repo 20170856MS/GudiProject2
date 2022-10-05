@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -48,6 +49,8 @@ public class OrderController {
 	
 	@Autowired
 	private PayService payService;
+	
+	
 	
 	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
 	
@@ -109,7 +112,7 @@ public class OrderController {
 	
 	@RequestMapping(value ="complete", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<String> paymentComplete(String imp_uid, String merchant_uid,HttpSession session,@RequestBody OrderDTO orderDTO) throws Exception {
+	public int paymentComplete(String imp_uid, String merchant_uid,HttpSession session,@RequestBody OrderDTO orderDTO) throws Exception {
 	    
 	    String token = payService.getToken();
 	    
@@ -119,18 +122,19 @@ public class OrderController {
 	    
 	    System.out.println(amount);
 	    
+	    int res = 1;
 	    
 	    if (100L != Long.parseLong(amount)) {
-			
+			res = 0;
 			// 결제 취소
 			payService.payMentCancle(token, orderDTO.getImp_uid(), amount,"결제 금액 오류");
-			return new ResponseEntity<String>("결제 금액 오류, 결제 취소", HttpStatus.BAD_REQUEST);
+			return res;
 		}
 	    System.out.println("check44 : " + orderDTO.getImp_uid());
 		orderService.insert_pay(orderDTO);
 		
 
-		return new ResponseEntity<String>("주문이 완료되었습니다", HttpStatus.OK);
+		return res;
 	 
 	}
 	    
@@ -142,15 +146,15 @@ public class OrderController {
 	public ResponseEntity<Long> payInfoPOST(Model model,
 	        HttpServletRequest request, HttpServletResponse response,
 	        @RequestParam String imp_uid,HttpSession session) throws Exception {
+		System.out.println("payDTO rr");
 		IamportResponse<Payment> result = client.paymentByImpUid(imp_uid);
-		
 		PayDTO payDTO = new PayDTO();
+		System.out.println((Long) session.getAttribute("saveNum"));
 		payDTO.setNum((Long) session.getAttribute("saveNum"));
 		payDTO.setOrderNum(Long.parseLong(result.getResponse().getMerchantUid()));
 		payDTO.setPayMethod(result.getResponse().getPayMethod());
 		payDTO.setPayName(result.getResponse().getName());
 		payDTO.setPayAmount(result.getResponse().getAmount().longValue());
-		payDTO.setPayTest(result.getResponse().getImpUid());
 		orderService.insert_payinfo(payDTO);
 		
 		

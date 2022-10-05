@@ -7,16 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>	
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
+    
 	<link rel="stylesheet" href="/resources/css/login.css" type="text/css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link href="/resources/css/theme.css" rel="stylesheet" />	 
+    <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
 </head>
 <style>
     .align-center {text-align: center;}
 </style>
 <body>
+
 	
 	<c:import url="../template/header.jsp"></c:import>
 	
@@ -25,7 +29,7 @@
 		 		<main>
         <div class="login_box">
 			<a href="/"><img src="/resources/img/team_login.png" width="30px"  alt="이미지" class="bm_img"></a>    
-            <div><h4>야너두 센터에 오신 것을 환영합니다.</h4></div>
+            <div><h4>자바스 사이트에 오신 것을 환영합니다.</h4></div>
             <form action="login" method="post" id="frm">
  
 	            <div class="input_aera"><input type="text" id= "userName" name="userName"  value="" required placeholder="아이디를 입력해 주세요" maxlength="30" ></div>
@@ -44,8 +48,14 @@
             
 			<div id="oauth_login">
 				<div>
-					<a href=/oauth1/code/kakao></a>
+
+					<a href="./oauth2/authorization/kakao"></a>
 				</div>
+
+				<div>
+					<a href="./oauth2/authorization/naver"></a>
+				</div>
+			
 			</div>
 			
 			<div class="join"><a href="join0" >회원 가입하러 가기</a></div>
@@ -67,6 +77,8 @@
 <script src="/resources/js/member.js">
 
 </script>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="/resources/js/common.js">
 
 </script> 

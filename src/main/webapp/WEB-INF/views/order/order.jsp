@@ -10,12 +10,13 @@
 <title>결제 페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-<link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/theme.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet"
 	href="/resources/css/order.css?after22">
 
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
 </head>
 <body>
@@ -87,86 +88,7 @@
                             </div>
                         </div>
                         <br><hr><br>
-                        <h4>결제수단</h4>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <input type="radio" name="purchaseMethod" value="1" checked><label>신용카드</label>
-                                <!-- <input type="radio" name="purchaseMethod" value="2"><label>무통장입금</label> -->
-                            </div>
-                        </div>
-                        <div class="row" id="method_creditCard">
-	                        <div class="col-lg-12">
-	                            <div class="row pl-4 pt-3">
-	                                <div class="col-lg-3 pb-2">
-	                                    <label>카드구분</label>
-	                                </div>
-	                                <div class="col-lg-9">
-	                                    <input type="radio" name="creditCard" value="1" checked><label>개인카드</label>
-	                                    <input type="radio" name="creditCard" value="2"><label>법인카드</label>
-	                                </div>
-	                                <div class="col-lg-3 pb-2">
-	                                    <label>카드선택</label>
-	                                </div>
-	                                <div class="col-lg-9">
-	                                    <select class="selectBox" name="cardSelect" id="cardSelect">
-	                                        <option id="first">선택해주세요.</option>
-	                                        <option>KB Pay (국민)</option>
-	                                        <option>비씨</option>
-	                                        <option>신한</option>
-	                                        <option>현대</option>
-	                                        <option>삼성</option>
-	                                        <option>롯데</option>
-	                                        <option>외환</option>
-	                                        <option>NH</option>
-	                                        <option>하나</option>
-	                                        <option>씨티</option>
-	                                    </select>
-	                                </div>
-	                                <div class="col-lg-3 pb-2">
-	                                    <label>할부기간</label>
-	                                </div>
-	                                <div class="col-lg-9">
-	                                    <select class="selectBox" id="divMonth">
-	                                        <option>일시불</option>
-	                                        <%for (int i = 2; i <= 12; i++) { %>
-	                                            <option><%=i %> 개월</option>	                                            
-	                                        <% } %>
-	                                    </select>
-	                                </div>
-	                            </div>
-	                        </div>
-                        </div>
-                        <div class="row" id="method_bankAccount">
-                            <div class="col-lg-12">
-	                            <div class="row pl-4 pt-3">
-	                                <div class="col-lg-3 pb-2">
-	                                    <label>은행</label>
-	                                </div>
-	                                <div class="col-lg-9">
-	                                    <select class="selectBox">
-	                                        <option>선택해주세요.</option>
-	                                        <option>국민</option>
-	                                        <option>비씨</option>
-	                                        <option>신한</option>
-	                                        <option>현대</option>
-	                                        <option>삼성</option>
-	                                        <option>롯데</option>
-	                                        <option>외환</option>
-	                                        <option>NH</option>
-	                                        <option>하나</option>
-	                                        <option>씨티</option>
-	                                    </select>
-	                                </div>
-	                                <div class="col-lg-3 pb-2">
-	                                    <label>계좌번호</label>
-	                                </div>
-	                                <div class="col-lg-9">
-	                                    <input type="text" id="account" placeholder="'-' 제외한 숫자만 입력해 주세요.">
-	                                </div>
-	                            </div>
-	                        </div>
-                        </div>
-                    </div>
+                        
                     <div class="col-lg-6">
                         <div class="place-order">
                             <h4>상품 정보</h4>
