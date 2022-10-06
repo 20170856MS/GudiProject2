@@ -30,9 +30,10 @@ public class HomeController {
 	 */
 	 
 	@GetMapping("/")
-	public ModelAndView home (Locale locale, Pager pager,Pager pager1,HomeDTO homeDTO) throws Exception{
+	public ModelAndView home (Locale locale, Pager pager,Pager pager1) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ModelAndView mv = new ModelAndView();
+		HomeDTO homeDTO = new HomeDTO();
 		//top10
 		pager1.setPerPage(10L);
 		List<HomeDTO> ar = homeService.getTopList(pager1);
@@ -44,7 +45,7 @@ public class HomeController {
 	
 		//System.out.println(homeDTO.getLicenseNum());
 			
-		homeDTO.setLicenseNum(ar.get(0).getLicenseNum());
+		//homeDTO.setLicenseNum(ar.get(0).getLicenseNum());
 		System.out.println(homeDTO.getLicenseNum());
 		ds = homeService.getDetailSchedule(homeDTO);
 

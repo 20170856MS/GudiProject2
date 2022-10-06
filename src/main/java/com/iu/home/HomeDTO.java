@@ -18,6 +18,21 @@ public class HomeDTO extends ScheduleDTO {
 	private Long jobNum;
 	private String jobName;
 	private String jobIntro;
+	
+	private String scheduleName;
+	public String getScheduleName() {
+		return scheduleName;
+	}
+	public void setScheduleName(String scheduleName) {
+		this.scheduleName = scheduleName;
+	}
+	public String getScheduleDate() {
+		return scheduleDate;
+	}
+	public void setScheduleDate(String scheduleDate) {
+		this.scheduleDate = scheduleDate;
+	}
+	private String scheduleDate;
 
 	private ScheduleDTO scheduleDTO;
 	private Long licenseScheduleNum;

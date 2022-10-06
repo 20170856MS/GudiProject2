@@ -118,7 +118,7 @@
 	</resultMap>
 							<!--  SCHEDULE  -->
 
-	<select id="getDetailSchedule" parameterType="HomeDTO" resultMap="getSchedule">
+	<select id="getDetailSchedule" parameterType="HomeDTO" resultType="HomeDTO">
 		
 		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
         FROM LICENSE L
