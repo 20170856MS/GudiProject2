@@ -17,6 +17,14 @@ public class HomeDTO extends ScheduleDTO {
 	private String jobName;
 	private String jobIntro;
 	
+	public String getdDay() {
+		return dDay;
+	}
+	public void setdDay(String dDay) {
+		this.dDay = dDay;
+	}
+	private String dDay;
+	
 	private String scheduleName;
 	public String getScheduleName() {
 		return scheduleName;
@@ -101,6 +109,14 @@ public class HomeDTO extends ScheduleDTO {
 	}
 	public void setScheduleDTO(ScheduleDTO scheduleDTO) {
 		this.scheduleDTO = scheduleDTO;
+	}
+	@Override
+	public String toString() {
+		return "HomeDTO [licenseNum=" + licenseNum + ", licenseHits=" + licenseHits + ", licenseName=" + licenseName
+				+ ", bookNum=" + bookNum + ", bookName=" + bookName + ", bookImage=" + bookImage + ", bookPrice="
+				+ bookPrice + ", jobNum=" + jobNum + ", jobName=" + jobName + ", jobIntro=" + jobIntro
+				+ ", scheduleName=" + scheduleName + ", scheduleDate=" + scheduleDate + ", scheduleDTO=" + scheduleDTO
+				+ "]";
 	}
 	
 	

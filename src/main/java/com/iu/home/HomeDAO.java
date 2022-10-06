@@ -43,8 +43,8 @@ public class HomeDAO {
 		return sqlSession.selectList(NAMESPACE+"getDetailJob",homeDTO);	
 	}
 
-	public List<HomeDTO> getDetailSchedule(HomeDTO homeDTO) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getDetailSchedule",homeDTO);	
+	public List<HomeDTO> getDetailSchedule() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getDetailSchedule");	
 	}
 		
 }

@@ -28,7 +28,7 @@
 	</select>
 
 
-	<select id="getDetailSchedule" parameterType="HomeDTO" resultType="HomeDTO">
+<!-- 	<select id="getDetailSchedule" parameterType="HomeDTO" resultType="HomeDTO">
 		
 		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
         FROM LICENSE L
@@ -40,6 +40,7 @@
 	            USING (SCHEDULENUM)
 		        WHERE LICENSENUM=#{licenseNum}
 		        ORDER BY R ASC
+		        </select> -->
 
 	<select id="getCount" resultType="Long" parameterType="Pager">
 		SELECT
@@ -144,19 +145,12 @@
 	
 	<!-- SCHEDULE -->
 
-	<select id="getDetailSchedule" parameterType="HomeDTO"
-		resultMap="getSchedule">
-
-		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
-		FROM LICENSE L
-		INNER JOIN
-		LICENSESCHEDULE LS
-		USING (LICENSENUM)
-		INNER JOIN
-		SCHEDULE S
-		USING (SCHEDULENUM)
-		WHERE LICENSENUM=#{licenseNum}
-		ORDER BY R ASC
+	<select id="getDetailSchedule" resultType="HomeDTO">
+		SELECT LS.LICENSENUM, SC.SCHEDULEDATE, SC.SCHEDULENAME, 
+			CASE WHEN SC.SCHEDULENAME LIKE '%시험일%'THEN TO_DATE(SC.SCHEDULEDATE, 'YYYY/MM/DD') - TO_DATE(SYSDATE, 'YYYY/MM/DD') ELSE 0 END DDAY 
+			FROM SCHEDULE SC
+			INNER JOIN LICENSESCHEDULE LS
+			ON SC.SCHEDULENUM = LS.SCHEDULENUM
 	</select>
 
 	<!-- <select id="getScheduleDate" parameterType="ScheduleDTO" resultMap="getSchduleDate"> 

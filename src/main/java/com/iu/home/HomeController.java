@@ -35,22 +35,23 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		HomeDTO homeDTO = new HomeDTO();
 		//top10
-		pager1.setPerPage(10L);
+		pager.setPerPage(10L);
 		List<HomeDTO> ar = homeService.getTopList(pager1);
 		
 		//자격증
 		pager.setPerPage(50L);
 		List<HomeDTO> ar1 = homeService.getList(pager);
 		
-		
 		List<HomeDTO> ds = new ArrayList<HomeDTO>();
 	
-		for(int i = 0 ; i<ar1.size(); i++) {
+		List<HomeDTO> schedule = homeService.getDetailSchedule();
+		
+		/*for(int i = 0 ; i<ar1.size(); i++) {
 			homeDTO.setLicenseNum(ar1.get(i).getLicenseNum());
 			ds = homeService.getDetailSchedule(homeDTO);
 			mv.addObject("detailSchedule"+i,ds);
 			mv.setViewName("index");
-		}
+		}*/
 //		homeDTO.setLicenseNum(ar1.get(0).getLicenseNum());
 //		System.out.println(homeDTO.getLicenseNum());
 //		ds = homeService.getDetailSchedule(homeDTO);
@@ -61,6 +62,7 @@ public class HomeController {
 		mv.addObject("topList",ar);
 		mv.addObject("list",ar1);
 		mv.addObject("pager",pager);
+		mv.addObject("schedule",schedule);
 		
 		
 		mv.setViewName("index");
