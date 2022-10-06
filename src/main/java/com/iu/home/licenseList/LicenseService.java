@@ -85,6 +85,10 @@ public class LicenseService {
 				bookDTO.setBookNum(bookNum);
 				bookDTO.setBookName(arrDTO.getArr1().get(i));
 				bookDTO.setBookPrice(Long.parseLong(arrDTO.getArr2().get(i)));
+				System.out.println(bookDTO.getBookNum());
+				System.out.println(bookDTO.getBookName());
+				System.out.println(bookDTO.getBookPrice());
+				System.out.println("test1");
 				licenseDAO.setUpdateBook(bookDTO);
 			}
 		}else if(arrDTO.getSbvj().equals("v")) {//videonum,videotitle,videolink

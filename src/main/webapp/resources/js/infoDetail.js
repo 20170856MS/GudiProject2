@@ -377,7 +377,7 @@ function getUpdate(ln,group){                                   //수정모달�
 
             if(group=="ds"){
                 let ds = result.ds; //ds[i].scheduleName, ds[i].scheduleDate;
-
+                sbvj="s";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){
@@ -453,7 +453,7 @@ function getUpdate(ln,group){                                   //수정모달�
 
             }else if(group=="db"){
                 let db = result.db;//db[i].bookDTO.bookName; db[i].bookDTO.bookImage; db[i].bookDTO.bookPrice;
-                
+                sbvj="b";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){
@@ -528,7 +528,7 @@ function getUpdate(ln,group){                                   //수정모달�
                     }
             }else if(group=="dv"){
                 let dv = result.dv; //dv[i].videoDTO.videoTitle; dv[i].videoDTO.videoLink;
-
+                sbvj="v";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){
@@ -603,7 +603,7 @@ function getUpdate(ln,group){                                   //수정모달�
                     }
             }else if(group=="dj"){
                 let dj = result.dj; //dj[i].jobDTO.jobName, dj[i].jobDTO.jobIntro
-
+                sbvj="j";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){

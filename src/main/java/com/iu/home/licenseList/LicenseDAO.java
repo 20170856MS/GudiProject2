@@ -52,6 +52,7 @@ public class LicenseDAO {
 		return sqlSession.update(NAMESPACE+"setUpdateSchedule",scheduleDTO);
 	}
 	public int setUpdateBook(BookDTO bookDTO) throws Exception{
+		System.out.println("test2");
 		return sqlSession.update(NAMESPACE+"setUpdateBook",bookDTO);
 	}
 	public int setUpdateVideo(VideoDTO videoDTO) throws Exception{
