@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.iu.home.licensemembers.LicenseMembersDTO;
+import com.iu.home.licensemembers.LicenseMembersService;
 import com.iu.home.licenseorder.OrderDTO;
 import com.iu.home.licenseorder.OrderService;
 import com.iu.home.licenseorder.PayDTO;
@@ -37,6 +39,9 @@ public class AdminController {
 	
 	@Autowired
 	private OrderService orderService;
+	
+	@Autowired
+	private LicenseMembersService licenseMembersService;
 	
 	@RequestMapping(value = "adminTest", method = RequestMethod.GET)
 	public void setadmin() throws Exception{
@@ -82,8 +87,7 @@ public class AdminController {
 	}
 	
 	@GetMapping(value = "adminDetail")
-	public void test(OrderDTO orderDTO,HttpSession session, Model model,
-			@RequestParam(value = "pagingNum", required = false, defaultValue = "1") String pagingNum) throws Exception{
+	public void test(LicenseMembersDTO licenseMembersDTO) throws Exception{
 
 		
 	}

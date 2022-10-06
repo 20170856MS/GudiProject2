@@ -25,7 +25,7 @@
 
 </head>
 <body>
-    
+    <div id = test>
     <div id="wrap">
         <!-- header.jsp -->
         <c:import url="template/header.jsp"></c:import>
@@ -177,43 +177,120 @@
 
                 
                 <!-- 자격증종류 -->
-                <div class="cards">
-                    <c:forEach items="${requestScope.list}" var="dto">
-                        <div class="card" id="check" license-Num="${dto.licenseNum}">
-                            <div class="user-wrap">
-                                <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top"
-                                    alt="...">
-                                <div class="user-text">조회수 ${dto.licenseHits}</div>
-                            </div>
-                            <div class="count"></div>
-                            <div class="card-body">
-                                <h5 class="card-title">${dto.licenseName}</h5>
-
-                                <!-- <p class="card-text">Content</p> -->
-
-                                <div class="detail">
-                                    <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세
-                                        보기</a>
-                                </div>
-                                <div class="user-text" id="license" data-license-num="${name.licenseNum}">
-                                    ${name.licenseName}</div>
-                                <div class="col-lg-5 user-schedule">
-                                    <p>
-                                    <div>
-                                        <c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-                                            ${detailSchedule.scheduleDTO.scheduleName}<br>
-                                            ${detailSchedule.scheduleDTO.scheduleDate}<br>
-                                        </c:forEach>
-                                    </div><br>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
             </div>
         </section>
+            <div class="cards">
+                <c:forEach items="${requestScope.list}" var="dto" varStatus="statusNm">
+                    <div class="card" id="check" license-Num="${dto.licenseNum}">
+                        <div class="user-wrap">
+                            <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top"
+                                alt="...">
+                            <div class="user-text">조회수 ${dto.licenseHits}</div>
+                        </div>
+                        <div class="count"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">${dto.licenseName}</h5>
+
+                            <!-- <p class="card-text">Content</p> -->
+
+                            <div class="detail">
+                                <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세
+                                    보기</a>
+                            </div>
+                            <div class="user-text" id="license" data-license-num="${name.licenseNum}">
+                                ${name.licenseName}</div>
+                            <div class="col-lg user-schedule">
+                                <p>
+                                <div>      
+                                    <c:set var="i" value="${i+1}"/>
+                                    <c:choose>
+                                       <c:when test="${i == 1}"> 
+                                            <c:forEach items="${requestScope.detailSchedule0}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 2}"> 
+                                            <c:forEach items="${requestScope.detailSchedule1}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 3}"> 
+                                            <c:forEach items="${requestScope.detailSchedule2}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 4}"> 
+                                            <c:forEach items="${requestScope.detailSchedule3}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 5}"> 
+                                            <c:forEach items="${requestScope.detailSchedule4}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 6}"> 
+                                            <c:forEach items="${requestScope.detailSchedule5}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 7}"> 
+                                            <c:forEach items="${requestScope.detailSchedule6}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 8}"> 
+                                            <c:forEach items="${requestScope.detailSchedule7}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 9}"> 
+                                            <c:forEach items="${requestScope.detailSchedule8}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 10}"> 
+                                            <c:forEach items="${requestScope.detailSchedule9}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        <c:when test="${i == 11}"> 
+                                            <c:forEach items="${requestScope.detailSchedule10}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                            </c:forEach>
+                                        </c:when>  
+                                        
+
+                                        <c:otherwise>
+                                            <c:forEach items="${requestScope.detailSchedule11}" var="detailSchedule">
+                                                ${detailSchedule.scheduleDTO.scheduleName}<br>
+                                                ${detailSchedule.scheduleDTO.scheduleDate}<br>
+                                                
+                                            </c:forEach>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    
+                                </div><br>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+    </div>
     </div>
             <div class="meImg"><img src="/resources/img/awarded.png"></div>
 
