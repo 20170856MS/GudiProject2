@@ -21,7 +21,7 @@
 		<body>
 
 			<c:import url="../template/header.jsp"></c:import>
-			<section class="container-fluid" style="padding-top: 0px;padding-bottom: 0px;">
+			<section class="container-fluid" style="padding-top: 120px; padding-bottom: 0px;">
 				<div class="row">
 				<h1>게시판 글 수정하기</h1>
 				

@@ -18,6 +18,7 @@
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
 
+			<section class="container-fluid" style="padding-top: 120px;">
 			<h1>게시판 글 작성하기</h1>
 
 			<form action="add" method="post" enctype="multipart/form-data">
@@ -37,6 +38,7 @@
 					<button type="submit" class="btn btn-primary">작성완료</button>
 				</div>
 			</form>
+			</section>
 			<c:import url="../template/footer.jsp"></c:import>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
 				integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
