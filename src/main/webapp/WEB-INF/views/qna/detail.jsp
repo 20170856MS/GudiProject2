@@ -19,15 +19,15 @@
 
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
-			<h1>게시판 글 상세보기</h1>
-
+			
 			<c:forEach items="${qnaDTO.qnaFileDTOs}" var="fileDTO">
 				<p>
 					<a href="../resources/upload/${qna}/${fileDTO.fileName}">${fileDTO.oriName}</a>
 				</p>
 			</c:forEach>
-
-			<section class="container-fluid" style="padding-top: 0px; padding-bottom: 0px;">
+			
+			<section class="container-fluid" style="padding-top: 120px; padding-bottom: 0px;">
+				<h1>게시판 글 상세보기</h1>
 				<table class="table table-sm">
 					<tr>
 						<th>글번호</th>

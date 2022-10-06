@@ -18,7 +18,7 @@
 
 		<body>
 			<c:import url="../template/header.jsp"></c:import>
-			<section class="container-fluid" style="padding-top: 0px; padding-bottom: 0px;">
+			<section class="container-fluid" style="padding-top: 120px; padding-bottom: 0px;">
 				<div class="row">
 					<h1 style="padding-left: 0px; padding-right: 0px;">게시판 리스트</h1>
 
@@ -95,9 +95,9 @@
 						</ul>
 					</nav>
 
-					<div class="mb-3">
+					<!-- <div class="mb-3">
 						<a href="./add" class="btn btn-primary">글쓰기</a>
-					</div>
+					</div> -->
 				</div>
 			</section>
 
