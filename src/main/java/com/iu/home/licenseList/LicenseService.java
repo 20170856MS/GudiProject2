@@ -22,6 +22,13 @@ public class LicenseService {
 	@Autowired
 	private QnaDAO qnaDAO;
 
+	public List<LicenseDTO> getListLikes(LicenseLikeDTO licenseLikeDTO) throws Exception{
+		return licenseDAO.getListLikes(licenseLikeDTO);
+	}
+	
+	public int setLikes(ArrDTO arrDTO) throws Exception{
+		return licenseDAO.setLikes(arrDTO);
+	}
 	public List<LicenseDTO> getList(Pager pager) throws Exception{
 		Long totalCount = licenseDAO.getCount(pager);
 		pager.getNum(totalCount);
@@ -175,7 +182,6 @@ public class LicenseService {
 				System.out.println("test1");
 				licenseDAO.setAddBook(bookDTO);
 				System.out.println("test2");
-				
 				Long bookNum = licenseDAO.getBookNumSeq(bookDTO);
 				arrDTO.setBookNum(bookNum);
 				licenseDAO.setBookLink(arrDTO);				
@@ -186,12 +192,9 @@ public class LicenseService {
 				videoDTO.setVideoTitle(arrDTO.getArr1().get(i));
 				videoDTO.setVideoLink(arrDTO.getArr2().get(i));
 				licenseDAO.setAddVideo(videoDTO);
-				
 				Long videoNum = licenseDAO.getVideoNumSeq(videoDTO);
 				arrDTO.setVideoNum(videoNum);
 				licenseDAO.setVideoLink(arrDTO);
-				
-				
 			}
 		}else if(arrDTO.getSbvj().equals("j")) {//jobnum,jobname,jobintro
 			for(int i=0;i<arrDTO.getArr1().size();i++) {
@@ -199,11 +202,9 @@ public class LicenseService {
 				jobDTO.setJobName(arrDTO.getArr1().get(i));
 				jobDTO.setJobIntro(arrDTO.getArr2().get(i));
 				licenseDAO.setAddJob(jobDTO);
-				
 				Long jobNum = licenseDAO.getJobNumSeq(jobDTO);
 				arrDTO.setJobNum(jobNum);
 				licenseDAO.setJobLink(arrDTO);
-				
 			}
 		}
 		return 1;

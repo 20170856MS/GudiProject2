@@ -26,10 +26,26 @@ let delCheck=0;
 
 interest.addEventListener("click",function(){
     let chk = window.confirm("관심 등록 하시겠습니까?");
+    let num = interest.getAttribute("data-num");
+    let licenseNum = interest.getAttribute("data-license-num");
+    console.log(num);
+    console.log(licenseNum);
     if(chk==true){
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST","/likes/setLikes");
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhttp.send("num="+num+"&licenseNum="+licenseNum);
+        xhttp.onreadystatechange=function(){
+            if(xhttp.readyState==4 && xhttp.status==200){
+                swal("관심목록에 추가되었습니다.");
+            }else{
+                console.log("응답x");
+            }
+        }
+            
+        }
         alert("관심 목록에 추가되었습니다.");
-    }
-});
+    });
 
 have.addEventListener("click",function(){
     let chk = window.confirm("자격증 보유 등록을 하시겠습니까?");

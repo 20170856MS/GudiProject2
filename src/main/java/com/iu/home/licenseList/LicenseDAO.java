@@ -18,6 +18,15 @@ public class LicenseDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.home.licenseList.LicenseDAO.";
 
+	
+	
+	public int setLikes(ArrDTO arrDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setLikes",arrDTO);
+	}
+	
+	public List<LicenseDTO> getListLikes(LicenseLikeDTO licenseLikeDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getListLikes",licenseLikeDTO);
+	}
 	public List<LicenseDTO> getList(Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList",pager);
 	}

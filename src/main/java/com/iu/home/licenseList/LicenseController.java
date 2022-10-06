@@ -175,6 +175,7 @@ public class LicenseController {
 		return map;
 	}
 	
+	
 //	@PostMapping("setLicenseLike")
 //	@ResponseBody
 //	public Map<String,Object> setLicenseLike(LicenseDTO licenseDTO) throws Exception{
