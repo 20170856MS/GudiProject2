@@ -84,7 +84,7 @@
                                         <select id="year" onchange="jump()"></select>
                                     </div>
                                     <div class="eeee">
-                                        <h1>시작부터 끝까지,자격증에 대한 모든 종류는 자바스에서 확인하세요</h1>
+                                        <h1>시작부터 끝까지, 자격증에 대한 모든 종류는 자바스에서 확인하세요</h1>
                                     </div>
                                 </div>
                             </div>
@@ -270,8 +270,7 @@
                                                 </c:forEach>
                                             </c:when>
                                             <c:when test="${i == 11}">
-                                                <c:forEach items="${requestScope.detailSchedule10}"
-                                                    var="detailSchedule">
+                                                <c:forEach items="${requestScope.detailSchedule10}" var="detailSchedule">
                                                     ${detailSchedule.scheduleDTO.scheduleName}<br>
                                                     ${detailSchedule.scheduleDTO.scheduleDate}<br>
                                                 </c:forEach>
@@ -279,8 +278,7 @@
 
 
                                             <c:otherwise>
-                                                <c:forEach items="${requestScope.detailSchedule11}"
-                                                    var="detailSchedule">
+                                                <c:forEach items="${requestScope.detailSchedule11}" var="detailSchedule">
                                                     ${detailSchedule.scheduleDTO.scheduleName}<br>
                                                     ${detailSchedule.scheduleDTO.scheduleDate}<br>
 
