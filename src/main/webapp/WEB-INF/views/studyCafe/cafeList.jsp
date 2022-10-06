@@ -43,7 +43,7 @@
 								<td>
 									<a href="./cafeDetail?scName=${dto.scName}">${dto.scName}</a>
 								</td>
-								<td><img src="/resources/img/${dto.img}" width="60px" height="50px"></td>
+								<td><img src="/resources/img/GOOD.png" width="60px" height="50px"></td>
 								
 							</tr>
 						

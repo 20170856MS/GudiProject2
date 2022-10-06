@@ -23,7 +23,6 @@
             <link rel="stylesheet" href="/resources/css/calendar.css">
             <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
             <link href="/resources/css/infoMain.css" rel="stylesheet" type="text/css">
-
             <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
 
         </head>
@@ -183,8 +182,8 @@
                         </div>
 
                         <!-- 자격증종류 -->
+                    </section>
                 </div>
-                </section>
                 <div class="cards">
                     <c:forEach items="${requestScope.list}" var="dto" varStatus="statusNm">
                         <div class="card" id="check" license-Num="${dto.licenseNum}">
@@ -286,6 +285,8 @@
                                                     ${detailSchedule.scheduleDTO.scheduleDate}<br>
 
                                                 </c:forEach>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div><br>
                                     </p>
                                 </div>

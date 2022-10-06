@@ -105,7 +105,7 @@
 	                                </ul>
 	                            </div>
 	                        </li>
-	                        <li><a href="/qna/list" title="QNA">QNA</a>
+	                        <li><a href="/qna/list" title="QNA">Q&A</a>
 	                          <div class="dep2" style="height: 0px;">
 	                              <ul class="depth2" style="display: none;">
 	                                <li><a href="#" title="test0">test0</a></li>
@@ -189,7 +189,7 @@
 	                              </ul>
 	                          </div>
 	                      </li>
-	                      <li><a href="/qna/list" title="QNA">QNA</a>
+	                      <li><a href="/qna/list" title="QNA">Q&A</a>
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="#" title="test1">test</a></li>
