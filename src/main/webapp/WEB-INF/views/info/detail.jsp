@@ -2,9 +2,10 @@
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-		<!DOCTYPE html>
-		<html lang="en">
 
+<!DOCTYPE html>
+<html lang="en">
+<body>
 		<head>
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,17 +17,16 @@
 
 			<!-- <link href="/resources/css/reset.css" rel="stylesheet" type="text/css"> 글자크기 달라져서 reset 대신 resetInfo 참조함-->
 			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+			<link href="/resources/css/theme.css" rel="stylesheet"/>
 			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 			<link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/infoDetailBootStrap.css" rel="stylesheet" type="text/css">
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 		</head>
-
-		<body>
-
 			<!------------------------------------- header.jsp ----------------------------------------------------------------->
 			<c:import url="../template/header.jsp"></c:import>
 			
@@ -45,9 +45,19 @@
 						<p>
 						<div>
 							<c:forEach items="${requestScope.detailSchedule}" var="detailSchedule">
-								${detailSchedule.scheduleName}<br>
-								${detailSchedule.scheduleDate}<br>
-								<br>
+								<div class="divrow form3">
+									${detailSchedule.scheduleName}
+									<div class="form-check-s">
+										<input class="form-check-input1" type="checkbox" value="asd" id="flexCheckDefault">
+											<label class="form-check-label" for="flexCheckDefault">
+										</label>
+									</div>
+								</div>
+								
+								<div class="form4">
+									${detailSchedule.scheduleDate}
+								</div><br><br>
+								
 							</c:forEach>
 						</div>
 						</p>
@@ -55,6 +65,7 @@
 							href="#!">수정</a>
 						<!--class="col-lg-5 user-schedule"-->
 						<a class="btn btn-primary del s" href="#!">삭제</a>
+						<a class="btn btn-primary chks" href="#!">확인</a>
 					</div>
 				</div>
 				<!-- Call to Action-->
@@ -76,11 +87,19 @@
 								<h2 class="card-title">책</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailBook}" var="detailBook">
-										책이름: ${detailBook.bookDTO.bookName}<br>
-										책가격: ${detailBook.bookDTO.bookPrice}<br>
-										<img src="${detailBook.bookDTO.bookImage}" width="140" height="140" alt="..." />
-										<br>
-										<br>
+										<div class="divrow form5">
+											${detailBook.bookDTO.bookName}
+											<div class="form-check-b">
+												<input class="form-check-input2" type="checkbox" value="asd" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+												</label>
+											</div>
+										</div>
+										
+										<div class="form6">
+											${detailBook.bookDTO.bookPrice}
+										</div>
+										<img src="${detailBook.bookDTO.bookImage}" width="140" height="140" alt="..." /><br><br><br>
 									</c:forEach>
 								</p>
 							</div>
@@ -88,6 +107,7 @@
 								<a class="btn btn-primary btn-sm add b" href="#!">추가</a> <a
 									class="btn btn-primary btn-sm alt b" href="#!">수정</a> <a
 									class="btn btn-primary btn-sm del b" href="#!">삭제</a>
+									<a class="btn btn-primary chkb" href="#!">확인</a>
 							</div>
 						</div>
 					</div>
@@ -97,10 +117,21 @@
 								<h2 class="card-title">동영상</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailVideo}" var="detailVideo">
+										<div class="divrow form7">
+											${detailVideo.videoDTO.videoTitle}
+											<div class="form-check-v">
+												<input class="form-check-input3" type="checkbox" value="asd" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+												</label>
+											</div>
+										</div>
+										
+										<div class="form8" data-link="${detailVideo.videoDTO.videoLink}">
 										<iframe width="280" height="157.5" src="${detailVideo.videoDTO.videoLink}"
 											title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-									  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-										<br>
+									  		encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+										<br><br>
 									</c:forEach>
 								</p>
 							</div>
@@ -108,6 +139,7 @@
 								<a class="btn btn-primary btn-sm add v" href="#!">추가</a> <a
 									class="btn btn-primary btn-sm alt v" href="#!">수정</a> <a
 									class="btn btn-primary btn-sm del v" href="#!">삭제</a>
+									<a class="btn btn-primary chkv" href="#!">확인</a>
 							</div>
 						</div>
 					</div>
@@ -117,9 +149,18 @@
 								<h2 class="card-title">직업소개</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailJob}" var="detailJob">
-										${detailJob.jobDTO.jobName}<br>
-										${detailJob.jobDTO.jobIntro}<br>
-										<br>
+
+										<div class="divrow form9">
+											${detailJob.jobDTO.jobName}
+											<div class="form-check-j">
+												<input class="form-check-input4" type="checkbox" value="asd" id="flexCheckDefault">
+													<label class="form-check-label" for="flexCheckDefault">
+												</label>
+											</div>
+										</div>
+										<div class="form10">
+										${detailJob.jobDTO.jobIntro}
+										</div><br><br>
 									</c:forEach>
 								</p>
 							</div>
@@ -127,12 +168,13 @@
 								<a class="btn btn-primary btn-sm add j" href="#!">추가</a> <a
 									class="btn btn-primary btn-sm alt j" href="#!">수정</a> <a
 									class="btn btn-primary btn-sm del j" href="#!">삭제</a>
+									<a class="btn btn-primary chkj" href="#!">확인</a>
 							</div>
 						</div>
 					</div>
 
 					<!-- 게시판 상세보기 -->
-					<table border="1">
+					<table class="table table-sm">
 						<thead>
 							<tr>
 								<th>글번호</th>

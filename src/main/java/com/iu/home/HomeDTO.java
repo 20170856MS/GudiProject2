@@ -1,7 +1,5 @@
 package com.iu.home;
 
-import java.util.List;
-
 import com.iu.home.licenseList.ScheduleDTO;
 
 public class HomeDTO extends ScheduleDTO {
@@ -35,8 +33,6 @@ public class HomeDTO extends ScheduleDTO {
 	private String scheduleDate;
 
 	private ScheduleDTO scheduleDTO;
-	private Long licenseScheduleNum;
-	private Long scheduleNum;
 	
 	
 	public Long getLicenseNum() {
@@ -99,18 +95,7 @@ public class HomeDTO extends ScheduleDTO {
 	public void setJobIntro(String jobIntro) {
 		this.jobIntro = jobIntro;
 	}
-	public Long getLicenseScheduleNum() {
-		return licenseScheduleNum;
-	}
-	public void setLicenseScheduleNum(Long licenseScheduleNum) {
-		this.licenseScheduleNum = licenseScheduleNum;
-	}
-	public Long getScheduleNum() {
-		return scheduleNum;
-	}
-	public void setScheduleNum(Long scheduleNum) {
-		this.scheduleNum = scheduleNum;
-	}
+	
 	public ScheduleDTO getScheduleDTO() {
 		return scheduleDTO;
 	}

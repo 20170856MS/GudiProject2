@@ -52,6 +52,7 @@ public class LicenseDAO {
 		return sqlSession.update(NAMESPACE+"setUpdateSchedule",scheduleDTO);
 	}
 	public int setUpdateBook(BookDTO bookDTO) throws Exception{
+		System.out.println("test2");
 		return sqlSession.update(NAMESPACE+"setUpdateBook",bookDTO);
 	}
 	public int setUpdateVideo(VideoDTO videoDTO) throws Exception{
@@ -114,5 +115,20 @@ public class LicenseDAO {
 	}
 	public int setJobLink(ArrDTO arrDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"setJobLink",arrDTO);
+	}
+	
+	public int setDelSchedule(ScheduleDTO scheduleDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"setDelSchedule",scheduleDTO);
+	}
+	public int setDelBook(BookDTO bookDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"setDelBook",bookDTO);
+	}
+	public int setDelVideo(VideoDTO videoDTO)throws Exception{
+		System.out.println(videoDTO.getVideoTitle());
+		System.out.println(videoDTO.getVideoLink());
+		return sqlSession.delete(NAMESPACE+"setDelVideo",videoDTO);
+	}
+	public int setDelJob(JobDTO jobDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"setDelJob",jobDTO);
 	}
 }

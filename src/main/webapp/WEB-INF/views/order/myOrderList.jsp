@@ -11,10 +11,12 @@
 <title>마이페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-<link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/theme.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="/resources/css/myOrderList.css">
 <link rel="stylesheet" href="/resources/css/paging.css">
 
@@ -81,22 +83,22 @@
 								
 							<div class="paging_container">
 								<c:if test="${pm.prev }">
-									<a href="my_order?pagingNum=${pm.startPage - 1}" class="paging_a">이전</a>
+									<a href="myOrderList?pagingNum=${pm.startPage - 1}" class="paging_a">이전</a>
 								</c:if>
 				
 								<c:forEach var="block" varStatus="pg" begin="${pm.startPage }" end="${pm.endPage }" step="1">
 									<c:choose>
 										<c:when test="${pg.index == pagingNum }">
-											<a href="my_order?pagingNum=${pg.index }" class="paging_num_yes">${pg.index }</a>
+											<a href="myOrderList?pagingNum=${pg.index }" class="paging_num_yes">${pg.index }</a>
 										</c:when>
 										<c:otherwise>
-											<a href="my_order?pagingNum=${pg.index }" class="paging_num">${pg.index }</a>
+											<a href="myOrderList?pagingNum=${pg.index }" class="paging_num">${pg.index }</a>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
 				
 								<c:if test="${pm.next }">
-									<a href="my_order?pagingNum=${pm.endPage + 1}" class="paging_a">다음</a>
+									<a href="myOrderList?pagingNum=${pm.endPage + 1}" class="paging_a">다음</a>
 								</c:if>
 							</div>
 					

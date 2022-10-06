@@ -221,7 +221,7 @@
 	</insert>
 
 	<insert id="setAddBook" parameterType="BookDTO">
-		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},#{bookPrice})
+		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},'https://previews.123rf.com/images/oasis15/oasis151506/oasis15150600005/40908970-%EB%B9%88-%EC%B1%85-%ED%91%9C%EC%A7%80.jpg',#{bookPrice})
 	</insert>
 	
 	<select id="getBookNumSeq" parameterType="BookDTO" resultType="Long">
@@ -236,7 +236,7 @@
 		INSERT INTO VIDEO VALUES(LI_SEQ.NEXTVAL,#{videoTitle},#{videoLink})
 	</insert>
 	<select id="getVideoNumSeq" parameterType="VideoDTO" resultType="Long">
-		SELECT VIDEONUM FROM VIDEO WHERE VIDEONAME=#{videoName}
+		SELECT VIDEONUM FROM VIDEO WHERE VIDEOTITLE=#{videoTitle}
 	</select>
 	
 	<insert id="setVideoLink" parameterType="ArrDTO">
@@ -254,5 +254,28 @@
 		INSERT INTO LICENSEJOB VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{jobNum})
 	</insert>
 	
+	<delete id="setDelSchedule" parameterType="ScheduleDTO">
+		DELETE FROM LICENSESCHEDULE 
+		WHERE SCHEDULENUM=(
+			SELECT SCHEDULENUM FROM SCHEDULE WHERE SCHEDULENAME=#{scheduleName} and SCHEDULEDATE=#{scheduleDate})
+	</delete>
+	
+	<delete id="setDelBook" parameterType="BookDTO">
+		DELETE FROM LICENSEBOOK 
+		WHERE BOOKNUM=(
+			SELECT BOOKNUM FROM BOOK WHERE BOOKNAME=#{bookName} and BOOKPRICE=#{bookPrice})
+	</delete>
+	
+	<delete id="setDelVideo" parameterType="VideoDTO">
+		DELETE FROM LICENSEVIDEO 
+		WHERE VIDEONUM=(
+			SELECT VIDEONUM FROM VIDEO WHERE VIDEOTITLE=#{videoTitle} and VIDEOLINK=#{videoLink})
+	</delete>
+	
+	<delete id="setDelJob" parameterType="JobDTO">
+		DELETE FROM LICENSEJOB 
+		WHERE JOBNUM=(
+			SELECT JOBNUM FROM JOB WHERE JOBNAME=#{jobName} and JOBINTRO=#{jobIntro})
+	</delete>
 
 </mapper>

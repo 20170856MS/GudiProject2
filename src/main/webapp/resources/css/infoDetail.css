@@ -5,6 +5,7 @@
     .이름 : 클래스명
 */
 
+
 .detailName{
     width: 80%;
     height:237px;
@@ -26,4 +27,17 @@
     height:400px;
     display: flex;
     flex-direction: row;
+}
+
+.divrow{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.form-check-s,.form-check-b,.form-check-v,.form-check-j{
+    visibility: hidden;
+}
+
+.chks,.chkb,.chkv,.chkj{
+    visibility: hidden;
 }

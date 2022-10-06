@@ -1,27 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		<!DOCTYPE html>
-		<html>
 
-		<head>
-			<meta charset="UTF-8">
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-				integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-				crossorigin="anonymous">
-			<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-			<title>Insert title here</title>
-			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-			<link href="/resources/css/font.css" rel="stylesheet" type="text/css">
-			<link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
-			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-		</head>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+	crossorigin="anonymous">
+<title>Insert title here</title>
+<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
 
 		<body>
 
 			<c:import url="../template/header.jsp"></c:import>
-			<section class="container-fluid">
+			<section class="container-fluid" style="padding-top: 120px; padding-bottom: 0px;">
 				<div class="row">
 				<h1>게시판 글 수정하기</h1>
 				
@@ -74,4 +74,4 @@
 			<script src="/resources/js/add.js"></script>
 		</body>
 
-		</html>
+</html>

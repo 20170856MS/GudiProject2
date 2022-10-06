@@ -8,6 +8,8 @@
 
    <context:property-placeholder location="classpath:database/config/database.properties"/>
    
+   
+   
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
       <property name="username" value="${oracle.userName}"></property>
       <property name="password" value="${oracle.password}"></property>
@@ -24,4 +26,6 @@
    <bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
          <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
    </bean>
+   
+   
 </beans>

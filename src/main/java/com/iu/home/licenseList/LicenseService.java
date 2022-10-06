@@ -85,6 +85,10 @@ public class LicenseService {
 				bookDTO.setBookNum(bookNum);
 				bookDTO.setBookName(arrDTO.getArr1().get(i));
 				bookDTO.setBookPrice(Long.parseLong(arrDTO.getArr2().get(i)));
+				System.out.println(bookDTO.getBookNum());
+				System.out.println(bookDTO.getBookName());
+				System.out.println(bookDTO.getBookPrice());
+				System.out.println("test1");
 				licenseDAO.setUpdateBook(bookDTO);
 			}
 		}else if(arrDTO.getSbvj().equals("v")) {//videonum,videotitle,videolink
@@ -117,6 +121,39 @@ public class LicenseService {
 		return 1;
 	}
 	
+	public int setDel(ArrDTO arrDTO) throws Exception{
+		if(arrDTO.getSbvj().equals("s")) {
+			for(int i=0;i<arrDTO.getArr1().size();i++) {
+				ScheduleDTO scheduleDTO = new ScheduleDTO();
+				scheduleDTO.setScheduleName(arrDTO.getArr1().get(i));
+				scheduleDTO.setScheduleDate(arrDTO.getArr2().get(i));
+				licenseDAO.setDelSchedule(scheduleDTO);
+			}
+		}else if(arrDTO.getSbvj().equals("b")) {
+			for(int i=0;i<arrDTO.getArr1().size();i++) {
+				BookDTO bookDTO = new BookDTO();
+				bookDTO.setBookName(arrDTO.getArr1().get(i));
+				bookDTO.setBookPrice(Long.parseLong(arrDTO.getArr2().get(i)));
+				licenseDAO.setDelBook(bookDTO);
+			}
+		}else if(arrDTO.getSbvj().equals("v")) {
+			for(int i=0;i<arrDTO.getArr1().size();i++) {
+				VideoDTO videoDTO = new VideoDTO();
+				videoDTO.setVideoTitle(arrDTO.getArr1().get(i));
+				videoDTO.setVideoLink(arrDTO.getArr2().get(i));
+
+				licenseDAO.setDelVideo(videoDTO);
+			}
+		}else if(arrDTO.getSbvj().equals("j")) {
+			for(int i=0;i<arrDTO.getArr1().size();i++) {
+				JobDTO jobDTO = new JobDTO();
+				jobDTO.setJobName(arrDTO.getArr1().get(i));
+				jobDTO.setJobIntro(arrDTO.getArr2().get(i));
+				licenseDAO.setDelJob(jobDTO);
+			}
+		}
+		return 0;
+	}
 	public int setAdd(ArrDTO arrDTO) throws Exception{
 		if(arrDTO.getSbvj().equals("s")) {
 			for(int i=0;i<arrDTO.getArr1().size();i++) {
@@ -133,6 +170,8 @@ public class LicenseService {
 				BookDTO bookDTO = new BookDTO();
 				bookDTO.setBookName(arrDTO.getArr1().get(i));
 				bookDTO.setBookPrice(Long.parseLong(arrDTO.getArr2().get(i)));
+				System.out.println(bookDTO.getBookName());
+				System.out.println(bookDTO.getBookPrice());
 				System.out.println("test1");
 				licenseDAO.setAddBook(bookDTO);
 				System.out.println("test2");

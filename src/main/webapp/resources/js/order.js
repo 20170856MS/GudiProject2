@@ -42,10 +42,9 @@ function requestPay() {
 		        	
                         // 데이터를 json으로 보내기 위해 바꿔준다.
                         data = JSON.stringify({
-
                             "orderNum" :  rsp.merchant_uid,
-                            "productNum" : 54,
-                            "num" : 44,
+                            "productNum" : 5, //상품번호
+                            "num" : 44, // 회원번호
                             "productName" : rsp.name,
                             "orderDate" : new Date().getTime(),
                             "totalPrice" : rsp.paid_amount,
@@ -59,28 +58,27 @@ function requestPay() {
                             contentType: 'application/json',
                             data : data
                         })
-                        .done(function(data) {
+                        .done(function(res) {
                             console.log(data)
                             console.log(data.orderNum)
-                            console.log(success)
-                            if (data != null) {
+                            console.log(res)
+                            if (res > 0) {
                                 console.log(res);
-                                alert('주문정보 저장 성공');
-                                
+                                swal('주문정보 저장 성공')
+                                createPayInfo(uid);
                             }
                             else {
                                 console.log(data);
-                                alert('주문정보 저장 실패');
+                                swal('주문정보 저장 실패');
                             }
                         })
-                    createPayInfo(uid);
                 }
                 else {
                     alert('결제 실패');
                 }
             })
             } else {
-                alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+                swal("결제에 실패하였습니다.","에러 내용: " +  rsp.error_msg,"error");
             }
         });
 }
@@ -96,12 +94,15 @@ function createPayInfo(uid) {
         },
         success: function(data) {
             
-            alert('결제가 완료 되었습니다.');
-            // 결제완료 페이지로 이동
-            location.replace('/order/complete?payNum='+data);
+            swal('결제 성공 !',"결제완료 페이지로 이동합니다.","success").then(function(){
+                
+                // 결제완료 페이지로 이동
+                location.replace('/order/complete?payNum='+data);
+
+            })
         },
         error: function() {
-            alert('결제정보 저장 통신 실패');
+            swal('결제정보 저장 통신 실패');
         }
     });
 }

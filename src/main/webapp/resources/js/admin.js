@@ -22,52 +22,29 @@ const listInfo = (function(){
 	}
 })();
 
-
 payMentCancel.addEventListener("click",function(){
 
-    let check = window.confirm("주문을 취소하시겠습니까?")
-
-    if(!check){
-        return;
-    }
-    cancelPay();
+    swal({
+        title: "주문을 취소하시겠습니까??",
+        text: "취소하면 되돌릴 수 없습니다.!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("주문을 취소하였습니다!", {
+            icon: "success"
+            ,
+          }).then(function(){
+            cancelPay()
+          })
+        } else {
+          swal("보류하였습니다!");
+        }
+      });
 
 });
-
-
-
-// function cancelPay(){
-		
-// 		let cancleReason = "";
-
-// 		// 거부하기
-// 		const totalPrice = 100;
-			
-			
-// 		const data = JSON.stringify({
-// 			"orderNum" : orderNum,
-//             "totalPrice" : totalPrice,
-
-// 		});
-			
-// 			$.ajax({
-// 				url: "../admin/orderCancle",
-// 				type: "POST",
-//                 dataType: 'json',
-//                 contentType: 'application/json',
-// 				data: data
-// 			})
-// 			.done(function(){
-// 				alert("취소완료");
-// 				// 결제 취소하기
-				
-// 			})
-// 			.fail(function(){
-// 				alert("취소실패");;
-// 			})
-		
-         
-// }
 
 
 function cancelPay(){
@@ -92,7 +69,7 @@ function cancelPay(){
                let result1 = xhttp.responseText.trim();
                console.log(result1);
                    if(result1==1){
-                       alert("삭제성공")
+                       console.log("삭제성공")
                
                    } else{
                        console.log("삭제실패");

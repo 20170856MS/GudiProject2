@@ -40,18 +40,35 @@ public class OrderDAO {
 		return sqlSession.selectOne(NAMESPACE+"getPay", payNum);
 	}
 	
-	// 주문개수
+	// 회원의 주문개수
 		public List<Long> myOrderCount(String num) throws Exception {		
 			return sqlSession.selectList(NAMESPACE + "orderCount", num);
 		}
 
-	// 주문 목록
+	//회원의  주문 목록
 	public Map<Long, List> getMyOrderList(String num, List<Long> limitList) throws Exception {	
 
 		
 		Map<Long, List> orderMap = new HashMap<Long, List>();
 		for(Long code: limitList) {
 				List<OrderDTO> orderList = sqlSession.selectList(NAMESPACE + "myOrderList", code);
+				orderMap.put(code, orderList);
+		}
+
+		return orderMap;
+	}
+	
+	public List<Long> myOrderAdminCount() throws Exception {		
+		return sqlSession.selectList(NAMESPACE + "orderAdminCount");
+	}
+	
+	
+	public Map<Long, List> getAdminOrderList(List<Long> limitList) throws Exception {	
+
+		
+		Map<Long, List> orderMap = new HashMap<Long, List>();
+		for(Long code: limitList) {
+				List<OrderDTO> orderList = sqlSession.selectList(NAMESPACE + "adminOrderList", code);
 				orderMap.put(code, orderList);
 		}
 
