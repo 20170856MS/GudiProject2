@@ -22,7 +22,7 @@
      	<div class="row">
 			<h1>CafeDetail</h1>
 			
-			<img src="/resources/img/${dto.img}" width="350px" height="100px">
+			<img src="/resources/img/${dto.img}" width="500px" height="400px">
 
 			<!--지도-->
 			<h1>지도</h1>

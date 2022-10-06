@@ -66,6 +66,7 @@
 			clickedYear = today.getFullYear();
 			clickedMonth = ( 1 + today.getMonth() );
 			clickedDate = this.getAttribute('id');
+
 	
 			clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
 			clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
@@ -79,6 +80,9 @@
 	
 			let dateText = document.getElementById("dateText");
 			dateText.textContent = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+			if(dateText != "" && clickedDate == clickedDate){
+				dateText= "";
+			}
 			
 			
 			//opener.document.getElementById("date").value = clickedYMD;
