@@ -131,6 +131,16 @@ public class LicenseController {
 		map.put("result", result);
 		return map;
 	}
+	
+	@PostMapping("setDel")
+	@ResponseBody
+	public Map<String,Object> setDel(ArrDTO arrDTO) throws Exception{
+		Map<String,Object> map = new HashMap<String,Object>();
+
+		int result = licenseService.setDel(arrDTO);
+		map.put("result", result);
+		return map;
+	}
 
 	//글추가
 	@PostMapping("add")

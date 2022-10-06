@@ -175,45 +175,95 @@ function getDel(ln,group){                      //삭제버튼활성화
         }
     }
 }
-chks.addEventListener("click",function(event){                          //삭제확인
+chks.addEventListener("click",function(event){                                      //삭제 확인
+    sbvj="s";
     const form3 = document.querySelectorAll(".form3");
     const form4 = document.querySelectorAll(".form4");
+    const fci1 = document.querySelectorAll(".form-check-input1");
+    let arr1=[];
+    let arr2=[];
     for(let i=0;i<formCheckS.length;i++){
-        console.log(form3[i].innerText);
-        console.log(form4[i].innerText);
+        if(fci1[i].checked){
+            arr1[i]=form3[i].innerText;
+            arr2[i]=form4[i].innerText;
+        }
     }
-    const fci = document.querySelectorAll(".form-check-input");
-    console.log(fci.length);
-    if(fci[0].getAttribute("checked") == "checked"){
-        console.log("체크")
-    }else{console.log("미체크")};
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
+    }
 });
 chkb.addEventListener("click",function(event){
+    sbvj="b";
     const form5 = document.querySelectorAll(".form5");
     const form6 = document.querySelectorAll(".form6");
+    const fci2 = document.querySelectorAll(".form-check-input2");
+    let arr1=[];
+    let arr2=[];
     for(let i=0;i<formCheckB.length;i++){
-        console.log(form5[i].innerText);    
-        console.log(form6[i].innerText);
+        if(fci2[i].checked){
+            arr1[i]=form5[i].innerText;
+            arr2[i]=form6[i].innerText;
+        }
+    }
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
     }
 });
 chkv.addEventListener("click",function(event){
+    sbvj="v";
     const form7 = document.querySelectorAll(".form7");
     const form8 = document.querySelectorAll(".form8");
+    const fci3 = document.querySelectorAll(".form-check-input3");
+    let arr1=[];
+    let arr2=[];
     for(let i=0;i<formCheckV.length;i++){
-        console.log(form7[i].innerText);    
-        const link = form8[i].getAttribute("data-link");
-        console.log(link);
-        
+        if(fci3[i].checked){
+            arr1[i]=form7[i].innerText;
+            arr2[i]=form8[i].getAttribute("data-link");
+        }
+    }
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
     }
 });
 chkj.addEventListener("click",function(event){
+    sbvj="j";
     const form9 = document.querySelectorAll(".form9");
     const form10 = document.querySelectorAll(".form10");
+    const fci4 = document.querySelectorAll(".form-check-input4");
+    let arr1=[];
+    let arr2=[];
     for(let i=0;i<formCheckJ.length;i++){
-        console.log(form9[i].innerText);    
-        console.log(form10[i].innerText);
+        if(fci4[i].checked){
+            arr1[i]=form9[i].innerText;
+            arr2[i]=form10[i].innerText;
+        }
+    }
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
     }
 });
+function setDel(arr1,arr2){
+    console.log("setDel함수실행:");
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST","setDel");
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        console.log(arr1,arr2,sbvj);
+        xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj);
+        xhttp.onreadystatechange=function(){
+            if(xhttp.readyState==4 && xhttp.status==200){
+                swal("삭제되었습니다.");
+            }else{
+                console.log("응답x");
+            }
+        }
+    
+}
+
 function getAdd(ln,group){                                      //추가모달창
     let arr = [];
     if(group=="ds"){

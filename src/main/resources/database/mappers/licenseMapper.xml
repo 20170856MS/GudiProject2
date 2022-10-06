@@ -254,5 +254,28 @@
 		INSERT INTO LICENSEJOB VALUES(LI_SEQ.NEXTVAL,#{licenseNum},#{jobNum})
 	</insert>
 	
+	<delete id="setDelSchedule" parameterType="ScheduleDTO">
+		DELETE FROM LICENSESCHEDULE 
+		WHERE SCHEDULENUM=(
+			SELECT SCHEDULENUM FROM SCHEDULE WHERE SCHEDULENAME=#{scheduleName} and SCHEDULEDATE=#{scheduleDate})
+	</delete>
+	
+	<delete id="setDelBook" parameterType="BookDTO">
+		DELETE FROM LICENSEBOOK 
+		WHERE BOOKNUM=(
+			SELECT BOOKNUM FROM BOOK WHERE BOOKNAME=#{bookName} and BOOKPRICE=#{bookPrice})
+	</delete>
+	
+	<delete id="setDelVideo" parameterType="VideoDTO">
+		DELETE FROM LICENSEVIDEO 
+		WHERE VIDEONUM=(
+			SELECT VIDEONUM FROM VIDEO WHERE VIDEOTITLE=#{videoTitle} and VIDEOLINK=#{videoLink})
+	</delete>
+	
+	<delete id="setDelJob" parameterType="JobDTO">
+		DELETE FROM LICENSEJOB 
+		WHERE JOBNUM=(
+			SELECT JOBNUM FROM JOB WHERE JOBNAME=#{jobName} and JOBINTRO=#{jobIntro})
+	</delete>
 
 </mapper>

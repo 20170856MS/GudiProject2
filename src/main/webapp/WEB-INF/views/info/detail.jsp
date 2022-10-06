@@ -48,7 +48,7 @@
 								<div class="divrow form3">
 									${detailSchedule.scheduleName}
 									<div class="form-check-s">
-										<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+										<input class="form-check-input1" type="checkbox" value="asd" id="flexCheckDefault">
 											<label class="form-check-label" for="flexCheckDefault">
 										</label>
 									</div>
@@ -88,16 +88,16 @@
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailBook}" var="detailBook">
 										<div class="divrow form5">
-											책이름: ${detailBook.bookDTO.bookName}
+											${detailBook.bookDTO.bookName}
 											<div class="form-check-b">
-												<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+												<input class="form-check-input2" type="checkbox" value="asd" id="flexCheckDefault">
 													<label class="form-check-label" for="flexCheckDefault">
 												</label>
 											</div>
 										</div>
 										
 										<div class="form6">
-											책가격: ${detailBook.bookDTO.bookPrice}
+											${detailBook.bookDTO.bookPrice}
 										</div>
 										<img src="${detailBook.bookDTO.bookImage}" width="140" height="140" alt="..." /><br><br><br>
 									</c:forEach>
@@ -120,7 +120,7 @@
 										<div class="divrow form7">
 											${detailVideo.videoDTO.videoTitle}
 											<div class="form-check-v">
-												<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+												<input class="form-check-input3" type="checkbox" value="asd" id="flexCheckDefault">
 													<label class="form-check-label" for="flexCheckDefault">
 												</label>
 											</div>
@@ -153,7 +153,7 @@
 										<div class="divrow form9">
 											${detailJob.jobDTO.jobName}
 											<div class="form-check-j">
-												<input class="form-check-input" type="checkbox" value="asd" id="flexCheckDefault">
+												<input class="form-check-input4" type="checkbox" value="asd" id="flexCheckDefault">
 													<label class="form-check-label" for="flexCheckDefault">
 												</label>
 											</div>
