@@ -14,10 +14,11 @@
 }
 
 [data-v-19226b75].rankingBox {
-    /* width: 25%;
-    border-radius: 30px; */
+    width: 180px;
+    border-radius: 30px;
     overflow: hidden;
     background: #fff
+    
 }
 
 
@@ -34,10 +35,9 @@
 }
 
 
-/* [data-v-19226b75].rankingBox ul {
-    height: 593px;
-    padding: 0 20px 20px
-} */
+[data-v-19226b75].rankingBox ul {
+    padding-left: 0px;
+}
 
 [data-v-19226b75].rankingBox ul li {
     padding: 10px 5px;

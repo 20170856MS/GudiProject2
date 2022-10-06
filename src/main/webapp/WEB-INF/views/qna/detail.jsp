@@ -27,7 +27,7 @@
 				</p>
 			</c:forEach>
 
-			<section class="container-fluid">
+			<section class="container-fluid" style="padding-top: 0px; padding-bottom: 0px;">
 				<table class="table table-sm">
 					<tr>
 						<th>글번호</th>
