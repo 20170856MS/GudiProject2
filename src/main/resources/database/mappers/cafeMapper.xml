@@ -5,7 +5,7 @@
     
     <mapper namespace="com.iu.home.studyCafe.cafeDAO">
     	<select id="getList" resultType="cafeDTO">
-    		SELECT * FROM STUDYCAFE ORDER BY SCNUM ASC
+    		SELECT S.* , J.AREANAME FROM STUDYCAFE S JOIN AREA J ON (S.AREANUM= J.AREANUM) ORDER BY SCNUM ASC
     	</select>
     	
     	<select id="getDetail" parameterType="cafeDTO" resultType="cafeDetailDTO">
@@ -21,6 +21,10 @@
     	<!-- <update id="updateSit">
     		UPDATE STUDYROOMDETAIL SET ROOMCOUNT= #{roomCount} WHERE ROOMNUM = #{roomNum} 
     	</update> -->
+    	
+    	<select id="getReList" resultType="reListDTO">
+    		SELECT E.SCNAME, E.CDPAY, J.ROOMNAME, J.SEDATE, J.SETIME FROM STUDYCAFEDETAIL E JOIN RESERVATION J ON (E.DETAILNUM = J.DETAILNUM)
+    	</select>
     </mapper>
     
     

@@ -14,6 +14,7 @@ const detailNum = test1.getAttribute("detail-Num");
 let listTime = [];
 let test = " ";
 
+
 // -----TimePicker------
 // sendDate.addEventListener("click", function(){
     
@@ -79,36 +80,39 @@ sendDate.addEventListener("click", function(){
     console.log("xhttp="+xhttp);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&detailNum="+detailNum);
-
-    xhttp.onreadystatechange = function(){
-        if(xhttp.readyState==4 && xhttp.status==200){
-            let result = xhttp.responseText.trim();
-            
-            console.log(result);
-
-            console.log(radioText.textContent);
-            console.log(dateText.textContent);
-            console.log(timeText.textContent);
-            console.log(detailNum.textContent);
-
-            if(radioText.textContent == "" || dateText.textContent == "" || timeText.textContent == ""){
-                alert("공백이 있습니다.");
-            }else{
+    if(radioText.textContent == "" || dateText.textContent == "" || timeText.textContent == ""){
+        alert("공백이 있습니다.");
+        
+    }else{
+        console.log("공백없음");
+        xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&detailNum="+detailNum);
+    
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState==4 && xhttp.status==200){
+                let result = xhttp.responseText.trim();
+                
+                console.log(result);
+    
+                console.log(radioText.textContent);
+                console.log(dateText.textContent);
+                console.log(timeText.textContent);
+                console.log(detailNum.textContent);
+                
                 alert('저장완료');
-                location.replace("./cafeList");
+                location.replace("./reList");
                 i = 0;
+                
+                
+                // if(result.result==1){
+                //     console.log("수정 성공");
+                //     alert('수정 성공');
+                //     document.querySelector("#up"+replyNum).innerHTML=contents;
+                //     location.replace("studyCafe/cafeList");
+                // }else{
+                //     console.log("수정 실패");
+                //     alert('수정 실패');
+                // }
             }
-            
-            // if(result.result==1){
-            //     console.log("수정 성공");
-            //     alert('수정 성공');
-            //     document.querySelector("#up"+replyNum).innerHTML=contents;
-            //     location.replace("studyCafe/cafeList");
-            // }else{
-            //     console.log("수정 실패");
-            //     alert('수정 실패');
-            // }
         }
     }
 });
@@ -613,5 +617,8 @@ complete.addEventListener("click", function(){
 
 //     });
 // }
+
+
+
 
 

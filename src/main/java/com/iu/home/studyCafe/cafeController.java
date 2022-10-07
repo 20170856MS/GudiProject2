@@ -38,6 +38,7 @@ public class cafeController {
 		mv.setViewName("studyCafe/cafeDetail");
 		mv.addObject("dto", cafeDetailDTO);
 		System.out.println(cafeDetailDTO.getLatitude());
+		System.out.println(cafeDetailDTO.getLongitude());
 		return mv;
 	}
 	
@@ -66,26 +67,11 @@ public class cafeController {
 		System.out.println("cafeList post 실행");
 		int result = cafeService.addDate(reservationDTO);
 		
-//		-------------
-//		String time07;
-//		String time08;
-//		String time09;
-//		String time10;
-//		String time11;
-//		String time12;
-//		String time13;
-//		String time14;
-//		String time15;
-//		String time16;
-//		String time17;
-//		String time18;
-//		String time19;
-//		String time20;
-		
+
 		
 //		int result = cafeService.update(cafeRoomDTO);
 		
-		mv.setViewName("redirect:./cafeList");
+		mv.setViewName("redirect:./reList");
 		return mv;
 	}
 	
@@ -93,6 +79,16 @@ public class cafeController {
 	public String calender() throws Exception{
 		
 		return "studyCafe/calender";
+	}
+	
+	@RequestMapping(value = "reList")
+	public String reList(Model model) throws Exception{
+		System.out.println("cafeReList");
+		
+		List<reListDTO> ar = cafeService.getReList();
+		model.addAttribute("list", ar);
+		
+		return "studyCafe/reList";
 	}
 	
 	
