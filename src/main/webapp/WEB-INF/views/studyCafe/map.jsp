@@ -9,8 +9,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 	
 	<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/font.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/theme.css" rel="stylesheet" />
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
@@ -20,8 +19,12 @@
 	
 	<!-- header.jsp -->
           <c:import url="../template/header.jsp"></c:import>
-         <section class="container-fluid col-lg-8 mt-5">
-         	<div class="row">
+         <section class="container-fluid col-lg-8 mt-5" style="
+		 padding-top: 0px;
+		 padding-bottom: 0px;
+		 padding-left: 0px;
+		 padding-right: 0px;">
+         <div class="row">
          
          
          		<h1>지도</h1>
@@ -29,46 +32,52 @@
          		<div id="map" style="width:500px;height:400px;"></div>
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e50c1a3d843524281f35f43447abac4a"></script>
 				<script>
-					var container = document.getElementById('map');
-					var options = {
-						center: new kakao.maps.LatLng(33.450701, 126.570667),
-						level: 3
-					};
-			
-					var map = new kakao.maps.Map(container, options);
-
-
-					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-					mapOption = { 
-						center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-						level: 3 // 지도의 확대 레벨
-					};
-
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+				    mapOption = { 
+				        center: new kakao.maps.LatLng(37.478351, 126.866479), // 지도의 중심좌표
+				        level: 4 // 지도의 확대 레벨
+				    };
+	
 					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-					// 마커가 표시될 위치입니다 
-					var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
-
-					// 마커를 생성합니다
-					var marker = new kakao.maps.Marker({
-						position: markerPosition
-					});
-
-					// 마커가 지도 위에 표시되도록 설정합니다
-					marker.setMap(map);
-
-					var iwContent = '<div style="padding:5px;">스터디카페<br><a href="https://map.kakao.com/link/map/스터디카페,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/스터디카페,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    				iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
-
-					// 인포윈도우를 생성합니다
-					var infowindow = new kakao.maps.InfoWindow({
-						position : iwPosition, 
-						content : iwContent 
-					});
-
-					// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-					infowindow.open(map, marker); 
-
+				 
+					// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+					var positions = [
+				    {
+				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.478392, 126.870077" style="color:blue" target="_blank">구디스터디카페</a></div>', 
+				        latlng: new kakao.maps.LatLng(37.478392, 126.870077)
+				    },
+				    {
+				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.478309, 126.863327" style="color:blue" target="_blank">팔디스터디카페</a></div>', 
+				        latlng: new kakao.maps.LatLng(37.478309, 126.863327)
+				    },
+				    {
+				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.475453, 126.870366" style="color:blue" target="_blank">칠디스터디카페</a></div>', 
+				        latlng: new kakao.maps.LatLng(37.475453, 126.870366)
+				    },
+				    {
+				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.475182, 126.864956" style="color:blue" target="_blank">육디스터디카페</a></div>',
+				        latlng: new kakao.maps.LatLng(37.475182, 126.864956)
+				    }
+					];
+	
+						for (var i = 0; i < positions.length; i ++) {
+						    // 마커를 생성합니다
+						    var marker = new kakao.maps.Marker({
+						        map: map, // 마커를 표시할 지도
+						        position: positions[i].latlng // 마커의 위치
+						    });
+			
+						    // 마커에 표시할 인포윈도우를 생성합니다 
+						    var infowindow = new kakao.maps.InfoWindow({
+						        content: positions[i].content // 인포윈도우에 표시할 내용
+					    	});
+					    
+					    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+					    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+					    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+						    infowindow.open(map, marker);
+						}
+						
 				</script>
 
 				
