@@ -35,7 +35,7 @@
 						<c:forEach items="${list}" var="dto">
 							<tr>
 								<td>${dto.scNum}</td>
-								<td>${dto.areaNum}</td>
+								<td>${dto.areaName}</td>
 								<td>
 									<a href="./cafeDetail?scName=${dto.scName}">${dto.scName}</a>
 								</td>

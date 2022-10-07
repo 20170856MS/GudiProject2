@@ -43,6 +43,7 @@
 		<typeAlias type="com.iu.home.studyCafe.cafeDetailDTO" alias="cafeDetailDTO"/>
 		<typeAlias type="com.iu.home.studyCafe.cafeRoomDTO" alias="cafeRoomDTO"/>
 		<typeAlias type="com.iu.home.studyCafe.reservationDTO" alias="reservationDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.reListDTO" alias="reListDTO"/>
 
 	</typeAliases>
 

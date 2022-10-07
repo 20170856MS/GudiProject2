@@ -6,6 +6,7 @@ public class cafeDTO {
 	private Long areaNum;
 	private String scName;
 	private String img;
+	private String areaName;
 	
 	public Long getScNum() {
 		return scNum;
@@ -30,6 +31,12 @@ public class cafeDTO {
 	}
 	public void setImg(String img) {
 		this.img = img;
+	}
+	public String getAreaName() {
+		return areaName;
+	}
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
 	}
 	
 	

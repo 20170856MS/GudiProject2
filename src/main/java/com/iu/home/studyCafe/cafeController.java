@@ -71,7 +71,7 @@ public class cafeController {
 		
 //		int result = cafeService.update(cafeRoomDTO);
 		
-		mv.setViewName("studyCafe/reList");
+		mv.setViewName("redirect:./reList");
 		return mv;
 	}
 	
@@ -82,7 +82,12 @@ public class cafeController {
 	}
 	
 	@RequestMapping(value = "reList")
-	public String reList() throws Exception{
+	public String reList(Model model) throws Exception{
+		System.out.println("cafeReList");
+		
+		List<reListDTO> ar = cafeService.getReList();
+		model.addAttribute("list", ar);
+		
 		return "studyCafe/reList";
 	}
 	
