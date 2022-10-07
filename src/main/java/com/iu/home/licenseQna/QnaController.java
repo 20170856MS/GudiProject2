@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licenseList.LicenseDTO;
 import com.iu.home.licenseQna.QnaCommentDTO;
 import com.iu.home.licensemembers.LicenseMembersDTO;
 import com.iu.home.util.CommentPager;
@@ -65,7 +66,7 @@ public class QnaController {
 
 
 	@PostMapping("add")
-	public ModelAndView setAdd(QnaDTO qnaDTO, MultipartFile [] files, HttpSession session)throws Exception {
+	public ModelAndView setAdd(LicenseDTO licenseDTO,QnaDTO qnaDTO, MultipartFile [] files, HttpSession session)throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(qnaDTO.getWriter());
 		System.out.println(qnaDTO.getQnaNum());

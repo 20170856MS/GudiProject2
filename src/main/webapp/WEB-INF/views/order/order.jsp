@@ -23,13 +23,13 @@
 	
     <c:import url="../template/header.jsp"></c:import>
 
-    <section class="checkout-section spad mt-5">
+    <section class="checkout-section spad mt-5" style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px;">
         <div class="container">
             <div class="checkout-form">
                 <input type="hidden" value="${orderNum}" id="orderCode">
                 <input type="hidden" value="${saveNum}" id="userNum">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" style="width: 562px; padding-left: 0px; padding-right: 0px;">
                         <h4>주문자 정보</h4>
                         <div class="row">
                             <div class="col-lg-12">
@@ -124,13 +124,13 @@
                 </div>
                 <br>
                 <div class="row text-center">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="width: 732px;">
                         <div class="order-btn mt-5">
-                            <button type="submit" class="site-btn place-btn" onclick="checkCard();">결제하기</button>
+                            <button type="submit" class="site-btn place-btn" onclick="checkCard();" style="padding-top: 3px; padding-bottom: 3px;">결제하기</button>
                         </div>
                     </div>
                 </div>
-                <div>
+                <div style="padding-left: 0px; padding-right: 0px;">
                     <button id="iamportPayment" type="submit">결제테스트</button> 
                 </div>
             </div>

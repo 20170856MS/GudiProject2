@@ -13,7 +13,16 @@ public class ArrDTO {
 	private Long bookNum;
 	private Long videoNum;
 	private Long jobNum;
+	private Long num;
 	
+	
+	
+	public Long getNum() {
+		return num;
+	}
+	public void setNum(Long num) {
+		this.num = num;
+	}
 	public Long getBookNum() {
 		return bookNum;
 	}

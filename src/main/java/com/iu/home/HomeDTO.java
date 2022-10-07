@@ -3,23 +3,27 @@ package com.iu.home;
 import com.iu.home.licenseList.ScheduleDTO;
 
 public class HomeDTO extends ScheduleDTO {
-	
+
 	private Long licenseNum;
 	private Long licenseHits;
 	private String licenseName;
-	
+
 	private Long bookNum;
 	private String bookName;
 	private String bookImage;
 	private Long bookPrice;
-	
+
 	private Long jobNum;
 	private String jobName;
 	private String jobIntro;
 
+	private String scheduleName;
+	private String scheduleDate;
+	private String dDay;
+
 	private ScheduleDTO scheduleDTO;
-	
-	
+
+
 	public Long getLicenseNum() {
 		return licenseNum;
 	}
@@ -80,7 +84,7 @@ public class HomeDTO extends ScheduleDTO {
 	public void setJobIntro(String jobIntro) {
 		this.jobIntro = jobIntro;
 	}
-	
+
 	public ScheduleDTO getScheduleDTO() {
 		return scheduleDTO;
 	}
@@ -88,11 +92,24 @@ public class HomeDTO extends ScheduleDTO {
 		this.scheduleDTO = scheduleDTO;
 	}
 	
-	
+	public String getScheduleName() {
+		return scheduleName;
+	}
+	public void setScheduleName(String scheduleName) {
+		this.scheduleName = scheduleName;
+	}
+	public String getScheduleDate() {
+		return scheduleDate;
+	}
+	public void setScheduleDate(String scheduleDate) {
+		this.scheduleDate = scheduleDate;
+	}
+	public String getdDay() {
+		return dDay;
+	}
+	public void setdDay(String dDay) {
+		this.dDay = dDay;
+	}
 
 
-
-
-	
-	
 }

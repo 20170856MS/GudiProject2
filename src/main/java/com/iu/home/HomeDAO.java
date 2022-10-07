@@ -15,11 +15,11 @@ public class HomeDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.home.HomeDAO.";
 
-	public List<HomeDTO> getList(Pager pager) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList",pager);
+	public List<HomeDTO> getList(Pager pager1) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList",pager1);
 	}
-	public List<HomeDTO> getTopList(Pager pager1) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getTopList",pager1);
+	public List<HomeDTO> getTopList(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getTopList",pager);
 	}
 	public Long getCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getCount",pager);
@@ -43,8 +43,11 @@ public class HomeDAO {
 		return sqlSession.selectList(NAMESPACE+"getDetailJob",homeDTO);	
 	}
 
-	public List<HomeDTO> getDetailSchedule(HomeDTO homeDTO) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getDetailSchedule",homeDTO);	
+	public List<HomeDTO> getDetailSchedule() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getDetailSchedule");	
 	}
-		
+		public List<HomeDTO> getDetailSchedule1() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getDetailSchedule1");	
+	}
+
 }

@@ -32,12 +32,14 @@ body {
 }
 
 .container-calendar {
-    background: #ffffff;
-    padding: 5px;
+    background: #fff;
+    /* padding: 5px; */
     /* max-width: 400px; */
-    /* margin: 0 auto; */
-    /* overflow: auto;
-    margin-left: 59%; */
+    overflow: auto;
+    margin-left: 0px;
+    width: 600px;
+    border-radius: 30px;
+    /* height: 370px; */
 }
 
 .button-container-calendasr button {
@@ -83,15 +85,20 @@ body {
 }
 
  #monthAndYear {
+    background: #ed4a34;
     text-align: center;
-    margin-top: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
 }
 
 .button-container-calendar {
+    background: #ed4a34;
     position: relative;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
     overflow: hidden;
     clear: both;
+    padding-bottom: 10px;
 }
 
 #previous {
@@ -104,6 +111,7 @@ body {
 
 .footer-container-calendar {
     margin-top: 2em;
+    margin-left: 5px;
     border-top: 1px solid #dadada;
     padding: 0px 0;
 }

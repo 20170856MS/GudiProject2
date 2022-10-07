@@ -106,6 +106,7 @@ public class LicenseController {
 	@PostMapping(value = "setUpdate", produces = "application/text; charset=utf8")
 	@ResponseBody
 	public Map<String,Object> setUpdate(ArrDTO arrDTO) throws Exception{
+		System.out.println(arrDTO.getSbvj());
 		Map<String,Object> map = new HashMap<String, Object>();
 		int result = licenseService.setUpdate(arrDTO);
 
@@ -128,6 +129,16 @@ public class LicenseController {
 	public Map<String,Object> setAdd(ArrDTO arrDTO) throws Exception{
 		Map<String,Object> map = new HashMap<String,Object>();
 		int result = licenseService.setAdd(arrDTO);
+		map.put("result", result);
+		return map;
+	}
+	
+	@PostMapping("setDel")
+	@ResponseBody
+	public Map<String,Object> setDel(ArrDTO arrDTO) throws Exception{
+		Map<String,Object> map = new HashMap<String,Object>();
+
+		int result = licenseService.setDel(arrDTO);
 		map.put("result", result);
 		return map;
 	}
@@ -163,6 +174,7 @@ public class LicenseController {
 		map.put("sa", sa);
 		return map;
 	}
+	
 	
 //	@PostMapping("setLicenseLike")
 //	@ResponseBody

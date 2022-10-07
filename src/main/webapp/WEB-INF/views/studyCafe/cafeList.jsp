@@ -19,7 +19,11 @@
 	
 	<!-- header.jsp -->
           <c:import url="../template/header.jsp"></c:import>
-         <section class="container-fluid col-lg-8 mt-5">
+         <section class="container-fluid col-lg-8 mt-5" style="
+		 padding-top: 0px;
+		 padding-bottom: 0px;
+		 padding-left: 0px;
+		 padding-right: 0px;">
          <div class="row">
   
 
@@ -39,7 +43,7 @@
 								<td>
 									<a href="./cafeDetail?scName=${dto.scName}">${dto.scName}</a>
 								</td>
-								<td><img src="/resources/img/${dto.img}" width="60px" height="50px"></td>
+								<td><img src="/resources/img/GOOD.png" width="60px" height="50px"></td>
 								
 							</tr>
 						

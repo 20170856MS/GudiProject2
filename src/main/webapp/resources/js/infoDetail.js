@@ -13,13 +13,39 @@ const mb = document.querySelector("#mb");
 let sbvj="";
 let check=0;
 let group="";
+const formCheckS = document.querySelectorAll(".form-check-s");
+const formCheckB = document.querySelectorAll(".form-check-b");
+const formCheckV = document.querySelectorAll(".form-check-v");
+const formCheckJ = document.querySelectorAll(".form-check-j");
+const chks = document.querySelector(".chks");
+const chkb = document.querySelector(".chkb");
+const chkv = document.querySelector(".chkv");
+const chkj = document.querySelector(".chkj");
+let delCheck=0;
+
 
 interest.addEventListener("click",function(){
     let chk = window.confirm("관심 등록 하시겠습니까?");
+    let num = interest.getAttribute("data-num");
+    let licenseNum = interest.getAttribute("data-license-num");
+    console.log(num);
+    console.log(licenseNum);
     if(chk==true){
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST","/likes/setLikes");
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhttp.send("num="+num+"&licenseNum="+licenseNum);
+        xhttp.onreadystatechange=function(){
+            if(xhttp.readyState==4 && xhttp.status==200){
+                swal("관심목록에 추가되었습니다.");
+            }else{
+                console.log("응답x");
+            }
+        }
+            
+        }
         alert("관심 목록에 추가되었습니다.");
-    }
-});
+    });
 
 have.addEventListener("click",function(){
     let chk = window.confirm("자격증 보유 등록을 하시겠습니까?");
@@ -103,6 +129,157 @@ for(let i=0;i<del.length;i++){                          //삭제이벤트
             }
     });
 }
+function getDel(ln,group){                      //삭제버튼활성화
+    if(sbvj=="s"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckS.length;i++){
+                formCheckS[i].style.visibility="visible";
+                chks.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckS.length;i++){
+                formCheckS[i].style.visibility="hidden";
+                chks.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+    if(sbvj=="b"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckB.length;i++){
+                formCheckB[i].style.visibility="visible";
+                chkb.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckB.length;i++){
+                formCheckB[i].style.visibility="hidden";
+                chkb.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+    if(sbvj=="v"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckV.length;i++){
+                formCheckV[i].style.visibility="visible";
+                chkv.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckV.length;i++){
+                formCheckV[i].style.visibility="hidden";
+                chkv.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+    if(sbvj=="j"){
+        if(delCheck==0){
+            for(let i=0; i<formCheckJ.length;i++){
+                formCheckJ[i].style.visibility="visible";
+                chkj.style.visibility="visible";
+            }
+            delCheck++;
+        }else{
+            for(let i=0; i<formCheckJ.length;i++){
+                formCheckJ[i].style.visibility="hidden";
+                chkj.style.visibility="hidden";
+            }
+            delCheck--;
+        }
+    }
+}
+chks.addEventListener("click",function(event){                                      //삭제 확인
+    sbvj="s";
+    const form3 = document.querySelectorAll(".form3");
+    const form4 = document.querySelectorAll(".form4");
+    const fci1 = document.querySelectorAll(".form-check-input1");
+    let arr1=[];
+    let arr2=[];
+    for(let i=0;i<formCheckS.length;i++){
+        if(fci1[i].checked){
+            arr1[i]=form3[i].innerText;
+            arr2[i]=form4[i].innerText;
+        }
+    }
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
+    }
+});
+chkb.addEventListener("click",function(event){
+    sbvj="b";
+    const form5 = document.querySelectorAll(".form5");
+    const form6 = document.querySelectorAll(".form6");
+    const fci2 = document.querySelectorAll(".form-check-input2");
+    let arr1=[];
+    let arr2=[];
+    for(let i=0;i<formCheckB.length;i++){
+        if(fci2[i].checked){
+            arr1[i]=form5[i].innerText;
+            arr2[i]=form6[i].innerText;
+        }
+    }
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
+    }
+});
+chkv.addEventListener("click",function(event){
+    sbvj="v";
+    const form7 = document.querySelectorAll(".form7");
+    const form8 = document.querySelectorAll(".form8");
+    const fci3 = document.querySelectorAll(".form-check-input3");
+    let arr1=[];
+    let arr2=[];
+    for(let i=0;i<formCheckV.length;i++){
+        if(fci3[i].checked){
+            arr1[i]=form7[i].innerText;
+            arr2[i]=form8[i].getAttribute("data-link");
+        }
+    }
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
+    }
+});
+chkj.addEventListener("click",function(event){
+    sbvj="j";
+    const form9 = document.querySelectorAll(".form9");
+    const form10 = document.querySelectorAll(".form10");
+    const fci4 = document.querySelectorAll(".form-check-input4");
+    let arr1=[];
+    let arr2=[];
+    for(let i=0;i<formCheckJ.length;i++){
+        if(fci4[i].checked){
+            arr1[i]=form9[i].innerText;
+            arr2[i]=form10[i].innerText;
+        }
+    }
+    let chk = window.confirm("삭제하시겠습니까?");
+    if(chk==true){
+        setDel(arr1,arr2);
+    }
+});
+function setDel(arr1,arr2){
+    console.log("setDel함수실행:");
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST","setDel");
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        console.log(arr1,arr2,sbvj);
+        xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj);
+        xhttp.onreadystatechange=function(){
+            if(xhttp.readyState==4 && xhttp.status==200){
+                swal("삭제되었습니다.");
+            }else{
+                console.log("응답x");
+            }
+        }
+    
+}
+
 function getAdd(ln,group){                                      //추가모달창
     let arr = [];
     if(group=="ds"){
@@ -216,7 +393,7 @@ function getUpdate(ln,group){                                   //수정모달�
 
             if(group=="ds"){
                 let ds = result.ds; //ds[i].scheduleName, ds[i].scheduleDate;
-
+                sbvj="s";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){
@@ -292,7 +469,7 @@ function getUpdate(ln,group){                                   //수정모달�
 
             }else if(group=="db"){
                 let db = result.db;//db[i].bookDTO.bookName; db[i].bookDTO.bookImage; db[i].bookDTO.bookPrice;
-                
+                sbvj="b";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){
@@ -367,7 +544,7 @@ function getUpdate(ln,group){                                   //수정모달�
                     }
             }else if(group=="dv"){
                 let dv = result.dv; //dv[i].videoDTO.videoTitle; dv[i].videoDTO.videoLink;
-
+                sbvj="v";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){
@@ -442,7 +619,7 @@ function getUpdate(ln,group){                                   //수정모달�
                     }
             }else if(group=="dj"){
                 let dj = result.dj; //dj[i].jobDTO.jobName, dj[i].jobDTO.jobIntro
-
+                sbvj="j";
                 if(mb.children.length>1){
                     let mb3 = document.querySelectorAll(".mb-3");
                     for(let i=0;i<mb3.length;i++){
