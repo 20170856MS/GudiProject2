@@ -16,7 +16,7 @@
 
             <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
             <link href="/resources/css/theme.css" rel="stylesheet" />
-
+            <link href="/resources/css/exam.css" rel="stylesheet" />
             <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
             <link rel="stylesheet" href="/resources/css/top10.css">
             <link rel="stylesheet" href="/resources/css/d-day.css">
@@ -34,7 +34,6 @@
                     <c:import url="template/header.jsp"></c:import>
                     <section class="container-fluid col-lg-8 mt-5" style="padding-top: 40px; padding-bottom: 40px;">
 
-                        <!-- calendar -->
                         <div class="wrapper">
                             <div class="d-flex justify-content-between">
                                 <!-- top10 -->
@@ -50,7 +49,7 @@
                                         </c:forEach>
                                     </ul>
                                 </div>
-
+                                <!-- calendar -->
                                 <div class="container-calendar">
 
                                     <h3 id="monthAndYear"></h3>
@@ -84,7 +83,8 @@
                                         <select id="year" onchange="jump()"></select>
                                     </div>
                                     <div class="eeee">
-                                        <h1 style="padding-top: 40px;font-size: 18px;">시작부터 끝까지, 자격증에 대한 모든 종류는 자바스에서 확인하세요</h1>
+                                        <h1 style="padding-top: 40px;font-size: 18px;">시작부터 끝까지, 자격증에 대한 모든 종류는 자바스에서
+                                            확인하세요</h1>
                                     </div>
                                 </div>
                             </div>
@@ -102,68 +102,7 @@
                                     <meta content="text/html; charset=euc-kr" http-equiv="Content-Type">
                                     <meta content="IE=7" http-equiv="X-UA-Compatible">
                                     <meta content="IE=7" http-equiv="X-UA-Compatible">
-                                    <style type="text/css">
-                                        BODY {
-                                            FONT-SIZE: 10pt;
-                                            FONT-FAMILY: 굴림;
-                                            COLOR: #000000;
-                                            MARGIN: 0px
-                                        }
 
-                                        P {
-                                            MARGIN-BOTTOM: 0px;
-                                            MARGIN-TOP: 0px;
-                                            LINE-HEIGHT: 1.2
-                                        }
-
-                                        LI {
-                                            MARGIN-BOTTOM: 0px;
-                                            MARGIN-TOP: 0px;
-                                            LINE-HEIGHT: 1.2
-                                        }
-                                    </style>
-
-                                    <!--DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"-->
-                                    <style type="text/css">
-                                        BODY {
-                                            FONT-SIZE: 10pt;
-                                            FONT-FAMILY: 굴림;
-                                            COLOR: #000000;
-                                            MARGIN: 0px
-                                        }
-
-                                        P {
-                                            MARGIN-BOTTOM: 0px;
-                                            MARGIN-TOP: 0px;
-                                            LINE-HEIGHT: 1.2
-                                        }
-
-                                        LI {
-                                            MARGIN-BOTTOM: 0px;
-                                            MARGIN-TOP: 0px;
-                                            LINE-HEIGHT: 1.2
-                                        }
-                                    </style>
-                                    <style type="text/css">
-                                        BODY {
-                                            FONT-SIZE: 11pt;
-                                            FONT-FAMILY: Malgun Gothic;
-                                            COLOR: #000000;
-                                            MARGIN: 0px
-                                        }
-
-                                        P {
-                                            MARGIN-BOTTOM: 0px;
-                                            MARGIN-TOP: 0px;
-                                            LINE-HEIGHT: 1.2
-                                        }
-
-                                        LI {
-                                            MARGIN-BOTTOM: 0px;
-                                            MARGIN-TOP: 0px;
-                                            LINE-HEIGHT: 1.2
-                                        }
-                                    </style>
                                     <p style="TEXT-ALIGN: right; LINE-HEIGHT: 140%">&nbsp;&nbsp;<iframe
                                             style="BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-TOP-WIDTH: 0px"
                                             height="650"
@@ -187,17 +126,26 @@
                 <div class="cards">
                     <c:forEach items="${requestScope.list}" var="dto" varStatus="statusNm">
                         <div class="card" id="check" license-Num="${dto.licenseNum}">
-                            <div class="user-wrap">
+                            <div class="user-wrap" style="margin-top: 49px;">
                                 <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top"
                                     alt="...">
                                 <div class="user-text">조회수 ${dto.licenseHits}</div>
                             </div>
+                            <!-- 자격증 d-day -->
                             <div class="count">
-                            	<c:forEach var="schedule" items="${schedule}">
-                                   	<c:if test="${dto.licenseNum eq schedule.licenseNum && schedule.dDay ne 0}">
-                                    	D-${schedule.dDay}
-									</c:if>
-								</c:forEach>
+                                <c:forEach var="schedule" items="${schedule}">
+                                    <c:if test="${dto.licenseNum == schedule.licenseNum && schedule.dDay != 0}">
+                                        D-${schedule.dDay}
+                                    </c:if>
+                                </c:forEach>
+                            </div>
+
+                            <div class="count1">
+                                <c:forEach var="schedule1" items="${schedule1}">
+                                    <c:if test="${dto.licenseNum == schedule1.licenseNum && schedule1.dDay != 0}">
+                                        D-${schedule1.dDay}
+                                    </c:if>
+                                </c:forEach>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">${dto.licenseName}</h5>
@@ -205,20 +153,24 @@
                                 <!-- <p class="card-text">Content</p> -->
 
                                 <div class="detail">
-                                    <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세
-                                        보기</a>
+                                    <a href="./info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary" style="
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                ">자격증 상세보기</a>
                                 </div>
                                 <div class="user-text" id="license" data-license-num="${name.licenseNum}">
                                     ${name.licenseName}</div>
+                                    <!-- 시험일 -->
                                 <div class="col-lg user-schedule">
                                     <p>
-                                    <div>
-                                    	<c:forEach var="schedule" items="${schedule}">
-	                                    	<c:if test="${dto.licenseNum eq schedule.licenseNum}">
-		                                    	<li>${schedule.scheduleDate}</li>
-		                                    	<li>${schedule.scheduleName}</li>
-                                    		</c:if>
-                                    	</c:forEach>
+                                    <div id="text1">
+                                        <hr>
+                                        <c:forEach var="schedule" items="${schedule}">
+                                            <c:if test="${dto.licenseNum eq schedule.licenseNum}">
+                                                ${schedule.scheduleName} : 
+                                                ${schedule.scheduleDate}<br><br>
+                                            </c:if>
+                                        </c:forEach>
                                     </div><br>
                                     </p>
                                 </div>
@@ -247,8 +199,8 @@
             <script src="/resources/js/infoMain.js"></script>
             <script src="/resources/js/infoDetail.js"></script>
 
-		
-		
+
+
         </body>
 
         </html>

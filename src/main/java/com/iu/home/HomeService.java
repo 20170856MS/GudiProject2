@@ -58,5 +58,10 @@ public class HomeService {
 		
 		return homeDAO.getDetailSchedule();
 	}
+
+	public List<HomeDTO> getDetailSchedule1() throws Exception {
+		// TODO Auto-generated method stub
+		return homeDAO.getDetailSchedule1();
+	}
 		
 }

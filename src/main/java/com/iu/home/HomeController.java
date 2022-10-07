@@ -36,22 +36,25 @@ public class HomeController {
 		HomeDTO homeDTO = new HomeDTO();
 		//top10
 		pager.setPerPage(10L);
-		List<HomeDTO> ar = homeService.getTopList(pager1);
+		List<HomeDTO> ar = homeService.getTopList(pager);
 		
 		//자격증
 		pager.setPerPage(50L);
-		List<HomeDTO> ar1 = homeService.getList(pager);
+		List<HomeDTO> ar1 = homeService.getList(pager1);
 		
-		List<HomeDTO> ds = new ArrayList<HomeDTO>();
 	
 		List<HomeDTO> schedule = homeService.getDetailSchedule();
+		List<HomeDTO> schedule1 = homeService.getDetailSchedule1();
 		
-		/*for(int i = 0 ; i<ar1.size(); i++) {
-			homeDTO.setLicenseNum(ar1.get(i).getLicenseNum());
-			ds = homeService.getDetailSchedule(homeDTO);
-			mv.addObject("detailSchedule"+i,ds);
-			mv.setViewName("index");
-		}*/
+//		List<HomeDTO> ds = new ArrayList<HomeDTO>();
+//		
+//		for(int i = 0 ; i<ar1.size(); i++) {
+//			homeDTO.setLicenseNum(ar1.get(i).getLicenseNum());
+//			ds = homeService.getDetailSchedule(homeDTO);
+//			mv.addObject("detailSchedule"+i,ds);
+//			mv.setViewName("index");
+//		}
+		
 //		homeDTO.setLicenseNum(ar1.get(0).getLicenseNum());
 //		System.out.println(homeDTO.getLicenseNum());
 //		ds = homeService.getDetailSchedule(homeDTO);
@@ -63,6 +66,7 @@ public class HomeController {
 		mv.addObject("list",ar1);
 		mv.addObject("pager",pager);
 		mv.addObject("schedule",schedule);
+		mv.addObject("schedule1",schedule1);
 		
 		
 		mv.setViewName("index");
