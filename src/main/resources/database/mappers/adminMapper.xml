@@ -19,5 +19,9 @@
 		from SC_ORDER_USER
 		WHERE orderNum=#{orderNum}
 	</select>
+	
+	<update id="setUpdateRole" parameterType="AdminRolesDTO">
+		update licenseRole set roleNum=#{roleNum} where userName=#{userName}
+	</update>
     
 </mapper>

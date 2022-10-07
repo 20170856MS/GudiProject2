@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.home.licensemembers.AdminRoleDTO;
 import com.iu.home.licenseorder.OrderDTO;
 import com.iu.home.licenseorder.PayDTO;
 import com.iu.home.licenseorder.PayService;
@@ -26,9 +27,15 @@ public class AdminDAO {
 		return sqlSession.delete(NAMESPACE+"orderCancle",orderNum);
 	}
 	
+	
 	public AdminDTO adminList(AdminDTO adminDTO) throws Exception {
 		
 		return sqlSession.selectOne(NAMESPACE+"adminList", adminDTO);
+	}
+	
+	public int setUpdateRole(AdminRolesDTO adminRoleDTO) {
+		
+		return sqlSession.update(NAMESPACE+"setUpdateRole", adminRoleDTO);
 	}
 
 	

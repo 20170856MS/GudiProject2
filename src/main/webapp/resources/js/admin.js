@@ -1,7 +1,6 @@
 const payMentCancel = document.querySelector("#payMentCancel");
 const orderNum = payMentCancel.getAttribute("order-num");
 
-
 const listInfo = (function(){
 	let orderList = [];
 	

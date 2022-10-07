@@ -1,5 +1,7 @@
 package com.iu.home.licensemembers;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -43,6 +45,11 @@ public class LicenseMembersDAO {
 		return sqlSession.selectOne(NAMESPACE+"getLogin", licenseMembersDTO);
 	}
 	
+	public List<LicenseMembersDTO> getMemberList(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		return sqlSession.selectList(NAMESPACE+"getMemberList", licenseMembersDTO);
+	}
+
 	
 	public LicenseMembersDTO getMyPage(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		

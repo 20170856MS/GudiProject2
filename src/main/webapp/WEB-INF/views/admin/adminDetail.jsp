@@ -21,8 +21,6 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" i
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/css/styles2.css" rel="stylesheet" />
 
     <style>
         .bd-placeholder-img {
@@ -55,46 +53,54 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" i
               <div class="row">
                   <main class="col-md ms-sm-auto col-lg-20 px-md-4">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                          <h1 class="h2">Admin s회원관리</h1>
+                          <h1 class="h2">Admin 회원관리</h1>
                       </div>
                       <div class="table-responsive">
                           <table class="table table-striped table-sm">
                               <thead>
                               <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">Name</th>
-                                  <th scope="col">UserName</th>
-                                  <th scope="col">UserRole</th>
-                                  <th scope="col">UpdateRole</th>
-                                  <th scope="col">UserEmail</th>
-                                  <th scope="col">UserMoney</th>
-                                  <th scope="col">CreateDate</th>
-                                  <th scope="col">Update</th>
+                                  <th scope="col">번호</th>
+                                  <th scope="col">닉네임</th>
+                                  <th scope="col">아이디</th>
+                                  <th scope="col">회원등급</th>
+                                  <th scope="col">수정할 등급</th>
+                                  <th scope="col">이메일</th>
+                                  <!-- <th scope="col">가입날짜</th> -->
+                                  
+                                  <th scope="col">폰번호</th>
+                                  <th scope="col">수정</th>
                               </tr>
                               </thead>
                               <tbody>
-                              <tr th:each="users : ${userList}">
-                                  <form th:action="@{/user/change/{id}(id=${users.id})}" method="post" class="d-flex">
-                                      <td th:text="${users.getId()}">1</td>
-                                      <td th:text="${users.getName()}">name</td>
-                                      <td th:text="${users.getUsername()}">username</td>
-                                      <td th:text="${users.getRole()}">role</td>
-                                      <td>
-                                          <select name="role">
-                                              <option value="ROLE_SELLER">ROLE_SELLER</option>
-                                              <option value="ROLE_USER">ROLE_USER</option>
-                                          </select>
-                                      </td>
-                                      <td th:text="${users.getEmail()}">email</td>
-                                      <td th:text="${users.getMoney()}">money</td>
-                                      <td th:text="${users.getCreateDate()}">createdate</td>
-                                      <td>
-                                          <button class="btn btn-warning flex-shrink-0" type="submit">
-                                              업데이트
-                                          </button>
-                                      </td>
-                                  </form>
-                              </tr>
+                                  <c:forEach items="${userList}" var="users">           
+                                      <c:set var="i" value="${i+1}"/>
+                                  <tr>
+                                            <td	title="count">${i}</td>
+	                                        <td	title="num" class="userNum" >${users.num}</td>
+	                                        <td title="name">${users.name}</td>
+	                                        <td title="userName" class="userName">${users.userName}</td>
+	                                        <td title="roleName" class="roleName" >${users.adminRoleDTOs[0].roleName}</td>
+	                                        <td>
+	                                            <select name="role" class="roles">
+	                                                <option value="1" >admin</option> <!-- admin 전체 페이지 관리자-->
+	                                                <option value="2" >vip</option>  <!-- vip = 스터디카페 관리자-->
+	                                                <option value="3" >member</option>
+	                                            </select>
+	                                        </td>
+	                                        <td title="email">${users.email}</td>
+	                                        <td title="phone">${users.phone}</td>
+	                                        <td>
+	                                            <button class="updatebtn btn btn-warning flex-shrink-0" type="button" >
+	                                                업데이트
+                                                
+	                                            </button>
+
+                                                
+	                                        </td>
+                                        </tr>
+	                                </c:forEach>
+                              
                               </tbody>
                           </table>
                       </div>
@@ -109,9 +115,9 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" i
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
-  <script src="/js/scripts.js"></script>
   <script src="/resources/js/common.js">
 
   </script>
-  </body>
+    <script src="/resources/js/admincheck.js"></script>
+</body>
   </html>

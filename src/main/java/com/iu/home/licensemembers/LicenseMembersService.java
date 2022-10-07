@@ -42,6 +42,12 @@ public class LicenseMembersService {
 		
 	}
 	
+	public List<LicenseMembersDTO> getMemberList(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		return licenseMembersDAO.getMemberList(licenseMembersDTO);
+		
+	}
+	
 	
 	public LicenseMembersDTO getMyPage(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		

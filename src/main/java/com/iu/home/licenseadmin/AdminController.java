@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licensemembers.AdminRoleDTO;
 import com.iu.home.licensemembers.LicenseMembersDTO;
 import com.iu.home.licensemembers.LicenseMembersService;
 import com.iu.home.licenseorder.OrderDTO;
@@ -87,9 +89,33 @@ public class AdminController {
 	}
 	
 	@GetMapping(value = "adminDetail")
-	public void test(LicenseMembersDTO licenseMembersDTO) throws Exception{
-
+	public ModelAndView getMemberList(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		List<LicenseMembersDTO> ds = licenseMembersService.getMemberList(licenseMembersDTO);
 		
+		ModelAndView mv = new ModelAndView();
+		System.out.println(licenseMembersDTO);
+		mv.addObject("userList", ds);
+		mv.setViewName("/admin/adminDetail");
+		
+		return mv;
+	}
+	
+	@PostMapping(value = "adminDetail")
+	@ResponseBody
+	public int getMemberList(AdminRolesDTO adminRoleDTO) throws Exception{
+		
+	
+		System.out.println(adminRoleDTO.getRoleNum());
+		System.out.println(adminRoleDTO.getUserName());
+		
+		int result = adminService.setUpdateRole(adminRoleDTO);
+		System.out.println(result);
+		if(result>0) {
+			System.out.println("성공");
+		}
+		
+		
+		return result;
 	}
 	
 	@GetMapping(value = "adminOrderInfo")
