@@ -1,6 +1,7 @@
 package com.iu.home.licensemembers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,15 @@ public class LicenseMembersDAO {
 	public LicenseMembersDTO getLogin(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
 		return sqlSession.selectOne(NAMESPACE+"getLogin", licenseMembersDTO);
+	}
+	
+	public LicenseMembersDTO getPwdCheck(String userName) throws Exception{
+		
+		return sqlSession.selectOne(NAMESPACE+"getPwdCheck", userName);
+	}
+	
+	public void modifyInfo(Map<String, Object> map) {
+	    sqlSession.update("modifyInfo", map);
 	}
 	
 	public List<LicenseMembersDTO> getMemberList(LicenseMembersDTO licenseMembersDTO) throws Exception{

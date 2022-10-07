@@ -1,0 +1,168 @@
+.wrap {
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+}
+
+section.title {
+	width: 100%;
+}
+
+section.title h1 {
+	text-align: center;
+	margin: 20px 0 20px 0;
+}
+
+/* main */
+main {
+	width: 80%;
+	margin: 40px auto;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	padding-bottom: 40px;
+}
+
+.info_box {
+	margin: 0px auto;
+	width: 90%;
+	font-size: 15px;
+}
+
+.info_box>div {
+	/* display: flex; */
+	margin: 10px 0;
+}
+
+.info_box h2 {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.info_box .input_box {
+	width: 85%;
+	text-align: right;
+	margin-right: 5px;
+}
+
+.info_box .input_box>div {
+	margin-top: 10px;
+}
+
+.info_box .username {
+	font-size: 18px;
+	justify-content: center;
+}
+
+.mymy {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.info_box input {
+	padding: 10px 15px;
+	font-size: 15px;
+	width: 93%;
+	border-radius: 10px;
+	border: 1px solid #ddd;
+}
+
+.info_box input[type=password] {
+	width: 77%;
+}
+.info_box #user_name{
+    text-align: center;
+    font-size: 30px;
+}
+.info_box button {
+	padding: 10px;
+    margin-top: 15px;
+    margin-left: 30px;
+    font-size: 15px;
+    background: #2AC1BC;
+    width: 700%;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+}
+
+.info_box .btn_box {
+	width: 12%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+
+.info_box .nickname_check {
+	justify-content: center;
+}
+/*
+.info_box span {
+	display: inline-block;
+	margin-right: 5px;
+	font-size: 15px;
+}
+.info_box input {
+	padding: 10px 15px;
+	font-size: 15px;
+	margin: 5px 0;
+	width: 60%;
+	border-radius: 10px;
+	border: 1px solid #ddd;
+}
+.info_box button {
+	padding: 10px;
+	font-size: 15px;
+	background: #2AC1BC;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	width: 13%;
+}
+.info_box .nickname, 
+.info_box .phone {
+	width: 78%;
+} */
+@media ( max-width :1024px) {
+	main {
+		width: 90%;
+	}
+	.info_box input[type=password] {
+		width: 75%;
+	}
+}
+
+@media ( max-width : 780px) {
+	.wrap {
+		width: 99%;
+	}
+	main {
+		width: 100%;
+	}
+	.info_box input[type=password] {
+		width: 70%;
+	}
+}
+
+
+@media ( max-width : 600px) {
+	.info_box {
+		width: 100%;
+	}
+	.info_box input[type=password] {
+		width: 60%;
+	}
+	
+	.info_box input {
+		width: 85%; 
+	}
+
+	.info_box .btn_box {
+		width: 14%;
+	} 
+	
+	.info_box .input_box {
+		width: 80%;
+	}
+	
+} 

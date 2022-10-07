@@ -61,7 +61,6 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" i
                               <tr>
                                   <th scope="col">#</th>
                                   <th scope="col">번호</th>
-                                  <th scope="col">닉네임</th>
                                   <th scope="col">아이디</th>
                                   <th scope="col">회원등급</th>
                                   <th scope="col">수정할 등급</th>
@@ -70,6 +69,8 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" i
                                   
                                   <th scope="col">폰번호</th>
                                   <th scope="col">수정</th>
+                                  <th scope="col">정지</th>
+                                  
                               </tr>
                               </thead>
                               <tbody>
@@ -78,7 +79,7 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" i
                                   <tr>
                                             <td	title="count">${i}</td>
 	                                        <td	title="num" class="userNum" >${users.num}</td>
-	                                        <td title="name">${users.name}</td>
+	                                        
 	                                        <td title="userName" class="userName">${users.userName}</td>
 	                                        <td title="roleName" class="roleName" >${users.adminRoleDTOs[0].roleName}</td>
 	                                        <td>
@@ -91,13 +92,38 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" i
 	                                        <td title="email">${users.email}</td>
 	                                        <td title="phone">${users.phone}</td>
 	                                        <td>
-	                                            <button class="updatebtn btn btn-warning flex-shrink-0" type="button" >
-	                                                업데이트
-                                                
-	                                            </button>
-
-                                                
+                                                <c:choose>
+                                                    <c:when test="${check.userName == users.userName}">
+                                                        <button class="updatebtn btn btn-info flex-shrink-0" disabled type="button" >
+                                                            업데이트
+                                                        </button>
+                                                        
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <button class="updatebtn btn btn-info flex-shrink-0" type="button" >
+                                                            업데이트
+                                                        </button>
+                                                        
+                                                  </c:otherwise>
+                                                </c:choose>
 	                                        </td>
+
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${check.userName == users.userName}">
+                                                        <button class="deletebtn btn btn-warning flex-shrink-0" disabled type="button" >
+                                                            정지
+                                                        </button>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <button class="deletebtn btn btn-warning flex-shrink-0" type="button" >
+                                                            정지
+                                                        </button>
+                                                  </c:otherwise>
+                                                </c:choose>
+	                                        </td>
+
+                                        
                                         </tr>
 	                                </c:forEach>
                               

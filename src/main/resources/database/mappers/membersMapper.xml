@@ -50,6 +50,21 @@
 		ORDER BY AR.ROLENUM ASC
 	</select>
 	
+	<select id="getPwdCheck" parameterType="LicenseMembersDTO"
+		resultMap="getRoleResult">
+		SELECT LM.NUM, LM.USERNAME,LM.PASSWORD, LM.NAME, LR.ROLENUM,AR.ROLENAME
+		FROM 
+		    LiCENSEMEMBERS LM
+		    INNER JOIN
+		    LICENSEROLE LR
+		    ON (LM.USERNAME = LR.USERNAME)
+		    	INNER JOIN
+		   		 ADMINROLE AR
+		  		  ON (LR.ROLENUM = AR.ROLENUM)
+		WHERE LM.USERNAME=#{userName}
+		ORDER BY AR.ROLENUM ASC
+	</select>
+	
 	<select id="getMemberList" parameterType="LicenseMembersDTO"
 		resultMap="getRoleResult1">
 		SELECT LM.NUM, LM.USERNAME,LM.NAME,LM.EMAIL,LM.PHONE, LR.ROLENUM,AR.ROLENAME
@@ -64,6 +79,23 @@
 		ORDER BY AR.ROLENUM ASC
 	</select>
 	
+	<update id="modifyInfo" parameterType="LicenseMembersDTO" >
+	    UPDATE LICENSEMEMBERS SET
+	    
+	    <if test="valueType == 'password'">
+	        PASSWORD = #{value }
+	    </if>
+	    
+	    <if test="valueType == 'nickname'">
+	        NICKNAME = #{value }		
+	    </if>
+	    
+	    <if test="valueType == 'phone'">
+	        PHONE = #{value }		
+	    </if>
+	    WHERE	USERNAME = #{userName} 
+	</update>
+
 	<resultMap type="LicenseMembersDTO" id="getRoleResult1">
     	<id column="USERNAME" property="userName"></id>
     	<result column="NUM" property="num"></result>

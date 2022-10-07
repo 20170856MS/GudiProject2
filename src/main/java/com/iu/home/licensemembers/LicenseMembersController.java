@@ -8,14 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -189,6 +197,52 @@ public class LicenseMembersController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "myInfo", method = RequestMethod.GET)
+	public void getMyInfo() throws Exception {
+		System.out.println("info get");
+		
+	}
+	
+	@PostMapping("infoModify")
+	@ResponseBody
+	public String modifyInfo(String value, String valueType, String prevPassword, 
+	         HttpSession session, String userName) throws Exception {// value = 변경할 값
+	    // valueType = password, nickname, phone
+		
+
+		System.out.println(userName);
+		LicenseMembersDTO loginUser = licenseMembersService.getPwdCheck(userName);
+		
+	    String msg = "";
+	    System.out.println("Rrr : " +prevPassword);
+	    System.out.println("rrr1 : " + loginUser.getUserName());
+	    System.out.println("value : " +value);
+	    System.out.println("rrr2 : " + loginUser.getPassword());
+	    switch (valueType) {
+	    case "password":
+	        if(!bCryptPasswordEncoder.matches(prevPassword, loginUser.getPassword())) {
+	        	System.out.println("rrrr");
+	        	return "변경실패";
+	        } 
+	        value = bCryptPasswordEncoder.encode(value);
+	        msg = "비밀번호가 변경되었습니다123";
+	        break;
+	        
+	    case "nickname":
+	        msg = "닉네임이 변경되었습니다";
+	        break;
+	    case "phone":
+	        msg = "전화번호가 변경되었습니다";
+	        session.setMaxInactiveInterval(0);
+	        session.setAttribute("authNum", null);
+	        break;
+	    }
+//	    
+	    licenseMembersService.modifyInfo(userName, valueType, value);
+//	    UserInfoSessionUpdate.sessionUpdate(value, valueType, user);
+//	    
+	    return msg;
+	}
 	@GetMapping("sosialMyPage")
 	public ModelAndView sosialmyPage(HttpSession session) throws Exception{
 		SimpleMembersDTO simpleMembersDTO= (SimpleMembersDTO)session.getAttribute("sessionConfigVO1");
