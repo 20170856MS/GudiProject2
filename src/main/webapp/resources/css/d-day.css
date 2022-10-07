@@ -3,7 +3,7 @@
 .count {
     position: absolute;
     left: 15px;
-    top: 15px;
+    top: 11px;
     display: block;
     width: 46px;
     height: 20px;
@@ -12,6 +12,27 @@
     font-size: 12px;
     font-weight: 400;
     color: #fff;
-    background: #4746ff;
+    background: #da8b16;
     border-radius: 10px
+}
+
+.count1 {
+    position: absolute;
+    left: 15px;
+    top: 37px;
+    display: block;
+    width: 46px;
+    height: 20px;
+    line-height: 19px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    background: yellowgreen;
+    border-radius: 10px
+}
+
+#text1{
+    text-align: center;
+    margin-top: -9px;
 }

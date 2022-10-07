@@ -21,12 +21,12 @@ public class HomeService {
 		return homeDAO.getList(pager);
 	}
 	
-	public List<HomeDTO> getTopList(Pager pager1) throws Exception{
-		Long totalCount = homeDAO.getCount(pager1);
-		pager1.getNum(totalCount);
-		pager1.getRowNum();
+	public List<HomeDTO> getTopList(Pager pager) throws Exception{
+		Long totalCount = homeDAO.getCount(pager);
+		pager.getNum(totalCount);
+		pager.getRowNum();
 		
-		return homeDAO.getTopList(pager1);
+		return homeDAO.getTopList(pager);
 	}
 	public Long getCount(Pager pager) throws Exception{
 		return homeDAO.getCount(pager);
@@ -54,9 +54,14 @@ public class HomeService {
 		return homeDAO.getDetailJob(homeDTO);
 	}
 	
-	public List<HomeDTO> getDetailSchedule(HomeDTO homeDTO) throws Exception{
+	public List<HomeDTO> getDetailSchedule() throws Exception{
 		
-		return homeDAO.getDetailSchedule(homeDTO);
+		return homeDAO.getDetailSchedule();
+	}
+
+	public List<HomeDTO> getDetailSchedule1() throws Exception {
+		// TODO Auto-generated method stub
+		return homeDAO.getDetailSchedule1();
 	}
 		
 }

@@ -30,35 +30,43 @@ public class HomeController {
 	 */
 	 
 	@GetMapping("/")
-	public ModelAndView home (Locale locale, Pager pager,Pager pager1,HomeDTO homeDTO) throws Exception{
+	public ModelAndView home (Locale locale, Pager pager,Pager pager1) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ModelAndView mv = new ModelAndView();
+		HomeDTO homeDTO = new HomeDTO();
 		//top10
-		pager1.setPerPage(10L);
-		List<HomeDTO> ar = homeService.getTopList(pager1);
+		pager.setPerPage(10L);
+		List<HomeDTO> ar = homeService.getTopList(pager);
 		
 		//자격증
 		pager.setPerPage(50L);
-		List<HomeDTO> ar1 = homeService.getList(pager);
+		List<HomeDTO> ar1 = homeService.getList(pager1);
 		
-		
-		List<HomeDTO> ds = new ArrayList<HomeDTO>();
 	
-		for(int i = 0 ; i<ar1.size(); i++) {
-			homeDTO.setLicenseNum(ar1.get(i).getLicenseNum());
-			ds = homeService.getDetailSchedule(homeDTO);
-			mv.addObject("detailSchedule"+i,ds);
-			mv.setViewName("index");
-		}
+		List<HomeDTO> schedule = homeService.getDetailSchedule();
+		List<HomeDTO> schedule1 = homeService.getDetailSchedule1();
+		
+//		List<HomeDTO> ds = new ArrayList<HomeDTO>();
+//		
+//		for(int i = 0 ; i<ar1.size(); i++) {
+//			homeDTO.setLicenseNum(ar1.get(i).getLicenseNum());
+//			ds = homeService.getDetailSchedule(homeDTO);
+//			mv.addObject("detailSchedule"+i,ds);
+//			mv.setViewName("index");
+//		}
+		
 //		homeDTO.setLicenseNum(ar1.get(0).getLicenseNum());
 //		System.out.println(homeDTO.getLicenseNum());
 //		ds = homeService.getDetailSchedule(homeDTO);
 //
 //		mv.addObject("detailSchedule",ds);
 //		
+
 		mv.addObject("topList",ar);
 		mv.addObject("list",ar1);
 		mv.addObject("pager",pager);
+		mv.addObject("schedule",schedule);
+		mv.addObject("schedule1",schedule1);
 		
 		
 		mv.setViewName("index");

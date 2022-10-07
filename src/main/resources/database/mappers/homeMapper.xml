@@ -10,10 +10,12 @@
 		(SELECT * FROM
 		(SELECT ROWNUM R,L.* FROM
 		(SELECT *
-		FROM LICENSE ORDER BY LICENSENUM ASC) L
+		FROM LICENSE ORDER BY LICENSENUM
+		ASC) L
 		)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
-		) ORDER BY LICENSEHITS DESC
+		) ORDER BY
+		LICENSEHITS DESC
 	</select>
 
 	<select id="getTopList" resultType="HomeDTO">
@@ -21,15 +23,18 @@
 		(SELECT * FROM
 		(SELECT ROWNUM R,L.* FROM
 		(SELECT *
-		FROM LICENSE ORDER BY LICENSENUM ASC) L
+		FROM LICENSE ORDER BY LICENSENUM
+		ASC) L
 		)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
-		) ORDER BY LICENSEHITS DESC
+		) ORDER BY
+		LICENSEHITS DESC
 	</select>
 
 	<select id="getCount" resultType="Long" parameterType="Pager">
 		SELECT
 		COUNT(LICENSENUM) FROM LICENSE
+
 	</select>
 
 	<update id="setHits" parameterType="HomeDTO">
@@ -44,110 +49,73 @@
 
 	<!-- BOOK -->
 
-	<!-- <select id="getDetailBook" parameterType="HomeDTO"
-		resultMap="getBook">
-
-		SELECT ROWNUM
-		R,L.LICENSENAME,L.LICENSEHITS,B.BOOKNAME,B.BOOKPRICE,B.BOOKIMAGE
-		FROM
-		LICENSE L
-		INNER JOIN
-		LICENSEBOOK LB
-		USING (LICENSENUM)
-		INNER JOIN
-		BOOK B
-		USING (BOOKNUM)
-		WHERE LICENSENUM=#{licenseNum}
-		ORDER BY R ASC
-	</select>
-
-	<resultMap type="HomeDTO" id="getBook">
-		<id column="LICENSENUM" property="licenseNum" />
-		<result column="LICENSENAME" property="licenseName" />
-		<result column="LICENSEHITS" property="licenseHits" />
-		<association property="bookDTO" javaType="BookDTO">
-			<id column="BOOKNUM" property="bookNum" />
-			<result column="BOOKNAME" property="bookName" />
-			<result column="BOOKIMAGE" property="bookImage" />
-			<result column="BOOKPRICE" property="bookPrice" />
-		</association>
-	</resultMap> -->
+	<!-- <select id="getDetailBook" parameterType="HomeDTO" resultMap="getBook"> 
+		SELECT ROWNUM R,L.LICENSENAME,L.LICENSEHITS,B.BOOKNAME,B.BOOKPRICE,B.BOOKIMAGE 
+		FROM LICENSE L INNER JOIN LICENSEBOOK LB USING (LICENSENUM) INNER JOIN BOOK 
+		B USING (BOOKNUM) WHERE LICENSENUM=#{licenseNum} ORDER BY R ASC </select> 
+		<resultMap type="HomeDTO" id="getBook"> <id column="LICENSENUM" property="licenseNum" 
+		/> <result column="LICENSENAME" property="licenseName" /> <result column="LICENSEHITS" 
+		property="licenseHits" /> <association property="bookDTO" javaType="BookDTO"> 
+		<id column="BOOKNUM" property="bookNum" /> <result column="BOOKNAME" property="bookName" 
+		/> <result column="BOOKIMAGE" property="bookImage" /> <result column="BOOKPRICE" 
+		property="bookPrice" /> </association> </resultMap> -->
 
 	<!-- VIDEO -->
 
-	<!-- <select id="getDetailVideo" parameterType="HomeDTO"
-		resultMap="getVideo">
+	<!-- <select id="getDetailVideo" parameterType="HomeDTO" resultMap="getVideo"> 
+		SELECT ROWNUM R,L.LICENSENAME,V.VIDEOTITLE,V.VIDEOLINK FROM LICENSE L INNER 
+		JOIN LICENSEVIDEO LV USING (LICENSENUM) INNER JOIN VIDEO V USING (VIDEONUM) 
+		WHERE LICENSENUM=#{licenseNum} ORDER BY R ASC </select> <resultMap type="HomeDTO" 
+		id="getVideo"> <id column="LICENSENUM" property="licenseNum" /> <result column="LICENSENAME" 
+		property="licenseName" /> <association property="videoDTO" javaType="VideoDTO"> 
+		<id column="VIDEONUM" property="videoNum" /> <result column="VIDEOTITLE" 
+		property="videoTitle" /> <result column="VIDEOLINK" property="videoLink" 
+		/> </association> </resultMap> -->
 
-		SELECT ROWNUM R,L.LICENSENAME,V.VIDEOTITLE,V.VIDEOLINK
-		FROM LICENSE L
-		INNER JOIN
-		LICENSEVIDEO LV
-		USING (LICENSENUM)
-		INNER JOIN
-		VIDEO V
-		USING (VIDEONUM)
-		WHERE LICENSENUM=#{licenseNum}
-		ORDER BY R ASC
-	</select>
-
-	<resultMap type="HomeDTO" id="getVideo">
-		<id column="LICENSENUM" property="licenseNum" />
-		<result column="LICENSENAME" property="licenseName" />
-		<association property="videoDTO" javaType="VideoDTO">
-			<id column="VIDEONUM" property="videoNum" />
-			<result column="VIDEOTITLE" property="videoTitle" />
-			<result column="VIDEOLINK" property="videoLink" />
-		</association>
-	</resultMap> -->
-	
 	<!-- JOB -->
 
-	<!-- <select id="getDetailJob" parameterType="HomeDTO"
-		resultMap="getJob">
+	<!-- <select id="getDetailJob" parameterType="HomeDTO" resultMap="getJob"> 
+		SELECT ROWNUM R,L.LICENSENAME,J.JOBNAME,J.JOBINTRO FROM LICENSE L INNER JOIN 
+		LICENSEJOB LJ USING (LICENSENUM) INNER JOIN JOB J USING (JOBNUM) WHERE LICENSENUM=#{licenseNum} 
+		ORDER BY R ASC </select> <resultMap type="HomeDTO" id="getJob"> <id column="LICENSENUM" 
+		property="licenseNum" /> <result column="LICENSENAME" property="licenseName" 
+		/> <association property="jobDTO" javaType="JobDTO"> <id column="JOBNUM" 
+		property="jobNum" /> <result column="JOBNAME" property="jobName" /> <result 
+		column="JOBINTRO" property="jobIntro" /> </association> </resultMap> -->
 
-		SELECT ROWNUM R,L.LICENSENAME,J.JOBNAME,J.JOBINTRO
-		FROM LICENSE L
-		INNER JOIN
-		LICENSEJOB LJ
-		USING (LICENSENUM)
-		INNER JOIN
-		JOB J
-		USING (JOBNUM)
-		WHERE LICENSENUM=#{licenseNum}
-		ORDER BY R ASC
-	</select>
-
-	<resultMap type="HomeDTO" id="getJob">
-		<id column="LICENSENUM" property="licenseNum" />
-		<result column="LICENSENAME" property="licenseName" />
-		<association property="jobDTO" javaType="JobDTO">
-			<id column="JOBNUM" property="jobNum" />
-			<result column="JOBNAME" property="jobName" />
-			<result column="JOBINTRO" property="jobIntro" />
-		</association>
-	</resultMap> -->
-	
 	<!-- SCHEDULE -->
 
-	<select id="getDetailSchedule" parameterType="HomeDTO"
-		resultMap="getSchedule">
-
-		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE
-		FROM LICENSE L
-		INNER JOIN
-		LICENSESCHEDULE LS
-		USING (LICENSENUM)
-		INNER JOIN
-		SCHEDULE S
-		USING (SCHEDULENUM)
-		WHERE LICENSENUM=#{licenseNum}
-		ORDER BY R ASC
-	</select>
-
-	<!-- <select id="getScheduleDate" parameterType="ScheduleDTO" resultMap="getSchduleDate"> 
+	<!-- <select id="getDetailSchedule" parameterType="HomeDTO" resultType="HomeDTO"> 
 		SELECT ROWNUM R,L.LICENSENAME,S.SCHEDULENAME,S.SCHEDULEDATE FROM LICENSE 
 		L INNER JOIN LICENSESCHEDULE LS USING (LICENSENUM) INNER JOIN SCHEDULE S 
 		USING (SCHEDULENUM) WHERE LICENSENUM=#{licenseNum} ORDER BY R ASC </select> -->
+
+	<select id="getDetailSchedule" resultType="HomeDTO">
+		SELECT LS.LICENSENUM,
+		SC.SCHEDULEDATE, SC.SCHEDULENAME,
+		CASE WHEN SC.SCHEDULENAME LIKE
+		'%필기 시험일%'THEN TO_DATE(SC.SCHEDULEDATE,
+		'YYYY/MM/DD') - TO_DATE(SYSDATE,
+		'YYYY/MM/DD') ELSE 0 END DDAY
+		FROM SCHEDULE SC
+		INNER JOIN
+		LICENSESCHEDULE LS
+		ON SC.SCHEDULENUM = LS.SCHEDULENUM
+	</select>
+	
+		<select id="getDetailSchedule1" resultType="HomeDTO">
+		SELECT LS.LICENSENUM,
+		SC.SCHEDULEDATE, SC.SCHEDULENAME,
+		CASE WHEN SC.SCHEDULENAME LIKE
+		'%실기 시험일%'THEN TO_DATE(SC.SCHEDULEDATE,
+		'YYYY/MM/DD') - TO_DATE(SYSDATE,
+		'YYYY/MM/DD') ELSE 0 END DDAY
+		FROM SCHEDULE SC
+		INNER JOIN
+		LICENSESCHEDULE LS
+		ON SC.SCHEDULENUM = LS.SCHEDULENUM
+	</select>
+	
 
 	<resultMap type="HomeDTO" id="getSchedule">
 		<id column="LICENSENUM" property="licenseNum" />

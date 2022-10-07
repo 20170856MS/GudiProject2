@@ -111,6 +111,7 @@ body {
 
 .footer-container-calendar {
     margin-top: 2em;
+    margin-left: 5px;
     border-top: 1px solid #dadada;
     padding: 0px 0;
 }
