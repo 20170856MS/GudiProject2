@@ -99,7 +99,7 @@ sendDate.addEventListener("click", function(){
                 console.log(detailNum.textContent);
                 
                 alert('저장완료');
-                location.replace("./cafeList");
+                location.replace("./reList");
                 i = 0;
                 
                 
