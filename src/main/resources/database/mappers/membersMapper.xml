@@ -32,6 +32,10 @@
 		SELECT * FROM SIMPLEMEMBERS WHERE USERNAME =#{userName}
 	</select>
 	
+	<select id="getNameCheck" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
+		select name from licensemembers where name = #{name}
+	</select>
+	
 	
 	
 
@@ -79,6 +83,8 @@
 		ORDER BY AR.ROLENUM ASC
 	</select>
 	
+	
+	
 	<update id="modifyInfo" parameterType="LicenseMembersDTO" >
 	    UPDATE LICENSEMEMBERS SET
 	    
@@ -87,7 +93,7 @@
 	    </if>
 	    
 	    <if test="valueType == 'nickname'">
-	        NICKNAME = #{value }		
+	        NAME = #{value }		
 	    </if>
 	    
 	    <if test="valueType == 'phone'">

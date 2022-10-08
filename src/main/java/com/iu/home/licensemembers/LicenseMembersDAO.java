@@ -41,6 +41,12 @@ public class LicenseMembersDAO {
 		return sqlSession.insert(NAMESPACE+"setRole", licenseMembersDTO);
 	}
 	
+	public LicenseMembersDTO getNameCheck(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		
+		return sqlSession.selectOne(NAMESPACE+"getNameCheck", licenseMembersDTO);
+	}
+	
 	public LicenseMembersDTO getLogin(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
 		return sqlSession.selectOne(NAMESPACE+"getLogin", licenseMembersDTO);

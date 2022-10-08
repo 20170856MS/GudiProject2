@@ -29,9 +29,8 @@
 			<main>
 				<div class="info_box">
 					
-					<h2>ID</h2>
-					<div id="user_name" userName="${check.userName}">${check.userName}</div>		    	
-				
+					<h2>아이디 : ${check.userName}</h2>
+					<div hidden id="user_name" userName="${check.userName}">${check.userName}</div>		    	
 					<h2>비밀번호</h2>
 					<div>
 						<div class="input_box">
@@ -58,19 +57,53 @@
 					
 				
 					<h2>닉네임 변경</h2>
-					
-					<div>
-						 <div class="input_box">
-							<input type="text" class="nickname" name="nickname" required placeholder="변경하실 닉네임을 입력해 주세요">
+				
+						<div>
+							<div class="input_box">
+								<input type="text" class="nickname" name="nickname"  value=""  required placeholder="변경하실 닉네임을 입력해 주세요">
+							</div>
+							<div class="nickname_check"></div>
+							<div class="btn_box">
+								<button type="button" class="nickname_modify">수정</button>
+							</div>
 						</div>
 						
-						<div class="btn_box">
-							<button type="button" class="nickname_modify">수정</button>
-						</div>
+						
+						
+						<h2>휴대폰 번호 변경</h2>
+							<div>
+								<div class="input_box">
+									<div>
+										<input type="text" class="phone" name="phone" required placeholder="전화번호를 입력해 주세요" onkeypress="return lenthCheck(this, 11)"  >
+									</div>
+									
+									<div class="auth_num_box">
+										<input type="text" class="phone_auth_num" name="authNum" required placeholder="인증번호 입력">
+										<span class="timer_box">
+											<span>남은시간</span>
+											<span class="timer"></span>
+										</span>
+									</div>
+									
+								</div>
+								
+								
+			
+								<div class="btn_box">
+									<div>
+										<button type="button" class="auth_num_send">인증번호 전송</button>
+									</div>
+									
+									<div class="auth_num_box">
+										<button type="button" class="phone_auth_btn">인증</button>
+									</div>
+								</div>
+								
+							</div>
+						
+						
+						
 					</div>
-					
-				
-				</div>
 			</main>
 		</div>
 	

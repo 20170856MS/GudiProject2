@@ -209,7 +209,7 @@ public class LicenseMembersController {
 	         HttpSession session, String userName) throws Exception {// value = 변경할 값
 	    // valueType = password, nickname, phone
 		
-
+		
 		System.out.println(userName);
 		LicenseMembersDTO loginUser = licenseMembersService.getPwdCheck(userName);
 		
@@ -218,21 +218,21 @@ public class LicenseMembersController {
 	    System.out.println("rrr1 : " + loginUser.getUserName());
 	    System.out.println("value : " +value);
 	    System.out.println("rrr2 : " + loginUser.getPassword());
-	    switch (valueType) {
+	    switch(valueType) {
 	    case "password":
 	        if(!bCryptPasswordEncoder.matches(prevPassword, loginUser.getPassword())) {
 	        	System.out.println("rrrr");
-	        	return "변경실패";
+	        	return "0";
 	        } 
 	        value = bCryptPasswordEncoder.encode(value);
-	        msg = "비밀번호가 변경되었습니다123";
+	        msg = "1";
 	        break;
 	        
 	    case "nickname":
-	        msg = "닉네임이 변경되었습니다";
+	        msg = "2";
 	        break;
 	    case "phone":
-	        msg = "전화번호가 변경되었습니다";
+	        msg = "3";
 	        session.setMaxInactiveInterval(0);
 	        session.setAttribute("authNum", null);
 	        break;
@@ -240,8 +240,46 @@ public class LicenseMembersController {
 //	    
 	    licenseMembersService.modifyInfo(userName, valueType, value);
 //	    UserInfoSessionUpdate.sessionUpdate(value, valueType, user);
+	    
 //	    
 	    return msg;
+	}
+	
+	@PostMapping("/member/authNum")
+	@ResponseBody
+	private String authNum(String phone, String email, HttpSession session){
+	    String authNum = "";
+	    for(int i=0;i<6;i++) {
+	        authNum += (int)(Math.random() * 10);
+	    }
+	    
+	    System.out.println("인증번호 : " + authNum);
+	    
+	    // 전화번호로 인증번호 보내기 추가
+	    if(phone != null) {
+	        System.out.println("전화번호로 인증번호 보내기");
+	 
+	        
+	        
+	    // 이메일로 인증번호 보내기
+	    } else if(email != null) {
+	        System.out.println("이메일로 인증번호 보내기");
+	        
+	    }
+	    
+	    
+	    Map<String, Object> authNumMap = new HashMap<String, Object> ();
+	    long createTime = System.currentTimeMillis(); // 인증번호 생성시간
+	    long endTime = createTime + (300 *1000);	// 인증번호 만료시간
+	    
+	    authNumMap.put("createTime", createTime);
+	    authNumMap.put("endTime", endTime);
+	    authNumMap.put("authNum", authNum);
+	    
+	    session.setMaxInactiveInterval(300);
+	    session.setAttribute("authNum", authNumMap);
+	    
+	    return "1";
 	}
 	@GetMapping("sosialMyPage")
 	public ModelAndView sosialmyPage(HttpSession session) throws Exception{
@@ -336,6 +374,24 @@ public class LicenseMembersController {
             session.setAttribute("kakaoToken", kakaoToken);
         return mv;
     }
+	
+	@GetMapping("nameCheck")
+	@ResponseBody
+	public int getNameCheck(String value, String valueType) throws Exception {
+		System.out.println(value);
+		LicenseMembersDTO licenseMembersDTO = new LicenseMembersDTO();
+		licenseMembersDTO.setName(value);
+		System.out.println(licenseMembersDTO.getName());
+		licenseMembersDTO = licenseMembersService.getNameCheck(licenseMembersDTO);
+		
+		int result = 0;
+		if(licenseMembersDTO != null) {
+			result = 1;
+		}
+		
+		return result;
+	}
+	
 	
 	@RequestMapping(value = "naver_callback", method = RequestMethod.GET)
     public ModelAndView redirectnaver(@RequestParam String code, HttpSession session) throws Exception {
