@@ -10,8 +10,8 @@
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" >
-<link rel="stylesheet" href="/resources/css/myInfo.css" type="text/css">
-<link href="/resources/css/theme.css" rel="stylesheet" />
+<link href="/resources/css/theme.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/resources/css/myInfo.css" >
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -31,7 +31,9 @@
 					
 					<h2>아이디 : ${check.userName}</h2>
 					<div hidden id="user_name" userName="${check.userName}">${check.userName}</div>		    	
+					<hr>
 					<h2>비밀번호</h2>
+					
 					<div>
 						<div class="input_box">
 							<div>
@@ -45,16 +47,15 @@
 							</div>
 							
 							<div>
-								<span>신규 비밀번호 확인</span>
+								<span>비밀번호 확인</span>
 								<input class="new_password_check" type="password" placeholder="신규 비밀번호 확인" maxlength="20" >
 							</div>
-						</div>
-						
+						</div>		
 						<div class="btn_box">
 							<button type="button" class="pwd_modify">변경</button>
 						</div>
 					</div>
-					
+					<hr>
 				
 					<h2>닉네임 변경</h2>
 				
@@ -67,24 +68,24 @@
 								<button type="button" class="nickname_modify">수정</button>
 							</div>
 						</div>
-						
+						<hr>
 						
 						
 						<h2>휴대폰 번호 변경</h2>
 							<div>
 								<div class="input_box">
 									<div>
-										<input type="text" class="phone" name="phone" required placeholder="전화번호를 입력해 주세요" onkeypress="return lenthCheck(this, 11)"  >
+										<input type="text" class="phone" name="phone" required placeholder="전화번호를 입력해 주세요" onkeypress="return lenthCheck(this, 13)"  >
 									</div>
 									
 									<div class="auth_num_box">
 										<input type="text" class="phone_auth_num" name="authNum" required placeholder="인증번호 입력">
+										
 										<span class="timer_box">
 											<span>남은시간</span>
 											<span class="timer"></span>
 										</span>
 									</div>
-									
 								</div>
 								
 								

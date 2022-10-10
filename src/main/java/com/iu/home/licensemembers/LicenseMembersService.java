@@ -77,6 +77,12 @@ public class LicenseMembersService {
 		
 		return licenseMembersDAO.getMyPage(licenseMembersDTO);
 	}
+	
+	public LicenseMembersDTO getFindId(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		
+		return licenseMembersDAO.getFindId(licenseMembersDTO);
+	}
 
 	
 }

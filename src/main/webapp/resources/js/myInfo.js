@@ -150,32 +150,45 @@ $(".phone_auth_btn").click(function(){
 	}
 	
 	const data = {
-		authNum : authNum
+		authNum : authNum,
 	}	
 	
 	$.ajax({
-		url: "/send/authNumCheck",
+		url: "/member/authNumCheck",
 		type: "POST",
 		data: data 
 	})
-	.then(function(){
+	.then(function(msg){
 		swal({
 			text: "전화번호를 변경하시겠습니까?",
 			buttons: ['취소', '변경']
 		})
 		.then(function(value){
-			if(value) {
-				const data = {
-					value: $(".phone").val(),
-					valueType: "phone",
-                    userName : userName1
-				};
-				infoModify(data);
-				$(".auth_num_box").fadeOut(100);
-			}
+			console.log(value);
+			console.log(msg)
+			if(value == true) {
+				if(msg == 3){
+					const data = {
+						value: $(".phone").val(),
+						valueType: "phone",
+						userName : userName1
+					};
+					infoModify(data);
+					$(".auth_num_box").fadeOut(100);
+				}else if(msg ==0){
+					swal("인증번호를 전송해주세요","","error")
+				} else if(msg ==1){
+					swal("인증시간이 만료되었습니다.","","error")
+				} else if(msg == 2){
+					swal("인증번호가 일치하지않습니다.","","error")
+				}
+				
+			} 
+			
 		})
 	})
 	.fail(function(result){
+		console.log("설마여기")
 		swal(result.responseText);
 	})
 })

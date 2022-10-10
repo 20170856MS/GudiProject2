@@ -32,8 +32,13 @@
 		SELECT * FROM SIMPLEMEMBERS WHERE USERNAME =#{userName}
 	</select>
 	
+	<!-- 이름으로 찾기 -->
 	<select id="getNameCheck" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
 		select name from licensemembers where name = #{name}
+	</select>
+	
+	<select id="getFindId" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">	
+		select USERNAME from licensemembers where email = #{email}
 	</select>
 	
 	

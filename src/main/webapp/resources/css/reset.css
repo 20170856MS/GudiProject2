@@ -1,16 +1,12 @@
 @charset "UTF-8";
 
 body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset,
-	legend, p, select, table, th, td, tr, textarea, button, form {
+	legend, p, select, table, th, td, tr, textarea, form {
 	margin: 0;
 	padding: 0;
 }
 
-html {
-	font-size: 62.5%
-}
-
-input, button, textarea {
+input, textarea {
 	border-radius: 10px;
 }
 
@@ -79,7 +75,7 @@ textarea {
 }
 
 /* 폰트 초기화 */
-body, input, textarea, select, button, table {
+body, input, textarea, select, table {
 	/* font-family: AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;  */
 	font-family: 'Jua', sans-serif;
 	color: #222;

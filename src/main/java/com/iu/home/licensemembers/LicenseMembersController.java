@@ -2,6 +2,7 @@ package com.iu.home.licensemembers;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,6 +52,9 @@ public class LicenseMembersController {
 	@Autowired
 	private NaverService naverService;
 	
+	@Autowired
+	private MailService mailService;
+
 	
 	
 	
@@ -203,6 +207,7 @@ public class LicenseMembersController {
 		
 	}
 	
+	//마이페이지 수정
 	@PostMapping("infoModify")
 	@ResponseBody
 	public String modifyInfo(String value, String valueType, String prevPassword, 
@@ -218,6 +223,9 @@ public class LicenseMembersController {
 	    System.out.println("rrr1 : " + loginUser.getUserName());
 	    System.out.println("value : " +value);
 	    System.out.println("rrr2 : " + loginUser.getPassword());
+	    System.out.println(valueType);
+	    
+	    
 	    switch(valueType) {
 	    case "password":
 	        if(!bCryptPasswordEncoder.matches(prevPassword, loginUser.getPassword())) {
@@ -240,12 +248,13 @@ public class LicenseMembersController {
 //	    
 	    licenseMembersService.modifyInfo(userName, valueType, value);
 //	    UserInfoSessionUpdate.sessionUpdate(value, valueType, user);
-	    
+	    System.out.println(msg);
 //	    
 	    return msg;
 	}
 	
-	@PostMapping("/member/authNum")
+	// 인증번호 보내기
+	@PostMapping("authNum")
 	@ResponseBody
 	private String authNum(String phone, String email, HttpSession session){
 	    String authNum = "";
@@ -281,6 +290,70 @@ public class LicenseMembersController {
 	    
 	    return "1";
 	}
+	
+	// 인증번호가 맞는지 확인
+	@PostMapping("authNumCheck")
+	@ResponseBody
+	private String authNumCheck (String authNum, HttpSession session) throws Exception{
+	    Map<String, Object> sessionAuthNumMap = (Map<String, Object>) session.getAttribute("authNum");
+	    
+	    String msg = "";
+	    System.out.println("번호왔어");
+	    if(sessionAuthNumMap == null) {
+	        msg = "0"; //인증번호를 전송해주세요
+	        return msg ;
+	    }
+	    
+	    // 인증번호 만료시간
+	    long endTime = (Long)sessionAuthNumMap.get("endTime");
+	    
+	    // 현재시간이 만료시간이 지났다면
+	    if(System.currentTimeMillis() > endTime) {
+	        msg = "1"; //인증시간이 만료되었습니다
+	        session.setAttribute(authNum, null);
+	        session.setMaxInactiveInterval(0);
+	        return msg;
+	    }
+	    
+	    // 인증번호
+	    String sessionAuthNum = (String) sessionAuthNumMap.get("authNum");
+	    
+	    if(!authNum.equals(sessionAuthNum)) {
+	        msg = "2"; //인증번호가 일치하지 않습니다;
+	        
+	        return msg;
+	    } else {
+	        // 인증번호가 일치하면
+	    	msg = "3";
+	        return msg; // 인증번호가 일치합니다.;
+	    }
+	}
+	// 아이디 비번찾기--------------------------------
+	@GetMapping("findId")
+	public void getFindId() throws Exception{
+		
+	}
+	@GetMapping("findPassword")
+	public void getFindPassword() throws Exception{
+		
+	}
+	
+	@PostMapping("findId")
+	@ResponseBody
+	public ResponseEntity<Object> sendEmail(String email) throws Exception{
+		LicenseMembersDTO licenseMembersDTO = new LicenseMembersDTO();
+		licenseMembersDTO.setEmail(email);
+		licenseMembersDTO = licenseMembersService.getFindId(licenseMembersDTO);
+	    System.out.println(licenseMembersDTO);
+	    System.out.println(licenseMembersDTO.getUserName());
+	    System.out.println(email);
+	    if(licenseMembersDTO != null) {
+	        mailService.sendUsernames(email, licenseMembersDTO);
+	    }
+	    System.out.println("나왔다.");
+	    return new ResponseEntity<Object>(HttpStatus.OK);
+	}
+	
 	@GetMapping("sosialMyPage")
 	public ModelAndView sosialmyPage(HttpSession session) throws Exception{
 		SimpleMembersDTO simpleMembersDTO= (SimpleMembersDTO)session.getAttribute("sessionConfigVO1");

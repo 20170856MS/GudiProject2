@@ -1,3 +1,4 @@
+@charset "utf-8";
 .wrap {
 	width: 90%;
 	max-width: 1000px;
@@ -5,15 +6,25 @@
 	flex-wrap: wrap;
 }
 
+html{
+	font-size:85%;
+}
+
+
+.mymy {
+    text-align: center;
+    margin-top : 30px;
+}
+ 
 section.title {
 	width: 100%;
 }
-
+ 
 section.title h1 {
 	text-align: center;
 	margin: 20px 0 20px 0;
 }
-
+ 
 /* main */
 main {
 	width: 80%;
@@ -22,147 +33,140 @@ main {
 	border-radius: 15px;
 	padding-bottom: 40px;
 }
-
+ 
 .info_box {
 	margin: 0px auto;
 	width: 90%;
-	font-size: 15px;
+	font-size: 1.5rem;
 }
-
+ 
 .info_box>div {
-	/* display: flex; */
+	display: flex;
 	margin: 10px 0;
 }
-
+ 
 .info_box h2 {
 	text-align: center;
 	margin-top: 10px;
 }
-
+ 
 .info_box .input_box {
-	width: 85%;
+	width: 80%;
 	text-align: right;
 	margin-right: 5px;
 }
-
-.info_box .input_box>div {
+ 
+.info_box .input_box > div,
+.info_box .btn_box > div {
 	margin-top: 10px;
 }
-
-.info_box .username {
-	font-size: 18px;
+ 
+.info_box .user_nickname {
 	justify-content: center;
+	font-size: 1.8rem;
 }
-
-.mymy {
-    margin-top: 30px;
-    text-align: center;
-}
-
+ 
 .info_box input {
-	padding: 10px 15px;
-	font-size: 15px;
-	width: 93%;
-	border-radius: 10px;
+	padding: 10px;
+	font-size: 1.5rem;
+	width: 100%;
 	border: 1px solid #ddd;
+	box-sizing: border-box;
 }
-
+ 
 .info_box input[type=password] {
-	width: 77%;
+	width: 75%;
 }
-.info_box #user_name{
-    text-align: center;
-    font-size: 30px;
-}
+ 
 .info_box button {
-	padding: 10px;
-    margin-top: 15px;
-    margin-left: 30px;
-    font-size: 15px;
-    background: #2AC1BC;
-    width: 700%;
-	color: #fff;
-	border: none;
-	border-radius: 10px;
-}
-
-.info_box .btn_box {
-	width: 12%;
-	display: flex;
-	flex-direction: column;
-	justify-content: end;
-}
-
-.info_box .nickname_check {
-	justify-content: center;
-}
-/*
-.info_box span {
-	display: inline-block;
-	margin-right: 5px;
-	font-size: 15px;
-}
-.info_box input {
-	padding: 10px 15px;
-	font-size: 15px;
-	margin: 5px 0;
-	width: 60%;
-	border-radius: 10px;
-	border: 1px solid #ddd;
-}
-.info_box button {
-	padding: 10px;
-	font-size: 15px;
+	padding: 11px;
+	font-size: 1.5rem;
 	background: #2AC1BC;
 	color: #fff;
 	border: none;
 	border-radius: 10px;
-	width: 13%;
+	width: 100%;
 }
-.info_box .nickname, 
-.info_box .phone {
-	width: 78%;
-} */
+ 
+.info_box .btn_box {
+	width: 18%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+ 
+ 
+.input_box .auth_num_box {
+	position: relative;
+}
+ 
+.auth_num_box {
+	display: none;	
+}
+ 
+.input_box .timer_box {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+    transform: translate(10%, 120%);
+}
+ 
+ 
+ 
+ 
 @media ( max-width :1024px) {
 	main {
 		width: 90%;
 	}
 	.info_box input[type=password] {
-		width: 75%;
+		width: 70%;
 	}
 }
-
-@media ( max-width : 780px) {
+ 
+@media ( max-width : 767px) {
 	.wrap {
-		width: 99%;
+		width: 100%;
 	}
 	main {
 		width: 100%;
 	}
+	.info_box {
+		width: 95%;
+	}
+ 
 	.info_box input[type=password] {
 		width: 70%;
 	}
 }
-
-
+ 
+ 
 @media ( max-width : 600px) {
 	.info_box {
 		width: 100%;
+	    margin-left: 10px;
 	}
 	.info_box input[type=password] {
 		width: 60%;
 	}
-	
-	.info_box input {
-		width: 85%; 
-	}
-
+ 
 	.info_box .btn_box {
-		width: 14%;
+		width: 20%;
 	} 
 	
 	.info_box .input_box {
-		width: 80%;
+		width: 75%;
 	}
 	
 } 
+ 
+@media ( max-width : 480px) {
+ 
+	.info_box .btn_box {
+		width: 25%;
+	} 
+	
+	.info_box .input_box {
+		width: 70%;
+	}
+	
+}
