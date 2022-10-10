@@ -70,6 +70,8 @@ public class cafeController {
 	public ModelAndView addDate(reservationDTO reservationDTO,HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println("cafeList post 실행");
+		System.out.println(reservationDTO.getSeTime());
+		System.out.println(reservationDTO.getSeDate());
 		int result = cafeService.addDate(reservationDTO);
 		HttpSession session = request.getSession();
 		session.setAttribute("reserNum", reservationDTO.getReserNum());

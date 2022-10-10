@@ -13,6 +13,7 @@ const radioText = document.getElementById("radioText");
 const radioList = document.getElementsByName("radioBtn");
 const test1 = document.getElementById("test1");
 const detailNum = test1.getAttribute("detail-Num");
+const btnRoom = document.querySelector("#btnRoom");
 let listTime = [];
 let test = " ";
 
@@ -58,7 +59,11 @@ let test = " ";
 // });
 // -----TimePicker------
 
-
+btnRoom.addEventListener("click",function(){
+    
+    console.log("dateText= "+dateText.textContent);
+    $(".room_box").fadeIn(100);
+})
 
 
 sendDate.addEventListener("click", function(){
