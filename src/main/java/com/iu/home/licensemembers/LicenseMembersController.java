@@ -267,13 +267,12 @@ public class LicenseMembersController {
 	    // 전화번호로 인증번호 보내기 추가
 	    if(phone != null) {
 	        System.out.println("전화번호로 인증번호 보내기");
-	 
 	        
-	        
+	    System.out.println(email);
 	    // 이메일로 인증번호 보내기
 	    } else if(email != null) {
 	        System.out.println("이메일로 인증번호 보내기");
-	        
+	        mailService.sendAuthNum(email, authNum);
 	    }
 	    
 	    
@@ -328,6 +327,50 @@ public class LicenseMembersController {
 	        return msg; // 인증번호가 일치합니다.;
 	    }
 	}
+	
+	@PostMapping("completion")
+	@ResponseBody
+	public ResponseEntity<String> authCompletion(HttpSession session) {
+	    Map<String, Object> authStatus = (Map<String, Object>) session.getAttribute("authStatus");
+	    if(authStatus == null) {
+	        return new ResponseEntity<String>("인증시간이 만료되었습니다", HttpStatus.BAD_REQUEST);
+	    }
+	    authStatus.put("status", true);
+	    System.out.println("completion");
+	    return new ResponseEntity<String>(HttpStatus.OK);
+	}
+	
+	@GetMapping("modify")
+	public String moldifyPassword(String username, HttpSession session) {
+	    Map<String, Object> authStatus = (Map<String, Object>) session.getAttribute("authStatus");
+	    System.out.println("modify");
+	    if(authStatus == null || !username.equals(authStatus.get("username"))) {
+	        return "redirect:/find/password";
+	    }
+	    
+	    // 페이지에 왔을때 인증이 안되있다면
+	    if(!(boolean) authStatus.get("status")) {
+	        return "redirect:/find/password";
+	    }
+	    return "member/modify";
+	}
+	
+	@PostMapping("/modify/password")
+	@ResponseBody
+	public String modifyPassword(String password, String username, HttpSession session) {
+		String result = "";
+	    if(password != null) {
+	    	
+	    	password = bCryptPasswordEncoder.encode(password);
+	    	licenseMembersService.modifyInfo(username, "password", password);
+	    	session.setMaxInactiveInterval(0);
+	    	session.setAttribute("authStatus", null);
+	    	result = "1";
+	    }
+	    System.out.println(result);
+	    return result;
+	}
+	
 	// 아이디 비번찾기--------------------------------
 	@GetMapping("findId")
 	public void getFindId() throws Exception{
@@ -352,6 +395,49 @@ public class LicenseMembersController {
 	    }
 	    System.out.println("나왔다.");
 	    return new ResponseEntity<Object>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/find/emailCheck")
+	@ResponseBody
+	public String sendEmailCheck(String email) throws Exception{
+		LicenseMembersDTO licenseMembersDTO = new LicenseMembersDTO();
+		licenseMembersDTO.setEmail(email);
+		String result = "0";
+		licenseMembersDTO = licenseMembersService.getFindId(licenseMembersDTO);
+	    System.out.println(licenseMembersDTO);
+	    System.out.println(licenseMembersDTO.getUserName());
+	    System.out.println(email);
+	    
+	    if(licenseMembersDTO.getUserName() != null) {
+	    	result = "1";
+	    }
+
+	    System.out.println(result);
+	    
+	    return result;
+	}
+	
+	@PostMapping("findPassword")
+	@ResponseBody
+	public ResponseEntity<Object> authenticateUser(String username, HttpSession session) {
+	    Map<String, Object> authStatus = new HashMap<>();
+	    authStatus.put("username", username);
+	    authStatus.put("status", false);
+	    
+	    session.setMaxInactiveInterval(300);
+	    session.setAttribute("authStatus", authStatus);
+	    System.out.println("테스트1"+authStatus);
+	    return new ResponseEntity<Object>(username, HttpStatus.OK);
+	}
+	
+	@GetMapping("findPasswordAuth")
+	public String auth(String username, HttpSession session) {
+	    Map<String, Object> authStatus = (Map<String, Object>) session.getAttribute("authStatus");
+	    if(authStatus == null || !username.equals(authStatus.get("username"))) {
+	        return "redirect:/member/findPassword";
+	    }
+	    
+	    return "/member/findPasswordAuth";
 	}
 	
 	@GetMapping("sosialMyPage")
@@ -448,6 +534,7 @@ public class LicenseMembersController {
         return mv;
     }
 	
+	// 마이페이지 아이디 수정용
 	@GetMapping("nameCheck")
 	@ResponseBody
 	public int getNameCheck(String value, String valueType) throws Exception {
@@ -456,6 +543,23 @@ public class LicenseMembersController {
 		licenseMembersDTO.setName(value);
 		System.out.println(licenseMembersDTO.getName());
 		licenseMembersDTO = licenseMembersService.getNameCheck(licenseMembersDTO);
+		
+		int result = 0;
+		if(licenseMembersDTO != null) {
+			result = 1;
+		}
+		
+		return result;
+	}
+	
+	@GetMapping("userNameCheck")
+	@ResponseBody
+	public int getUserNameCheck(String value, String valueType) throws Exception {
+		System.out.println(value);
+		LicenseMembersDTO licenseMembersDTO = new LicenseMembersDTO();
+		licenseMembersDTO.setUserName(value);
+		System.out.println(licenseMembersDTO.getUserName());
+		licenseMembersDTO = licenseMembersService.getUserNameCheck(licenseMembersDTO);
 		
 		int result = 0;
 		if(licenseMembersDTO != null) {

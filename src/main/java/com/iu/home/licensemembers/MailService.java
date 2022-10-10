@@ -45,6 +45,23 @@ public class MailService {
 			}
 		}).start();
 	}
+	
+	public void sendAuthNum(String email, String authNum) {
+	    final SimpleMailMessage simpleMailMessage = new  SimpleMailMessage();
+	    simpleMailMessage.setTo(email);
+	    simpleMailMessage.setFrom("tkdgus9688@gmail.com");
+	    simpleMailMessage.setSubject("비밀번호 찾기 인증번호");
+	    
+	    String text = "인증번호는 " + authNum + "입니다";
+	    
+	    simpleMailMessage.setText(text);
+	    new Thread(new Runnable() {
+	        public void run() {
+	            mailSender.send(simpleMailMessage);
+	        }
+	    }).start();
+	    
+	}
  
 	
 }

@@ -37,6 +37,11 @@
 		select name from licensemembers where name = #{name}
 	</select>
 	
+	<!-- 아이디로 찾기 -->
+	<select id="getUserNameCheck" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
+		select username from licensemembers where username = #{userName}
+	</select>
+	
 	<select id="getFindId" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">	
 		select USERNAME from licensemembers where email = #{email}
 	</select>

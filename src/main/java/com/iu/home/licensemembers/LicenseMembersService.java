@@ -71,6 +71,11 @@ public class LicenseMembersService {
 		
 	}
 	
+	public LicenseMembersDTO getUserNameCheck(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		return licenseMembersDAO.getUserNameCheck(licenseMembersDTO);
+		
+	}
 	
 	public LicenseMembersDTO getMyPage(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
