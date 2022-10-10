@@ -1,10 +1,15 @@
 package com.iu.home.studyCafe;
 
+import java.net.http.HttpRequest;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,13 +67,12 @@ public class cafeController {
 	
 
 	@RequestMapping(value="cafeList", method=RequestMethod.POST)
-	public ModelAndView addDate(reservationDTO reservationDTO) throws Exception{
+	public ModelAndView addDate(reservationDTO reservationDTO,HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println("cafeList post 실행");
 		int result = cafeService.addDate(reservationDTO);
-		
-
-		
+		HttpSession session = request.getSession();
+		session.setAttribute("reserNum", reservationDTO.getReserNum());
 //		int result = cafeService.update(cafeRoomDTO);
 		
 		mv.setViewName("redirect:./reList");
@@ -82,10 +86,11 @@ public class cafeController {
 	}
 	
 	@RequestMapping(value = "reList")
-	public String reList(Model model) throws Exception{
+	public String reList(Model model,HttpSession session) throws Exception{
 		System.out.println("cafeReList");
-		
-		List<reListDTO> ar = cafeService.getReList();
+		Long reserNum = (Long)session.getAttribute("reserNum");
+		List<reListDTO> ar = cafeService.getReList(reserNum);
+		System.out.println(ar.get(0).getCdPay());
 		model.addAttribute("list", ar);
 		
 		return "studyCafe/reList";

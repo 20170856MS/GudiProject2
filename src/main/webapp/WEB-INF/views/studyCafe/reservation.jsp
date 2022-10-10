@@ -255,7 +255,8 @@
 
 				<div>
 					<button id="complete">선택완료</button>
-					<text id="timeText"></text>
+					<text id="timeText"></text><br>
+					<text id="timeText1"></text>
 				</div>
 				
 				<button id="sendDate" type="button">예약완료</button>

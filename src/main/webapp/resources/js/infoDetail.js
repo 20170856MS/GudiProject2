@@ -97,9 +97,9 @@ for(let i=0;i<alt.length;i++){                          //수정이벤트
         if(event.target.classList.contains('j')){
             group="dj";
             getUpdate(ln,group);    
-            }
-        })
-    }
+        }
+    })
+}
 
 for(let i=0;i<del.length;i++){                          //삭제이벤트
     del[i].addEventListener("click",function(event){

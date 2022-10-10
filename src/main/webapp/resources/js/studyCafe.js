@@ -5,6 +5,8 @@ const sendDate = document.getElementById("sendDate");
 // const endTime = document.getElementsByClassName("time end");
 const dateText = document.getElementById("dateText");
 let timeText = document.getElementById("timeText");
+
+let timeText1 = document.getElementById("timeText1");
 let timeBtn = document.querySelectorAll(".timeBtn");
 const complete = document.getElementById("complete");
 const radioText = document.getElementById("radioText");
@@ -61,6 +63,11 @@ let test = " ";
 
 sendDate.addEventListener("click", function(){
     console.log(listTime);
+    console.log(listTime.length)
+    const timeLength = listTime.length-1
+
+    console.log(timeLength);
+
     console.log(timeText.textContent.sort);
     listTime.sort();
     
@@ -85,7 +92,8 @@ sendDate.addEventListener("click", function(){
         
     }else{
         console.log("공백없음");
-        xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&detailNum="+detailNum);
+        
+        xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&detailNum="+detailNum+"&timeLength="+timeLength);
     
         xhttp.onreadystatechange = function(){
             if(xhttp.readyState==4 && xhttp.status==200){
@@ -93,10 +101,6 @@ sendDate.addEventListener("click", function(){
                 
                 console.log(result);
     
-                console.log(radioText.textContent);
-                console.log(dateText.textContent);
-                console.log(timeText.textContent);
-                console.log(detailNum.textContent);
                 
                 alert('저장완료');
                 location.replace("./reList");
@@ -587,6 +591,8 @@ let count=0;
 complete.addEventListener("click", function(){
     console.log(listTime);
     console.log(timeText.textContent.sort);
+    console.log(listTime.length);
+    console.log(listTime.length -1);
     listTime.sort();
 
     console.log("radioText= "+radioText.textContent);
@@ -600,8 +606,8 @@ complete.addEventListener("click", function(){
         }
     });
 
-
     timeText.textContent = listTime.toString();
+    timeText1.textContent = "이용시간 : "+(listTime.length-1);
     //timeText.textContent = test;
 
 

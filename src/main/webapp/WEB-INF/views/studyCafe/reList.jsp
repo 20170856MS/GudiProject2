@@ -25,19 +25,23 @@
 			<h1>예약리스트</h1>
 			<table>
 				<tr>
+					<th scope="col">카페번호</th>
 					<th scope="col">카페이름</th>
 					<th scope="col">방이름</th>
 					<th scope="col">가격</th>
 					<th scope="col">날짜</th>
 					<th scope="col">시간</th>
+					<th scope="col">이미지</th>
 				</tr>
 				<c:forEach items="${list}" var="dto">
-						<tr>				
+						<tr>		
+							<td>${dto.detailNum}</td>
 							<td>${dto.scName}</td>
 							<td>${dto.roomName}</td>
 							<td>${dto.cdPay}</td>
 							<td>${dto.seDate}</td>
 							<td>${dto.seTime}</td>
+							<td><img src="/resources/img/${dto.img}" width="100px" height="100px"></td>
 						</tr>
 							
 				</c:forEach>

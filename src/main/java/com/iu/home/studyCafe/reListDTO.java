@@ -1,12 +1,34 @@
 package com.iu.home.studyCafe;
 
 public class reListDTO {
+	private Long reserNum;
+	private Long detailNum;
+	
 	private String scName;
 	private Long cdPay;
 	private String roomName;
 	private String seDate;
 	private String seTime;
+	private String img;
 	
+	public Long getReserNum() {
+		return reserNum;
+	}
+	public void setReserNum(Long reserNum) {
+		this.reserNum = reserNum;
+	}
+	public Long getDetailNum() {
+		return detailNum;
+	}
+	public void setDetailNum(Long detailNum) {
+		this.detailNum = detailNum;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	
 	public String getScName() {
 		return scName;

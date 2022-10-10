@@ -32,6 +32,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.databind.util.JSONWrappedObject;
+import com.iu.home.studyCafe.cafeService;
+import com.iu.home.studyCafe.reListDTO;
 import com.iu.home.util.UserCriteria;
 import com.iu.home.util.UserPageMaker;
 import com.siot.IamportRestClient.IamportClient;
@@ -50,14 +52,25 @@ public class OrderController {
 	@Autowired
 	private PayService payService;
 	
+	@Autowired
+	private cafeService cafeService;
+	
 	
 	
 	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
 	
 	
 	@GetMapping("order")
-	public void orderGET(OrderDTO orderDTO) throws Exception {
+	public ModelAndView orderGET(OrderDTO orderDTO) throws Exception {
 		System.out.println("order");
+		ModelAndView mv = new ModelAndView();
+		
+//		List<reListDTO> ar = cafeService.getReList();
+		
+//		mv.addObject("list", ar);
+		mv.setViewName("order/order");
+		
+		return mv;
 	}
 	
 	@PostMapping("order")

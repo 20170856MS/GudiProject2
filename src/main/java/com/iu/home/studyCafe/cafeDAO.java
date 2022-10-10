@@ -29,8 +29,8 @@ public class cafeDAO {
 		return sqlSession.insert(NAMESPACE+"addDate", reservationDTO);
 	}
 	
-	public List<reListDTO> getReList() throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getReList");
+	public List<reListDTO> getReList(Long reserNum) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getReList", reserNum);
 	}
 	
 	

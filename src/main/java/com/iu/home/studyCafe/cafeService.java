@@ -27,8 +27,8 @@ public class cafeService {
 		return cafeDAO.addDate(reservationDTO);
 	}
 	
-	public List<reListDTO> getReList() throws Exception{
-		return cafeDAO.getReList();
+	public List<reListDTO> getReList(Long reserNum) throws Exception{
+		return cafeDAO.getReList(reserNum);
 	}
 	
 	public int updateSit(cafeRoomDTO cafeRoomDTO) throws Exception{

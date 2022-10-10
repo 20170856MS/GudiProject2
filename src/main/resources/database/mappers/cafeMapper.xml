@@ -5,7 +5,7 @@
     
     <mapper namespace="com.iu.home.studyCafe.cafeDAO">
     	<select id="getList" resultType="cafeDTO">
-    		SELECT S.* , J.AREANAME FROM STUDYCAFE S JOIN AREA J ON (S.AREANUM= J.AREANUM) ORDER BY SCNUM ASC
+    		SELECT S.* , J.AREANAME FROM STUDYCAFE S JOIN AREA J ON (S.AREANAME= J.AREANAME) ORDER BY SCNUM ASC
     	</select>
     	
     	<select id="getDetail" parameterType="cafeDTO" resultType="cafeDetailDTO">
@@ -16,14 +16,24 @@
     	</select>
     	
     	<insert id="addDate" parameterType="reservationDTO">
-    		INSERT INTO RESERVATION (RESERNUM, ROOMNAME, SEDATE, SETIME, DETAILNUM) VALUES (RESER_SEQ.NEXTVAL, #{roomName}, #{seDate}, #{seTime}, #{detailNum})
+	    	<selectKey keyProperty="reserNum" order="BEFORE"
+				resultType="Long">
+				SELECT RESER_SEQ.NEXTVAL FROM DUAL
+			</selectKey>
+    		INSERT INTO RESERVATION (RESERNUM, ROOMNAME, SEDATE, SETIME, DETAILNUM,TIMELENGTH) 
+    		VALUES (#{reserNum}, #{roomName}, #{seDate}, #{seTime}, #{detailNum},#{timeLength})
     	</insert>
     	<!-- <update id="updateSit">
     		UPDATE STUDYROOMDETAIL SET ROOMCOUNT= #{roomCount} WHERE ROOMNUM = #{roomNum} 
     	</update> -->
     	
-    	<select id="getReList" resultType="reListDTO">
-    		SELECT E.SCNAME, E.CDPAY, J.ROOMNAME, J.SEDATE, J.SETIME FROM STUDYCAFEDETAIL E JOIN RESERVATION J ON (E.DETAILNUM = J.DETAILNUM)
+    	<select id="getReList" parameterType="reListDTO" resultType="reListDTO">
+    		SELECT J.RESERNUM,E.detailNum, E.SCNAME, E.CDPAY*J.timelength AS CDPAY, E.IMG, J.ROOMNAME, J.SEDATE, J.SETIME 
+			FROM 
+			STUDYCAFEDETAIL E JOIN 
+			RESERVATION J 
+			ON (E.DETAILNUM = J.DETAILNUM)
+            WHERE RESERNUM = #{reserNum}
     	</select>
     </mapper>
     
