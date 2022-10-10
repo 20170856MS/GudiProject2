@@ -98,46 +98,6 @@ $(document).ready(function(){
      
      
      
-    // 전화번호로 인증번호 보내기
-    $(".auth_num_send_phone").click(function(){
-        if(!timer.status().isStart) {
-            swal('잠시 후 다시 시도해주세요');
-            return;
-        }
-        
-        const data = {
-            phone : $(".phone").val(),
-            username : username
-        }
-        if(!phoneCheck(data.phone)) {
-            swal("전화번호를 정확히 입력해주세요");
-            return;
-        }
-        
-        const inputBox = $(this).siblings(".auth_num");
-        
-        // username의 전화번호가 맞는지 확인
-        $.ajax({
-            url: "/find/password/phoneCheck",
-            type: "GET",
-            data : data
-        })
-        .then(function(result){
-            if(result) {
-                sendAuthNum({phone : data.phone}, function(){
-                    sendAuthNumFnc(inputBox);
-                });
-                
-            } else {
-                swal("가입하신 전화번호와 일치하지 않습니다");
-            }
-        })
-        .fail(function(){
-            alert("에러");
-        })
-    })
-     
-     
      
     // 인증완료 후 함수
     function authCompletion(){
