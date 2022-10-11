@@ -5,6 +5,7 @@ import java.text.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.home.licensemembers.AdminRoleDTO;
 import com.iu.home.licenseorder.OrderDTO;
 import com.iu.home.licenseorder.OrderService;
 import com.iu.home.licenseorder.PayDTO;
@@ -37,6 +38,11 @@ public class AdminService {
 		return adminDAO.orderCancle((orderList.getOrderNum()));
 	}
 	
+	public int setUpdateRole(AdminRolesDTO adminRolesDTO) throws Exception {
+		
+		return adminDAO.setUpdateRole(adminRolesDTO);
+	}
+
 	public AdminDTO adminList(AdminDTO adminDTO) throws Exception {
 		
 		return adminDAO.adminList(adminDTO);

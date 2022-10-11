@@ -39,9 +39,9 @@
             
 				<div class="box">	
 		            <div>
-		            	<span class="id_search"><a href="/find/id">아이디</a></span>
+		            	<span class="id_search"><a href="/member/findId">아이디</a></span>
 			            <span> ㅣ </span>
-			            <span><a href="/find/password">비밀번호 찾기</a></span>
+			            <span><a href="/member/findPassword">비밀번호 찾기</a></span>
 		            </div>
 	            </div>
             </form>

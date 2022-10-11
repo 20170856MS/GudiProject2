@@ -23,16 +23,25 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<section class="container-fluid col-lg-4 mt-5">
 			<div class="row">
-				<main class="find_password_page">
-					<div class="find_info">
-						<h3>가입하신 아이디를 입력해주세요</h3>
-						<input type="text" name="username" class="username">
-						<button type="button" class="next_page">다음</button>
-					</div>
-				</main>	
-			</div>
-	</section>
-
+				<main class="password_modify_page">
+                    <div class="find_info">	
+                        <h3>새로운 비밀번호로 재설정해주세요</h3>
+                        
+                        <div class="box">
+                            <span>새 비밀번호</span>
+                            <input type="password" class="password1" name="password">
+                        </div>
+                        
+                        <div class="box">
+                            <span>새 비밀번호 확인</span>
+                            <input type="password" class="password2">
+                            <div class="password_check_msg"></div>
+                        </div>
+                        <button class="modify_btn" >변경하기</button>
+                    </div>
+                </main>
+		</div>
+		</section>
 	
 	<c:import url="../template/footer.jsp"></c:import>
 	
@@ -40,6 +49,6 @@
 <script src="/resources/js/common.js">
 
 </script>
-<script src="/resources/js/findPassword.js"></script> 
+<script src="/resources/js/modify.js"></script>
 </body>
 </html>

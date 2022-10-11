@@ -32,6 +32,20 @@
 		SELECT * FROM SIMPLEMEMBERS WHERE USERNAME =#{userName}
 	</select>
 	
+	<!-- 이름으로 찾기 -->
+	<select id="getNameCheck" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
+		select name from licensemembers where name = #{name}
+	</select>
+	
+	<!-- 아이디로 찾기 -->
+	<select id="getUserNameCheck" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
+		select username from licensemembers where username = #{userName}
+	</select>
+	
+	<select id="getFindId" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">	
+		select USERNAME from licensemembers where email = #{email}
+	</select>
+	
 	
 	
 
@@ -50,7 +64,67 @@
 		ORDER BY AR.ROLENUM ASC
 	</select>
 	
+	<select id="getPwdCheck" parameterType="LicenseMembersDTO"
+		resultMap="getRoleResult">
+		SELECT LM.NUM, LM.USERNAME,LM.PASSWORD, LM.NAME, LR.ROLENUM,AR.ROLENAME
+		FROM 
+		    LiCENSEMEMBERS LM
+		    INNER JOIN
+		    LICENSEROLE LR
+		    ON (LM.USERNAME = LR.USERNAME)
+		    	INNER JOIN
+		   		 ADMINROLE AR
+		  		  ON (LR.ROLENUM = AR.ROLENUM)
+		WHERE LM.USERNAME=#{userName}
+		ORDER BY AR.ROLENUM ASC
+	</select>
 	
+	<select id="getMemberList" parameterType="LicenseMembersDTO"
+		resultMap="getRoleResult1">
+		SELECT LM.NUM, LM.USERNAME,LM.NAME,LM.EMAIL,LM.PHONE, LR.ROLENUM,AR.ROLENAME
+		FROM 
+		    LiCENSEMEMBERS LM
+		    INNER JOIN
+		    LICENSEROLE LR
+		    ON (LM.USERNAME = LR.USERNAME)
+		    	INNER JOIN
+		   		 ADMINROLE AR
+		  		  ON (LR.ROLENUM = AR.ROLENUM)
+		ORDER BY AR.ROLENUM ASC
+	</select>
+	
+	
+	
+	<update id="modifyInfo" parameterType="LicenseMembersDTO" >
+	    UPDATE LICENSEMEMBERS SET
+	    
+	    <if test="valueType == 'password'">
+	        PASSWORD = #{value }
+	    </if>
+	    
+	    <if test="valueType == 'nickname'">
+	        NAME = #{value }		
+	    </if>
+	    
+	    <if test="valueType == 'phone'">
+	        PHONE = #{value }		
+	    </if>
+	    WHERE	USERNAME = #{userName} 
+	</update>
+
+	<resultMap type="LicenseMembersDTO" id="getRoleResult1">
+    	<id column="USERNAME" property="userName"></id>
+    	<result column="NUM" property="num"></result>
+		<result column="NAME" property="name"></result>
+		<result column="EMAIL" property="email"></result>
+		<result column="PHONE" property="phone"></result>
+		
+		<collection property="adminRoleDTOs" javaType="List" ofType="AdminRoleDTO">
+			<id column="ROLENUM" property="roleNum"></id>
+			<result column="ROLENAME" property="roleName"></result>
+			
+		</collection> 
+    </resultMap>
 	
 	<resultMap type="LicenseMembersDTO" id="getRoleResult">
     	<id column="USERNAME" property="userName"></id>
