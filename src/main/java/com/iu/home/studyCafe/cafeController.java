@@ -107,7 +107,7 @@ public class cafeController {
 ////		reservationDTO.setSeTime(value);
 ////		System.out.println(reservationDTO.getSeTime());
 //		String seDate = value;
-//		List<ReservationDTO> ar = cafeService.getSeTimeCheck(seDate);
+////		List<ReservationDTO> ar = cafeService.getSeTimeCheck(seDate);
 //		ModelAndView mv = new ModelAndView();
 //		System.out.println(ar);
 //		
