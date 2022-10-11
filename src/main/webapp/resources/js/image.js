@@ -26,7 +26,7 @@
 // }
 
 
-var imgArray = new Array();
+let imgArray = new Array();
 imgArray[0] = "https://janet.co.kr/data/licenseitem/104/7KeB7JeF7IOB64u07IKs7IOB7IS4.jpg",
 imgArray[1] = "https://janet.co.kr/data/licenseitem/150/.6rO17Ya17J2867O47Ja07IOB7IS4.jpg",
 imgArray[2] = "https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg",
@@ -40,8 +40,8 @@ imgArray[9] = "https://janet.co.kr/data/licenseitem/343/552.7J6Q7IKw6rSA66as7IKs
 imgArray[10] = "https://janet.co.kr/data/licenseitem/176/ITQ.jpg"
 
 function changeImage(){
-    var imgNum = Math.round(Math.random()*11);
-    var objImg = document.getElementById("introImg");
+    let imgNum = Math.round(Math.random()*11);
+    let objImg = document.getElementById("introImg");
     objImg.src = imgArray[imgNum];
 }
 
