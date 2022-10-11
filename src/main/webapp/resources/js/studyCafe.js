@@ -12,7 +12,6 @@ const complete = document.getElementById("complete");
 const radioText = document.getElementById("radioText");
 const radioList = document.getElementsByName("radioBtn");
 const test1 = document.getElementById("test1");
-const detailNum = test1.getAttribute("detail-Num");
 const btnRoom = document.querySelector("#btnRoom");
 let listTime = [];
 let test = " ";
