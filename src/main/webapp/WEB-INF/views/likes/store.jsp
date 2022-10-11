@@ -40,7 +40,7 @@
                             <p class="card-text schedule" data-license-num="${dto.licenseNum}"></p>                        
                             <div class="detail">
                                 <a href="/info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
-                                <a href="#" class="btn btn-primary cancel">관심등록 해제</a>
+                                <a href="#" class="btn btn-primary cancel" data-license-num="${dto.licenseNum}">관심등록 해제</a>
                             </div>
                             <div class="user-schedule">
                                 

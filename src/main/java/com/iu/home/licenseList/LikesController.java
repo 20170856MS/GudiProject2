@@ -48,4 +48,21 @@ public class LikesController {
 		map.put("result", result);
 		return map;
 	}
+	
+	@PostMapping("setDelLikes")
+	@ResponseBody
+	public Map<String,Object> setDelLikes(HttpServletRequest request, ArrDTO arrDTO) throws Exception{
+		Map<String,Object> map = new HashMap<String,Object>();		
+		HttpSession session =request.getSession();
+
+		Long num = Long.valueOf(String.valueOf(session.getAttribute("saveNum")));
+		arrDTO.setNum(num);
+
+		System.out.println(arrDTO.getLicenseNum());
+		System.out.println(num);
+		int result = licenseService.setDelLikes(arrDTO);
+		
+		map.put("result", result);
+		return map;
+	}
 }
