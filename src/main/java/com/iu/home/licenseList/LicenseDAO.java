@@ -140,4 +140,7 @@ public class LicenseDAO {
 	public int setDelJob(JobDTO jobDTO)throws Exception{
 		return sqlSession.delete(NAMESPACE+"setDelJob",jobDTO);
 	}
+	public int setDelLikes(ArrDTO arrDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"setDelLikes",arrDTO);
+	}
 }

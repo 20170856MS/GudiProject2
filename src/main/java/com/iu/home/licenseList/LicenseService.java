@@ -32,6 +32,9 @@ public class LicenseService {
 		return ar2;
 	}
 	
+	public int setDelLikes(ArrDTO arrDTO) throws Exception{
+		return licenseDAO.setDelLikes(arrDTO);
+	}
 	public int setLikes(ArrDTO arrDTO) throws Exception{
 		return licenseDAO.setLikes(arrDTO);
 	}

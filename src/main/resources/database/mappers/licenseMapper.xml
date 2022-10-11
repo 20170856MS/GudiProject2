@@ -285,4 +285,8 @@
 		INSERT INTO LICENSELIKE VALUES(LI_SEQ.NEXTVAL,#{num},#{licenseNum},SYSDATE)
 	</delete>
 
+	<delete id="setDelLikes" parameterType="ArrDTO">
+		DELETE FROM LICENSELIKE WHERE NUM=#{num} AND LICENSENUM=#{licenseNum}
+	</delete>	
+
 </mapper>
