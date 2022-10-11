@@ -37,6 +37,8 @@ public class cafeService {
 	
 	public int updateSit(CafeRoomDTO cafeRoomDTO) throws Exception{
 		return cafeDAO.updateSit(cafeRoomDTO);
+	public int updateDetail(cafeDetailDTO cafeDetailDTO) throws Exception{
+		return cafeDAO.updateDetail(cafeDetailDTO);
 	}
 	
 }

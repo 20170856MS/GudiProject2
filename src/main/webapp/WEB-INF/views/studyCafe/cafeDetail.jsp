@@ -84,18 +84,17 @@
 			    <tr>
 			    	<td>${dto.detailNum}</td>
 			      	<td>${dto.scName}</td>
-			        <td>${dto.cdPay}</td>
 					<td>${dto.cdRegion}</td>
+			        <td>${dto.cdPay}</td>
 			    </tr>
 		        <tr>
 		        	<td>설명</td>
 		        	<td>${dto.scExplain}</td>
-		        	<td>${dto.latitude}</td>
-					<td>${dto.longitude}</td>
 		        </tr>
 		    </table>
 		    
 		    <a href="./reservation?detailNum=${dto.detailNum}">예약하기</a>
+		    <a href="./updateDetail?scName=${dto.scName}">수정하기</a>
 		    
 		</div>
 	</section>
@@ -105,5 +104,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<script src="/resources/js/common.js">
 </script>
+<script src="/resources/js/studyCafeDetail.js"></script>
 </body>
 </html>

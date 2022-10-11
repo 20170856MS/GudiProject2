@@ -23,9 +23,6 @@
     		INSERT INTO RESERVATION (RESERNUM, ROOMNAME, SEDATE, SETIME, DETAILNUM,TIMELENGTH) 
     		VALUES (#{reserNum}, #{roomName}, #{seDate}, #{seTime}, #{detailNum},#{timeLength})
     	</insert>
-    	<!-- <update id="updateSit">
-    		UPDATE STUDYROOMDETAIL SET ROOMCOUNT= #{roomCount} WHERE ROOMNUM = #{roomNum} 
-    	</update> -->
     	
     	<select id="getReList" parameterType="ReListDTO" resultType="ReListDTO">
     		SELECT J.RESERNUM,E.detailNum, E.SCNAME, E.CDPAY*J.timelength AS CDPAY, E.IMG, J.ROOMNAME, J.SEDATE, J.SETIME 
@@ -39,6 +36,11 @@
     	<select id="getSeTimeCheck" parameterType="ReservationDTO" resultType="ReservationDTO" >
     		SELECT SETIME FROM RESERVATION where sedate=#{seDate} AND ROOMNAME = #{roomName} AND DETAILNUM = #{detailNum}
     	</select>
+    	<update id="updateDetail">
+    		UPDATE STUDYCAFEDETAIL SET CDPAY=#{cdPay}, CDREGION=#{cdRegion}, SCEXPLAIN=#{scExplain}
+    		WHERE SCNAME=#{scName}
+    	</update>
+    	
     </mapper>
     
     
