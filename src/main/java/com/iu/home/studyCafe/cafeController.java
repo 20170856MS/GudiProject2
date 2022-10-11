@@ -99,25 +99,26 @@ public class cafeController {
 		return "studyCafe/reList";
 	}
 	
-	@PostMapping("seTimeCheck")
-	@ResponseBody
-	public List<ReservationDTO> getSeTimeCheck(String value) throws Exception{
-		System.out.println("seTimeCheck : " + value);
-//		ReservationDTO reservationDTO = new ReservationDTO();
-//		reservationDTO.setSeTime(value);
-//		System.out.println(reservationDTO.getSeTime());
-		String seDate = value;
-		List<ReservationDTO> ar = cafeService.getSeTimeCheck(seDate);
-		ModelAndView mv = new ModelAndView();
-		System.out.println(ar);
-		
-		
-		return ar;
+//	@PostMapping("seTimeCheck")
+//	@ResponseBody
+//	public List<ReservationDTO> getSeTimeCheck(String value) throws Exception{
+//		System.out.println("seTimeCheck : " + value);
+////		ReservationDTO reservationDTO = new ReservationDTO();
+////		reservationDTO.setSeTime(value);
+////		System.out.println(reservationDTO.getSeTime());
+//		String seDate = value;
+////		List<ReservationDTO> ar = cafeService.getSeTimeCheck(seDate);
+//		ModelAndView mv = new ModelAndView();
+//		System.out.println(ar);
+//		
+//		
+//		return ar;
+//	}
 	@RequestMapping(value = "updateDetail", method=RequestMethod.GET)
-	public ModelAndView updateDetail(cafeDTO cafeDTO) throws Exception{
+	public ModelAndView updateDetail(CafeDTO cafeDTO) throws Exception{
 		System.out.println("updateDetail");
 		ModelAndView mv = new ModelAndView();
-		cafeDetailDTO cafeDetailDTO = new cafeDetailDTO();
+		CafeDetailDTO cafeDetailDTO = new CafeDetailDTO();
 		cafeDetailDTO = cafeService.getDetail(cafeDTO);
 		
 		mv.setViewName("studyCafe/updateDetail");
@@ -127,7 +128,7 @@ public class cafeController {
 	}
 	
 	@RequestMapping(value = "updateDetail", method=RequestMethod.POST)
-	public ModelAndView updateDetail(cafeDetailDTO cafeDetailDTO) throws Exception{
+	public ModelAndView updateDetail(CafeDetailDTO cafeDetailDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = cafeService.updateDetail(cafeDetailDTO);
 		System.out.println(cafeDetailDTO.getScName());
