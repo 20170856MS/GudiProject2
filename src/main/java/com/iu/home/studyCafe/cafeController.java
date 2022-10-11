@@ -137,5 +137,18 @@ public class cafeController {
 		return mv;
 	}
 	
+	@RequestMapping(value="addList")
+	public String addList() throws Exception{
+		return "studyCafe/addList";
+	}
+	@RequestMapping(value="updateList")
+	public String updateList() throws Exception{
+		return "studyCafe/updateList";
+	}
+	@RequestMapping(value="deleteList")
+	public String deleteList() throws Exception{
+		return "studyCafe/deleteList";
+	}
+	
 }
 

@@ -5,7 +5,10 @@
     
     <mapper namespace="com.iu.home.studyCafe.cafeDAO">
     	<select id="getList" resultType="CafeDTO" parameterType="CafeDTO">
-    		SELECT S.* , J.AREANAME FROM STUDYCAFE S JOIN AREA J ON (S.AREANAME= J.AREANAME) ORDER BY SCNUM ASC
+    		SELECT S.* , J.AREANAME, G.LATITUDE, G.LONGITUDE FROM STUDYCAFE S 
+    		JOIN AREA J ON (S.AREANAME= J.AREANAME) 
+    		JOIN STUDYCAFEDETAIL G ON (S.SCNAME=G.SCNAME) 
+    		ORDER BY SCNUM ASC
     	</select>
     	
     	<select id="getDetail" parameterType="CafeDTO" resultType="CafeDetailDTO">
@@ -40,6 +43,7 @@
     		UPDATE STUDYCAFEDETAIL SET CDPAY=#{cdPay}, CDREGION=#{cdRegion}, SCEXPLAIN=#{scExplain}
     		WHERE SCNAME=#{scName}
     	</update>
+    	
     	
     </mapper>
     

@@ -16,10 +16,6 @@ const detailNum = test1.getAttribute("detail-Num");
 const btnRoom = document.querySelector("#btnRoom");
 let listTime = [];
 let test = " ";
-const addList = document.getElementById("addList");
-const updateList = document.getElementById("updateList");
-const deleteList = document.getElementById("deleteList");
-
 
 
 // -----TimePicker------
