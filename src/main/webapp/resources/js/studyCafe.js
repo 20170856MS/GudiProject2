@@ -160,7 +160,6 @@ sendDate.addEventListener("click", function(){
                 location.replace("./reList");
                 i = 0;
                 
-                
                 // if(result.result==1){
                 //     console.log("수정 성공");
                 //     alert('수정 성공');
