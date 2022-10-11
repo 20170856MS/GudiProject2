@@ -96,6 +96,28 @@ public class cafeController {
 		return "studyCafe/reList";
 	}
 	
+	@RequestMapping(value = "updateDetail", method=RequestMethod.GET)
+	public ModelAndView updateDetail(cafeDTO cafeDTO) throws Exception{
+		System.out.println("updateDetail");
+		ModelAndView mv = new ModelAndView();
+		cafeDetailDTO cafeDetailDTO = new cafeDetailDTO();
+		cafeDetailDTO = cafeService.getDetail(cafeDTO);
+		
+		mv.setViewName("studyCafe/updateDetail");
+		mv.addObject("dto", cafeDetailDTO);
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "updateDetail", method=RequestMethod.POST)
+	public ModelAndView updateDetail(cafeDetailDTO cafeDetailDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = cafeService.updateDetail(cafeDetailDTO);
+		System.out.println(cafeDetailDTO.getScName());
+		mv.setViewName("studyCafe/cafeList");
+		mv.addObject("dto", cafeDetailDTO);
+		return mv;
+	}
 	
 }
 

@@ -25,50 +25,40 @@
 		padding-left: 0px;
 		padding-right: 0px;">
         	<div class="row">
-  
-
-    			<h1>StudyCafe</h1>
-
-
+				
+				<h1>updateDetail</h1>
+				
 				<table>
-					<tr>
-					    <th scope="col">번호</th>
-						<th scope="col">지역</th>
-					    <th scope="col">카페이름</th>
-					</tr>
-					<c:forEach items="${list}" var="dto">
-						<tr>
-							<td>${dto.scNum}</td>
-							<td>${dto.areaName}</td>
-							<td>
-								<a href="./cafeDetail?scName=${dto.scName}">${dto.scName}</a>
-							</td>
-							<td><img src="/resources/img/GOOD.png" width="60px" height="50px"></td>
-								
-						</tr>
-						
-					</c:forEach>
-				</table>
-
-				<div>
-					<button id="addList">추가</button>
-					<button id="updateList">수정</button>
-					<button id="deleteList">삭제</button>
-				</div>
-   
-   			</div>
+		        <tr id="namePlace">
+					<td id="scName">${dto.scName}</td>
+		        </tr>
+			    <tr id="regionPlace">
+					<td>장소</td>
+					<td id="cdRegion">${dto.cdRegion}</td>
+					<td><button id="rBtn" style="display: none;">완료</button></td>
+			    </tr>
+				<tr id="payPlace">
+					<td>가격</td>
+					<td id="cdPay">${dto.cdPay}</td>
+					<td><button id="pBtn" style="display: none;">완료</button></td>
+				</tr>
+		        <tr id="explainPlace">
+		        	<td>설명</td>
+		        	<td id="scExplain">${dto.scExplain}</td>
+		        	<td><button id="eBtn" style="display: none;">완료</button></td>
+		        </tr>
+		    </table>
+			<button id="completeUpdate">수정 완료</button>
+			
+				
+			</div>
 		</section>
 	
-	<c:import url="../template/footer.jsp"></c:import>
+<c:import url="../template/footer.jsp"></c:import>
     
-	
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-   
 	<script src="/resources/js/common.js">
-
 </script>
-	<script src="/resources/js/studyCafe.js"></script>
-	<script src="/webapp/resources/js/studyCafe.js"></script>
+<script src="/resources/js/studyCafeDetail.js"></script>
 </body>
 </html>

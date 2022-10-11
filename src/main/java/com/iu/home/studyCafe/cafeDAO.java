@@ -34,8 +34,8 @@ public class cafeDAO {
 	}
 	
 	
-	public int updateSit(cafeRoomDTO cafeRoomDTO) throws Exception{
-		return sqlSession.update(NAMESPACE+"updateSit", cafeRoomDTO);
+	public int updateDetail(cafeDetailDTO cafeDetailDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"updateDetail", cafeDetailDTO);
 	}
 	
 }

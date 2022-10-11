@@ -12,9 +12,12 @@ const complete = document.getElementById("complete");
 const radioText = document.getElementById("radioText");
 const radioList = document.getElementsByName("radioBtn");
 const test1 = document.getElementById("test1");
-const detailNum = test1.getAttribute("detail-Num");
 let listTime = [];
 let test = " ";
+const addList = document.getElementById("addList");
+const updateList = document.getElementById("updateList");
+const deleteList = document.getElementById("deleteList");
+const detailNum = test1.getAttribute("detail-Num");
 
 
 // -----TimePicker------
@@ -57,9 +60,19 @@ let test = " ";
 
 // });
 // -----TimePicker------
-
-
-
+testText.addEventListener("click", function(){
+    console.log("testText");
+    
+});
+addList.addEventListener("click", function(){
+    console.log("addList");
+});
+updateList.addEventListener("click", function(){
+    console.log("updateList");
+});
+deleteList.addEventListener("click", function(){
+    console.log("deleteList");
+});
 
 sendDate.addEventListener("click", function(){
     console.log(listTime);

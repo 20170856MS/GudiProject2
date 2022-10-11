@@ -31,8 +31,8 @@ public class cafeService {
 		return cafeDAO.getReList(reserNum);
 	}
 	
-	public int updateSit(cafeRoomDTO cafeRoomDTO) throws Exception{
-		return cafeDAO.updateSit(cafeRoomDTO);
+	public int updateDetail(cafeDetailDTO cafeDetailDTO) throws Exception{
+		return cafeDAO.updateDetail(cafeDetailDTO);
 	}
 	
 }
