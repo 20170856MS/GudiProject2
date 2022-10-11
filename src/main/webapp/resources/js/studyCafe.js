@@ -61,7 +61,15 @@ let test = " ";
 var arrSeTime = new Array();
 
 btnRoom.addEventListener("click",function(){
+    radioList.forEach((node) => {
+        if(node.checked){
+            radioText.innerText = node.value;
+        }
+    });
+    
     console.log("dateText= "+dateText.textContent);
+    console.log("roomName="+radioText.textContent)
+    console.log("detailNum="+detailNum)
     //배열초기화
     arrSeTime = new Array();
 

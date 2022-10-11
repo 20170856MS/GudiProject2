@@ -34,8 +34,8 @@ public class cafeDAO {
 	}
 	
 	
-	public List<ReservationDTO> getSeTimeCheck(String seDate) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getSeTimeCheck", seDate);
+	public List<ReservationDTO> getSeTimeCheck(ReservationDTO reservationDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getSeTimeCheck", reservationDTO);
 	}
 	
 	public int updateSit(CafeRoomDTO cafeRoomDTO) throws Exception{

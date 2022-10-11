@@ -31,8 +31,8 @@ public class cafeService {
 		return cafeDAO.getReList(reserNum);
 	}
 	
-	public List<ReservationDTO> getSeTimeCheck(String seDate) throws Exception{
-		return cafeDAO.getSeTimeCheck(seDate);
+	public List<ReservationDTO> getSeTimeCheck(ReservationDTO reservationDTO) throws Exception{
+		return cafeDAO.getSeTimeCheck(reservationDTO);
 	}
 	
 	public int updateSit(CafeRoomDTO cafeRoomDTO) throws Exception{
