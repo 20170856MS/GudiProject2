@@ -21,7 +21,7 @@
 		
 		<typeAlias type="com.iu.home.licenseorder.OrderDTO" alias="OrderDTO"/>
 		<typeAlias type="com.iu.home.licenseorder.PayDTO" alias="PayDTO"/>
-				<typeAlias type="com.iu.home.licenseadmin.AdminDTO" alias="AdminDTO"/>
+		<typeAlias type="com.iu.home.licenseadmin.AdminDTO" alias="AdminDTO"/>
 		
 
 	
@@ -39,11 +39,11 @@
 		<typeAlias type="com.iu.home.licenseQna.QnaCommentDTO" alias="QnaCommentDTO"/>
 
 		
-		<typeAlias type="com.iu.home.studyCafe.cafeDTO" alias="cafeDTO"/>
-		<typeAlias type="com.iu.home.studyCafe.cafeDetailDTO" alias="cafeDetailDTO"/>
-		<typeAlias type="com.iu.home.studyCafe.cafeRoomDTO" alias="cafeRoomDTO"/>
-		<typeAlias type="com.iu.home.studyCafe.reservationDTO" alias="reservationDTO"/>
-		<typeAlias type="com.iu.home.studyCafe.reListDTO" alias="reListDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.CafeDTO" alias="CafeDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.CafeDetailDTO" alias="CafeDetailDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.CafeRoomDTO" alias="CafeRoomDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.ReservationDTO" alias="ReservationDTO"/>
+		<typeAlias type="com.iu.home.studyCafe.ReListDTO" alias="ReListDTO"/>
 
 	</typeAliases>
 

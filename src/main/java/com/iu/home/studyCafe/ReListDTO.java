@@ -1,6 +1,6 @@
 package com.iu.home.studyCafe;
 
-public class reListDTO {
+public class ReListDTO {
 	private Long reserNum;
 	private Long detailNum;
 	

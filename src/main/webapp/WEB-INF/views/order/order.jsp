@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet"
-	href="/resources/css/order.css?after22">
+	href="/resources/css/order.css">
 
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
@@ -116,6 +116,39 @@
                                         <fmt:formatNumber value="${total * 0.05 }" maxFractionDigits="0" type="number"/>원</span>
                                         <input type="hidden" value="${userPoint }" id="userPoint">    
                                     </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-lg-6">
+                        <div class="place-order">
+                            <h4>상품 정보</h4>
+                            <div class="order-total">
+                                <ul class="order-table">
+                                    <h1>예약리스트</h1>
+                                        <table>
+                                            <tr>
+                                                <th scope="col">카페번호</th>
+                                                <th scope="col">카페이름</th>
+                                                <th scope="col">방이름</th>
+                                                <th scope="col">가격</th>
+                                                <th scope="col">날짜</th>
+                                                <th scope="col">시간</th>
+                                                <th scope="col">이미지</th>
+                                            </tr>
+                                            <c:forEach items="${list}" var="dto">
+                                                    <tr>		
+                                                        <td>${dto.detailNum}</td>
+                                                        <td>${dto.scName}</td>
+                                                        <td>${dto.roomName}</td>
+                                                        <td>${dto.cdPay}</td>
+                                                        <td>${dto.seDate}</td>
+                                                        <td>${dto.seTime}</td>
+                                                        <td><img src="/resources/img/${dto.img}" width="100px" height="100px"></td>
+                                                    </tr> 
+                                            </c:forEach>
+                                        </table>
                                 </ul>
                             </div>
                         </div>

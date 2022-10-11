@@ -1,6 +1,6 @@
 package com.iu.home.studyCafe;
 
-public class updateReDTO extends reservationDTO{
+public class UpdateReDTO extends ReservationDTO{
 	
 	private Long onoff;
 	

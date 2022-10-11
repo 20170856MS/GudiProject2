@@ -17,7 +17,6 @@
 	
 	<!-- 달력 -->
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
 	<meta name="description" content="A lightweight, customizable jQuery timepicker plugin inspired by Google Calendar. Add a user-friendly javascript timepicker dropdown to your app in minutes." />
@@ -186,7 +185,7 @@
 				</table>
 				
 				<text id="dateText"></text>
-				<button id="btnRoom">날짜선택 완료</button>
+				<button id="btnRoom" >날짜선택 완료</button>
 
 					<div magin : 50px 0>
 						<br>
@@ -224,7 +223,7 @@
 							<tr>
 								<td>
 									<button class="timeBtn" value="07:00">07:00</button>
-									<button class="timeBtn" value="08:00">08:00</button>
+									<button class="timeBtn" value="08:00" >08:00</button>
 									<button class="timeBtn" value="09:00">09:00</button>
 									<button class="timeBtn" value="10:00">10:00</button>
 									<button class="timeBtn" value="11:00">11:00</button>

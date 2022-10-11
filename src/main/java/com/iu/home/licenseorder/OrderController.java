@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.databind.util.JSONWrappedObject;
 import com.iu.home.studyCafe.cafeService;
-import com.iu.home.studyCafe.reListDTO;
+import com.iu.home.studyCafe.ReListDTO;
 import com.iu.home.util.UserCriteria;
 import com.iu.home.util.UserPageMaker;
 import com.siot.IamportRestClient.IamportClient;
