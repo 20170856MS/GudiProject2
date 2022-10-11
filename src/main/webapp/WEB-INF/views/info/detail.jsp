@@ -78,7 +78,7 @@
 								<a class="btn btn-primary" href="#!"id="interest" data-num="${saveNum}" data-license-num="${name.licenseNum}">관심 등록</a>
 							</c:when>
 							<c:otherwise>
-								<a class="btn btn-primary" href="#!"id="needMember">관심 등록(로그인)</a>
+								<a class="btn btn-primary" href="#!"id="interest">관심 등록(로그인 필요)</a>
 							</c:otherwise>
 						</c:choose>
 						
