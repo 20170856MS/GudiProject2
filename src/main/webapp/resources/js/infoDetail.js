@@ -1,3 +1,4 @@
+console.log("testsetst");
 const btnModal = document.querySelector("#btnModal");
 const interest = document.querySelector("#interest");
 const board = document.querySelector("#board");
@@ -194,10 +195,20 @@ chks.addEventListener("click",function(event){                                  
             arr2[i]=form4[i].innerText;
         }
     }
-    let chk = window.confirm("삭제하시겠습니까?");
-    if(chk==true){
-        setDel(arr1,arr2);
-    }
+    swal({
+        title: "삭제하시겠습니까?",
+        text: "되돌릴수 없습니다..",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            setDel(arr1,arr2);          
+        } else {
+          swal("취소하였습니다.");
+        }
+      });
 });
 chkb.addEventListener("click",function(event){
     sbvj="b";
@@ -212,10 +223,20 @@ chkb.addEventListener("click",function(event){
             arr2[i]=form6[i].innerText;
         }
     }
-    let chk = window.confirm("삭제하시겠습니까?");
-    if(chk==true){
-        setDel(arr1,arr2);
-    }
+    swal({
+        title: "삭제하시겠습니까?",
+        text: "되돌릴수 없습니다..",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            setDel(arr1,arr2);          
+        } else {
+          swal("취소하였습니다.");
+        }
+      });
 });
 chkv.addEventListener("click",function(event){
     sbvj="v";
@@ -230,10 +251,20 @@ chkv.addEventListener("click",function(event){
             arr2[i]=form8[i].getAttribute("data-link");
         }
     }
-    let chk = window.confirm("삭제하시겠습니까?");
-    if(chk==true){
-        setDel(arr1,arr2);
-    }
+    swal({
+        title: "삭제하시겠습니까?",
+        text: "되돌릴수 없습니다..",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            setDel(arr1,arr2);          
+        } else {
+          swal("취소하였습니다.");
+        }
+      });
 });
 chkj.addEventListener("click",function(event){
     sbvj="j";
@@ -248,10 +279,20 @@ chkj.addEventListener("click",function(event){
             arr2[i]=form10[i].innerText;
         }
     }
-    let chk = window.confirm("삭제하시겠습니까?");
-    if(chk==true){
-        setDel(arr1,arr2);
-    }
+    swal({
+        title: "삭제하시겠습니까?",
+        text: "되돌릴수 없습니다..",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            setDel(arr1,arr2);          
+        } else {
+          swal("취소하였습니다.");
+        }
+      });
 });
 function setDel(arr1,arr2){
     console.log("setDel함수실행:");
@@ -705,46 +746,60 @@ function getUpdate(ln,group){                                   //수정모달�
 }
 btnModal.addEventListener("click",function(){                           //모달최종버튼
     let txt = btnModal.innerHTML;
-    let chk = window.confirm(txt+"하시겠습니까?");//위치가운데로
-    if(chk==true){
-        let form1 = document.querySelectorAll(".form1");
-        let form2 = document.querySelectorAll(".form2");
 
-        let arr1 = [];
-        let arr2 = [];
-        for(let i=0; i<form1.length;i++){            
-            arr1[i]=form1[i].value;
-        }
-        for(let i=0; i<form2.length;i++){            
-            arr2[i]=form2[i].value;
-        }    
-        //--------------ajax---------------------
-        const xhttp = new XMLHttpRequest();
-        if(txt=="수정"){
-            xhttp.open("POST","setUpdate");
-        }
-        if(txt=="추가"){
-            xhttp.open("POST","setAdd");
-        }
-        if(txt=="삭제"){
-            xhttp.open("POST","setDel");
-        }
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        console.log(arr1,arr2,sbvj);
+    swal({
+        title: txt+"하시겠습니까?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            {
+                let form1 = document.querySelectorAll(".form1");
+                let form2 = document.querySelectorAll(".form2");
         
-        xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj+"&licenseNum="+ln);
-
-        setTimeout(function(){ 
-            window.location.reload();
-            console.log("새로고침");
-            swal(txt+"되었습니다.",'','success');
-        }, 1000);
-
-        xhttp.onreadystatechange=function(){
-        if(xhttp.readyState == 4 && xhttp.status == 200){
-            console.log("js 완료");//응답 안오는 이유??
+                let arr1 = [];
+                let arr2 = [];
+                for(let i=0; i<form1.length;i++){            
+                    arr1[i]=form1[i].value;
+                }
+                for(let i=0; i<form2.length;i++){            
+                    arr2[i]=form2[i].value;
+                }    
+                //--------------ajax---------------------
+                const xhttp = new XMLHttpRequest();
+                if(txt=="수정"){
+                    xhttp.open("POST","setUpdate");
+                }
+                if(txt=="추가"){
+                    xhttp.open("POST","setAdd");
+                }
+                if(txt=="삭제"){
+                    xhttp.open("POST","setDel");
+                }
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                console.log(arr1,arr2,sbvj);
+                
+                xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj+"&licenseNum="+ln);
+        
+                setTimeout(function(){ 
+                    window.location.reload();
+                    console.log("새로고침");
+                    swal(txt+"되었습니다.",'','success');
+                }, 1000);
+        
+                xhttp.onreadystatechange=function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200){
+                    console.log("js 완료");//응답 안오는 이유??
+                }
+            }}
+        } else {
+          swal("취소하였습니다.");
         }
-    }}
+      });
+    
+
 })
 
 const test = document.querySelector("#test");

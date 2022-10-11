@@ -151,7 +151,7 @@
 					<div class="col-md-4 mb-5">
 						<div class="card h-100">
 							<div class="card-body">
-								<h2 class="card-title">직업소개</h2>
+								<h2 class="card-title">자격증 소개</h2>
 								<p class="card-text">
 									<c:forEach items="${requestScope.detailJob}" var="detailJob">
 

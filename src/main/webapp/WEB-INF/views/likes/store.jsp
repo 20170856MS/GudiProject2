@@ -27,22 +27,36 @@
 
 	<section class="checkout-section spad mt-5">
 		<div class="container">
-			<c:forEach items="${requestScope.list}" var="dto">
-                        ${dto.licenseName}<br>
-            </c:forEach> 
+            <div class="cards">
+                <c:forEach items="${requestScope.list}" var="dto">
+                    
+                    <div class="card" >
+                        <div class="user-wrap">
+                            <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
+                            <div class="user-text">조회수 ${dto.licenseHits}</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${dto.licenseName}</h5>
+                            <p class="card-text schedule" data-license-num="${dto.licenseNum}"></p>                        
+                            <div class="detail">
+                                <a href="/info/detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
+                                <a href="#" class="btn btn-primary cancel">관심등록 해제</a>
+                            </div>
+                            <div class="user-schedule">
+                                
+                            </div>
+                        </div>
+                    </div><br>
+                </c:forEach> 
+            </div>
 				
 		</div>
 	</section>
 
 <c:import url="../template/footer.jsp"></c:import>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
-    <script src="/resources/js/admin.js">
-        
-    </script>
-    <script src="/resources/js/common.js">
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="/resources/js/store.js"></script>
+    <script src="/resources/js/common.js"></script>
 </body>
 </html>
