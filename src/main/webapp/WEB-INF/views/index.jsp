@@ -179,7 +179,7 @@
                         </div>
                     </c:forEach>
                 </div>
-                <div class="meImg"><img src="/resources/img/awarded.png"></div>
+                <div class="meImg"><img src="/resources/img/awarded.png" style="margin-left: 1550px;"></div>
             </div>
             </div>
             <!-- footer.jsp -->
