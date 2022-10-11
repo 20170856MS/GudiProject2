@@ -1,6 +1,6 @@
 package com.iu.home.studyCafe;
 
-public class cafeRoomDTO {
+public class CafeRoomDTO {
 	private Long roomNum;
 	private Long roomCount;
 	private String roomName;

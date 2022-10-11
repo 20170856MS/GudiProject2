@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.iu.home.studyCafe.reservationDTO;
+import com.iu.home.studyCafe.ReservationDTO;
 import com.iu.home.util.MyAbstractTest;
 
 public class cafeTest extends MyAbstractTest{
@@ -27,7 +27,7 @@ public class cafeTest extends MyAbstractTest{
 //	}
 	@Test
 	public void test() throws Exception{
-		reservationDTO reservationDTO = new reservationDTO();
+		ReservationDTO reservationDTO = new ReservationDTO();
 		reservationDTO.setRoomName("공부방1");
 		reservationDTO.setSeDate("2022-09-30");
 		reservationDTO.setSeTime("18:00,19:00,20:00,21:00");

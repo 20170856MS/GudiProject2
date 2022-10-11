@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,17 +27,17 @@ public class cafeController {
 	@RequestMapping(value = "cafeList", method = RequestMethod.GET)
 	public String list(Model model) throws Exception{
 		System.out.println("cafeList");
-		List<cafeDTO> ar = cafeService.getList();
+		List<CafeDTO> ar = cafeService.getList();
 		model.addAttribute("list", ar);
 		
 		return "studyCafe/cafeList";
 	}
 	
 	@RequestMapping(value = "cafeDetail", method = RequestMethod.GET)
-	public ModelAndView cafeDetail(cafeDTO cafeDTO) throws Exception{
+	public ModelAndView cafeDetail(CafeDTO cafeDTO) throws Exception{
 		System.out.println("cafeDetail");
 		ModelAndView mv = new ModelAndView();
-		cafeDetailDTO cafeDetailDTO = new cafeDetailDTO();
+		CafeDetailDTO cafeDetailDTO = new CafeDetailDTO();
 		
 		cafeDetailDTO = cafeService.getDetail(cafeDTO);
 		
@@ -48,11 +49,11 @@ public class cafeController {
 	}
 	
 	@RequestMapping(value = "reservation", method = RequestMethod.GET)
-	public String cafeRoomList(cafeDetailDTO cafeDetailDTO, Model model, cafeDTO cafeDTO) throws Exception{
+	public String cafeRoomList(CafeDetailDTO cafeDetailDTO, Model model, CafeDTO cafeDTO) throws Exception{
 		
 		cafeDetailDTO.getDetailNum();
 		System.out.println(cafeDetailDTO.getDetailNum());
-		List<cafeRoomDTO> ar = cafeService.getRoomList(cafeDetailDTO);
+		List<CafeRoomDTO> ar = cafeService.getRoomList(cafeDetailDTO);
 		
 		model.addAttribute("roomList", ar);
 		System.out.println(ar);
@@ -67,9 +68,11 @@ public class cafeController {
 	
 
 	@RequestMapping(value="cafeList", method=RequestMethod.POST)
-	public ModelAndView addDate(reservationDTO reservationDTO,HttpServletRequest request) throws Exception{
+	public ModelAndView addDate(ReservationDTO reservationDTO,HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println("cafeList post 실행");
+		System.out.println(reservationDTO.getSeTime());
+		System.out.println(reservationDTO.getSeDate());
 		int result = cafeService.addDate(reservationDTO);
 		HttpSession session = request.getSession();
 		session.setAttribute("reserNum", reservationDTO.getReserNum());
@@ -89,13 +92,28 @@ public class cafeController {
 	public String reList(Model model,HttpSession session) throws Exception{
 		System.out.println("cafeReList");
 		Long reserNum = (Long)session.getAttribute("reserNum");
-		List<reListDTO> ar = cafeService.getReList(reserNum);
+		List<ReListDTO> ar = cafeService.getReList(reserNum);
 		System.out.println(ar.get(0).getCdPay());
 		model.addAttribute("list", ar);
 		
 		return "studyCafe/reList";
 	}
 	
+	@PostMapping("seTimeCheck")
+	@ResponseBody
+	public List<ReservationDTO> getSeTimeCheck(String value) throws Exception{
+		System.out.println("seTimeCheck : " + value);
+//		ReservationDTO reservationDTO = new ReservationDTO();
+//		reservationDTO.setSeTime(value);
+//		System.out.println(reservationDTO.getSeTime());
+		String seDate = value;
+		List<ReservationDTO> ar = cafeService.getSeTimeCheck(seDate);
+		ModelAndView mv = new ModelAndView();
+		System.out.println(ar);
+		
+		
+		return ar;
+	}
 	
 }
 

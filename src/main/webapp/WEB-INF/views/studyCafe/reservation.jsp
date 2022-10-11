@@ -17,7 +17,6 @@
 	
 	<!-- 달력 -->
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
 	<meta name="description" content="A lightweight, customizable jQuery timepicker plugin inspired by Google Calendar. Add a user-friendly javascript timepicker dropdown to your app in minutes." />
@@ -186,81 +185,82 @@
 				</table>
 				
 				<text id="dateText"></text>
+				<button id="btnRoom" >날짜선택 완료</button>
 
-				
-				<div magin : 50px 0>
-					<br>
-				</div>
-				<c:forEach items="${roomList}" var="rdto" end="0">
-					<text id="test1" detail-Num="${rdto.detailNum}">${rdto.detailNum}</text>
-				</c:forEach>
+					<div magin : 50px 0>
+						<br>
+					</div>
+					<c:forEach items="${roomList}" var="rdto" end="0">
+						<text id="test1" hidden detail-Num="${rdto.detailNum}">${rdto.detailNum}</text>
+					</c:forEach>
 
-				<h1>방 선택</h1>
-		        <table>
-		         	<tr>
-		         		<td>방이름</td>
-		         		<td>방개수</td>
-	
-		         	</tr>
-			        <c:forEach items="${roomList}" var="rdto">
-			         	<tr>
-			         		<td>
-								<div class="form-check">
-									<input class="form-check-input" value="${rdto.roomName}" type="radio" name="radioBtn" id="radio_${rdto.roomName}">
-									<label class="form-check-label" for="flexRadioDefault1">
-										${rdto.roomName}
-									</label>
-								</div>
-							</td>
-							<td>${rdto.roomCount}</td>
-								
-			     		</tr>
-		         	</c:forEach>	 
-				</table>
-				<text id="radioText"></text>
-				
-				
-				 <table>
-					<tr>
-						<td>
-							<button class="timeBtn" value="07:00">07:00</button>
-							<button class="timeBtn" value="08:00">08:00</button>
-							<button class="timeBtn" value="09:00">09:00</button>
-							<button class="timeBtn" value="10:00">10:00</button>
-							<button class="timeBtn" value="11:00">11:00</button>
-							<button class="timeBtn" value="12:00">12:00</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button class="timeBtn" value="13:00">13:00</button>
-							<button class="timeBtn" value="14:00">14:00</button>
-							<button class="timeBtn" value="15:00">15:00</button>
-							<button class="timeBtn" value="16:00">16:00</button>
-							<button class="timeBtn" value="17:00">17:00</button>
-							<button class="timeBtn" value="18:00">18:00</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button class="timeBtn" value="19:00">19:00</button>
-							<button class="timeBtn" value="20:00">20:00</button>
-							<button class="timeBtn" value="21:00">21:00</button>
-							<button class="timeBtn" value="22:00">22:00</button>
-							<button class="timeBtn" value="23:00">23:00</button>
-							
-						</td>
-					</tr>
-				</table>
+					<h1>방 선택</h1>
+					<table>
+						<tr>
+							<td>방이름</td>
+							<td>방개수</td>
+		
+						</tr>
+						<c:forEach items="${roomList}" var="rdto">
+							<tr>
+								<td>
+									<div class="form-check">
+										<input class="form-check-input" value="${rdto.roomName}" type="radio" name="radioBtn" id="radio_${rdto.roomName}">
+										<label class="form-check-label" for="flexRadioDefault1">
+											${rdto.roomName}
+										</label>
+									</div>
+								</td>
+								<td>${rdto.roomCount}</td>
+									
+							</tr>
+						</c:forEach>	 
+					</table>
+					<text id="radioText"></text>
+					
+					<div class="room_box">
+					<table >
+							<tr>
+								<td>
+									<button class="timeBtn" value="07:00">07:00</button>
+									<button class="timeBtn" value="08:00" >08:00</button>
+									<button class="timeBtn" value="09:00">09:00</button>
+									<button class="timeBtn" value="10:00">10:00</button>
+									<button class="timeBtn" value="11:00">11:00</button>
+									<button class="timeBtn" value="12:00">12:00</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="timeBtn" value="13:00">13:00</button>
+									<button class="timeBtn" value="14:00">14:00</button>
+									<button class="timeBtn" value="15:00">15:00</button>
+									<button class="timeBtn" value="16:00">16:00</button>
+									<button class="timeBtn" value="17:00">17:00</button>
+									<button class="timeBtn" value="18:00">18:00</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="timeBtn" value="19:00">19:00</button>
+									<button class="timeBtn" value="20:00">20:00</button>
+									<button class="timeBtn" value="21:00">21:00</button>
+									<button class="timeBtn" value="22:00">22:00</button>
+									<button class="timeBtn" value="23:00">23:00</button>
+									
+								</td>
+							</tr>
+					</table>
 
-				<div>
-					<button id="complete">선택완료</button>
-					<text id="timeText"></text><br>
-					<text id="timeText1"></text>
-				</div>
+					<div>
+						<button id="complete">선택완료</button>
+						<text id="timeText"></text><br>
+						<text id="timeText1"></text>
+					</div>
+					
+					<button id="sendDate" type="button">예약완료</button>
+					</div>
 				
-				<button id="sendDate" type="button">예약완료</button>
-			
 		
 			</div>
 		</section>

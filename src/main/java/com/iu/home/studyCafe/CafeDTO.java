@@ -1,6 +1,6 @@
 package com.iu.home.studyCafe;
 
-public class cafeDTO {
+public class CafeDTO {
 
 	private Long scNum;
 	private Long areaNum;

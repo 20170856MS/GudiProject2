@@ -1,6 +1,6 @@
 package com.iu.home.studyCafe;
 
-public class cafeDetailDTO{
+public class CafeDetailDTO{
 	
 	
 	private Long detailNum;

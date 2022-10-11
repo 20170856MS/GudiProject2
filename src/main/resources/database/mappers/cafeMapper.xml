@@ -4,18 +4,18 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.iu.home.studyCafe.cafeDAO">
-    	<select id="getList" resultType="cafeDTO">
+    	<select id="getList" resultType="CafeDTO" parameterType="CafeDTO">
     		SELECT S.* , J.AREANAME FROM STUDYCAFE S JOIN AREA J ON (S.AREANAME= J.AREANAME) ORDER BY SCNUM ASC
     	</select>
     	
-    	<select id="getDetail" parameterType="cafeDTO" resultType="cafeDetailDTO">
+    	<select id="getDetail" parameterType="CafeDTO" resultType="CafeDetailDTO">
     		SELECT * FROM STUDYCAFEDETAIL WHERE SCNAME IN (SELECT SCNAME FROM STUDYCAFE WHERE SCNAME = #{scName})
     	</select>
-    	<select id="getRoomList" parameterType="cafeDetailDTO" resultType="cafeRoomDTO">
+    	<select id="getRoomList" parameterType="CafeDetailDTO" resultType="CafeRoomDTO">
     		SELECT * FROM STUDYROOMDETAIL WHERE DETAILNUM IN (SELECT DETAILNUM FROM STUDYCAFEDETAIL WHERE DETAILNUM = #{detailNum})
     	</select>
     	
-    	<insert id="addDate" parameterType="reservationDTO">
+    	<insert id="addDate" parameterType="ReservationDTO">
 	    	<selectKey keyProperty="reserNum" order="BEFORE"
 				resultType="Long">
 				SELECT RESER_SEQ.NEXTVAL FROM DUAL
@@ -27,13 +27,17 @@
     		UPDATE STUDYROOMDETAIL SET ROOMCOUNT= #{roomCount} WHERE ROOMNUM = #{roomNum} 
     	</update> -->
     	
-    	<select id="getReList" parameterType="reListDTO" resultType="reListDTO">
+    	<select id="getReList" parameterType="ReListDTO" resultType="ReListDTO">
     		SELECT J.RESERNUM,E.detailNum, E.SCNAME, E.CDPAY*J.timelength AS CDPAY, E.IMG, J.ROOMNAME, J.SEDATE, J.SETIME 
 			FROM 
 			STUDYCAFEDETAIL E JOIN 
 			RESERVATION J 
 			ON (E.DETAILNUM = J.DETAILNUM)
             WHERE RESERNUM = #{reserNum}
+    	</select>
+    	
+    	<select id="getSeTimeCheck" parameterType="ReservationDTO" resultType="ReservationDTO" >
+    		SELECT SETIME FROM RESERVATION where sedate=#{seDate}
     	</select>
     </mapper>
     
