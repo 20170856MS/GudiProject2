@@ -16,7 +16,9 @@ const detailNum = test1.getAttribute("detail-Num");
 const btnRoom = document.querySelector("#btnRoom");
 let listTime = [];
 let test = " ";
-
+const addList = document.getElementById("addList");
+const updateList = document.getElementById("updateList");
+const deleteList = document.getElementById("deleteList");
 
 // -----TimePicker------
 // sendDate.addEventListener("click", function(){
@@ -80,14 +82,16 @@ btnRoom.addEventListener("click",function(){
     for(let i = 0 ; i<timeBtn.length; i++){
         console.log(timeBtn[i].removeAttribute('disabled'));
     }
-    
-    $(".room_box").fadeIn(100);
+    if(dateText.textContent != "" && radioText.textContent != "" && detailNum != ""){
+        $(".room_box").fadeIn(100);
 
 	$.ajax({
 		url: "/studyCafe/seTimeCheck",
 		type: "POST",
 		data: {
 			value : dateText.textContent,
+            roomName : radioText.textContent,
+            detailNum : detailNum
 		}
 	})
 	.done(function(data){
@@ -117,7 +121,11 @@ btnRoom.addEventListener("click",function(){
             }
         }
         
-	)
+	)    
+    } else{
+        swal("날짜,방을 선택해주세요","","error")
+    }
+    
     
 
 })
@@ -165,7 +173,7 @@ sendDate.addEventListener("click", function(){
     
                 
                 alert('저장완료');
-                location.replace("./reList");
+                location.replace("/order/order");
                 i = 0;
                 
                 // if(result.result==1){

@@ -59,18 +59,31 @@ public class OrderController {
 	
 	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
 	
+	@RequestMapping(value = "reList")
+	public String reList(Model model,HttpSession session) throws Exception{
+		System.out.println("cafeReList");
+		Long reserNum = (Long)session.getAttribute("reserNum");
+		List<ReListDTO> ar = cafeService.getReList(reserNum);
+		System.out.println(ar.get(0).getCdPay());
+		model.addAttribute("list", ar);
+		
+		return "studyCafe/reList";
+	}
 	
 	@GetMapping("order")
-	public ModelAndView orderGET(OrderDTO orderDTO) throws Exception {
+	public String orderGET(OrderDTO orderDTO,Model model,HttpSession session) throws Exception {
 		System.out.println("order");
-		ModelAndView mv = new ModelAndView();
+		Long reserNum = (Long)session.getAttribute("reserNum");
+		List<ReListDTO> ar = cafeService.getReList(reserNum);
+		System.out.println(ar.get(0).getCdPay());
+		model.addAttribute("list", ar);
 		
 //		List<reListDTO> ar = cafeService.getReList();
 		
-//		mv.addObject("list", ar);
-		mv.setViewName("order/order");
+////		mv.addObject("list", ar);
+//		mv.setViewName("order/order");
 		
-		return mv;
+		return "order/order";
 	}
 	
 	@PostMapping("order")
@@ -125,19 +138,19 @@ public class OrderController {
 	
 	@RequestMapping(value ="complete", method = RequestMethod.POST)
 	@ResponseBody
-	public int paymentComplete(String imp_uid, String merchant_uid,HttpSession session,@RequestBody OrderDTO orderDTO) throws Exception {
+	public int paymentComplete(String imp_uid, String merchant_uid,String totalPrice,HttpSession session,@RequestBody OrderDTO orderDTO) throws Exception {
 	    
 	    String token = payService.getToken();
 	    
-	    System.out.println("토큰 : " + token);
 	    // 결제 완료된 금액
 	    String amount = payService.paymentInfo(orderDTO.getImp_uid(), token);
 	    
+	    System.out.println("확인"+orderDTO.getTotalPrice());
 	    System.out.println(amount);
 	    
 	    int res = 1;
 	    
-	    if (100L != Long.parseLong(amount)) {
+	    if (orderDTO.getTotalPrice() != Long.parseLong(amount)) {
 			res = 0;
 			// 결제 취소
 			payService.payMentCancle(token, orderDTO.getImp_uid(), amount,"결제 금액 오류");

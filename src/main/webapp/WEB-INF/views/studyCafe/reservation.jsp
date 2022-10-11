@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!-- 달력 -->
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -185,7 +186,7 @@
 				</table>
 				
 				<text id="dateText"></text>
-				<button id="btnRoom" >날짜선택 완료</button>
+				
 
 					<div magin : 50px 0>
 						<br>
@@ -216,6 +217,7 @@
 							</tr>
 						</c:forEach>	 
 					</table>
+					<button id="btnRoom" >선택 완료</button>
 					<text id="radioText"></text>
 					
 					<div class="room_box">

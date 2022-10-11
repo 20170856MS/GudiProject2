@@ -78,7 +78,7 @@ public class cafeController {
 		session.setAttribute("reserNum", reservationDTO.getReserNum());
 //		int result = cafeService.update(cafeRoomDTO);
 		
-		mv.setViewName("redirect:./reList");
+		mv.setViewName("redirect:/order/order");
 		return mv;
 	}
 	
@@ -88,27 +88,31 @@ public class cafeController {
 		return "studyCafe/calender";
 	}
 	
-	@RequestMapping(value = "reList")
-	public String reList(Model model,HttpSession session) throws Exception{
-		System.out.println("cafeReList");
-		Long reserNum = (Long)session.getAttribute("reserNum");
-		List<ReListDTO> ar = cafeService.getReList(reserNum);
-		System.out.println(ar.get(0).getCdPay());
-		model.addAttribute("list", ar);
-		
-		return "studyCafe/reList";
-	}
+//	@RequestMapping(value = "reList")
+//	public String reList(Model model,HttpSession session) throws Exception{
+//		System.out.println("cafeReList");
+//		Long reserNum = (Long)session.getAttribute("reserNum");
+//		List<ReListDTO> ar = cafeService.getReList(reserNum);
+//		System.out.println(ar.get(0).getCdPay());
+//		model.addAttribute("list", ar);
+//		
+//		return "studyCafe/reList";
+//	}
 	
 	@PostMapping("seTimeCheck")
 	@ResponseBody
-	public List<ReservationDTO> getSeTimeCheck(String value) throws Exception{
-		System.out.println("seTimeCheck : " + value);
-//		ReservationDTO reservationDTO = new ReservationDTO();
-//		reservationDTO.setSeTime(value);
-//		System.out.println(reservationDTO.getSeTime());
-		String seDate = value;
-		List<ReservationDTO> ar = cafeService.getSeTimeCheck(seDate);
-		ModelAndView mv = new ModelAndView();
+	public List<ReservationDTO> getSeTimeCheck(String value,String roomName,String detailNum) throws Exception{
+		System.out.println("seTimeCheck : " + value); //예약날짜
+		System.out.println("roomName: "+roomName );	//방이름
+		System.out.println("detailNum : " + detailNum);  //방번호
+		ReservationDTO reservationDTO = new ReservationDTO();
+		reservationDTO.setSeDate(value);
+		reservationDTO.setRoomName(roomName);
+		reservationDTO.setDetailNum(Long.valueOf(detailNum));
+		System.out.println(reservationDTO.getSeTime());
+
+		List<ReservationDTO> ar = cafeService.getSeTimeCheck(reservationDTO);
+		
 		System.out.println(ar);
 		
 		
