@@ -328,7 +328,7 @@ function getAdd(ln,group){                                      //추가모달�
         console.log(arr[0],arr[1],arr[2]);
     }
     if(group=="dv"){
-        arr=['동영상 제목','동영상 링크 (youtube - 공유 - 퍼가기 - src)','v'];
+        arr=['동영상 제목','동영상 링크 (youtube - 공유 - 퍼가기 - src:"", title: X)','v'];
         console.log(arr[0],arr[1],arr[2]);
     }
     if(group=="dj"){

@@ -146,7 +146,12 @@ public class LicenseService {
 			for(int i=0;i<arrDTO.getArr1().size();i++) {
 				BookDTO bookDTO = new BookDTO();
 				bookDTO.setBookName(arrDTO.getArr1().get(i));
-				bookDTO.setBookPrice(Long.parseLong(arrDTO.getArr2().get(i)));
+				try {
+					bookDTO.setBookPrice(Long.parseLong(arrDTO.getArr2().get(i)));
+				} catch (Exception e) {
+					continue;
+				}
+				
 				licenseDAO.setDelBook(bookDTO);
 			}
 		}else if(arrDTO.getSbvj().equals("v")) {
