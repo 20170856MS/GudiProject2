@@ -1,7 +1,6 @@
 const btnModal = document.querySelector("#btnModal");
 const interest = document.querySelector("#interest");
 const board = document.querySelector("#board");
-const have = document.querySelector("#have");
 const license = document.querySelector("#license");
 
 const add = document.querySelectorAll(".add");
@@ -37,22 +36,13 @@ interest.addEventListener("click",function(){
         xhttp.send("num="+num+"&licenseNum="+licenseNum);
         xhttp.onreadystatechange=function(){
             if(xhttp.readyState==4 && xhttp.status==200){
-                swal("관심목록에 추가되었습니다.");
+                swal("관심목록에 추가되었습니다.",'','success');
             }else{
-                console.log("응답x");
+                swal("이미 관심등록 된 자격증입니다.",'','error');
             }
+        }   
         }
-            
-        }
-        alert("관심 목록에 추가되었습니다.");
     });
-
-have.addEventListener("click",function(){
-    let chk = window.confirm("자격증 보유 등록을 하시겠습니까?");
-    if(chk==true){
-        alert("보유 자격증 목록에 추가되었습니다.");
-    }
-});
 
 /*****************************************추가,수정,삭제****************************************************/
 for(let i=0;i<add.length;i++){                          //추가이벤트
@@ -270,9 +260,15 @@ function setDel(arr1,arr2){
         xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         console.log(arr1,arr2,sbvj);
         xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj);
+
+        setTimeout(function(){ 
+            window.location.reload();
+            console.log("새로고침");
+        }, 1000);
+
         xhttp.onreadystatechange=function(){
             if(xhttp.readyState==4 && xhttp.status==200){
-                swal("삭제되었습니다.");
+                swal("삭제되었습니다.",'','success');
             }else{
                 console.log("응답x");
             }
@@ -737,9 +733,15 @@ btnModal.addEventListener("click",function(){                           //모달
         console.log(arr1,arr2,sbvj);
         
         xhttp.send("arr1="+arr1+"&arr2="+arr2+"&sbvj="+sbvj+"&licenseNum="+ln);
+
+        setTimeout(function(){ 
+            window.location.reload();
+            console.log("새로고침");
+            swal(txt+"되었습니다.",'','success');
+        }, 1000);
+
         xhttp.onreadystatechange=function(){
         if(xhttp.readyState == 4 && xhttp.status == 200){
-            window.location.reload()
             console.log("js 완료");//응답 안오는 이유??
         }
     }}

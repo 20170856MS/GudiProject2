@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,10 +30,10 @@ public class LikesController {
 		LicenseLikeDTO licenseLikeDTO = new LicenseLikeDTO();
 		Long num = Long.valueOf(String.valueOf(session.getAttribute("saveNum")));
 		licenseLikeDTO.setNum(num);
-		List<LicenseDTO> ar = licenseService.getListLikes(licenseLikeDTO);
+		List<LicenseDTO> ar2 = licenseService.getListLikes(licenseLikeDTO);
 		
 		
-		mv.addObject("list",ar);
+		mv.addObject("list",ar2);
 		mv.setViewName("/likes/store");
 		return mv;
 	}

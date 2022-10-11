@@ -23,7 +23,13 @@ public class LicenseService {
 	private QnaDAO qnaDAO;
 
 	public List<LicenseDTO> getListLikes(LicenseLikeDTO licenseLikeDTO) throws Exception{
-		return licenseDAO.getListLikes(licenseLikeDTO);
+		
+		List<LicenseDTO> ar =  licenseDAO.getListLikes(licenseLikeDTO);
+		List<LicenseDTO> ar2 = new ArrayList();
+		for(int i=0; i<ar.size(); i++) {
+			ar2.add(licenseDAO.getLicenseName(ar.get(i)));
+		}
+		return ar2;
 	}
 	
 	public int setLikes(ArrDTO arrDTO) throws Exception{

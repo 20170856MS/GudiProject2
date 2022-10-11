@@ -76,11 +76,9 @@
 						<c:choose>
 							<c:when test="${not empty check}">
 								<a class="btn btn-primary" href="#!"id="interest" data-num="${saveNum}" data-license-num="${name.licenseNum}">관심 등록</a>
-								<a class="btn btn-primary" href="#!"id="have" data-num="${saveNum}" data-license-num="${name.licenseNum}">보유 등록</a>
 							</c:when>
 							<c:otherwise>
 								<a class="btn btn-primary" href="#!"id="needMember">관심 등록(로그인)</a>
-								<a class="btn btn-primary" href="#!"id="needMember">보유 등록(로그인)</a>
 							</c:otherwise>
 						</c:choose>
 						

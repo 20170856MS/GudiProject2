@@ -28,7 +28,7 @@
 	<section class="checkout-section spad mt-5">
 		<div class="container">
 			<c:forEach items="${requestScope.list}" var="dto">
-                        ${dto.licenseNum}
+                        ${dto.licenseName}<br>
             </c:forEach> 
 				
 		</div>
