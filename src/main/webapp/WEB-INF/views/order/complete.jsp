@@ -45,7 +45,7 @@
 							</div>
 						</div>
 						<br><hr><br>
-					    <img src="/resources/img/nav4_1.png" width="80" height="80"></a>
+	
 						<div class="row">
 							<div class="col-lg-12">
 								<table cellspacing="0" border="1" class="orderTable mgt">
@@ -56,7 +56,7 @@
 									<thead>
 										<tr>
 											<th scope="col">스터디카페 정보</th>
-											<th scope="col">상품금액(수량)</th>
+											<th scope="col">상품금액(시간)</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -67,7 +67,9 @@
 														<div class="col-lg-2 text-center">
 															<div class="img_center">
 															    <a href="/UnoMas/product/product_detail?prod_num=${order.productNum }" target="_blank">
-															    <img src="/resources/img/cafeimg2.jpg" width="80" height="80"></a>
+															    <img src="/resources/img/cafeimg1.jpg" width="120px" height="120px" style="
+																margin-top: 0px;
+															"></a>
 																<!--N=a:odd.product-->
 															</div>
 														</div>
@@ -78,7 +80,8 @@
 														</div>
 													</div>
 												</td>
-												<td class="money"><strong><fmt:formatNumber value="${payDTO.payAmount}" type="number"/></strong>원<br>
+												<fmt:parseNumber var="percent" value="${payDTO.payAmount/20000}" integerOnly="true" />
+												<td class="money"><strong><fmt:formatNumber value="${payDTO.payAmount}" type="number"/></strong>원<br>/<span>${percent}(시간)</span>
 													
 											</tr>
 									   

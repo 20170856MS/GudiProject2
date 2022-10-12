@@ -150,13 +150,12 @@
                 <br>
                 <div class="row text-center">
                     <div class="col-lg-12" style="width: 100%;">
-                        <div class="order-btn mt-5">
+                        <div class="order-btn mt-5" style="
+                        margin-bottom: 48px;
+                    ">
                             <button type="submit" class="site-btn place-btn" id="cafePayment" style="padding-top: 3px; padding-bottom: 3px;">결제하기</button>
                         </div>
                     </div>
-                </div>
-                <div style="padding-left: 0px; padding-right: 0px;">
-                    <button id="iamportPayment" type="submit">결제테스트</button> 
                 </div>
             </div>
         </div>
