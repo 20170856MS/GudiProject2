@@ -42,7 +42,6 @@ public class HomeController {
 		pager.setPerPage(50L);
 		List<HomeDTO> ar1 = homeService.getList(pager1);
 		
-	
 		List<HomeDTO> schedule = homeService.getDetailSchedule();
 		List<HomeDTO> schedule1 = homeService.getDetailSchedule1();
 		
@@ -67,7 +66,6 @@ public class HomeController {
 		mv.addObject("pager",pager);
 		mv.addObject("schedule",schedule);
 		mv.addObject("schedule1",schedule1);
-		
 		
 		mv.setViewName("index");
 		

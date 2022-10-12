@@ -59,12 +59,15 @@
                 
                 <div class="card" >
                     <div class="user-wrap">
-                        <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top" alt="...">
-                        <div class="user-text">조회수 ${dto.licenseHits}</div>
+                        <!-- 자격증 이미지 랜덤출력 -->
+                        <body onload = "changeImage()">
+                            <img class="imageList card-img-top" alt="..." style="max-width: 100%; height: auto;">
+                            <div class="user-text">조회수 ${dto.licenseHits}</div>
+                            </body>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">${dto.licenseName}</h5>
-                        <p class="card-text schedule" data-license-num="${dto.licenseNum}">ㅇㅅㅇ</p>                        
+                        <p class="card-text schedule" data-license-num="${dto.licenseNum}"><p style="margin-left: 40px;">수험생 여러분 힘내세요!!!</p>                     
                         <div class="detail">
                             <a href="./detail?licenseNum=${dto.licenseNum}" class="btn btn-primary">자격증 상세 보기</a>
                         </div>
@@ -111,5 +114,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="/resources/js/common.js"></script>
     <script src="/resources/js/infoMain.js"></script>
+    <script src="/resources/js/image.js"></script>
 </body>
 </html>

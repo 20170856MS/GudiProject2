@@ -24,7 +24,7 @@
             <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
             <link href="/resources/css/infoMain.css" rel="stylesheet" type="text/css">
             <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
-
+            
         </head>
 
         <body>
@@ -127,9 +127,11 @@
                     <c:forEach items="${requestScope.list}" var="dto" varStatus="statusNm">
                         <div class="card" id="check" license-Num="${dto.licenseNum}">
                             <div class="user-wrap" style="margin-top: 49px;">
-                                <img src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" class="card-img-top"
-                                    alt="...">
+                                <!-- 자격증 이미지 랜덤출력 -->
+                                <body onload = "changeImage()">
+                                <img class="imageList card-img-top" alt="..." style="max-width: 100%; height: auto;">
                                 <div class="user-text">조회수 ${dto.licenseHits}</div>
+                                </body>
                             </div>
                             <!-- 자격증 d-day -->
                             <div class="count">
@@ -197,7 +199,8 @@
 
             <script src="/resources/js/schedule.js"></script>
             <script src="/resources/js/infoMain.js"></script>
-            <script src="/resources/js/infoDetail.js"></script>
+            <script src="/resources/js/image.js">
+            </script>
 
 
 
