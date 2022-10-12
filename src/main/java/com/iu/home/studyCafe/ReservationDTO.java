@@ -1,8 +1,5 @@
 package com.iu.home.studyCafe;
 
-import java.sql.Date;
-import java.sql.Time;
-
 public class ReservationDTO {
 	
 	private Long reserNum;

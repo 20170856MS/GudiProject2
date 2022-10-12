@@ -1,7 +1,5 @@
 	package com.iu.home.licenseList;
 
-import java.sql.Date;
-
 import com.iu.home.HomeDTO;
 
 public class ScheduleDTO {
