@@ -44,6 +44,14 @@
     		WHERE SCNAME=#{scName}
     	</update>
     	
+    	<select id="areaList" resultType="AreaDTO">
+    		SELECT * FROM AREA ORDER BY AREANUM ASC
+    	</select>
+    	
+    	<insert id="addList" parameterType="cafeDTO">
+    		INSERT INTO STUDYCAFE (SCNUM, AREANUM, SCNAME, IMG, AREANAME)
+    		VALUES (CAFE_SEQ.NEXTVAL, #{areaNum}, #{scName}, #{img}, #{areaName})
+    	</insert>
     	
     </mapper>
     

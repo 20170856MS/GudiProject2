@@ -27,6 +27,49 @@
         	<div class="row">
         		<h1>addList</h1>
         		
+				<table style="border: solid;">
+					<tr>
+						<td>지역</td>
+						<tr>
+							<td>
+								<button id="areaBtn">선택</button>
+							</td>
+							<td>
+								<td id="areaText"></Td>
+							</td>
+						</tr>
+						<td>
+							<table>
+								<c:forEach items="${list}" var="dto">
+									<tr>
+										
+										<div class="form-check">
+											<input class="form-check-input" value="${dto.areaNum}.${dto.areaName}" type="radio" name="arearBtn" id="radio_${dto.areaName}">
+											<label class="form-check-label" for="flexRadioDefault1">
+												${dto.areaNum}
+											</label>
+											<label class="form-check-label" for="flexRadioDefault1">
+												${dto.areaName}
+											</label>
+										</div>
+									</tr>
+								</c:forEach>	
+							</table>
+						</td>
+					</tr>
+					<tr id="cafePlace">
+						<td>카페이름</td>
+						<td id="cafeN">입력</td>
+						<td><button id="cBtn" style="display: none;">완료</button></td>
+					</tr>
+					<tr id="imgPlace">
+						<td>이미지</td>
+						<td id="imgText">이미지 추가</td>
+						<td><button id="iBtn" style="display: none;">완료</button></td>
+					</tr>
+				</table>
+				<button id="addBtn">추가</button>
+
   			</div>
 		</section>
 	
@@ -39,7 +82,8 @@
 	<script src="/resources/js/common.js">
 
 </script>
-	<script src="/resources/js/studyCafeList.js"></script>
+	<script src="/resources/js/studyCafeList.js">
+</script>
 
 </body>
 </html>

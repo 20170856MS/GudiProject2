@@ -47,6 +47,16 @@
 		        	<td id="scExplain">${dto.scExplain}</td>
 		        	<td><button id="eBtn" style="display: none;">완료</button></td>
 		        </tr>
+				<tr id="laPlace">
+		        	<td>위도</td>
+		        	<td id="latitude">${dto.latitude}</td>
+		        	<td><button id="laBtn" style="display: none;">완료</button></td>
+		        </tr>
+				<tr id="loPlace">
+		        	<td>경도</td>
+		        	<td id="longitude">${dto.longitude}</td>
+		        	<td><button id="loBtn" style="display: none;">완료</button></td>
+		        </tr>
 		    </table>
 			<button id="completeUpdate">수정 완료</button>
 			

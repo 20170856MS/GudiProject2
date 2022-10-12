@@ -28,45 +28,50 @@
   
 
     			<h1>StudyCafe</h1>
-
-				<div id="map" style="width:500px;height:400px;"></div>
-				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e50c1a3d843524281f35f43447abac4a"></script>
-				<c:forEach items="${list}" var="dto">
-					<script>
-						var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-						mapOption = { 
-							center: new kakao.maps.LatLng(${dto.latitude}, ${dto.longitude}), // 지도의 중심좌표
-							level: 4 // 지도의 확대 레벨
-						};
-						console.log(${dto.latitude});
-						console.log(${dto.longitude});
-						var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-					
-						// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-						var positions = [
-						{
-							content: '<div><a href="https://map.kakao.com/link/map/${dto.scName},${dto.latitude}, ${dto.longitude}" style="color:blue" target="_blank">${dto.scName}</a></div>', 
-							latlng: new kakao.maps.LatLng(${dto.latitude}, ${dto.longitude})
-						}
-						];
-								// 마커를 생성합니다
-								var marker = new kakao.maps.Marker({
-									map: map, // 마커를 표시할 지도
-									position: positions.latlng // 마커의 위치
-								});
-				
-								// 마커에 표시할 인포윈도우를 생성합니다 
-								var infowindow = new kakao.maps.InfoWindow({
-									content: positions.content // 인포윈도우에 표시할 내용
-								});
-							
-							// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-							// 이벤트 리스너로는 클로저를 만들어 등록합니다 
-							// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-								infowindow.open(map, marker);
-							
+				<script>
+					// let lati = new Array();
+					// let longti = new Array();
+					// <c:forEach items="${list}" var="dto">
+					// 	lati = ${dto.latitude};
+					// 	longi = ${dto.longitude};
+					// </c:forEach>
 					</script>
-				</c:forEach>
+					<div id="map" style="width:500px;height:400px;"></div>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e50c1a3d843524281f35f43447abac4a"></script>
+						<script>
+							
+							var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+							mapOption = { 
+								center: new kakao.maps.LatLng(38.450701, 126.570667), // 지도의 중심좌표
+								level: 1 // 지도의 확대 레벨
+							};
+							var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+						
+							// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+							var positions = [
+							{
+								content: '<div><a href="https://map.kakao.com/link/map/구디스터디카페,33.450701, 126.570667" style="color:blue" target="_blank">구디스터디카페</a></div>', 
+								latlng: new kakao.maps.LatLng(33.450701, 126.570667)
+							}
+							];
+									// 마커를 생성합니다
+									var marker = new kakao.maps.Marker({
+										map: map, // 마커를 표시할 지도
+										position: positions.latlng // 마커의 위치
+									});
+					
+									// 마커에 표시할 인포윈도우를 생성합니다 
+									var infowindow = new kakao.maps.InfoWindow({
+										content: positions.content // 인포윈도우에 표시할 내용
+									});
+								
+								// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+								// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+								// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+									infowindow.open(map, marker);
+								
+						</script>
+				
 				<table>
 					<tr>
 					    <th scope="col">번호</th>
@@ -88,9 +93,9 @@
 				</table>
 
 				<div>
-					<a href="#">추가</a>
-					<a href="#">수정</a>
-					<a href="#">삭제</a>
+					<a href="./addList">추가</a>
+					<a href="./updateList">수정</a>
+					<a href="./deleteList">삭제</a>
 				</div>
    
    			</div>

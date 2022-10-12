@@ -43,11 +43,11 @@
 					// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
 					var positions = [
 				    {
-				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.478392, 126.870077" style="color:blue" target="_blank">구디스터디카페</a></div>', 
+				        content: '<div><a href="https://map.kakao.com/link/map/구디스터디카페,37.478392, 126.870077" style="color:blue" target="_blank">구디스터디카페</a></div>', 
 				        latlng: new kakao.maps.LatLng(37.478392, 126.870077)
 				    },
 				    {
-				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.478309, 126.863327" style="color:blue" target="_blank">팔디스터디카페</a></div>', 
+				        content: '<div><a href="https://map.kakao.com/link/map/팔디스터디카페,37.478309, 126.863327" style="color:blue" target="_blank">팔디스터디카페</a></div>', 
 				        latlng: new kakao.maps.LatLng(37.478309, 126.863327)
 				    },
 				    {
@@ -55,7 +55,7 @@
 				        latlng: new kakao.maps.LatLng(37.475453, 126.870366)
 				    },
 				    {
-				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.475182, 126.864956" style="color:blue" target="_blank">육디스터디카페</a></div>',
+				        content: '<div><a href="https://map.kakao.com/link/map/육디스터디카페,37.475182, 126.864956" style="color:blue" target="_blank">육디스터디카페</a></div>',
 				        latlng: new kakao.maps.LatLng(37.475182, 126.864956)
 				    }
 					];

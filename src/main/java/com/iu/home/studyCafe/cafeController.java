@@ -137,15 +137,35 @@ public class cafeController {
 		return mv;
 	}
 	
-	@RequestMapping(value="addList")
-	public String addList() throws Exception{
+	@RequestMapping(value="addList", method=RequestMethod.GET)
+	public String addList(Model model) throws Exception{
+		System.out.println("addList");
+		List<AreaDTO> ar = cafeService.areaList();
+		model.addAttribute("list", ar);
+		
 		return "studyCafe/addList";
 	}
+	@RequestMapping(value="addList", method=RequestMethod.POST)
+	public ModelAndView addList(CafeDTO cafeDTO,HttpServletRequest request) throws Exception{
+		System.out.println("addList Post");
+		ModelAndView mv = new ModelAndView();
+		int result = cafeService.addList(cafeDTO);
+		HttpSession session = request.getSession();
+		session.setAttribute("areaNum", cafeDTO.getAreaName());
+//		int result = cafeService.update(cafeRoomDTO);
+		
+		mv.setViewName("redirect:./cafeList");
+		return mv;
+		
+	}
+	
 	@RequestMapping(value="updateList")
-	public String updateList() throws Exception{
+	public String updateList(Model model) throws Exception{
+		List<CafeDTO> ar = cafeService.getList();
+		model.addAttribute("list", ar);
 		return "studyCafe/updateList";
 	}
-	@RequestMapping(value="deleteList")
+	@RequestMapping(value="deleteList", method=RequestMethod.GET)
 	public String deleteList() throws Exception{
 		return "studyCafe/deleteList";
 	}

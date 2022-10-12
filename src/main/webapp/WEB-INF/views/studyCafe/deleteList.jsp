@@ -27,6 +27,25 @@
         	<div class="row">
         		<h1>deleteList</h1>
         		
+				<table>
+					<tr>
+					    <th scope="col">번호</th>
+						<th scope="col">지역</th>
+					    <th scope="col">카페이름</th>
+					</tr>
+					<c:forEach items="${list}" var="dto">
+						<tr>
+							<td>${dto.scNum}</td>
+							<td>${dto.areaName}</td>
+							<td>
+								<a href="./cafeDetail?scName=${dto.scName}">${dto.scName}</a>
+							</td>
+							<td><img src="/resources/img/GOOD.png" width="60px" height="50px"></td>
+								
+						</tr>
+						
+					</c:forEach>
+				</table>
   			</div>
 		</section>
 	
