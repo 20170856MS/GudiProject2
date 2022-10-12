@@ -33,6 +33,8 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.databind.util.JSONWrappedObject;
 import com.iu.home.studyCafe.cafeService;
+import com.iu.home.licenseadmin.AdminDTO;
+import com.iu.home.licenseadmin.AdminService;
 import com.iu.home.studyCafe.ReListDTO;
 import com.iu.home.util.UserCriteria;
 import com.iu.home.util.UserPageMaker;
@@ -55,9 +57,42 @@ public class OrderController {
 	@Autowired
 	private cafeService cafeService;
 	
+	@Autowired
+	private AdminService adminService;
 	
 	
 	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
+	
+	// /admin/주소 적용시 exception 에러
+	@PostMapping("orderCancle")
+	@ResponseBody
+	public int orderCancle(AdminDTO orderList, PayDTO payDTO) throws Exception {
+//		userId == 0 비회원
+		System.out.println("여긴 order/orderCancel");
+		System.out.println("1 : "+orderList);
+		System.out.println("1 : "+orderList.getImp_uid());
+		System.out.println("1 : "+orderList.getOrderNum());
+		
+		orderList = adminService.adminList(orderList); 
+		
+		System.out.println("2 : "+orderList);
+		System.out.println("2 : "+orderList.getImp_uid());
+		System.out.println("2 : "+orderList.getOrderNum());
+		
+		int result1 = adminService.payMentCancle(payDTO);
+		System.out.println("rrr");
+		
+		int result = adminService.orderCancle(orderList);
+
+		if(result>0) {
+			System.out.println("DB 삭제성공");
+		}
+		if(result1>0) {
+			System.out.println("Pay DB 삭제성공");
+		}
+		
+		return result;
+	}
 	
 	@RequestMapping(value = "reList")
 	public String reList(Model model,HttpSession session) throws Exception{
@@ -99,11 +134,43 @@ public class OrderController {
 	@GetMapping("complete")
 	public String getOrderComplete(@RequestParam int payNum, OrderDTO orderDTO, Model model) throws Exception {
 		PayDTO payDTO = orderService.getPay(payNum);
+		
 		model.addAttribute("payDTO", payDTO);
 		
 		return "order/complete";
 	}
 	
+	@GetMapping("completeDetail")
+	public void getOrderCompleteDetail(@RequestParam Long orderNum,String value, Model model) throws Exception {
+		System.out.println("여기 : " +orderNum);
+		OrderDTO orderDTO = new OrderDTO();
+		orderDTO.setOrderNum(orderNum);
+		orderDTO = orderService.getOrderListDetail(orderDTO);
+		model.addAttribute("orderDTO", orderDTO);
+		
+
+		System.out.println("completeDetail GET");
+		
+	}
+	
+	@PostMapping("completeDetail")
+	@ResponseBody
+	public String getOrderCompleteDetail(String value, Model model,OrderDTO orderDTO) throws Exception {
+		
+		String result = "0";
+		if(value != null) {
+			result = "1";
+			orderDTO.setOrderNum(Long.valueOf(value));
+			orderDTO = orderService.getOrderListDetail(orderDTO);
+			model.addAttribute("orderDTO", orderDTO);
+		}
+		
+
+		System.out.println("result :" + result);
+		
+		
+		return result;
+	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/verify_iamport/{imp_uid}", method = RequestMethod.POST)
@@ -146,6 +213,7 @@ public class OrderController {
 	    String amount = payService.paymentInfo(orderDTO.getImp_uid(), token);
 	    
 	    System.out.println("확인"+orderDTO.getTotalPrice());
+	    System.out.println("확인1 : " + orderDTO.getReserNum());
 	    System.out.println(amount);
 	    
 	    int res = 1;
@@ -158,6 +226,7 @@ public class OrderController {
 		}
 	    System.out.println("check44 : " + orderDTO.getImp_uid());
 		orderService.insert_pay(orderDTO);
+		
 		
 
 		return res;

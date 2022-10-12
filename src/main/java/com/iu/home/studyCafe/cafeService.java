@@ -27,6 +27,10 @@ public class cafeService {
 		return cafeDAO.addDate(reservationDTO);
 	}
 	
+	public int setOrderChange(ReservationDTO reservationDTO) throws Exception{
+		return cafeDAO.setOrderChange(reservationDTO);
+	}
+	
 	public List<ReListDTO> getReList(Long reserNum) throws Exception{
 		return cafeDAO.getReList(reserNum);
 	}

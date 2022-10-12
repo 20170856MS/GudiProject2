@@ -127,7 +127,9 @@
                                                 <th scope="col">시간</th>
                                             </tr>
                                             <c:forEach items="${list}" var="dto">
-                                                    <tr>		
+                                                    <tr>	
+                                                        
+                                                        <td id="reserNum" hidden>${dto.reserNum}</td>	
                                                         <td id ="scName">${dto.scName}</td>
                                                         <td>${dto.roomName}</td>
                                                         <td id ="cdPay">${dto.cdPay}</td>

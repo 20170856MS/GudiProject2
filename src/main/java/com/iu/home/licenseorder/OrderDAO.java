@@ -58,6 +58,11 @@ public class OrderDAO {
 		return orderMap;
 	}
 	
+	public OrderDTO getOrderListDetail(OrderDTO orderDTO) throws Exception{
+	
+		return sqlSession.selectOne(NAMESPACE+"getOrderListDetail", orderDTO);
+	}
+	
 	public List<Long> myOrderAdminCount() throws Exception {		
 		return sqlSession.selectList(NAMESPACE + "orderAdminCount");
 	}

@@ -37,6 +37,10 @@ public class OrderService {
 		return orderDAO.insert_pay(orderDTO);
 	}
 	
+	public OrderDTO getOrderListDetail(OrderDTO orderDTO) throws Exception{
+		
+		return orderDAO.getOrderListDetail(orderDTO);
+	}
 	
 	public int insert_payinfo(PayDTO payDTO) throws Exception{
 		

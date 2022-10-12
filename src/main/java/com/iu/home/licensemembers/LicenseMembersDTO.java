@@ -11,6 +11,7 @@ public class LicenseMembersDTO {
 	private String email;
 	private String phone;
 	
+	
 	private List<AdminRoleDTO> adminRoleDTOs;
 
 //	public LicenseMembersDTO(String userName, String password, String email, String name, String phone) {

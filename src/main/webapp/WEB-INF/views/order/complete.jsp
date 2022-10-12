@@ -66,16 +66,15 @@
 													<div class="row">
 														<div class="col-lg-2 text-center">
 															<div class="img_center">
-															    <a href="/UnoMas/product/product_detail?prod_num=${order.productNum }" target="_blank">
-															    <img src="/resources/img/cafeimg1.jpg" width="120px" height="120px" style="
+															    <img src="/resources/img/${payDTO.img}" width="120px" height="120px" style="
 																margin-top: 0px;
 															"></a>
 																<!--N=a:odd.product-->
 															</div>
 														</div>
 														<div class="col-lg-10 align-self-center">
-															<a href="/UnoMas/product/product_detail?prod_num=${order.prod_num }"
-																target="_blank">${payDTO.payName}</a>
+															<a onclick="location.href='/studyCafe/cafeDetail?scName=${payDTO.payName}'"
+																>${payDTO.payName}</a>
 															<!--N=a:odd.product-->
 														</div>
 													</div>

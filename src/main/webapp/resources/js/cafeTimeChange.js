@@ -131,8 +131,7 @@ btnRoom.addEventListener("click",function(){
 
 })
 
-
-sendDate.addEventListener("click", function(){
+dateUpdate.addEventListener("click",function(){
     console.log(listTime);
     console.log(listTime.length)
     const timeLength = listTime.length-1
@@ -154,7 +153,7 @@ sendDate.addEventListener("click", function(){
     
     
     const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "./cafeList");
+    xhttp.open("POST", "./orderChange");
     console.log("xhttp="+xhttp);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -164,67 +163,24 @@ sendDate.addEventListener("click", function(){
     }else{
         console.log("공백없음");
         
-        xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&detailNum="+detailNum+"&timeLength="+timeLength);
+        xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&timeLength="+timeLength);
     
         xhttp.onreadystatechange = function(){
             if(xhttp.readyState==4 && xhttp.status==200){
                 let result = xhttp.responseText.trim();
                 
                 console.log(result);
-    
+
                 
-                alert('저장완료');
-                location.replace("/order/order");
-                i = 0;
-                
-                // if(result.result==1){
-                //     console.log("수정 성공");
-                //     alert('수정 성공');
-                //     document.querySelector("#up"+replyNum).innerHTML=contents;
-                //     location.replace("studyCafe/cafeList");
-                // }else{
-                //     console.log("수정 실패");
-                //     alert('수정 실패');
-                // }
+                swal("예약 변경 완료","","success").then(function(){
+
+                    location.replace("/admin/adminOrderInfo")
+                })
+               
             }
         }
     }
-});
-let i = 0;
-let alarm = [];
-for(j=0; j<timeBtn.length; j++){
-    alarm[j] = 0;
-}
-// for(let i = 0;i<timeBtn.length;i++){
-//     timeBtn[i].addEventListener("click", function(){
-//         if(i>0 && alarm[i+1] == 0 && alarm[i] == 0){
-//                     alert("이전시간을 선택해주세요");
-                    
-//                 }else{
-//                     let tx = timeBtn[i].value+" ";
-//                     //--------------
-//                     alarm[i] = alarm[i]+1;
-//                     if(alarm[i]==2){
-//                         alarm[i]=0;
-//                     }
-//                     if(alarm[i] == 1){
-//                         timeBtn[i].style.borderColor="yellow";
-//                         i=i+1;
-//                     }else{
-//                         timeBtn[i].style.borderColor="black";
-//                         i=i-1;
-//                     }
-                    
-//                     if(test.match(tx)){
-//                         test = test.replace(tx, '');
-//                         listTime = listTime.filter(listTime => listTime !== timeBtn[i].value);
-//                     }else{
-//                         test +=tx;
-//                         listTime.push(timeBtn[i].value); 
-//                     }
-//                 }
-//     });
-// }
+})
 
 timeBtn[0].addEventListener("click", function(){
     if(i>0 && alarm[1] == 0 && alarm[0] == 0){

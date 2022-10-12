@@ -10,7 +10,15 @@ public class ReListDTO {
 	private String seDate;
 	private String seTime;
 	private String img;
+	private String timeLength;
 	
+	
+	public String getTimeLength() {
+		return timeLength;
+	}
+	public void setTimeLength(String timeLength) {
+		this.timeLength = timeLength;
+	}
 	public Long getReserNum() {
 		return reserNum;
 	}

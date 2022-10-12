@@ -2,7 +2,10 @@ package com.iu.home.licenseorder;
 
 import java.sql.Date;
 
-public class OrderDTO {
+import com.iu.home.studyCafe.ReListDTO;
+import com.iu.home.studyCafe.ReservationDTO;
+
+public class OrderDTO extends ReListDTO  {
 
 	private Long orderNum;
 	private Long productNum;
@@ -11,9 +14,62 @@ public class OrderDTO {
 	private Date orderDate;
 	private Long totalPrice;
 	private String imp_uid;
+	private Long reserNum;
+	
+	// 카페리스트 이미지용
+	private String img;
+	public String getImg() {
+		return img;
+	}
+	
+	public void setImg(String img) {
+		this.img = img;
+	}
+	// user 정보 
+	private String userName;
+	private String name;
+	private String email;
+	private String phone;
 	
 	
-	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Long getReserNum() {
+		return reserNum;
+	}
+	public void setReserNum(Long reserNum) {
+		this.reserNum = reserNum;
+	}
 	public Long getOrderNum() {
 		return orderNum;
 	}

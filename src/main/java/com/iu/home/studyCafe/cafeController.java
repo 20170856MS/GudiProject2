@@ -60,6 +60,18 @@ public class cafeController {
 		return "studyCafe/reservation";
 	}
 	
+	@RequestMapping(value = "reUpdate", method = RequestMethod.GET)
+	public String StudyCafeTimeUpdate(CafeDetailDTO cafeDetailDTO, Model model, CafeDTO cafeDTO) throws Exception{
+		
+		cafeDetailDTO.getDetailNum();
+		System.out.println(cafeDetailDTO.getDetailNum());
+		List<CafeRoomDTO> ar = cafeService.getRoomList(cafeDetailDTO);
+		
+		model.addAttribute("roomList", ar);
+		System.out.println(ar);
+		return "studyCafe/reUpdate";
+	}
+	
 	@RequestMapping(value = "map")
 	public String map() throws Exception{
 		
@@ -77,6 +89,22 @@ public class cafeController {
 		HttpSession session = request.getSession();
 		session.setAttribute("reserNum", reservationDTO.getReserNum());
 //		int result = cafeService.update(cafeRoomDTO);
+		
+		mv.setViewName("redirect:/order/order");
+		return mv;
+	}
+	
+	@RequestMapping(value="orderChange", method=RequestMethod.POST)
+	public ModelAndView setOrderChange(ReservationDTO reservationDTO,HttpServletRequest request) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("cafeList post 실행");
+		System.out.println(reservationDTO.getSeTime());
+		System.out.println(reservationDTO.getSeDate());
+		int result = cafeService.setOrderChange(reservationDTO);
+		
+		if(result == 1) {
+			System.out.println("성공");
+		}
 		
 		mv.setViewName("redirect:/order/order");
 		return mv;
@@ -109,7 +137,7 @@ public class cafeController {
 		reservationDTO.setSeDate(value);
 		reservationDTO.setRoomName(roomName);
 		reservationDTO.setDetailNum(Long.valueOf(detailNum));
-		System.out.println(reservationDTO.getSeTime());
+		System.out.println(reservationDTO.getSeDate());
 
 		List<ReservationDTO> ar = cafeService.getSeTimeCheck(reservationDTO);
 		

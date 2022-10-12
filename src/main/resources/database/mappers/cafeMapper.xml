@@ -23,10 +23,15 @@
     		INSERT INTO RESERVATION (RESERNUM, ROOMNAME, SEDATE, SETIME, DETAILNUM,TIMELENGTH) 
     		VALUES (#{reserNum}, #{roomName}, #{seDate}, #{seTime}, #{detailNum},#{timeLength})
     	</insert>
-    	<!-- <update id="updateSit">
-    		UPDATE STUDYROOMDETAIL SET ROOMCOUNT= #{roomCount} WHERE ROOMNUM = #{roomNum} 
-    	</update> -->
     	
+    	<update id="setOrderChange" parameterType="ReservationDTO">
+    		UPDATE RESERVATION SET 
+			ROOMNAME = #{roomName}, 
+			sedate = #{seDate},
+			setime = #{seTime},
+			timelength =#{timeLength}
+    	</update>  
+    	  	
     	<select id="getReList" parameterType="ReListDTO" resultType="ReListDTO">
     		SELECT J.RESERNUM,E.detailNum, E.SCNAME, E.CDPAY*J.timelength AS CDPAY, E.IMG, J.ROOMNAME, J.SEDATE, J.SETIME 
 			FROM 

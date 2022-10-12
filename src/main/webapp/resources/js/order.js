@@ -7,6 +7,7 @@ const scName = document.querySelector("#scName")
 const cdPay = document.querySelector("#cdPay")
 const userNum = document.querySelector("#userNum")
 const datailNum = document.querySelector("#detailNum")
+const reserNum = document.querySelector("#reserNum")
 
 $(document).ready(function(){ 
     
@@ -25,6 +26,7 @@ $(document).ready(function(){
         console.log(" 5 : " + cdPay.textContent)
         console.log(" 6 : " + userNum.value)
         console.log(" 7 : " + detailNum.textContent)
+        console.log(" 8 : " + reserNum.textContent)
         requestPay()
     }); 
 })
@@ -69,7 +71,8 @@ function requestPay() {
                             "productName" : rsp.name,
                             "orderDate" : new Date().getTime(),
                             "totalPrice" : rsp.paid_amount,
-                            "imp_uid" : rsp.imp_uid
+                            "imp_uid" : rsp.imp_uid,
+                            "reserNum" :  reserNum.textContent // 예약정보를 담고있는번호
                         });
 					
                         jQuery.ajax({
