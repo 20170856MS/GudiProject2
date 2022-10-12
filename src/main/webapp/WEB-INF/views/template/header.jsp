@@ -130,24 +130,6 @@
 	                              </ul>
 	                          </div>
 	                        </li>
-	                        <li><a href="#" title="TEST4">TEST4</a>
-	                          <div class="dep2" style="height: 0px;">
-	                              <ul class="depth2" style="display: none;">
-	                                <li><a href="#" title="test0">test0</a></li>
-	                                <li><a href="#" title="test1">test</a></li>
-	                                
-	                              </ul>
-	                          </div>
-	                        </li>
-	                        <li><a href="#" title="TEST5">TEST5</a>
-	                          <div class="dep2" style="height: 0px;">
-	                              <ul class="depth2" style="display: none;">
-	                                <li><a href="#" title="test0">test0</a></li>
-	                                <li><a href="#" title="test1">test</a></li>
-	                                
-	                              </ul>
-	                          </div>
-	                        </li>
 							<li><a href="#" title="TEST6">스터디카페</a>
 								<div class="dep2" style="height: 0px;">
 									<ul class="depth2" style="display: none;">
@@ -198,33 +180,6 @@
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="/info/main" title="test0">자격증 검색</a></li>
-	                              <li><a href="#" title="test1">test</a></li>
-	                               
-	                            </ul>
-	                         </div>
-	                       </li>
-	                       <li><a href="#" title="TEST3">TEST3</a>
-	                        <div class="dep2" style="height: 0px;">
-	                            <ul class="depth2" style="display: none;">
-	                              <li><a href="#" title="test0">test0</a></li>
-	                              <li><a href="#" title="test1">test</a></li>
-	                               
-	                            </ul>
-	                         </div>
-	                       </li>
-	                       <li><a href="#" title="TEST4">TEST4</a>
-	                        <div class="dep2" style="height: 0px;">
-	                            <ul class="depth2" style="display: none;">
-	                              <li><a href="#" title="test0">test0</a></li>
-	                              <li><a href="#" title="test1">test</a></li>
-	                               
-	                            </ul>
-	                         </div>
-	                       </li>
-	                       <li><a href="#" title="TEST5">TEST5</a>
-	                        <div class="dep2" style="height: 0px;">
-	                            <ul class="depth2" style="display: none;">
-	                              <li><a href="#" title="test0">test0</a></li>
 	                              <li><a href="#" title="test1">test</a></li>
 	                               
 	                            </ul>

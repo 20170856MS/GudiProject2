@@ -111,5 +111,4 @@ public class HomeDTO extends ScheduleDTO {
 		this.dDay = dDay;
 	}
 
-
 }

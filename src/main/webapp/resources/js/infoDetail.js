@@ -1,4 +1,3 @@
-console.log("testsetst");
 const btnModal = document.querySelector("#btnModal");
 const interest = document.querySelector("#interest");
 const board = document.querySelector("#board");

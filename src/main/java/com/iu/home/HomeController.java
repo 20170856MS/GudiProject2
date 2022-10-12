@@ -42,10 +42,6 @@ public class HomeController {
 		pager.setPerPage(50L);
 		List<HomeDTO> ar1 = homeService.getList(pager1);
 		
-		//이미지
-		List<String> changeImage = new ArrayList<String>();
-		changeImage.add(new String("changeImage"));
-		
 		List<HomeDTO> schedule = homeService.getDetailSchedule();
 		List<HomeDTO> schedule1 = homeService.getDetailSchedule1();
 		
@@ -70,7 +66,6 @@ public class HomeController {
 		mv.addObject("pager",pager);
 		mv.addObject("schedule",schedule);
 		mv.addObject("schedule1",schedule1);
-		
 		
 		mv.setViewName("index");
 		
