@@ -39,7 +39,7 @@
 						<img class="img-fluid rounded mb-4 mb-lg-0"
 							src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" alt="..." />
 					</div>
-					<div class="user-text" id="license" data-license-num="${name.licenseNum}">${name.licenseName}</div>
+					<div class="user-text" id="license" data-grade="${grade}" data-license-num="${name.licenseNum}">${name.licenseName}</div>
 					<div class="col-lg-5 user-schedule">
 						<h1 class="font-weight-light user-texts">일정</h1>
 						<p>

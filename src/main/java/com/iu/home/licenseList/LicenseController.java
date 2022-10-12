@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.licenseQna.QnaDTO;
 import com.iu.home.licenseQna.QnaService;
+import com.iu.home.licensemembers.LicenseMembersDTO;
 import com.iu.home.util.Pager;
 
 @Controller
@@ -57,7 +59,7 @@ public class LicenseController {
 	}
 
 	@GetMapping("detail")
-	public ModelAndView getDetail(LicenseDTO licenseDTO, Pager pager) throws Exception{
+	public ModelAndView getDetail(HttpServletRequest request, LicenseDTO licenseDTO, Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 
 		int result = licenseService.setHits(licenseDTO);
@@ -83,6 +85,14 @@ public class LicenseController {
 		mv.addObject("detailList",ar);
 
 		mv.setViewName("/info/detail");
+		
+		HttpSession session =request.getSession();
+		try {
+			String grade = ((LicenseMembersDTO) session.getAttribute("check")).getAdminRoleDTOs().get(0).getRoleName();
+			mv.addObject("grade",grade);			
+		} catch (Exception e) {
+		}
+
 		return mv;	
 	}
 	@GetMapping("detailAjax")

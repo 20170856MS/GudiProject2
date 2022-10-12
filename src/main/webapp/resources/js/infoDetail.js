@@ -1,4 +1,5 @@
 console.log("testsetst");
+
 const btnModal = document.querySelector("#btnModal");
 const interest = document.querySelector("#interest");
 const board = document.querySelector("#board");
@@ -9,6 +10,7 @@ const alt = document.querySelectorAll(".alt");
 const del = document.querySelectorAll(".del");
 
 const ln = license.getAttribute("data-license-num");
+const grade = license.getAttribute("data-grade");
 const mb = document.querySelector("#mb");
 let sbvj="";
 let check=0;
@@ -60,31 +62,52 @@ interest.addEventListener("click",function(){
 /*****************************************추가,수정,삭제****************************************************/
 for(let i=0;i<add.length;i++){                          //추가이벤트
     add[i].addEventListener("click",function(event){
-        if(event.target.classList.contains('s')){
-            sbvj="s";
-            group="ds";
-            getAdd(ln,group);
+        if(grade==""){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : 비로그인','error');
         }
-        if(event.target.classList.contains('b')){
-            sbvj="b";
-            group="db";
-            getAdd(ln,group);                
+        if(grade=="member"){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : member','error');
         }
-        if(event.target.classList.contains('v')){
-            sbvj="v";
-            group="dv";
-            getAdd(ln,group);                
+        if(grade=="vip"){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : vip','error');
         }
-        if(event.target.classList.contains('j')){
-            sbvj="j";
-            group="dj";
-            getAdd(ln,group);    
+        if(grade=="admin"){
+            if(event.target.classList.contains('s')){
+                sbvj="s";
+                group="ds";
+                getAdd(ln,group);
             }
+            if(event.target.classList.contains('b')){
+                sbvj="b";
+                group="db";
+                getAdd(ln,group);                
+            }
+            if(event.target.classList.contains('v')){
+                sbvj="v";
+                group="dv";
+                getAdd(ln,group);                
+            }
+            if(event.target.classList.contains('j')){
+                sbvj="j";
+                group="dj";
+                getAdd(ln,group);    
+                }
+        }
     });
 }
 
 for(let i=0;i<alt.length;i++){                          //수정이벤트
     alt[i].addEventListener("click",function(event){
+        if(grade==""){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : 비로그인','error');
+        }
+        if(grade=="member"){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : member','error');
+        }
+        if(grade=="vip"){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : vip','error');
+        }
+        if(grade=="admin"){
         if(event.target.classList.contains('s')){
             group="ds";
             getUpdate(ln,group);
@@ -101,11 +124,22 @@ for(let i=0;i<alt.length;i++){                          //수정이벤트
             group="dj";
             getUpdate(ln,group);    
         }
+    }
     })
 }
 
 for(let i=0;i<del.length;i++){                          //삭제이벤트
     del[i].addEventListener("click",function(event){
+        if(grade==""){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : 비로그인','error');
+        }
+        if(grade=="member"){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : member','error');
+        }
+        if(grade=="vip"){
+            swal("admin만 접근할수 있습니다.",'현재 등급 : vip','error');
+        }
+        if(grade=="admin"){
         if(event.target.classList.contains('s')){
             sbvj="s";
             console.log("삭제s");
@@ -130,6 +164,7 @@ for(let i=0;i<del.length;i++){                          //삭제이벤트
             group="dj";
             getDel(ln,group);    
             }
+        }
     });
 }
 function getDel(ln,group){                      //삭제버튼활성화
