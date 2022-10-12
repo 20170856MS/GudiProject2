@@ -138,6 +138,18 @@ public class cafeController {
 		
 		return "studyCafe/calender";
 	}
+	@RequestMapping(value = "updateDetail", method=RequestMethod.GET)
+	public ModelAndView updateDetail(CafeDTO cafeDTO) throws Exception{
+		System.out.println("updateDetail");
+		ModelAndView mv = new ModelAndView();
+		CafeDetailDTO cafeDetailDTO = new CafeDetailDTO();
+		cafeDetailDTO = cafeService.getDetail(cafeDTO);
+		
+		mv.setViewName("studyCafe/updateDetail");
+		mv.addObject("dto", cafeDetailDTO);
+
+		return mv;
+	}
 	
 //	@RequestMapping(value = "reList")
 //	public String reList(Model model,HttpSession session) throws Exception{
