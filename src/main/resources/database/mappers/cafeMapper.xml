@@ -30,6 +30,7 @@
 			sedate = #{seDate},
 			setime = #{seTime},
 			timelength =#{timeLength}
+			WHERE reserNum = #{reserNum}
     	</update>  
     	  	
     	<select id="getReList" parameterType="ReListDTO" resultType="ReListDTO">

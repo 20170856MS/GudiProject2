@@ -153,6 +153,19 @@ public class OrderController {
 		
 	}
 	
+	@GetMapping("adminCompleteDetail")
+	public void getAdminOrderCompleteDetail(@RequestParam Long orderNum,String value, Model model) throws Exception {
+		System.out.println("여기 : " +orderNum);
+		OrderDTO orderDTO = new OrderDTO();
+		orderDTO.setOrderNum(orderNum);
+		orderDTO = orderService.getOrderListDetail(orderDTO);
+		model.addAttribute("orderDTO", orderDTO);
+		
+
+		System.out.println("completeDetail GET");
+		
+	}
+	
 	@PostMapping("completeDetail")
 	@ResponseBody
 	public String getOrderCompleteDetail(String value, Model model,OrderDTO orderDTO) throws Exception {

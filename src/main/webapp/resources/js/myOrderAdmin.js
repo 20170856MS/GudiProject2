@@ -1,7 +1,9 @@
 const payMentCancel = document.querySelectorAll(".payMentCancel");
 const orderNum = document.querySelectorAll(".orderNum");
-
+const userNum = document.querySelectorAll(".usernum");
+const table_btn = document.querySelectorAll(".table_btn")
 const listInfo = (function(){
+
 	let orderList = [];
 	
 	const getOrderList = function(index){
@@ -21,6 +23,27 @@ const listInfo = (function(){
 	}
 })();
 
+for(let i = 0 ; i<table_btn.length;i++){
+  table_btn[i].addEventListener("click",function(){
+    console.log(userNum[i].value)
+    console.log(orderNum[i].value)
+    $.ajax({
+      type: 'POST',
+      url: '/order/completeDetail',
+      data: {
+          value: userNum[i].value,
+      },
+      success: function(data) {
+              console.log(data)
+              if(data == 1){
+                location.replace('/order/completeDetail?orderNum='+orderNum[i].value);
+              } 
+            }
+  });
+  
+  })
+
+}
 
 
 for(let i = 0 ; i<payMentCancel.length;i++){

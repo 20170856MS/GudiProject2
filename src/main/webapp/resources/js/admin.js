@@ -35,7 +35,7 @@ for(let i = 0 ; i<table_btn.length;i++){
       success: function(data) {
               console.log(data)
               if(data == 1){
-                location.replace('/order/completeDetail?orderNum='+orderNum[i].value);
+                location.replace('/order/adminCompleteDetail?orderNum='+orderNum[i].value);
               } 
             }
   });

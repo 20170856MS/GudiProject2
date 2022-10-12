@@ -12,9 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -63,14 +65,33 @@ public class cafeController {
 	@RequestMapping(value = "reUpdate", method = RequestMethod.GET)
 	public String StudyCafeTimeUpdate(CafeDetailDTO cafeDetailDTO, Model model, CafeDTO cafeDTO) throws Exception{
 		
-		cafeDetailDTO.getDetailNum();
 		System.out.println(cafeDetailDTO.getDetailNum());
 		List<CafeRoomDTO> ar = cafeService.getRoomList(cafeDetailDTO);
-		
 		model.addAttribute("roomList", ar);
 		System.out.println(ar);
 		return "studyCafe/reUpdate";
 	}
+	
+	@RequestMapping(value = "reUpdate", method = RequestMethod.POST)
+	@ResponseBody
+	public String StudyCafeTimeUpdate(HttpSession session,String timeLength,String reserNum) throws Exception{
+		System.out.println("1 : " + timeLength);
+		System.out.println("2 : " + reserNum);
+//		model.addAttribute("timeLength",timeLength);
+//
+//		model.addAttribute("detailNum",detailNum);
+		String result = "";
+		if(timeLength == null ) {
+			 result = "0";
+		}
+		result = "1";
+		// session.removeAttribute("timeLength");
+		session.setAttribute("reserNum", reserNum);
+		session.setAttribute("timeLength", timeLength);
+		System.out.println(result);
+		return result;
+	}
+	
 	
 	@RequestMapping(value = "map")
 	public String map() throws Exception{
@@ -95,19 +116,21 @@ public class cafeController {
 	}
 	
 	@RequestMapping(value="orderChange", method=RequestMethod.POST)
-	public ModelAndView setOrderChange(ReservationDTO reservationDTO,HttpServletRequest request) throws Exception{
+	@ResponseBody
+	public int setOrderChange(ReservationDTO reservationDTO,HttpServletRequest request,HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println("cafeList post 실행");
 		System.out.println(reservationDTO.getSeTime());
 		System.out.println(reservationDTO.getSeDate());
+		System.out.println(reservationDTO.getReserNum());
 		int result = cafeService.setOrderChange(reservationDTO);
 		
 		if(result == 1) {
 			System.out.println("성공");
 		}
-		
-		mv.setViewName("redirect:/order/order");
-		return mv;
+		session.removeAttribute("timeLength");
+		session.removeAttribute("reserNum");
+		return result;
 	}
 	
 	@RequestMapping(value = "calender")

@@ -90,7 +90,7 @@
                         margin-bottom: 48px;
                     ">
                             <button type="submit" class="site-btn place-btn" id="dateAdmin" style="padding-top: 3px; padding-bottom: 3px;">예약 변경하기</button>
-							<button type="submit" class="site-btn place-btn" onclick="location.href='/order/myOrderList'" style="padding-top: 3px; padding-bottom: 3px;">돌아가기</button>
+							<button type="submit" class="site-btn place-btn" onclick="location.href='/admin/adminOrderInfo'" style="padding-top: 3px; padding-bottom: 3px;">돌아가기</button>
                         </div>
                     </div>
                 </div>

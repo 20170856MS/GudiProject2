@@ -194,7 +194,8 @@
 					<c:forEach items="${roomList}" var="rdto" end="0">
 						<text id="test1" hidden detail-Num="${rdto.detailNum}">${rdto.detailNum}</text>
 					</c:forEach>
-
+					<input hidden value="${timeLength}" id ="timeLengthCheck">
+					<input hidden value="${reserNum}" id ="reserNum">
 					<h1>방 선택</h1>
 					<table>
 						<tr>

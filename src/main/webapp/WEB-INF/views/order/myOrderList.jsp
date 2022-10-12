@@ -54,19 +54,21 @@
 										<fmt:formatDate var="regdate" value="${map.value[0].orderDate}" pattern="yyyy-MM-dd" />
 										<tr>
 											<input type="hidden" value="${map.key}" class="orderNum">
-											<td class="order_num_td" id = "orderNum">${regdate}<br>
-													( ${map.key} )<br>
-													<button type="button" class="table_btn site-btn">주문 상세보기</button>
-													
+											<td class="order_num_td">${regdate}<br>
+												<span value="${map.key}">( ${map.key} )</span><br>
+												<button type="button" class="table_btn site-btn">주문 상세보기</button>
 											</td>
 											<c:forEach var="val" items="${map.value}" varStatus="itt">
 												<td class="order_info_td">
-													<img src="/resources/img/cafeimg1.jpg" width="50"> 
+													<img src="/resources/img/${val.img}" width="50"> 
 													<div>
+														<input type="hidden" class ="usernum" value="${val.num}"/>
 														<a onclick="location.href='/studyCafe/cafeDetail?scName=${val.productName }'"> ${val.productName } </a>
 														   /
 														<span>  (${val.roomName})  </span>
 														   /
+														<span>  (${val.seDate})  </span>
+														/
 														<span>  (${val.seTime})  </span>
 														<hr>
 														<span>${val.totalPrice }원 / </span> 

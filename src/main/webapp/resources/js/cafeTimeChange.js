@@ -20,6 +20,8 @@ const addList = document.getElementById("addList");
 const updateList = document.getElementById("updateList");
 const deleteList = document.getElementById("deleteList");
 const dateUpdate = document.getElementById("dateUpdate")
+const timeLengthCheck = document.querySelector("#timeLengthCheck");
+const reserNum = document.querySelector("#reserNum");
 
 // -----TimePicker------
 // sendDate.addEventListener("click", function(){
@@ -76,9 +78,6 @@ btnRoom.addEventListener("click",function(){
     //배열초기화
     arrSeTime = new Array();
 
-    
-
-
     //class 초기화
     for(let i = 0 ; i<timeBtn.length; i++){
         console.log(timeBtn[i].removeAttribute('disabled'));
@@ -132,55 +131,66 @@ btnRoom.addEventListener("click",function(){
 })
 
 dateUpdate.addEventListener("click",function(){
-    console.log(listTime);
-    console.log(listTime.length)
     const timeLength = listTime.length-1
 
-    console.log(timeLength);
-
-    console.log(timeText.textContent.sort);
-    listTime.sort();
-    
-    radioList.forEach((node) => {
-        if(node.checked){
-            radioText.innerText = node.value;
-        }
-    });
-    
-
-
-    timeText.textContent = listTime.toString();
-    
-    
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "./orderChange");
-    console.log("xhttp="+xhttp);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    if(radioText.textContent == "" || dateText.textContent == "" || timeText.textContent == ""){
-        alert("공백이 있습니다.");
+    console.log(reserNum.value)
+    if(timeLength == timeLengthCheck.value){
+        console.log(timeText.textContent.sort);
+        listTime.sort();
         
-    }else{
-        console.log("공백없음");
+        radioList.forEach((node) => {
+            if(node.checked){
+                radioText.innerText = node.value;
+            }
+        });
         
-        xhttp.send("&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&timeLength="+timeLength);
     
-        xhttp.onreadystatechange = function(){
-            if(xhttp.readyState==4 && xhttp.status==200){
-                let result = xhttp.responseText.trim();
-                
-                console.log(result);
+    
+        timeText.textContent = listTime.toString();
+        
+        
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "./orderChange");
+        console.log("xhttp="+xhttp);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+        if(radioText.textContent == "" || dateText.textContent == "" || timeText.textContent == ""){
+            alert("공백이 있습니다.");
+            
+        }else{
+            console.log("공백없음");
+            
+            xhttp.send("&reserNum="+reserNum.value+"&roomName="+radioText.textContent+"&seDate="+dateText.textContent+"&seTime="+timeText.textContent+"&timeLength="+timeLength);
+        
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState==4 && xhttp.status==200){
+                    let result = xhttp.responseText.trim();
+                    
+                    console.log(result);
+                    if(result == 1){
 
-                
-                swal("예약 변경 완료","","success").then(function(){
-
-                    location.replace("/admin/adminOrderInfo")
-                })
-               
+                        
+                        swal("예약 변경 완료","","success").then(function(){
+        
+                            location.replace("/")
+                        })
+                    } else{
+                        swal("예약 변경 오류","","error")
+                    }
+                   
+                }
             }
         }
+    } else{
+        swal("예약 변경 오류.","예약하셨던 시간만큼 설정하세요","error")
     }
+    
 })
+let i = 0;
+let alarm = [];
+for(j=0; j<timeBtn.length; j++){
+    alarm[j] = 0;
+}
 
 timeBtn[0].addEventListener("click", function(){
     if(i>0 && alarm[1] == 0 && alarm[0] == 0){
