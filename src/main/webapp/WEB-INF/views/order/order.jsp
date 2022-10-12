@@ -32,16 +32,17 @@
                     <div class="col-lg-6" style="width: 562px; padding-left: 0px; padding-right: 0px;">
                         <h4>주문자 정보</h4>
                         <div class="row">
+                            
                             <div class="col-lg-12">
                                 <label for="fir" id="userName">${check.userName}</label>
                             </div>
                             <div class="col-lg-12">
-                                <label for="cun-name">${check.phone} 
+                                <label for="cun-name" id="phone">${check.phone} 
                                </label>
-                                <input type="hidden" value="${userVO.user_phone }" id="userPhone">
+                                <input type="hidden" value="${userVO.user_phone }" id="phone1">
                             </div>
                             <div class="col-lg-12">
-                                <label for="cun" id="userEmail">${check.email}</label>
+                                <label for="cun" id="email">${check.email}</label>
                             </div>
                         </div>
                         <br><hr><br>
@@ -90,32 +91,23 @@
                         
                     <div class="col-lg-6">
                         <div class="place-order">
-                            <h4>상품 정보</h4>
+                            <h4>결제 정보</h4>
                             <div class="order-total">
                                 <ul class="order-table">
-                                    <li>상품 <span>상품금액</span></li>
+                                    <li>결제 금액</li>
                                     <!-- @@ 장바구니 목록 배열 사이즈만큼 출력하기 @@ -->
                                     <!-- @@ 장바구니 목록 로드시 model에 배열 길이 정보 저장해서 자바스크립트에서 읽어오기 @@ -->
-                                    <c:forEach var="prod" items="${orderList }" varStatus="i">
-	                                    <li class="fw-normal">${prod.prod_name } X ${prod.prod_amount }
-	                                        <span id="prodPrice${i.index }">
-	                                        <c:set var="prodPrice" value="${prod.prod_price * prod.prod_amount }"/>
-	                                        <fmt:formatNumber value="${prodPrice }" type="number"/>원</span>
-	                                        <input type="hidden" value="${prod.prod_name }" id="prodName${i.index }">
-	                                        <input type="hidden" value="${prod.prod_num }" id="prodNum${i.index }">
-	                                        <input type="hidden" value="${prod.prod_amount }" id="prodQuantity${i.index }">
-	                                        <input type="hidden" value="${prodPrice }" name="order_total" id="orderTotal${i.index }">
-	                                        <input type="hidden" value="${prod.cart_num }" name="cart_num" id="cartNum${i.index }">
-	                                    </li>
+                                    <c:forEach items="${list}" var="dto" varStatus="i">
+	                                    
+                                        <li class="total-price">합계 <span id="totalPrice"><fmt:formatNumber value="${dto.cdPay}" type="number"/>원</span>
+                                            <input type="hidden" value="${total }" name="total" id="total">
+                                        </li>
+                                        <li class="total-price">적립혜택 <span id="point">
+                                            <c:set var="userPoint" value="${total * 0.05 }"/>
+                                            <fmt:formatNumber value="${total * 0.05 }" maxFractionDigits="0" type="number"/>원</span>
+                                            <input type="hidden" value="${userPoint }" id="userPoint">    
+                                        </li>
                                     </c:forEach>
-                                    <li class="total-price">합계 <span id="totalPrice"><fmt:formatNumber value="${total }" type="number"/>원</span>
-                                        <input type="hidden" value="${total }" name="total" id="total">
-                                    </li>
-                                    <li class="total-price">적립혜택 <span id="point">
-                                        <c:set var="userPoint" value="${total * 0.05 }"/>
-                                        <fmt:formatNumber value="${total * 0.05 }" maxFractionDigits="0" type="number"/>원</span>
-                                        <input type="hidden" value="${userPoint }" id="userPoint">    
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -123,32 +115,35 @@
                 </div>
                     <div class="col-lg-6">
                         <div class="place-order">
-                            <h4>상품 정보</h4>
+                            <h4>예약 정보</h4>
                             <div class="order-total">
                                 <ul class="order-table">
-                                    <h1>예약리스트</h1>
-                                        <table>
+                                        <table class="point_table">
                                             <tr>
-                                                <th scope="col">카페번호</th>
                                                 <th scope="col">카페이름</th>
                                                 <th scope="col">방이름</th>
                                                 <th scope="col">가격</th>
                                                 <th scope="col">날짜</th>
                                                 <th scope="col">시간</th>
-                                                <th scope="col">이미지</th>
                                             </tr>
                                             <c:forEach items="${list}" var="dto">
-                                                    <tr>		
-                                                        <td>${dto.detailNum}</td>
-                                                        <td>${dto.scName}</td>
+                                                    <tr>	
+                                                        
+                                                        <td id="reserNum" hidden>${dto.reserNum}</td>	
+                                                        <td id ="scName">${dto.scName}</td>
                                                         <td>${dto.roomName}</td>
-                                                        <td>${dto.cdPay}</td>
+                                                        <td id ="cdPay">${dto.cdPay}</td>
                                                         <td>${dto.seDate}</td>
                                                         <td>${dto.seTime}</td>
-                                                        <td><img src="/resources/img/${dto.img}" width="100px" height="100px"></td>
+                                                        <td id="detailNum" hidden >${dto.detailNum}</td>
                                                     </tr> 
                                             </c:forEach>
                                         </table>
+                                        <div>
+                                            <c:forEach items="${list}" var="dto">
+                                                <img src="/resources/img/${dto.img}" width="500px" height="400px" >
+                                            </c:forEach>
+                                        </div>
                                 </ul>
                             </div>
                         </div>
@@ -156,14 +151,13 @@
                 </div>
                 <br>
                 <div class="row text-center">
-                    <div class="col-lg-12" style="width: 732px;">
-                        <div class="order-btn mt-5">
-                            <button type="submit" class="site-btn place-btn" onclick="checkCard();" style="padding-top: 3px; padding-bottom: 3px;">결제하기</button>
+                    <div class="col-lg-12" style="width: 100%;">
+                        <div class="order-btn mt-5" style="
+                        margin-bottom: 48px;
+                    ">
+                            <button type="submit" class="site-btn place-btn" id="cafePayment" style="padding-top: 3px; padding-bottom: 3px;">결제하기</button>
                         </div>
                     </div>
-                </div>
-                <div style="padding-left: 0px; padding-right: 0px;">
-                    <button id="iamportPayment" type="submit">결제테스트</button> 
                 </div>
             </div>
         </div>

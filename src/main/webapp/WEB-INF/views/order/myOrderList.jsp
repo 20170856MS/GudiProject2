@@ -53,22 +53,30 @@
 										<c:set var="index" value="${it.index}" />
 										<fmt:formatDate var="regdate" value="${map.value[0].orderDate}" pattern="yyyy-MM-dd" />
 										<tr>
+											<input type="hidden" value="${map.key}" class="orderNum">
 											<td class="order_num_td">${regdate}<br>
-													( ${map.key} )<br>
-													<a href="/UnoMas/order/order_detail?code=${map.key }&pagingNum=${pagingNum }" class="table_btn">주문 상세보기</a>
+												<span value="${map.key}">( ${map.key} )</span><br>
+												<button type="button" class="table_btn site-btn">주문 상세보기</button>
 											</td>
 											<c:forEach var="val" items="${map.value}" varStatus="itt">
 												<td class="order_info_td">
-													<img src="/resources/img/cafeimg1.jpg" width="50"> 
+													<img src="/resources/img/${val.img}" width="50"> 
 													<div>
-														<a href="/UnoMas/product/product_detail?prod_num=${val.productNum }"> ${val.productName } </a>
+														<input type="hidden" class ="usernum" value="${val.num}"/>
+														<a onclick="location.href='/studyCafe/cafeDetail?scName=${val.productName }'"> ${val.productName } </a>
+														   /
+														<span>  (${val.roomName})  </span>
+														   /
+														<span>  (${val.seDate})  </span>
+														/
+														<span>  (${val.seTime})  </span>
 														<hr>
-														<span>${val.totalPrice }원</span> 
+														<span>${val.totalPrice }원 / </span> 
+														<span>${val.timeLength} (시간)</span>
 													 </div>
 												</td>
 												<td >
-													<button type="button" id = "payMentChange"  class="site-btn mb-2" >예약변경</button> <br> 
-													<button type="button" id = "payMentCancel" order-num="${val.orderNum}" class="site-btn" >주문취소</button><br> 
+													<button type="button" order-num="${val.orderNum}" class="payMentCancel site-btn" >주문취소</button><br> 
 												</td>
 					
 											</c:forEach>
@@ -118,7 +126,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-    <script src="/resources/js/admin.js">
+    <script src="/resources/js/myOrderAdmin.js">
         
     </script>
     <script src="/resources/js/common.js">

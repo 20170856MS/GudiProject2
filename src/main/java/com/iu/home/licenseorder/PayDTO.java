@@ -2,7 +2,9 @@ package com.iu.home.licenseorder;
 
 import java.sql.Date;
 
-public class PayDTO {
+import com.iu.home.studyCafe.CafeDetailDTO;
+
+public class PayDTO extends CafeDetailDTO  {
 
 	// num -- 회원번호
 	// orderNum - 주문번호

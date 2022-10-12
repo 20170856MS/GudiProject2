@@ -135,6 +135,7 @@ public class AdminController {
 		}
 		Map<Long, List> orderMap = orderService.getAdminOrderList(limitList);
 		
+		System.out.println(orderMap.values());
 		UserPageMaker pm = new UserPageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(codeList.size());

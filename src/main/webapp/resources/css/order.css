@@ -125,3 +125,45 @@
 .orderNum {
 	font-size: 14px;
 }
+
+.point_table {
+	width: 100%;
+	font-size: 12px;
+	margin: 0px 0px 0px 0px;
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align: center;
+}
+tr { border-bottom: 1.5px solid #81a5d7 }
+
+td {
+	min-width: 20px;
+	height: 100px;
+}
+th {
+	background-color: #eee;
+}
+th, td {
+	border: 1px solid #ddd;
+}
+.table_top_tr > th{
+	height: 40px !important;
+    background-color: #81a5d7;
+    color: white;
+}
+.content_tr {
+	min-height: 150px;
+    text-align: left;
+    padding: 25px;
+    vertical-align: top;
+}
+.content_tr > p {
+	font-weight: 600;
+}
+
+img {
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+}

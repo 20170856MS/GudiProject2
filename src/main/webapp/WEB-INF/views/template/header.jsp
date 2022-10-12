@@ -6,7 +6,9 @@
 
 
 <header id="header" >
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll" style="
+    height: 96px;
+">
 		<div class="container">
 			<a class="navbar-brand d-inline-flex" href="/"><img class="d-inline-block" src="/resources/img/team_logo123.png" alt="logo" width="190px" /></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
@@ -91,7 +93,7 @@
 	        <!-- gnb_inner -->
 	        <div class="gnb_inner">
 	            <!-- container -->
-	            <div class="container">
+	          	<div class="container" >
 	                <!-- gnb_menu -->
 	                <div id="navBg" style="height: 0px;"></div>
 	                <nav class="gnb_menu">
@@ -155,7 +157,7 @@
 	      <!-- gnb_inner -->
 	      <div class="gnb_inner">
 	          <!-- container -->
-	          <div class="container">
+	          <div class="container" >
 	              <!-- gnb_menu -->
 	              <div id="navBg" style="height: 0px;"></div>
 	              <nav class="gnb_menu">

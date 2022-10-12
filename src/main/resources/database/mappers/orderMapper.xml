@@ -8,7 +8,7 @@
  	<!-- 주문 정보 생성 -->
  	<insert id ="insert_pay" parameterType="OrderDTO">
  		insert into SC_ORDER_USER
- 		values(#{orderNum},#{productNum}, #{num},#{productName},#{orderDate},#{totalPrice}, #{imp_uid})
+ 		values(#{orderNum},#{productNum}, #{num},#{productName},#{orderDate},#{totalPrice}, #{imp_uid},#{reserNum})
 	</insert>
     
     <!-- 결제 정보 생성 -->
@@ -33,9 +33,12 @@
     
     <!--  결제 정보 가져오기 -->
     <select id="getPay" resultType="PayDTO">
-        SELECT *
-        FROM SCpay
-        WHERE payNum = #{payNum}
+        SELECT * FROM 
+		SCPAY SP
+		INNER JOIN
+		STUDYCAFEDETAIL SD
+		ON (SP.PAYNAME = SD.SCNAME)
+		WHERE paynum = #{payNum}
     </select>
     
     <!-- 회원의 주문개수  -->
@@ -49,8 +52,26 @@
     <select id="myOrderList" parameterType="Long" resultType="OrderDTO">
 		SELECT *
 		from SC_ORDER_USER  o
-		JOIN STUDYCAFEDETAIL p ON p.detailNum= o.productNum
+		JOIN RESERVATION RV
+        ON (o.reserNum = RV.reserNum)
+		INNER JOIN 
+		STUDYCAFEDETAIL p 
+		ON (p.detailNum= o.productNum)
 		WHERE o.orderNum=#{orderNum}
+    </select>
+    
+    <select id="getOrderListDetail" resultType="OrderDTO">
+		SELECT *
+		from SC_ORDER_USER  o
+        JOIN 
+        LICENSEMEMBERS LM
+        ON (o.num = LM.num)
+		JOIN RESERVATION RV
+        ON (o.reserNum = RV.reserNum)
+		INNER JOIN 
+		STUDYCAFEDETAIL p 
+		ON (p.detailNum= o.productNum)
+		WHERE o.orderNum=#{orderNum}    
     </select>
     
     <!-- 관리자 회원주문개수 -->
@@ -63,7 +84,11 @@
     <select id="adminOrderList" parameterType="Long" resultType="OrderDTO">
 		SELECT *
 		from SC_ORDER_USER  o
-		JOIN STUDYCAFEDETAIL p ON p.detailNum= o.productNum
+		JOIN RESERVATION RV
+        ON (o.reserNum = RV.reserNum)
+		INNER JOIN 
+		STUDYCAFEDETAIL p 
+		ON (p.detailNum= o.productNum)
 		WHERE o.orderNum=#{orderNum}
     </select>
     

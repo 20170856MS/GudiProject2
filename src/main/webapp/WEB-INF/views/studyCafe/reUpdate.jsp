@@ -191,8 +191,11 @@
 					<div magin : 50px 0>
 						<br>
 					</div>
-					
-
+					<c:forEach items="${roomList}" var="rdto" end="0">
+						<text id="test1" hidden detail-Num="${rdto.detailNum}">${rdto.detailNum}</text>
+					</c:forEach>
+					<input hidden value="${timeLength}" id ="timeLengthCheck">
+					<input hidden value="${reserNum}" id ="reserNum">
 					<h1>방 선택</h1>
 					<table>
 						<tr>
@@ -204,7 +207,6 @@
 							<tr>
 								<td>
 									<div class="form-check">
-										<text id="test1" hidden detail-Num="${rdto.detailNum}">${rdto.detailNum}</text>
 										<input class="form-check-input" value="${rdto.roomName}" type="radio" name="radioBtn" id="radio_${rdto.roomName}">
 										<label class="form-check-label" for="flexRadioDefault1">
 											${rdto.roomName}
@@ -259,7 +261,7 @@
 						<text id="timeText1"></text>
 					</div>
 					
-					<button id="sendDate" type="button">예약완료</button>
+					<button id="dateUpdate" type="button">예약변경</button>
 					</div>
 				
 		
@@ -273,6 +275,6 @@
 	<script src="/resources/js/common.js">
 
 </script>
-	<script src="/resources/js/studyCafe.js"></script>
+	<script src="/resources/js/cafeTimeChange.js"></script>
 </body>
 </html>

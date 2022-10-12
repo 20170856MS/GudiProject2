@@ -3,6 +3,7 @@ const orderNum = document.querySelectorAll(".orderNum");
 const userNum = document.querySelectorAll(".usernum");
 const table_btn = document.querySelectorAll(".table_btn")
 const listInfo = (function(){
+
 	let orderList = [];
 	
 	const getOrderList = function(index){
@@ -35,7 +36,7 @@ for(let i = 0 ; i<table_btn.length;i++){
       success: function(data) {
               console.log(data)
               if(data == 1){
-                location.replace('/order/adminCompleteDetail?orderNum='+orderNum[i].value);
+                location.replace('/order/completeDetail?orderNum='+orderNum[i].value);
               } 
             }
   });
@@ -43,8 +44,6 @@ for(let i = 0 ; i<table_btn.length;i++){
   })
 
 }
-
-
 
 
 for(let i = 0 ; i<payMentCancel.length;i++){
@@ -65,7 +64,8 @@ for(let i = 0 ; i<payMentCancel.length;i++){
             }).then(function(){
               const xhttp = new XMLHttpRequest;
 
-              xhttp.open("POST","../admin/orderCancle")
+              // 나중에 exception 오류?
+              xhttp.open("POST","/order/orderCancle")
 
               
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -78,9 +78,12 @@ for(let i = 0 ; i<payMentCancel.length;i++){
                     let result1 = xhttp.responseText.trim();
                     console.log(result1);
                         if(result1==1){
-                              location.replace('/admin/adminOrderInfo')
+                            location.replace('/order/myOrderList')
+                            
                     
-                        } 
+                        } else{
+                            swal("이미 취소된 주문이거나 없는 주문번호입니다.");
+                        }
                   } 
               }
             })
