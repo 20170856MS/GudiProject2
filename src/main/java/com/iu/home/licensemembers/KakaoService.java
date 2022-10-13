@@ -40,7 +40,7 @@ public class KakaoService {
             StringBuilder sb = new StringBuilder();
             System.out.println("code 0  :" + code);
             sb.append("grant_type=authorization_code");
-            sb.append("&client_id=29ac8f50075dbf10d6f7a7dbb8178e8a");  //앱 KEY VALUE
+            sb.append("&client_id=c7ce88367515391bad76eec48ec49f1a");  //앱 KEY VALUE
             sb.append("&redirect_uri=http://localhost:8080/member/kakao_callback"); // 앱 CALLBACK 경로
             sb.append("&code=" + code);
             System.out.println("sb 2 : " + sb);

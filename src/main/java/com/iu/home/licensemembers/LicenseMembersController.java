@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -458,7 +459,7 @@ public class LicenseMembersController {
     public String kakaoLogin() throws Exception {
         StringBuffer loginUrl = new StringBuffer();
         loginUrl.append("https://kauth.kakao.com/oauth/authorize?client_id=");
-        loginUrl.append("29ac8f50075dbf10d6f7a7dbb8178e8a"); 
+        loginUrl.append("c7ce88367515391bad76eec48ec49f1a"); 
         loginUrl.append("&redirect_uri=");
         loginUrl.append("http://localhost:8080/member/kakao_callback"); 
         loginUrl.append("&response_type=code");
@@ -523,6 +524,16 @@ public class LicenseMembersController {
             session.setAttribute("kakaoToken", kakaoToken);
         return mv;
     }
+	
+	@GetMapping("point")
+	public String point(Model model) {
+//		long id = user.getUser().getId();
+//		List<Point> myPoint = userService.myPoint(id);
+//		model.addAttribute("myPoint", myPoint);
+//		model.addAttribute("point", user.getUser().getPoint());
+//		
+		return "member/point";
+	}
 	
 	@PostMapping("joinCheck")
 	@ResponseBody

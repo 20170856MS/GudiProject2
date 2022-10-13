@@ -50,10 +50,13 @@
 		<interceptor>
 			<mapping path="/order/**"/>
 			<mapping path="/info/add"/>
+			<mapping path="/member/point"/>
+			<mapping path="/member/myPage"/>			
+			<mapping path="/member/myInfo"/>
+			<mapping path="/member/modify"/>
+			<mapping path="/member/findPasswor"/>
+			<mapping path="/member/findPasswordAuth"/>
 			
-			<!--   <exclude-mapping path="/notice/list.esh"/>
-			<exclude-mapping path="/notice/detail.esh"/>
-			<exclude-mapping path="/qna/list.esh"/> -->
 			<beans:ref bean="memberInterceptor"/>
 		</interceptor>
 		
