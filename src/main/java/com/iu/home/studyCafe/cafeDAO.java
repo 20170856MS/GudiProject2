@@ -45,6 +45,8 @@ public class cafeDAO {
 		return sqlSession.update(NAMESPACE+"updateDetail", cafeDetailDTO);
 	}
 	
+	
+	
 	public List<AreaDTO> areaList() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"areaList");
 	}

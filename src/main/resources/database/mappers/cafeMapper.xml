@@ -40,9 +40,12 @@
     		SELECT SETIME FROM RESERVATION where sedate=#{seDate} AND ROOMNAME = #{roomName} AND DETAILNUM = #{detailNum}
     	</select>
     	<update id="updateDetail">
-    		UPDATE STUDYCAFEDETAIL SET CDPAY=#{cdPay}, CDREGION=#{cdRegion}, SCEXPLAIN=#{scExplain}
+    		UPDATE STUDYCAFEDETAIL SET CDPAY=#{cdPay}, CDREGION=#{cdRegion}, SCEXPLAIN=#{scExplain}, LATITUDE=#{latitude}, LONGITUDE=#{longitude}
     		WHERE SCNAME=#{scName}
     	</update>
+    	
+    	
+    	
     	
     	<select id="areaList" resultType="AreaDTO">
     		SELECT * FROM AREA ORDER BY AREANUM ASC

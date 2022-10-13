@@ -34,7 +34,7 @@
 				<script>
 					var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 				    mapOption = { 
-				        center: new kakao.maps.LatLng(37.478351, 126.866479), // 지도의 중심좌표
+				        center: new kakao.maps.LatLng(37.471070, 126.897783), // 지도의 중심좌표
 				        level: 4 // 지도의 확대 레벨
 				    };
 	
@@ -44,19 +44,19 @@
 					var positions = [
 				    {
 				        content: '<div><a href="https://map.kakao.com/link/map/구디스터디카페,37.478392, 126.870077" style="color:blue" target="_blank">구디스터디카페</a></div>', 
-				        latlng: new kakao.maps.LatLng(37.478392, 126.870077)
+				        latlng: new kakao.maps.LatLng(37.469181, 126.898560)
 				    },
 				    {
 				        content: '<div><a href="https://map.kakao.com/link/map/팔디스터디카페,37.478309, 126.863327" style="color:blue" target="_blank">팔디스터디카페</a></div>', 
-				        latlng: new kakao.maps.LatLng(37.478309, 126.863327)
+				        latlng: new kakao.maps.LatLng(37.470088, 126.900387)
 				    },
 				    {
 				        content: '<div><a href="https://map.kakao.com/link/map/칠디스터디카페,37.475453, 126.870366" style="color:blue" target="_blank">칠디스터디카페</a></div>', 
-				        latlng: new kakao.maps.LatLng(37.475453, 126.870366)
+				        latlng: new kakao.maps.LatLng(37.469514, 126.895587)
 				    },
 				    {
 				        content: '<div><a href="https://map.kakao.com/link/map/육디스터디카페,37.475182, 126.864956" style="color:blue" target="_blank">육디스터디카페</a></div>',
-				        latlng: new kakao.maps.LatLng(37.475182, 126.864956)
+				        latlng: new kakao.maps.LatLng(37.471758, 126.896152)
 				    }
 					];
 	
