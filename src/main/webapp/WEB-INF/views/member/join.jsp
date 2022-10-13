@@ -33,7 +33,7 @@
 			<div class="row">
 			<div class="login_box">
 				
-				<div><h4>야나두 자격증 사이트에 오신것을 환영합니다.</h4></div>
+				<div><h4>자바스 자격증 사이트에 오신것을 환영합니다.</h4></div>
 				<main>
 				<form class="align-center" action="join" method="post" id="frm3">
 					<c:choose>

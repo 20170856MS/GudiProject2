@@ -69,6 +69,17 @@ public class LicenseMembersService {
 		
 	}
 	
+public LicenseMembersDTO getEmailCheck(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		return licenseMembersDAO.getUserEmailCheck(licenseMembersDTO);
+		
+	}
+public LicenseMembersDTO getPhoneCheck(LicenseMembersDTO licenseMembersDTO) throws Exception{
+	
+	return licenseMembersDAO.getUserPhoneCheck(licenseMembersDTO);
+	
+}
+	
 	public LicenseMembersDTO getUserNameCheck(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		
 		return licenseMembersDAO.getUserNameCheck(licenseMembersDTO);

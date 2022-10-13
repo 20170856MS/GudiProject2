@@ -52,6 +52,16 @@ public class LicenseMembersDAO {
 		
 		return sqlSession.selectOne(NAMESPACE+"getUserNameCheck", licenseMembersDTO);
 	}
+public LicenseMembersDTO getUserEmailCheck(LicenseMembersDTO licenseMembersDTO) throws Exception{
+		
+		
+		return sqlSession.selectOne(NAMESPACE+"getUserEmailCheck", licenseMembersDTO);
+	}
+public LicenseMembersDTO getUserPhoneCheck(LicenseMembersDTO licenseMembersDTO) throws Exception{
+	
+	
+	return sqlSession.selectOne(NAMESPACE+"getUserPhoneCheck", licenseMembersDTO);
+}
 	
 	public LicenseMembersDTO getFindId(LicenseMembersDTO licenseMembersDTO) throws Exception{
 		

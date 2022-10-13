@@ -524,6 +524,39 @@ public class LicenseMembersController {
         return mv;
     }
 	
+	@PostMapping("joinCheck")
+	@ResponseBody
+	public int setJoinCheck(LicenseMembersDTO licenseMembersDTO) throws Exception {
+		System.out.println(licenseMembersDTO.getUserName());
+		System.out.println(licenseMembersDTO.getName());
+		System.out.println(licenseMembersDTO.getEmail());
+		System.out.println(licenseMembersDTO.getPhone());
+		int result = 0;
+		LicenseMembersDTO userNameCheck = licenseMembersService.getUserNameCheck(licenseMembersDTO);
+		LicenseMembersDTO nameCheck = licenseMembersService.getNameCheck(licenseMembersDTO);
+		LicenseMembersDTO phoneCheck = licenseMembersService.getPhoneCheck(licenseMembersDTO);
+		LicenseMembersDTO emailCheck = licenseMembersService.getEmailCheck(licenseMembersDTO);
+		
+		if(userNameCheck != null) {
+			result = 1; //userName 중복
+		}
+		
+		if(nameCheck != null) {
+			result = 2; //name 중복
+		}
+		if(phoneCheck != null) {
+			result = 3; //email 중복
+		}
+		if(emailCheck != null) {
+			result = 4; //phone 중복
+		}
+		
+		
+		
+		
+		
+		return result;
+	}
 	// 마이페이지 아이디 수정용
 	@GetMapping("nameCheck")
 	@ResponseBody

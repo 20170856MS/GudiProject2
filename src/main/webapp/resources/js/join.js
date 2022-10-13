@@ -93,21 +93,51 @@ phone.addEventListener("blur",function(){
 })
 
 join1.addEventListener("click",function(){
-    console.log(check1);
-    console.log(check2);
-    console.log(check3);
-    console.log(check4);
-    console.log(check5);
-    console.log(check6);
+    console.log(userName.value)
+    console.log(name1.value)
+    console.log(email.value)
+    console.log(phone.value)
+    console.log(userName.value)
+
+    const xhttp = new XMLHttpRequest;
+
+              xhttp.open("POST","/member/joinCheck")
+
+              
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 
-    if(check1 == true && check2 == true && check3 ==true && check4 == true && check5==true && check6 == true){
-        swal("회원가입 성공!", "환영합니다.", "success");
-        setTimeout(() => console.log("after"), 3000);
-        frm3.submit();
-    }else{
-        swal("정보가 입력되어있지 않습니다.");
-    }
+              xhttp.send("&userName="+userName.value+"&name="+name1.value+"&email="+email.value+"&phone="+phone.value);
+
+              xhttp.onreadystatechange=function(){
+                  if(this.readyState==4 && this.status==200){
+                    let result = xhttp.responseText.trim();
+                    console.log(result);
+                    if(result == 0){
+                        if(check1 == true && check2 == true && check3 ==true && check4 == true && check5==true && check6 == true){
+                            swal("회원가입 성공!", "환영합니다.", "success").then(function(){
+                                
+                                frm3.submit();
+                            })
+                        }else{
+                            swal("정보가 입력되어있지 않습니다.");
+                        }
+                    } else if (result == 1){
+                        swal("중복된 아이디입니다","","error")
+                    } else if (result == 2){
+                        swal("사용중인 닉네임입니다.","","error")
+                    } else if (result == 3){
+                        swal("사용중인 이메일입니다.","","error")
+                    } else if (result == 4){
+                        swal("사용중인 전화번호입니다.","","error")
+                    }
+                        
+                  } 
+              }
+            
+
+
+    
 
 });
 
