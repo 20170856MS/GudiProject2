@@ -10,7 +10,7 @@
 				crossorigin="anonymous">
 			<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/theme.css" rel="stylesheet" />
-			<title>Insert title here</title>
+			<title>자바스</title>
 		</head>
 
 		<body>

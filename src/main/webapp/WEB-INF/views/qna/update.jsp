@@ -11,7 +11,7 @@
 		rel="stylesheet"
 		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 		crossorigin="anonymous">
-		<title>Insert title here</title>
+		<title>자바스/title>
 		<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 		<link href="/resources/css/theme.css" rel="stylesheet" />
 		<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">

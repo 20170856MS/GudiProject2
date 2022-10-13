@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>자바스</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
@@ -43,13 +43,13 @@
                             <c:set var="name1" value="${SPRING_SECURITY_CONTEXT.authentication.principal.user.nickname }" />
 	                        <a href="/member/myInfo"><span class="name1" data-nickname=${name} >${dto.name}</span></a>
 							
-							<button type="button" class="logout">로그아웃</button>
+							<button type="button" class="logout" onclick="location.href='/member/logout'">로그아웃</button>
 	                    </c:if>
 		    		</div>
 		    		
 		    		
 		    		<div>
-		    			<a href="/user/point" onclick="return loginCheck();">
+		    			<a href="/#" onclick="return loginCheck();">
 	                       	<span class="img_box">
 	                       		<img src="/resources/img/icon11.png" alt="포인트">
 	                       	</span>

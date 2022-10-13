@@ -171,8 +171,10 @@ commentList.addEventListener("click",function(event){
 
     //-----delete-----
     if(event.target.className=="delete") {
-        let check = window.confirm("댓글을 삭제 하시겠습니까?");
-        if(check) {
+        swal("댓글을 삭제 하시겠습니까?", {
+            dangerMode: true,
+            buttons: true,
+          }).then(function(){
             let num=event.target.getAttribute("data-commentnum");
 
 
@@ -206,7 +208,42 @@ commentList.addEventListener("click",function(event){
                     }
                 }
             }
-        }
+        })
+        // if(check) {
+        //     let num=event.target.getAttribute("data-commentnum");
+
+
+        //     //1. XMLHTTPRequest
+        //     const xhttp = new XMLHttpRequest();
+
+        //     //2. 요청 정보
+        //     xhttp.open("POST", "commentDelete");
+
+        //     //3. Header
+        //     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        //     //4. 요청 (파라미터와 함께)
+        //     xhttp.send("num="+num);
+
+        //     //5. 응답처리
+        //     xhttp.onreadystatechange=function(){
+        //         if(xhttp.readyState==4 && xhttp.status==200) {
+        //             let result = xhttp.responseText.trim();
+        //             if(result==1) {
+        //                 swal("삭제를 성공 했습니다");
+        //                 page=1;
+
+        //                 for(let i=0;i<commentList.children.length;) {
+        //                     commentList.children[0].remove();
+        //                 }
+
+        //                 getCommentList(page, qnaNum);
+        //             }else {
+        //                 swal("삭제를 실패 했습니다");
+        //             }
+        //         }
+        //     }
+        // }
     }
 })
 

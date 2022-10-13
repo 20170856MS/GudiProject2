@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 
-    <title>headerFooter</title>
+    <title>자바스</title>
 </head>
 <body>
     <c:import url="../template/header.jsp"></c:import>

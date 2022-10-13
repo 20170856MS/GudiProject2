@@ -156,7 +156,7 @@ sendDate.addEventListener("click", function(){
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     if(radioText.textContent == "" || dateText.textContent == "" || timeText.textContent == ""){
-        alert("공백이 있습니다.");
+        swal("공백이 있습니다.");
         
     }else{
         console.log("공백없음");
@@ -170,9 +170,11 @@ sendDate.addEventListener("click", function(){
                 console.log(result);
     
                 
-                alert('저장완료');
-                location.replace("/order/order");
-                i = 0;
+                swal('저장완료').then(function(){
+
+                    location.replace("/order/order");
+                    i = 0;
+                })
                 
                 // if(result.result==1){
                 //     console.log("수정 성공");
