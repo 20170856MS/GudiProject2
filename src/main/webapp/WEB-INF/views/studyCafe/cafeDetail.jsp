@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     
+    <link href="/resources/css/myOrderList.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -27,7 +28,7 @@
 			<!--지도-->
 			<h1>지도</h1>
          		
-         		<div id="map" style="width:500px;height:400px;"></div>
+         		<div id="map" style="width:500px;height:400px; margin-left:360px;"></div>
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e50c1a3d843524281f35f43447abac4a"></script>
 				<script>
 					
@@ -73,7 +74,7 @@
 
 				</script>
 			<!--지도-->
-		    <table>
+		    <table class="point_table">
 		        <tr>
 		        	<td>번호</td>
 		            <td>이름</td>

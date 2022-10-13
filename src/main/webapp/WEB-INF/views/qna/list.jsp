@@ -26,7 +26,7 @@
 	<section class="container-fluid"
 		style="padding-top: 120px; padding-bottom: 0px;">
 		<div class="row">
-			<h1 style="padding-left: 0px; padding-right: 0px; color: whitesmoke; ">게시판 리스트</h1>
+			<h1 style="padding-left: 0px; padding-right: 0px;">게시판 리스트</h1>
 
 			<div class="row mb-3">
 				<form action="./list"
@@ -60,11 +60,11 @@
 			<table class="table table-sm">
 				<thead>
 					<tr>
-						<th style="color: whitesmoke;">글번호</th>
-						<th style="color: whitesmoke;">글제목</th>
-						<th style="color: whitesmoke;">작성자</th>
-						<th style="color: whitesmoke;">작성일</th>
-						<th style="color: whitesmoke;">조회수</th>
+						<th>글번호</th>
+						<th>글제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>조회수</th>
 					</tr>
 				</thead>
 
@@ -74,12 +74,12 @@
 							<c:catch>
 								<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
 							</c:catch>
-							<td style="color: whitesmoke;"><a style="color: whitesmoke;"
+							<td><a
 								href="./detail?qnaNum=${qnaDTO.qnaNum}">${qnaDTO.qnaNum}</a></td>
-							<td style="color: whitesmoke;">${qnaDTO.title}</td>
-							<td style="color: whitesmoke;">${qnaDTO.writer}</td>
-							<td style="color: whitesmoke;">${qnaDTO.regDate}</td>
-							<td style="color: whitesmoke;">${qnaDTO.hit}</td>
+							<td>${qnaDTO.title}</td>
+							<td>${qnaDTO.writer}</td>
+							<td>${qnaDTO.regDate}</td>
+							<td>${qnaDTO.hit}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

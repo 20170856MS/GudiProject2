@@ -20,7 +20,7 @@
 			<link href="/resources/css/theme.css" rel="stylesheet"/>
 			<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
+			<link href="/resources/css/calendar.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
 			<link href="/resources/css/infoDetailBootStrap.css" rel="stylesheet" type="text/css">
