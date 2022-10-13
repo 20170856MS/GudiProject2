@@ -30,7 +30,7 @@
     <!-- header.jsp -->
         <c:import url="../template/header.jsp"></c:import>
         <!---------------------------------------search--------------------------------------------------------------------->
-		<div class="row mb-3">
+		<div class="row">
             <form action="./main" class="row row-cols-lg-auto g-3 align-items-center">
 
                 <div class="col-12">
