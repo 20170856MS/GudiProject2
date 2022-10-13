@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-
 </head>
 <body>
 	
@@ -42,8 +41,8 @@
 					var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 				    mapOption = { 
 
-				        center: new kakao.maps.LatLng(33.450705, 126.570677), // 지도의 중심좌표
-				        level: 3 // 지도의 확대 레벨
+				        center: new kakao.maps.LatLng(37.467534, 126.893992), // 지도의 중심좌표
+				        level: 5 // 지도의 확대 레벨
 				    };
 	
 					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다

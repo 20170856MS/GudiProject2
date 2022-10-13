@@ -126,7 +126,7 @@ deleteBtn.addEventListener("click", function(){
             let result = xhttp.responseText.trim();
 
             
-            alert('저장완료');
+            alert('삭제완료');
             location.replace("./cafeList");        
             
             // if(result.result==1){
