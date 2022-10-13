@@ -13,6 +13,7 @@ const radioText = document.getElementById("radioText");
 const radioList = document.getElementsByName("radioBtn");
 const test1 = document.getElementById("test1");
 const btnRoom = document.querySelector("#btnRoom");
+const detailNum = test1.getAttribute("detail-Num");
 let listTime = [];
 let test = " ";
 const addList = document.getElementById("addList");
