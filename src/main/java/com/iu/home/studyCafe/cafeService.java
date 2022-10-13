@@ -46,4 +46,13 @@ public class cafeService {
 		return cafeDAO.updateDetail(cafeDetailDTO);
 	}
 	
+	
+	
+	public List<AreaDTO> areaList() throws Exception{
+		return cafeDAO.areaList();
+	}
+	public int addList(CafeDTO cafeDTO) throws Exception{
+		return cafeDAO.addList(cafeDTO);
+	}
+	
 }

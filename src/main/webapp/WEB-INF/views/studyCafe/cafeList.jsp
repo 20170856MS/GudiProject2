@@ -28,8 +28,55 @@
   
 
     			<h1>StudyCafe</h1>
+				<script>
+					var lati = new Array();
+					var longti = new Array();
+					// <c:forEach items="${list}" var="dto">
+					// 	lati.push(${dto.latitude});
+					// 	longi.push(${dto.longitude});
+					// </c:forEach>
+				</script>
+				<div id="map" style="width:500px;height:400px;"></div>
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e50c1a3d843524281f35f43447abac4a"></script>
+				<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+				    mapOption = { 
 
-
+				        center: new kakao.maps.LatLng(33.450705, 126.570677), // 지도의 중심좌표
+				        level: 3 // 지도의 확대 레벨
+				    };
+	
+					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+					var positions = new Array();
+					// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+					<c:forEach items="${list}" var="dto">
+						positions = [
+							{
+								content : '<div><a href="https://map.kakao.com/link/map/${dto.scName}, ${dto.latitude}, ${dto.longitude}" style="color:blue" target="_blank">${dto.scName}</a></div>', 
+								latlng: new kakao.maps.LatLng(${dto.latitude}, ${dto.longitude})
+							}
+						]
+						for (var i = 0; i < positions.length; i ++) {
+						    // 마커를 생성합니다
+						    var marker = new kakao.maps.Marker({
+						        map: map, // 마커를 표시할 지도
+						        position: positions[i].latlng // 마커의 위치
+						    });
+			
+						    // 마커에 표시할 인포윈도우를 생성합니다 
+						    var infowindow = new kakao.maps.InfoWindow({
+						        content: positions[i].content // 인포윈도우에 표시할 내용
+					    	});
+					    
+					    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+					    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+					    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+						    infowindow.open(map, marker);
+						}
+					// </c:forEach>
+					
+				</script>		
+				
 				<table>
 					<tr>
 					    <th scope="col">번호</th>
@@ -50,11 +97,11 @@
 					</c:forEach>
 				</table>
 
-				<div>
-					<button id="addList">추가</button>
-					<button id="updateList">수정</button>
-					<button id="deleteList">삭제</button>
-				</div>
+				
+				<a href="./addList">추가</a>
+				<a href="./updateList">수정</a>
+				<a href="./deleteList">삭제</a>
+				
    
    			</div>
 		</section>
@@ -68,7 +115,7 @@
 	<script src="/resources/js/common.js">
 
 </script>
-	<script src="/resources/js/studyCafe.js"></script>
-	<script src="/webapp/resources/js/studyCafe.js"></script>
+	<script src="/resources/js/studyCafeList.js"></script>
+	
 </body>
 </html>
