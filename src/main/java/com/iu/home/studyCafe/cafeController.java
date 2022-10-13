@@ -150,6 +150,15 @@ public class cafeController {
 
 		return mv;
 	}
+	@RequestMapping(value = "updateDetail", method=RequestMethod.POST)
+	public ModelAndView updateDetail(CafeDetailDTO cafeDetailDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = cafeService.updateDetail(cafeDetailDTO);
+		System.out.println(cafeDetailDTO.getScName());
+		mv.setViewName("studyCafe/cafeList");
+		mv.addObject("dto", cafeDetailDTO);
+		return mv;
+	}
 	
 //	@RequestMapping(value = "reList")
 //	public String reList(Model model,HttpSession session) throws Exception{
