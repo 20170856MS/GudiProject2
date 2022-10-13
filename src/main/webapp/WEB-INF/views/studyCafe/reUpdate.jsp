@@ -67,21 +67,34 @@
 			clickedDate = this.getAttribute('id');
 
 	
-			clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
-			clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
-			clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+			let y = today.getFullYear();
+				let m = today.getMonth()+1;
+				let d = today.getDate();
+
+				if(clickedYear>=y&&clickedMonth>=m&&clickedDate>=d){
+					clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
+					clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
+					clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+					
+					// console.log("클릭");
+					// let t = document.createTextNode(clickedYear + "-" + clickedMonth + "-" + clickedDate);
+					// let li = document.createElement("li");
+					// li.appendChild(t);
+					// dateText.append(li);
 			
-			// console.log("클릭");
-			   // let t = document.createTextNode(clickedYear + "-" + clickedMonth + "-" + clickedDate);
-			// let li = document.createElement("li");
-			// li.appendChild(t);
-			// dateText.append(li);
-	
-			let dateText = document.getElementById("dateText");
-			dateText.textContent = clickedYear + "-" + clickedMonth + "-" + clickedDate;
-			if(dateText != "" && clickedDate == clickedDate){
-				dateText= "";
-			}
+					let dateText = document.getElementById("dateText");
+					dateText.textContent = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+					if(dateText != "" && clickedDate == clickedDate){
+						dateText= "";
+					}
+					
+					
+					//opener.document.getElementById("date").value = clickedYMD;
+					//self.close();
+					
+				}else{
+					swal("이미 지난 날짜입니다.","","warning");
+				}
 			
 			
 			//opener.document.getElementById("date").value = clickedYMD;
