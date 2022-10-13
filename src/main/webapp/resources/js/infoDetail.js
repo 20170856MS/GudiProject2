@@ -25,7 +25,9 @@ const chkv = document.querySelector(".chkv");
 const chkj = document.querySelector(".chkj");
 let delCheck=0;
 
-
+board.addEventListener("click",function(){
+    window.scrollTo({ top: 2000, behavior: "smooth" });
+})
 interest.addEventListener("click",function(){
     let num = interest.getAttribute("data-num");
     let licenseNum = interest.getAttribute("data-license-num");

@@ -85,6 +85,19 @@
                                     <div class="eeee">
                                         <h1 style="padding-top: 40px;font-size: 18px;">시작부터 끝까지, 자격증에 대한 모든 종류는 자바스에서
                                             확인하세요</h1>
+                                            <c:if test="${not empty check}">
+                                            
+                                            	<c:forEach items="${requestScope.ar2}" var="ar2">
+                                            	
+                                            		<pre>  ${ar2.licenseName}</pre>
+                                            		<pre>  ${ar2.scheduleName1}: ${ar2.scheduleDate1}, ${ar2.scheduleName2}: ${ar2.scheduleDate2}</pre><br>
+
+		                                                
+                                            		
+                                            	</c:forEach>
+                                            	
+                                            </c:if>
+                                            
                                     </div>
                                 </div>
                             </div>
