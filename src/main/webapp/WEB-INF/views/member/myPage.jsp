@@ -14,6 +14,15 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<link rel="stylesheet" href="/resources/css/myPage.css" type="text/css">
+	    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
 </head>
 <style>
     .align-center {text-align: center;}
