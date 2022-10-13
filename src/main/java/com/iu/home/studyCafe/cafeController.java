@@ -211,8 +211,21 @@ public class cafeController {
 		return "studyCafe/updateList";
 	}
 	@RequestMapping(value="deleteList", method=RequestMethod.GET)
-	public String deleteList() throws Exception{
+	public String deleteList(Model model) throws Exception{
+		List<CafeDTO> ar = cafeService.getList();
+		model.addAttribute("list", ar);
+		
 		return "studyCafe/deleteList";
+	}
+	
+	@RequestMapping(value="deleteList", method=RequestMethod.POST)
+	public ModelAndView deleteList(CafeDTO cafeDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("deleteList Post");
+		int result = cafeService.deleteList(cafeDTO);
+		mv.setViewName("redirect:./cafeList");
+		
+		return mv;
 	}
 	
 }

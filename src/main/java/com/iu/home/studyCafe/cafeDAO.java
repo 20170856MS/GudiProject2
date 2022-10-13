@@ -56,5 +56,7 @@ public class cafeDAO {
 	public int addList(CafeDTO cafeDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"addList", cafeDTO);
 	}
-	
+	public int deleteList(CafeDTO cafeDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"deleteDTO", cafeDTO);
+	}
 }
