@@ -192,7 +192,7 @@
 						<br>
 					</div>
 					
-
+					<input type="hidden" >
 					<h1>방 선택</h1>
 					<table>
 						<tr>
