@@ -22,8 +22,10 @@
 	</beans:bean>
 	<beans:bean class="com.iu.home.interceptor.AdminCheckInterceptor" id ="adminCheckInterceptor"></beans:bean>
 	<beans:bean class="com.iu.home.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
+	<beans:bean class="com.iu.home.interceptor.WriteCheckInterceptor" id="writeCheckInterceptor"></beans:bean>
 	
 	<interceptors>
+	
 		 <!-- <interceptor>
 			<mapping path="/qna/*"/>
 			<mapping path="/member/myPage.esh"/>
@@ -32,9 +34,23 @@
 			<beans:bean class="com.esh.start.interceptor.MemberInterceptor"></beans:bean>		
 		 </interceptor> -->
 		<!-- URL 주소 -->
+		
+		<!-- 작성자만 수정 -->
+		<interceptor>
+			<mapping path="/qna/update"/>
+			<mapping path="/qna/delete"/>
+			<!--   <exclude-mapping path="/notice/list.esh"/>
+			<exclude-mapping path="/notice/detail.esh"/>
+			<exclude-mapping path="/qna/list.esh"/> -->
+			<beans:ref bean="writeCheckInterceptor"/>
+		</interceptor>
+		
+		
+		<!-- 회원만 주문가능, 글쓰기도 -->
 		<interceptor>
 			<mapping path="/order/**"/>
 			<mapping path="/info/add"/>
+			
 			<!--   <exclude-mapping path="/notice/list.esh"/>
 			<exclude-mapping path="/notice/detail.esh"/>
 			<exclude-mapping path="/qna/list.esh"/> -->

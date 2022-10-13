@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value ="/error/*")
+@RequestMapping(value ="/errors/*")
 public class FrontErrorController {
 
 	@GetMapping("error400")
@@ -15,7 +15,6 @@ public class FrontErrorController {
 		
 		System.out.println("Parameter가 틀림");
 		mv.setViewName("errors/error_404");
-		
 		
 		return mv;
 	}
