@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 mt-5" >
+                    <div class="col-lg-12 mt-5" >
                         <div class="place-order">
                             <h4>예약 정보</h4>
                             <div class="order-total">
