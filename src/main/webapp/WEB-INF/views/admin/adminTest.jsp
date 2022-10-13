@@ -13,7 +13,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
 <!-- 아임포트 -->
 <script src ="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
-<link href="/resources/css/theme.css" rel="stylesheet" />
+<link href="/resources/css/theme.css" rel="stylesheet" />    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, span {
+        font-family: 'Noto Sans KR', sans-serif !important;
+    }
+</style>
 </head>
 <body>
 	
