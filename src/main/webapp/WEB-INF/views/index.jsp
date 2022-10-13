@@ -90,7 +90,7 @@
                             </div>
 
 
-                            <!-- 월간 시험일정 -->
+                            <!-- 월간 시험일정 : 큐넷에 있는거 따옴-->
                             <div id="content">
                                 <form name="form1"></form>
                                 <div class="content">

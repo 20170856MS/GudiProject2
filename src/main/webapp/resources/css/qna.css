@@ -1,0 +1,11 @@
+.container-fluid {
+    background-image: url("/resources/img/bg.png");
+}
+
+.td {
+    color: whitesmoke;
+}
+
+.th {
+    color: whitesmoke;
+}
