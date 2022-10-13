@@ -221,50 +221,50 @@
 							</tr>
 						</c:forEach>	 
 					</table>
-					<button id="btnRoom" >선택 완료</button>
+					<button id="btnRoom" class="button" >선택 완료</button>
 					<text id="radioText"></text>
 					
 					<div class="room_box">
 					<table >
 							<tr>
 								<td>
-									<button class="timeBtn" value="07:00">07:00</button>
-									<button class="timeBtn" value="08:00" >08:00</button>
-									<button class="timeBtn" value="09:00">09:00</button>
-									<button class="timeBtn" value="10:00">10:00</button>
-									<button class="timeBtn" value="11:00">11:00</button>
-									<button class="timeBtn" value="12:00">12:00</button>
+									<button class="timeBtn button" value="07:00">07:00</button>
+									<button class="timeBtn button" value="08:00" >08:00</button>
+									<button class="timeBtn button" value="09:00">09:00</button>
+									<button class="timeBtn button" value="10:00">10:00</button>
+									<button class="timeBtn button" value="11:00">11:00</button>
+									<button class="timeBtn button" value="12:00">12:00</button>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<button class="timeBtn" value="13:00">13:00</button>
-									<button class="timeBtn" value="14:00">14:00</button>
-									<button class="timeBtn" value="15:00">15:00</button>
-									<button class="timeBtn" value="16:00">16:00</button>
-									<button class="timeBtn" value="17:00">17:00</button>
-									<button class="timeBtn" value="18:00">18:00</button>
+									<button class="timeBtn button" value="13:00">13:00</button>
+									<button class="timeBtn button" value="14:00">14:00</button>
+									<button class="timeBtn button" value="15:00">15:00</button>
+									<button class="timeBtn button" value="16:00">16:00</button>
+									<button class="timeBtn button" value="17:00">17:00</button>
+									<button class="timeBtn button" value="18:00">18:00</button>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<button class="timeBtn" value="19:00">19:00</button>
-									<button class="timeBtn" value="20:00">20:00</button>
-									<button class="timeBtn" value="21:00">21:00</button>
-									<button class="timeBtn" value="22:00">22:00</button>
-									<button class="timeBtn" value="23:00">23:00</button>
+									<button class="timeBtn button" value="19:00">19:00</button>
+									<button class="timeBtn button" value="20:00">20:00</button>
+									<button class="timeBtn button" value="21:00">21:00</button>
+									<button class="timeBtn button" value="22:00">22:00</button>
+									<button class="timeBtn button" value="23:00">23:00</button>
 									
 								</td>
 							</tr>
 					</table>
 
 					<div>
-						<button id="complete">선택완료</button>
+						<button id="complete" class="button">선택완료</button>
 						<text id="timeText"></text><br>
 						<text id="timeText1"></text>
 					</div>
 					
-					<button id="sendDate" type="button">예약완료</button>
+					<button id="sendDate" type="button" class="button">예약완료</button>
 					</div>
 				
 		
