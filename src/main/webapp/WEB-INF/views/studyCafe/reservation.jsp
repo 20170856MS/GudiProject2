@@ -28,7 +28,7 @@
 	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/bootstrap-datepicker.js"%></script>
 	<link rel="stylesheet" type="text/css" href="/resources/css/TimePicker/bootstrap-datepicker.css" />
 	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/site.js"%></script>
-	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <script type="text/javascript">
 	var today = new Date();
@@ -51,8 +51,6 @@
 			cnt += 1;
 		}
 	
-		row = calendarTable.insertRow();
-	
 		for(i = 1; i <= lastDate.getDate(); i++){
 			cell = row.insertCell();
 			cnt += 1;
@@ -60,45 +58,52 @@
 			cell.setAttribute('id', i);
 			cell.innerHTML = i;
 			cell.align = "center";
-	
-			cell.onclick = function(){
-			clickedYear = today.getFullYear();
-			clickedMonth = ( 1 + today.getMonth() );
-			clickedDate = this.getAttribute('id');
 
-	
-			clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
-			clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
-			clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+			cell.onclick = function(){
+				clickedYear = today.getFullYear();
+				clickedMonth = ( 1 + today.getMonth() );
+				clickedDate = this.getAttribute('id');
+
+				let y = today.getFullYear();
+				let m = today.getMonth()+1;
+				let d = today.getDate();
+
+				if(clickedYear>=y&&clickedMonth>=m&&clickedDate>=d){
+					clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
+					clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
+					clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+					
+					// console.log("클릭");
+					// let t = document.createTextNode(clickedYear + "-" + clickedMonth + "-" + clickedDate);
+					// let li = document.createElement("li");
+					// li.appendChild(t);
+					// dateText.append(li);
 			
-			// console.log("클릭");
-			   // let t = document.createTextNode(clickedYear + "-" + clickedMonth + "-" + clickedDate);
-			// let li = document.createElement("li");
-			// li.appendChild(t);
-			// dateText.append(li);
-	
-			let dateText = document.getElementById("dateText");
-			dateText.textContent = clickedYear + "-" + clickedMonth + "-" + clickedDate;
-			if(dateText != "" && clickedDate == clickedDate){
-				dateText= "";
+					let dateText = document.getElementById("dateText");
+					dateText.textContent = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+					if(dateText != "" && clickedDate == clickedDate){
+						dateText= "";
+					}
+					
+					
+					//opener.document.getElementById("date").value = clickedYMD;
+					//self.close();
+					
+				}else{
+					swal("이미 지난 날짜입니다.","","warning");
+				}
+				
 			}
-			
-			
-			//opener.document.getElementById("date").value = clickedYMD;
-			//self.close();
 	
+			if (cnt % 7 == 1) {
+				cell.innerHTML = "<font color=#F79DC2>" + i + "</font>";
+			}
 	
-		}
-	
-		if (cnt % 7 == 1) {
-			cell.innerHTML = "<font color=#F79DC2>" + i + "</font>";
-		}
-	
-		if (cnt % 7 == 0){
-			cell.innerHTML = "<font color=skyblue>" + i + "</font>";
-			row = calendar.insertRow();
-		}
-	  }
+			if (cnt % 7 == 0){
+				cell.innerHTML = "<font color=skyblue>" + i + "</font>";
+				row = calendar.insertRow();
+			}
+	  	}
 	
 	  if(cnt % 7 != 0){
 		  for(i = 0; i < 7 - (cnt % 7); i++){

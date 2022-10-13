@@ -25,50 +25,21 @@
 		padding-left: 0px;
 		padding-right: 0px;">
         	<div class="row">
-				
-				<h1>updateDetail</h1>
-				
-				<table>
-		        <tr id="namePlace">
-					<td id="scName">${dto.scName}</td>
-		        </tr>
-			    <tr id="regionPlace">
-					<td>장소</td>
-					<td id="cdRegion">${dto.cdRegion}</td>
-					<td><button id="rBtn" style="display: none;">완료</button></td>
-			    </tr>
-				<tr id="payPlace">
-					<td>가격</td>
-					<td id="cdPay">${dto.cdPay}</td>
-					<td><button id="pBtn" style="display: none;">완료</button></td>
-				</tr>
-		        <tr id="explainPlace">
-		        	<td>설명</td>
-		        	<td id="scExplain">${dto.scExplain}</td>
-		        	<td><button id="eBtn" style="display: none;">완료</button></td>
-		        </tr>
-				<tr id="laPlace">
-		        	<td>위도</td>
-		        	<td id="latitude">${dto.latitude}</td>
-		        	<td><button id="laBtn" style="display: none;">완료</button></td>
-		        </tr>
-				<tr id="loPlace">
-		        	<td>경도</td>
-		        	<td id="longitude">${dto.longitude}</td>
-		        	<td><button id="loBtn" style="display: none;">완료</button></td>
-		        </tr>
-		    </table>
-			<button id="completeUpdate">수정 완료</button>
-			
-				
-			</div>
+        		<h1>updateList</h1>
+        		
+  			</div>
 		</section>
 	
-<c:import url="../template/footer.jsp"></c:import>
+	<c:import url="../template/footer.jsp"></c:import>
     
+	
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   
 	<script src="/resources/js/common.js">
+
 </script>
-<script src="/resources/js/studyCafeDetail.js"></script>
+	<script src="/resources/js/studyCafeList.js"></script>
+
 </body>
 </html>
