@@ -32,7 +32,6 @@ public class LikesController {
 		licenseLikeDTO.setNum(num);
 		List<LicenseDTO> ar2 = licenseService.getListLikes(licenseLikeDTO);
 		
-		
 		mv.addObject("list",ar2);
 		mv.setViewName("/likes/store");
 		return mv;

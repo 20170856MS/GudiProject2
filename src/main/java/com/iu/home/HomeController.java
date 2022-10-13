@@ -1,7 +1,11 @@
 package com.iu.home;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.licenseList.LicenseDTO;
+import com.iu.home.licenseList.LicenseLikeDTO;
+import com.iu.home.licenseList.LicenseService;
+import com.iu.home.licenseList.ScheduleDTO;
 import com.iu.home.util.Pager;
 
 /**
@@ -26,8 +34,11 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	 
+	@Autowired
+	private LicenseService licenseService;
+	 
 	@GetMapping("/")
-	public ModelAndView home (Locale locale, Pager pager,Pager pager1) throws Exception{
+	public ModelAndView home (HttpServletRequest request,Locale locale, Pager pager,Pager pager1) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ModelAndView mv = new ModelAndView();
 		HomeDTO homeDTO = new HomeDTO();
@@ -65,6 +76,28 @@ public class HomeController {
 		mv.addObject("schedule1",schedule1);
 		
 		mv.setViewName("index");
+		
+		//달력 일정 추가 시작
+		HttpSession session =request.getSession();
+		try {
+			Long num = Long.valueOf(String.valueOf(session.getAttribute("saveNum")));
+			LicenseLikeDTO licenseLikeDTO = new LicenseLikeDTO();
+			licenseLikeDTO.setNum(num);
+			
+			List<LicenseDTO> ar2 = licenseService.getListLikes(licenseLikeDTO);
+			
+			for(int i=0;i<ar2.size();i++) {
+				List<ScheduleDTO> j = new ArrayList(); 
+				j = licenseService.getDetailSchedule(ar2.get(i));//
+				ar2.get(i).setScheduleName1(j.get(0).getScheduleName());
+				ar2.get(i).setScheduleDate1(j.get(0).getScheduleDate());
+				ar2.get(i).setScheduleName2(j.get(1).getScheduleName());
+				ar2.get(i).setScheduleDate2(j.get(1).getScheduleDate());				
+			}
+			mv.addObject("ar2",ar2);
+		} catch (Exception e) {
+		}
+		//달력 일정 추가 끝
 		
 		//homeDTO.DATE  -> DATE
 		//Date date = new Date();
