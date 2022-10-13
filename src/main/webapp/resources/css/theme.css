@@ -2896,6 +2896,8 @@ textarea.form-control-lg {
 .form-check-input:checked {
   background-color: #FFB30E;
   border-color: #FFB30E;
+  border-style: solid;
+  border-width: 4px;
 }
 
 .form-check-input:checked[type="checkbox"] {
@@ -2909,6 +2911,8 @@ textarea.form-control-lg {
 .form-check-input[type="checkbox"]:indeterminate {
   background-color: #FFB30E;
   border-color: #FFB30E;
+  border-style: solid;
+    border-width: 4px;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23FFFEFE' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 
@@ -3860,12 +3864,16 @@ fieldset:disabled .btn {
 .btn-outline-primary {
   color: #FFB30E;
   border-color: #FFB30E;
+  border-style: solid;
+  border-width: 3px;
 }
 
 .btn-outline-primary:hover {
   color: #616161;
   background-color: #FFB30E;
   border-color: #FFB30E;
+  border-style: solid;
+  border-width: 3px;
 }
 
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
@@ -3878,6 +3886,8 @@ fieldset:disabled .btn {
   color: #616161;
   background-color: #FFB30E;
   border-color: #FFB30E;
+  border-style: solid;
+  border-width: 3px;
 }
 
 .btn-check:checked + .btn-outline-primary:focus,

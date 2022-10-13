@@ -95,7 +95,10 @@
 		    </table>
 		    
 		    <a href="./reservation?detailNum=${dto.detailNum}">예약하기</a>
-		    <a href="./updateDetail?scName=${dto.scName}">수정하기</a>
+			<c:if test="${check.adminRoleDTOs[0].roleName == 'admin'}">
+
+				<a href="./updateDetail?scName=${dto.scName}">수정하기</a>
+			</c:if>
 		    
 		</div>
 	</section>

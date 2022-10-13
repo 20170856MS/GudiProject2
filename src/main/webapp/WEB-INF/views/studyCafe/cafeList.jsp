@@ -97,10 +97,12 @@
 					</c:forEach>
 				</table>
 
-				
-				<a href="./addList">추가</a>
-				<a href="./updateList">수정</a>
-				<a href="./deleteList">삭제</a>
+				<c:if test="${check.adminRoleDTOs[0].roleName == 'admin'}">
+
+					<a href="./addList">추가</a>
+					<a href="./updateList">수정</a>
+					<a href="./deleteList">삭제</a>
+				</c:if>
 				
    
    			</div>

@@ -20,7 +20,51 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	<beans:bean class="com.iu.home.interceptor.AdminCheckInterceptor" id ="adminCheckInterceptor"></beans:bean>
+	<beans:bean class="com.iu.home.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
 	
+	<interceptors>
+		 <!-- <interceptor>
+			<mapping path="/qna/*"/>
+			<mapping path="/member/myPage.esh"/>
+			<exclude-mapping path="/qna/list.esh"/>
+			
+			<beans:bean class="com.esh.start.interceptor.MemberInterceptor"></beans:bean>		
+		 </interceptor> -->
+		<!-- URL 주소 -->
+		<interceptor>
+			<mapping path="/order/**"/>
+			<mapping path="/info/add"/>
+			<!--   <exclude-mapping path="/notice/list.esh"/>
+			<exclude-mapping path="/notice/detail.esh"/>
+			<exclude-mapping path="/qna/list.esh"/> -->
+			<beans:ref bean="memberInterceptor"/>
+		</interceptor>
+		
+		
+		<interceptor>
+			<mapping path="/admin/**"/>
+			<mapping path="/studyCafe/updateList"/>
+			<mapping path="/studyCafe/addList"/>
+			<mapping path="/studyCafe/deleteList"/>
+			<!--  <mapping path="/qna/add.esh"/>
+			<mapping path="/notice/update.esh"/>
+			<mapping path="/qna/update.esh"/>
+			<mapping path="/notice/delete.esh"/>
+			<mapping path="/qna/delete.esh"/> -->
+		
+			<!-- <mapping path="/notice/**"/>
+			<exclude-mapping path="/notice/list.esh"/>
+			<exclude-mapping path="/notice/detail.esh"/> -->
+					
+			<beans:ref bean="adminCheckInterceptor"/>
+		</interceptor>
+		
+		
+		
+		
+		
+	</interceptors>
 	<context:component-scan base-package="com.iu.home" />
 	
 	

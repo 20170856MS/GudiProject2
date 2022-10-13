@@ -228,31 +228,31 @@
 					<table >
 							<tr>
 								<td>
-									<button class="timeBtn button" value="07:00">07:00</button>
-									<button class="timeBtn button" value="08:00" >08:00</button>
-									<button class="timeBtn button" value="09:00">09:00</button>
-									<button class="timeBtn button" value="10:00">10:00</button>
-									<button class="timeBtn button" value="11:00">11:00</button>
-									<button class="timeBtn button" value="12:00">12:00</button>
+									<button class="timeBtn button btn-info" value="07:00"style="border-style: solid; border-width: 4px;">07:00</button>
+									<button class="timeBtn button btn-info" value="08:00" style="border-style: solid; border-width: 4px;">08:00</button>
+									<button class="timeBtn button btn-info" value="09:00" style="border-style: solid; border-width: 4px;">09:00</button>
+									<button class="timeBtn button btn-info" value="10:00" style="border-style: solid; border-width: 4px;">10:00</button>
+									<button class="timeBtn button btn-info" value="11:00" style="border-style: solid; border-width: 4px;">11:00</button>
+									<button class="timeBtn button btn-info" value="12:00" style="border-style: solid; border-width: 4px;">12:00</button>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<button class="timeBtn button" value="13:00">13:00</button>
-									<button class="timeBtn button" value="14:00">14:00</button>
-									<button class="timeBtn button" value="15:00">15:00</button>
-									<button class="timeBtn button" value="16:00">16:00</button>
-									<button class="timeBtn button" value="17:00">17:00</button>
-									<button class="timeBtn button" value="18:00">18:00</button>
+									<button class="timeBtn button btn-info" value="13:00" style="border-style: solid; border-width: 4px;">13:00</button>
+									<button class="timeBtn button btn-info" value="14:00" style="border-style: solid; border-width: 4px;">14:00</button>
+									<button class="timeBtn button btn-info" value="15:00" style="border-style: solid; border-width: 4px;">15:00</button>
+									<button class="timeBtn button btn-info" value="16:00" style="border-style: solid; border-width: 4px;">16:00</button>
+									<button class="timeBtn button btn-info" value="17:00" style="border-style: solid; border-width: 4px;">17:00</button>
+									<button class="timeBtn button btn-info" value="18:00" style="border-style: solid; border-width: 4px;">18:00</button>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<button class="timeBtn button" value="19:00">19:00</button>
-									<button class="timeBtn button" value="20:00">20:00</button>
-									<button class="timeBtn button" value="21:00">21:00</button>
-									<button class="timeBtn button" value="22:00">22:00</button>
-									<button class="timeBtn button" value="23:00">23:00</button>
+									<button class="timeBtn button btn-info" value="19:00" style="border-style: solid; border-width: 4px;">19:00</button>
+									<button class="timeBtn button btn-info" value="20:00" style="border-style: solid; border-width: 4px;">20:00</button>
+									<button class="timeBtn button btn-info" value="21:00" style="border-style: solid; border-width: 4px;">21:00</button>
+									<button class="timeBtn button btn-info" value="22:00" style="border-style: solid; border-width: 4px;">22:00</button>
+									<button class="timeBtn button btn-info" value="23:00" style="border-style: solid; border-width: 4px;">23:00</button>
 									
 								</td>
 							</tr>
