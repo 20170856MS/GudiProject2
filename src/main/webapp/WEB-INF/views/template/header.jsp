@@ -115,6 +115,7 @@
 								<div class="dep2" style="height: 0px;">
 									<ul class="depth2" style="display: none;">
 									  <li><a href="/info/main" title="test0">자격증 검색</a></li>
+									  <li><a href="/info/exam" title="test3">월간시험일정</a></li>
 									   
 									</ul>
 								 </div>
@@ -179,6 +180,7 @@
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="/info/main" title="test0">자격증 검색</a></li>
+								  <li><a href="/info/exam" title="test3">월간시험일정</a></li>
 	                               
 	                            </ul>
 	                         </div>
