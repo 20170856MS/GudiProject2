@@ -22,7 +22,8 @@
     flex-direction:row;
     flex-wrap: wrap;
     justify-content: center;
-    background-image: url("/resources/img/bg.png");
+    background-image: url("/resources/img/bg.jpg");
+    background-size: cover;
 }
 
 .card{
@@ -49,11 +50,13 @@
     width:100%;
     display: flex;
     justify-content: center;
-    background-image: url("/resources/img/bg.png");
+    background-image: url("/resources/img/bg.jpg");
+    background-size: cover;
 }
 
 .row {
-    background-image: url("/resources/img/bg.png");
+    background-image: url("/resources/img/bg.jpg");
+    background-size: cover;
 }
 
 

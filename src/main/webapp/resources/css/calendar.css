@@ -17,7 +17,8 @@ body {
     margin: 0;
     background: #fff;
     font-size: 1em;
-    background-image: url("/resources/img/bg.png");
+    background-image: url("/resources/img/bg.jpg");
+    background-size: cover;
 }
 
 .bodycolor {
