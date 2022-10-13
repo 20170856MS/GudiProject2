@@ -28,6 +28,7 @@
 	<section class="checkout-section spad mt-5">
 		<div class="container">
             <div class="cards">
+                
                 <c:forEach items="${requestScope.list}" var="dto">
                     
                     <div class="card" >
