@@ -7,7 +7,7 @@
 
 <header id="header" >
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll" style="
-    height: 96px;
+    height: 112px;
 ">
 		<div class="container">
 			<a class="navbar-brand d-inline-flex" href="/"><img class="d-inline-block" src="/resources/img/team_logo123.png" alt="logo" width="190px" /></a>
@@ -98,7 +98,9 @@
 	                <div id="navBg" style="height: 0px;"></div>
 	                <nav class="gnb_menu">
 	                    <ul id="skip_gnb" class="gnb">
-	                        <li><a href="/admin/adminTest" title="관리자테스트">결제 테스트</a>
+	                        <li><a href="/admin/adminTest" title="관리자테스트" style="
+								height: 55px;
+							">결제 테스트</a>
 	                            <div class="dep2" style="height: 0px;">
 	                                <ul class="depth2" style="display: none;">
 	                                  <li><a href="/order/complete" title="test0">결제완료 테스트</a></li>
@@ -107,14 +109,18 @@
 	                                </ul>
 	                            </div>
 	                        </li>
-							<li><a href="#" title="Q&A">Q&A</a>
+							<li><a href="#" title="Q&A" style="
+								height: 55px;
+							">Q&A</a>
 								<div class="dep2" style="height: 0px;">
 									<ul class="depth2" style="display: none;">
 									  <li><a href="/qna/list" title="전체게시판">전체게시판</a></li>
 									</ul>
 								 </div>
 							   </li>
-							   <li><a href="#" title="TEST2">자격증 정보</a>
+							   <li><a href="#" title="TEST2" style="
+								height: 55px;
+							">자격증 정보</a>
 								<div class="dep2" style="height: 0px;">
 									<ul class="depth2" style="display: none;">
 									  <li><a href="/info/main" title="test0">자격증 검색</a></li>
@@ -123,7 +129,9 @@
 									</ul>
 								 </div>
 							   </li>
-	                        <li><a href="#" title="${check.adminRoleDTOs[0].roleName}">관리자 페이지</a>
+	                        <li><a href="#" title="${check.adminRoleDTOs[0].roleName}" style="
+								height: 55px;
+							">관리자 페이지</a>
 	                          <div class="dep2" style="height: 0px;">
 	                              <ul class="depth2" style="display: none;">
 	                                <li><a href="/admin/adminOrderInfo" title="test0">정보</a></li>
@@ -132,7 +140,9 @@
 	                              </ul>
 	                          </div>
 	                        </li>
-							<li><a href="#" title="TEST6">스터디카페</a>
+							<li><a href="#" title="TEST6" style="
+								height: 55px;
+							">스터디카페</a>
 								<div class="dep2" style="height: 0px;">
 									<ul class="depth2" style="display: none;">
 									  <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
@@ -162,7 +172,9 @@
 	              <div id="navBg" style="height: 0px;"></div>
 	              <nav class="gnb_menu">
 	                  <ul id="skip_gnb" class="gnb">
-	                      <li><a href="/admin/adminTest" title="결제테스트">결제 테스트</a>
+	                      <li><a href="/admin/adminTest" title="결제테스트" style="
+							height: 55px;
+						">결제 테스트</a>
 	                          <div class="dep2" style="height: 0px;">
 	                              <ul class="depth2" style="display: none;">
 	                                <li><a href="/order/complete" title="test0">결제완료 테스트</a></li>
@@ -171,14 +183,18 @@
 	                              </ul>
 	                          </div>
 	                      </li>
-	                      <li><a href="#" title="Q&A">Q&A</a>
+	                      <li><a href="#" title="Q&A" style="
+							height: 55px;
+						">Q&A </a>
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="/qna/list" title="전체게시판">전체게시판</a></li>
 	                            </ul>
 	                         </div>
 	                       </li>
-	                       <li><a href="#" title="TEST2">자격증 정보</a>
+	                       <li><a href="#" title="TEST2" style="
+							height: 55px;
+						">자격증 정보</a>
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="/info/main" title="test0">자격증 검색</a></li>
@@ -187,7 +203,9 @@
 	                            </ul>
 	                         </div>
 	                       </li>
-	                       <li><a href="/studyCafe/cafeList" title="TEST6">스터디카페</a>
+	                       <li><a href="/studyCafe/cafeList" title="TEST6" style="
+							height: 55px;
+						">스터디카페</a>
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>

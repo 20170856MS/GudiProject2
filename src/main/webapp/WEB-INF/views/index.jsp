@@ -12,7 +12,6 @@
                 integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
                 crossorigin="anonymous">
             <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-            <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
 
             <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
             <link href="/resources/css/theme.css" rel="stylesheet" />
@@ -23,15 +22,17 @@
             <link rel="stylesheet" href="/resources/css/calendar.css">
             <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
             <link href="/resources/css/infoMain.css" rel="stylesheet" type="text/css">
-            <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">
-            
-        </head>
-
-        <body>
-            <div id="background">
-                <div id="wrap">
+            <link href="/resources/css/infoDetail.css" rel="stylesheet" type="text/css">	
+    
+	<link rel="stylesheet" href="/resources/css/login.css" type="text/css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>	 
+    <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
+</head>
+ <body>
+        <c:import url="template/header.jsp"></c:import>
+           
                     <!-- header.jsp -->
-                    <c:import url="template/header.jsp"></c:import>
+                    
                     <section class="container-fluid col-lg-8 mt-5" style="padding-top: 40px; padding-bottom: 40px;">
 
                         <div class="wrapper">
@@ -195,8 +196,7 @@
                     </c:forEach>
                 </div>
                 <div class="meImg"><img src="/resources/img/awarded.png" style="margin-left: 1550px;"></div>
-            </div>
-            </div>
+        
             <!-- footer.jsp -->
             <c:import url="template/footer.jsp"></c:import>
 
