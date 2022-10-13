@@ -97,18 +97,9 @@
 	                <!-- gnb_menu -->
 	                <div id="navBg" style="height: 0px;"></div>
 	                <nav class="gnb_menu">
-	                    <ul id="skip_gnb" class="gnb">
-	                        <li><a href="/admin/adminTest" title="관리자테스트" style="
-								height: 55px;
-							">결제 테스트</a>
-	                            <div class="dep2" style="height: 0px;">
-	                                <ul class="depth2" style="display: none;">
-	                                  <li><a href="/order/complete" title="test0">결제완료 테스트</a></li>
-	                                  <li><a href="/order/order" title="test1">결제화면 테스트</a></li>
-	                                  
-	                                </ul>
-	                            </div>
-	                        </li>
+	                    <ul id="skip_gnb" class="gnb"style="
+						padding-left: 350px;
+					">
 							<li><a href="#" title="Q&A" style="
 								height: 55px;
 							">Q&A</a>
@@ -124,7 +115,6 @@
 								<div class="dep2" style="height: 0px;">
 									<ul class="depth2" style="display: none;">
 									  <li><a href="/info/main" title="test0">자격증 검색</a></li>
-									  <li><a href="#" title="test1">test</a></li>
 									   
 									</ul>
 								 </div>
@@ -171,18 +161,9 @@
 	              <!-- gnb_menu -->
 	              <div id="navBg" style="height: 0px;"></div>
 	              <nav class="gnb_menu">
-	                  <ul id="skip_gnb" class="gnb">
-	                      <li><a href="/admin/adminTest" title="결제테스트" style="
-							height: 55px;
-						">결제 테스트</a>
-	                          <div class="dep2" style="height: 0px;">
-	                              <ul class="depth2" style="display: none;">
-	                                <li><a href="/order/complete" title="test0">결제완료 테스트</a></li>
-	                                <li><a href="/order/order" title="test1">결제화면 테스트</a></li>
-	                                 
-	                              </ul>
-	                          </div>
-	                      </li>
+	                  <ul id="skip_gnb" class="gnb" style="
+					  padding-left: 450px;
+				  ">
 	                      <li><a href="#" title="Q&A" style="
 							height: 55px;
 						">Q&A </a>
@@ -198,7 +179,6 @@
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="/info/main" title="test0">자격증 검색</a></li>
-	                              <li><a href="#" title="test1">test</a></li>
 	                               
 	                            </ul>
 	                         </div>
