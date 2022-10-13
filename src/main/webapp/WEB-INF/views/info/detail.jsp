@@ -26,6 +26,16 @@
 			<link href="/resources/css/infoDetailBootStrap.css" rel="stylesheet" type="text/css">
 			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+			<style>
+				body, h1, h2, h3, h4, h5, h6, p, span {
+					font-family: 'Noto Sans KR', sans-serif !important;
+				}
+			</style>
+
 		</head>
 			<!------------------------------------- header.jsp ----------------------------------------------------------------->
 			<c:import url="../template/header.jsp"></c:import>
@@ -295,6 +305,7 @@
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 			<!-- Core theme JS-->
 			<script src="js/scripts.js"></script>
+
 		</body>
 
 		</html>
