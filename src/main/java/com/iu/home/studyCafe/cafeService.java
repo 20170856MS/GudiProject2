@@ -54,5 +54,8 @@ public class cafeService {
 	public int addList(CafeDTO cafeDTO) throws Exception{
 		return cafeDAO.addList(cafeDTO);
 	}
+	public int deleteList(CafeDTO cafeDTO) throws Exception{
+		return cafeDAO.deleteList(cafeDTO);
+	}
 	
 }

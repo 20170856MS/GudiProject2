@@ -150,6 +150,15 @@ public class cafeController {
 
 		return mv;
 	}
+	@RequestMapping(value = "updateDetail", method=RequestMethod.POST)
+	public ModelAndView updateDetail(CafeDetailDTO cafeDetailDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = cafeService.updateDetail(cafeDetailDTO);
+		System.out.println(cafeDetailDTO.getScName());
+		mv.setViewName("studyCafe/cafeList");
+		mv.addObject("dto", cafeDetailDTO);
+		return mv;
+	}
 	
 //	@RequestMapping(value = "reList")
 //	public String reList(Model model,HttpSession session) throws Exception{
@@ -211,8 +220,21 @@ public class cafeController {
 		return "studyCafe/updateList";
 	}
 	@RequestMapping(value="deleteList", method=RequestMethod.GET)
-	public String deleteList() throws Exception{
+	public String deleteList(Model model) throws Exception{
+		List<CafeDTO> ar = cafeService.getList();
+		model.addAttribute("list", ar);
+		
 		return "studyCafe/deleteList";
+	}
+	
+	@RequestMapping(value="deleteList", method=RequestMethod.POST)
+	public ModelAndView deleteList(CafeDTO cafeDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("deleteList Post");
+		int result = cafeService.deleteList(cafeDTO);
+		mv.setViewName("redirect:./cafeList");
+		
+		return mv;
 	}
 	
 }
