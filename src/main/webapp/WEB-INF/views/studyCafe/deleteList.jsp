@@ -35,17 +35,14 @@
 					</tr>
 					<c:forEach items="${list}" var="dto">
 						<tr>
-							<td>${dto.scNum}</td>
+							<td><input type="checkbox" name="scNum" value="${dto.scNum}">${dto.scNum}</td>
 							<td>${dto.areaName}</td>
-							<td>
-								<a href="./cafeDetail?scName=${dto.scName}">${dto.scName}</a>
-							</td>
-							<td><img src="/resources/img/GOOD.png" width="60px" height="50px"></td>
-								
+							<td>${dto.scName}</td>
 						</tr>
 						
 					</c:forEach>
 				</table>
+				<button id="deleteBtn">삭제</button>
   			</div>
 		</section>
 	
@@ -58,7 +55,6 @@
 	<script src="/resources/js/common.js">
 
 </script>
-	<script src="/resources/js/studyCafeList.js"></script>
-
+<script src="/resources/js/studyCafeList.js"></script>
 </body>
 </html>

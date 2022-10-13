@@ -136,7 +136,6 @@
 								<div class="dep2" style="height: 0px;">
 									<ul class="depth2" style="display: none;">
 									  <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
-									  <li><a href="#" title="test1">test</a></li>
 									   
 									</ul>
 								 </div>
@@ -189,7 +188,6 @@
 	                        <div class="dep2" style="height: 0px;">
 	                            <ul class="depth2" style="display: none;">
 	                              <li><a href="/studyCafe/cafeList" title="test0">StudyCafe</a></li>
-	                              <li><a href="/studyCafe/map" title="test1">map</a></li>
 	                               
 	                            </ul>
 	                         </div>

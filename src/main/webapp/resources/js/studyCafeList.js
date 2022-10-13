@@ -11,6 +11,8 @@ const iBtn = document.getElementById("iBtn");
 let textTest;
 let aNum;
 let aName;
+const deleteBtn = document.getElementById("deleteBtn");
+const scNum = document.querySelectorAll("scNum");
 
 areaBtn.addEventListener("click",function(){
     console.log("클릭");
@@ -106,3 +108,36 @@ addBtn.addEventListener("click", function(){
     }
 });
 
+deleteBtn.addEventListener("click", function(){
+    console.log("deleteBtn");
+    if(scNum.checked == true){
+        console.log(scNum);
+    }
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "./deleteList");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    for(i=0; i<scNum.length; i++){
+        xhttp.send("&scNum="+scNum);
+    }
+
+    xhttp.onreadystatechange = function(){
+        if(xhttp.readyState==4 && xhttp.status==200){
+            let result = xhttp.responseText.trim();
+
+            
+            alert('삭제완료');
+            location.replace("./cafeList");        
+            
+            // if(result.result==1){
+            //     console.log("수정 성공");
+            //     alert('수정 성공');
+            //     document.querySelector("#up"+replyNum).innerHTML=contents;
+            //     location.replace("studyCafe/cafeList");
+            // }else{
+            //     console.log("수정 실패");
+            //     alert('수정 실패');
+            // }
+        }
+    }
+});

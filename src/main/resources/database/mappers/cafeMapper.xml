@@ -64,7 +64,9 @@
     		INSERT INTO STUDYCAFE (SCNUM, AREANUM, SCNAME, IMG, AREANAME)
     		VALUES (CAFE_SEQ.NEXTVAL, #{areaNum}, #{scName}, #{img}, #{areaName})
     	</insert>
-    	
+    	<delete id="deleteList" parameterType="cafeDTO">
+    		DELETE FROM STUDYCAFE WHERE SCNUM=#{scNum}
+    	</delete>
     </mapper>
     
     
