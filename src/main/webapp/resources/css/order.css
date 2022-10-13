@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+.button-primary {
+    color: #fff;
+    background-color: #7cb6f9;
+    border: 1px solid #7cb6f9;
+  }
+.button-primary:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+  }
 .checkout-form input[type=radio] {
     text-align: left;
     width: 7%;

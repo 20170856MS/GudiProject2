@@ -53,9 +53,9 @@
 						</div>
 					</c:forEach>
 
-					<div id="addFiles">
+					<!-- <div id="addFiles">
 						<button type="button" id="fileAdd" class="btn btn-primary">파일추가</button>
-					</div>
+					</div> -->
 
 					<div class="mb-3">
 						<button class="btn btn-success">제출</button>

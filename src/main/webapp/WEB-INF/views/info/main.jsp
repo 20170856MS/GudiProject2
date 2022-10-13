@@ -101,10 +101,6 @@
                     </li>
                 </ul>
             </nav>
-            &nbsp;&nbsp;&nbsp;
-            <div>
-                <a href="./add" class="btn btn-primary">자격증 추가</a>
-            </div>
         </div>
     
     <!-- footer.jsp -->

@@ -35,7 +35,7 @@
 	            <div class="input_aera"><input type="text" id= "userName" name="userName"  value="" required placeholder="아이디를 입력해 주세요" maxlength="30" ></div>
 	            <div class="input_aera"><input type="password" id="password" name="password" value="" required placeholder="비밀번호를 입력해 주세요" maxlength="30"></div>
  
-				<input type="button" value="로그인" id="btn" >
+				<input type="button" class="button" value="로그인" id="btn" >
             
 				<div class="box">	
 		            <div>
