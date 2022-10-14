@@ -39,13 +39,15 @@ public class LikesController {
 	
 	@PostMapping("setLikes")
 	@ResponseBody
-	public Map<String,Object> setLikes(ArrDTO arrDTO) throws Exception{
-		Map<String,Object> map = new HashMap<String,Object>();
+	public int setLikes(ArrDTO arrDTO) throws Exception{
+//		Map<String,Object> map = new HashMap<String,Object>();
 		
-		
+		int check = 0;
 		int result = licenseService.setLikes(arrDTO);
-		map.put("result", result);
-		return map;
+		if(result>0) {
+			check=1;
+		}
+		return check;
 	}
 	
 	@PostMapping("setDelLikes")

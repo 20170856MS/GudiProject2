@@ -45,11 +45,17 @@ interest.addEventListener("click",function(){
             xhttp.send("num="+num+"&licenseNum="+licenseNum);
             xhttp.onreadystatechange=function(){
                 if(xhttp.readyState==4 && xhttp.status==200) {
-                    swal("관심목록에 추가되었습니다.",'','success');
-                }else if(interest.getAttribute("data-num")==null){
-                    swal("로그인이 필요합니다.",'','error');
-                }else{
-                    swal("이미 관심등록 된 자격증입니다.",'','error');
+                    let result = xhttp.responseText.trim();
+                    
+                    if(result == 1 ){
+                         swal("관심목록에 추가되었습니다.",'','success');
+                    }
+                    if(result != 1 ){
+                        swal("이미 관심등록 된 자격증입니다.",'','error');
+                   }
+                    if(interest.getAttribute("data-num")==null){
+                        swal("로그인이 필요합니다.",'','error');
+                    }
                 }
             }
             setTimeout(function(){ 
