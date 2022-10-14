@@ -53,9 +53,7 @@
 			<mapping path="/member/point"/>
 			<mapping path="/member/myPage"/>			
 			<mapping path="/member/myInfo"/>
-			<mapping path="/member/modify"/>
-			<mapping path="/member/findPasswor"/>
-			<mapping path="/member/findPasswordAuth"/>
+			<mapping path="/likes/store"/>
 			
 			<beans:ref bean="memberInterceptor"/>
 		</interceptor>

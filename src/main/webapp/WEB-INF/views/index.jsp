@@ -97,7 +97,7 @@
                                 <select id="year" onchange="jump()"></select>
                             </div>
                             <div class="eeee">
-                                <h1 style="padding-top: 40px;font-size: 18px;">시작부터 끝까지, 자격증에 대한 모든 종류는 자바스에서
+                                <h1 style="padding-top: 40px;font-size: 18px; margin-left: 40px;">시작부터 끝까지, 자격증에 대한 모든 종류는 자바스에서
                                     확인하세요</h1>
                                 <c:if test="${not empty check}">
 
