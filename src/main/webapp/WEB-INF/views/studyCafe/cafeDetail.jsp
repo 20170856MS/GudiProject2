@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/calendar.css">
     <style>
         body, h1, h2, h3, h4, h5, h6, p, span {
     	    font-family: 'Noto Sans KR', sans-serif !important;
