@@ -123,13 +123,21 @@ join1.addEventListener("click",function(){
                             swal("정보가 입력되어있지 않습니다.");
                         }
                     } else if (result == 1){
-                        swal("중복된 아이디입니다","","error")
+                        swal("중복된 아이디입니다","","error").then(function(){
+                            location.replace('/member/join')
+                        })
                     } else if (result == 2){
-                        swal("사용중인 닉네임입니다.","","error")
+                        swal("사용중인 닉네임입니다.","","error").then(function(){
+                            location.replace('/member/join')
+                        })
                     } else if (result == 3){
-                        swal("사용중인 이메일입니다.","","error")
+                        swal("사용중인 이메일입니다.","","error").then(function(){
+                            location.replace('/member/join')
+                        })
                     } else if (result == 4){
-                        swal("사용중인 전화번호입니다.","","error")
+                        swal("사용중인 전화번호입니다.","","error").then(function(){
+                            location.replace('/member/join')
+                        })
                     }
                         
                   } 
