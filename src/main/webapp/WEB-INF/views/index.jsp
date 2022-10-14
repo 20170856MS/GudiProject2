@@ -27,7 +27,9 @@
 	<link rel="stylesheet" href="/resources/css/login.css" type="text/css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>	 
     <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
-    
+    <link rel="stylesheet" href="/resources/css/login.css" type="text/css">
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -42,20 +44,10 @@
            
                     <!-- header.jsp -->
                     
-                    <section class="container-fluid col-lg-8 mt-5" style="padding-top: 40px; padding-bottom: 40px;">
-
-            <link rel="stylesheet" href="/resources/css/login.css" type="text/css">
-            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-            <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
-        </head>
-
-        <body>
-            <c:import url="template/header.jsp"></c:import>
-
-            <!-- header.jsp -->
-
             <section class="container-fluid col-lg-8 mt-5" style="padding-top: 40px; padding-bottom: 40px;">
 
+            
+        
                 <div class="wrapper">
                     <div class="d-flex justify-content-between">
                         <!-- top10 -->
