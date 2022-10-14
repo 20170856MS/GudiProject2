@@ -57,6 +57,15 @@ public class LicenseController {
 		mv.setViewName("/info/main");
 		return mv;
 	}
+	//월간시험일정
+	@GetMapping("exam")
+	public ModelAndView getInfoExam(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+	
+		mv.addObject("pager",pager);
+		mv.setViewName("/info/exam");
+		return mv;
+	}
 
 	@GetMapping("detail")
 	public ModelAndView getDetail(HttpServletRequest request, LicenseDTO licenseDTO, Pager pager) throws Exception{
