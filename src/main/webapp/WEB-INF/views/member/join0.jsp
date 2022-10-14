@@ -14,7 +14,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<link rel="stylesheet" href="/resources/css/join0.css">
 	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +55,8 @@
 							</li>
 						</ul>
 						<textarea readonly name="" id="">여러분을 환영합니다.
-							네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+							
+							자바스 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 자바스 서비스의 이용과 관련하여 자바스 서비스를 제공하는 자바스 주식회사(이하 ‘자바스’)와 이를 이용하는 자바스 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 자바스 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
 					   </textarea>
 					</li>
 					<li class="checkBox check03">
@@ -58,7 +67,7 @@
 							</li>
 						</ul>
 	 
-						<textarea readonly name="" id="">여러분을 환영합니다.
+						<textarea readonly name="" id="">이름, 아이디, 비밀번호, 휴대폰번호, 이메일, 주소
 								</textarea>
 					</li>
 					<li class="checkBox check03">
@@ -69,15 +78,14 @@
 							</li>
 						</ul>
 	 
-							<textarea readonly name="" id="" type="">여러분을 환영합니다.
+							<textarea readonly name="" id="" type="">이 약관은 본 사이트(이하 "회사"라 한다)에서 제공하는 모든 서비스(이하 "서비스"라 한다)의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.
 								   </textarea>
 					</li>
 					
 				</ul>
 			</div>
 				<ul class="footBtwrap clearfix">
-					<li><button class="fpmgBt1 btn btn-danger">>비동의</button></li>
-					<li><button class="fpmgBt2 btn btn-lg btn-success" id="btn_check" type="button" name="btn_check">동의</button></li>
+					<li><button class="fpmgBt2 btn btn-lg btn-success" id="btn_check" type="button" name="btn_check" style="margin-left: 150px;">동의</button></li>
 				</ul>
  	      </form>
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -458,7 +459,7 @@ public class LicenseMembersController {
     public String kakaoLogin() throws Exception {
         StringBuffer loginUrl = new StringBuffer();
         loginUrl.append("https://kauth.kakao.com/oauth/authorize?client_id=");
-        loginUrl.append("29ac8f50075dbf10d6f7a7dbb8178e8a"); 
+        loginUrl.append("c7ce88367515391bad76eec48ec49f1a"); 
         loginUrl.append("&redirect_uri=");
         loginUrl.append("http://localhost:8080/member/kakao_callback"); 
         loginUrl.append("&response_type=code");
@@ -524,6 +525,49 @@ public class LicenseMembersController {
         return mv;
     }
 	
+	@GetMapping("point")
+	public String point(Model model) {
+//		long id = user.getUser().getId();
+//		List<Point> myPoint = userService.myPoint(id);
+//		model.addAttribute("myPoint", myPoint);
+//		model.addAttribute("point", user.getUser().getPoint());
+//		
+		return "member/point";
+	}
+	
+	@PostMapping("joinCheck")
+	@ResponseBody
+	public int setJoinCheck(LicenseMembersDTO licenseMembersDTO) throws Exception {
+		System.out.println(licenseMembersDTO.getUserName());
+		System.out.println(licenseMembersDTO.getName());
+		System.out.println(licenseMembersDTO.getEmail());
+		System.out.println(licenseMembersDTO.getPhone());
+		int result = 0;
+		LicenseMembersDTO userNameCheck = licenseMembersService.getUserNameCheck(licenseMembersDTO);
+		LicenseMembersDTO nameCheck = licenseMembersService.getNameCheck(licenseMembersDTO);
+		LicenseMembersDTO phoneCheck = licenseMembersService.getPhoneCheck(licenseMembersDTO);
+		LicenseMembersDTO emailCheck = licenseMembersService.getEmailCheck(licenseMembersDTO);
+		
+		if(userNameCheck != null) {
+			result = 1; //userName 중복
+		}
+		
+		if(nameCheck != null) {
+			result = 2; //name 중복
+		}
+		if(phoneCheck != null) {
+			result = 3; //email 중복
+		}
+		if(emailCheck != null) {
+			result = 4; //phone 중복
+		}
+		
+		
+		
+		
+		
+		return result;
+	}
 	// 마이페이지 아이디 수정용
 	@GetMapping("nameCheck")
 	@ResponseBody

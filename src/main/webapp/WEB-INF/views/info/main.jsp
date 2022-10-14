@@ -25,6 +25,16 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/resources/assets/favicon.ico" />
 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
+
 </head>
 <body>
     <!-- header.jsp -->
@@ -101,10 +111,6 @@
                     </li>
                 </ul>
             </nav>
-            &nbsp;&nbsp;&nbsp;
-            <div>
-                <a href="./add" class="btn btn-primary">자격증 추가</a>
-            </div>
         </div>
     
     <!-- footer.jsp -->
@@ -115,5 +121,6 @@
     <script src="/resources/js/common.js"></script>
     <script src="/resources/js/infoMain.js"></script>
     <script src="/resources/js/image.js"></script>
+
 </body>
 </html>

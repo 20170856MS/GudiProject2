@@ -28,7 +28,15 @@
 	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/bootstrap-datepicker.js"%></script>
 	<link rel="stylesheet" type="text/css" href="/resources/css/TimePicker/bootstrap-datepicker.css" />
 	<script type="text/javascript"><%@include file="./TimePicker/documentation-assets/site.js"%></script>
-	
+	    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
 </head>
 <script type="text/javascript">
 	var today = new Date();
@@ -67,21 +75,34 @@
 			clickedDate = this.getAttribute('id');
 
 	
-			clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
-			clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
-			clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+			let y = today.getFullYear();
+				let m = today.getMonth()+1;
+				let d = today.getDate();
+
+				if(clickedYear>=y&&clickedMonth>=m&&clickedDate>=d){
+					clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
+					clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
+					clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+					
+					// console.log("클릭");
+					// let t = document.createTextNode(clickedYear + "-" + clickedMonth + "-" + clickedDate);
+					// let li = document.createElement("li");
+					// li.appendChild(t);
+					// dateText.append(li);
 			
-			// console.log("클릭");
-			   // let t = document.createTextNode(clickedYear + "-" + clickedMonth + "-" + clickedDate);
-			// let li = document.createElement("li");
-			// li.appendChild(t);
-			// dateText.append(li);
-	
-			let dateText = document.getElementById("dateText");
-			dateText.textContent = clickedYear + "-" + clickedMonth + "-" + clickedDate;
-			if(dateText != "" && clickedDate == clickedDate){
-				dateText= "";
-			}
+					let dateText = document.getElementById("dateText");
+					dateText.textContent = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+					if(dateText != "" && clickedDate == clickedDate){
+						dateText= "";
+					}
+					
+					
+					//opener.document.getElementById("date").value = clickedYMD;
+					//self.close();
+					
+				}else{
+					swal("이미 지난 날짜입니다.","","warning");
+				}
 			
 			
 			//opener.document.getElementById("date").value = clickedYMD;
@@ -218,50 +239,50 @@
 							</tr>
 						</c:forEach>	 
 					</table>
-					<button id="btnRoom" >선택 완료</button>
+					<button id="btnRoom" class="button">선택 완료</button>
 					<text id="radioText"></text>
 					
 					<div class="room_box">
 					<table >
-							<tr>
-								<td>
-									<button class="timeBtn" value="07:00">07:00</button>
-									<button class="timeBtn" value="08:00" >08:00</button>
-									<button class="timeBtn" value="09:00">09:00</button>
-									<button class="timeBtn" value="10:00">10:00</button>
-									<button class="timeBtn" value="11:00">11:00</button>
-									<button class="timeBtn" value="12:00">12:00</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="timeBtn" value="13:00">13:00</button>
-									<button class="timeBtn" value="14:00">14:00</button>
-									<button class="timeBtn" value="15:00">15:00</button>
-									<button class="timeBtn" value="16:00">16:00</button>
-									<button class="timeBtn" value="17:00">17:00</button>
-									<button class="timeBtn" value="18:00">18:00</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<button class="timeBtn" value="19:00">19:00</button>
-									<button class="timeBtn" value="20:00">20:00</button>
-									<button class="timeBtn" value="21:00">21:00</button>
-									<button class="timeBtn" value="22:00">22:00</button>
-									<button class="timeBtn" value="23:00">23:00</button>
-									
-								</td>
-							</tr>
+						<tr>
+							<td>
+								<button class="timeBtn button btn-info" value="07:00"style="border-style: solid; border-width: 4px;">07:00</button>
+								<button class="timeBtn button btn-info" value="08:00" style="border-style: solid; border-width: 4px;">08:00</button>
+								<button class="timeBtn button btn-info" value="09:00" style="border-style: solid; border-width: 4px;">09:00</button>
+								<button class="timeBtn button btn-info" value="10:00" style="border-style: solid; border-width: 4px;">10:00</button>
+								<button class="timeBtn button btn-info" value="11:00" style="border-style: solid; border-width: 4px;">11:00</button>
+								<button class="timeBtn button btn-info" value="12:00" style="border-style: solid; border-width: 4px;">12:00</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button class="timeBtn button btn-info" value="13:00" style="border-style: solid; border-width: 4px;">13:00</button>
+								<button class="timeBtn button btn-info" value="14:00" style="border-style: solid; border-width: 4px;">14:00</button>
+								<button class="timeBtn button btn-info" value="15:00" style="border-style: solid; border-width: 4px;">15:00</button>
+								<button class="timeBtn button btn-info" value="16:00" style="border-style: solid; border-width: 4px;">16:00</button>
+								<button class="timeBtn button btn-info" value="17:00" style="border-style: solid; border-width: 4px;">17:00</button>
+								<button class="timeBtn button btn-info" value="18:00" style="border-style: solid; border-width: 4px;">18:00</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button class="timeBtn button btn-info" value="19:00" style="border-style: solid; border-width: 4px;">19:00</button>
+								<button class="timeBtn button btn-info" value="20:00" style="border-style: solid; border-width: 4px;">20:00</button>
+								<button class="timeBtn button btn-info" value="21:00" style="border-style: solid; border-width: 4px;">21:00</button>
+								<button class="timeBtn button btn-info" value="22:00" style="border-style: solid; border-width: 4px;">22:00</button>
+								<button class="timeBtn button btn-info" value="23:00" style="border-style: solid; border-width: 4px;">23:00</button>
+								
+							</td>
+						</tr>
 					</table>
 
 					<div>
-						<button id="complete">선택완료</button>
+						<button id="complete" class="button">선택완료</button>
 						<text id="timeText"></text><br>
 						<text id="timeText1"></text>
 					</div>
 					
-					<button id="dateUpdate" type="button">예약변경</button>
+					<button id="dateUpdate" type="button" class="button">예약변경</button>
 					</div>
 				
 		

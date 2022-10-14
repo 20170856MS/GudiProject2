@@ -13,7 +13,15 @@
     <link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     
-    <link href="/resources/css/myOrderList.css" rel="stylesheet" />
+    <link href="/resources/css/myOrderList.css" rel="stylesheet" />    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -95,7 +103,10 @@
 		    </table>
 		    
 		    <a href="./reservation?detailNum=${dto.detailNum}">예약하기</a>
-		    <a href="./updateDetail?scName=${dto.scName}">수정하기</a>
+			<c:if test="${check.adminRoleDTOs[0].roleName == 'admin'}">
+
+				<a href="./updateDetail?scName=${dto.scName}">수정하기</a>
+			</c:if>
 		    
 		</div>
 	</section>

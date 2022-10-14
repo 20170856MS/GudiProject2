@@ -14,7 +14,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link href="/resources/css/login.css" rel="stylesheet">
 	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,7 +33,7 @@
 			<div class="row">
 			<div class="login_box">
 				
-				<div><h4>야나두 자격증 사이트에 오신것을 환영합니다.</h4></div>
+				<div><h4>자바스 자격증 사이트에 오신것을 환영합니다.</h4></div>
 				<main>
 				<form class="align-center" action="join" method="post" id="frm3">
 					<c:choose>

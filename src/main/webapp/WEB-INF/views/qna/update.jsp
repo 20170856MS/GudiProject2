@@ -11,11 +11,19 @@
 		rel="stylesheet"
 		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 		crossorigin="anonymous">
-		<title>자바스/title>
+		<title>자바스</title>
 		<link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 		<link href="/resources/css/theme.css" rel="stylesheet" />
 		<link rel="stylesheet" href="/resources/css/sub.css" type="text/css">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>    
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+		<style>
+			body, h1, h2, h3, h4, h5, h6, p, span {
+				font-family: 'Noto Sans KR', sans-serif !important;
+			}
+		</style>
 		</head>
 
 		<body>
@@ -53,9 +61,9 @@
 						</div>
 					</c:forEach>
 
-					<div id="addFiles">
+					<!-- <div id="addFiles">
 						<button type="button" id="fileAdd" class="btn btn-primary">파일추가</button>
-					</div>
+					</div> -->
 
 					<div class="mb-3">
 						<button class="btn btn-success">제출</button>

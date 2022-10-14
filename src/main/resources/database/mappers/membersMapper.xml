@@ -42,6 +42,16 @@
 		select username from licensemembers where username = #{userName}
 	</select>
 	
+	<!-- 이메일 찾기 -->
+	<select id="getUserEmailCheck" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
+		select email from licensemembers where email = #{email}
+	</select>
+	
+	<!-- 폰번호 찾기 -->
+	<select id="getUserPhoneCheck" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">
+		select phone from licensemembers where phone = #{phone}
+	</select>
+	
 	<select id="getFindId" parameterType="LicenseMembersDTO" resultType="LicenseMembersDTO">	
 		select USERNAME from licensemembers where email = #{email}
 	</select>

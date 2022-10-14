@@ -14,7 +14,15 @@
 	<link rel="stylesheet" href="/resources/css/login.css" type="text/css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link href="/resources/css/theme.css" rel="stylesheet" />	 
-    <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/resetInfo.css" rel="stylesheet" type="text/css">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
 </head>
 <style>
     .align-center {text-align: center;}
@@ -35,7 +43,7 @@
 	            <div class="input_aera"><input type="text" id= "userName" name="userName"  value="" required placeholder="아이디를 입력해 주세요" maxlength="30" ></div>
 	            <div class="input_aera"><input type="password" id="password" name="password" value="" required placeholder="비밀번호를 입력해 주세요" maxlength="30"></div>
  
-				<input type="button" value="로그인" id="btn" >
+				<input type="button" class="button" value="로그인" id="btn" >
             
 				<div class="box">	
 		            <div>

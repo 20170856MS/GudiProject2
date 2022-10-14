@@ -18,6 +18,15 @@
 
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" type="text/javascript"></script>
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span {
+    	    font-family: 'Noto Sans KR', sans-serif !important;
+        }
+    </style>
 </head>
 <body>
 	
@@ -78,7 +87,7 @@
                                             <div class="col-lg-6 px-0">
                                                 <!-- @@ 체크시 전액사용하면서 회원 상태 true로 변경
                                                 	체크 해제시 사용량은 그대로 두는데 회원 상태만 false로 변경 -->
-                                                	<button type="button" class="site-btn deliverListBtn postalBtn"
+                                                	<button type="button" class="site-btn deliverListBtn postalBtn button"
                                                  onclick="useAllPoints();">전액사용</button>
                                                 <input type="checkbox" name="useAllCheckBox">항상 전액사용
                                             </div>
@@ -155,7 +164,7 @@
                         <div class="order-btn mt-5" style="
                         margin-bottom: 48px;
                     ">
-                            <button type="submit" class="site-btn place-btn" id="cafePayment" style="padding-top: 3px; padding-bottom: 3px;">결제하기</button>
+                            <button type="submit" class="site-btn place-btn button" id="cafePayment" style="padding-top: 3px; padding-bottom: 3px;">결제하기</button>
                         </div>
                     </div>
                 </div>
