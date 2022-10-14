@@ -555,10 +555,10 @@ public class LicenseMembersController {
 		if(nameCheck != null) {
 			result = 2; //name 중복
 		}
-		if(phoneCheck != null) {
+		if(emailCheck != null) {
 			result = 3; //email 중복
 		}
-		if(emailCheck != null) {
+		if(phoneCheck != null) {
 			result = 4; //phone 중복
 		}
 		
