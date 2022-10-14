@@ -46,8 +46,9 @@
 				<!-- Heading Row-->
 				<div class="row gx-4 gx-lg-5 align-items-center my-5 user-wrap">
 					<div class="col-lg-7">
-						<img class="img-fluid rounded mb-4 mb-lg-0"
-							src="https://janet.co.kr/data/licenseitem/155/7JiB7Ja0.jpg" alt="..." />
+						<body onload="changeImage()">
+							<img class="imageList card-img-top" alt="..." style="max-width: 100%; height: auto;">
+						</body>
 					</div>
 					<div class="user-text" id="license" data-grade="${grade}" data-license-num="${name.licenseNum}">${name.licenseName}</div>
 					<div class="col-lg-5 user-schedule">
@@ -301,6 +302,7 @@
 			<script src="/src/main/webapp/resources/js/infoDetail.js"></script>
 			<script src="/resources/js/common.js"></script>
 			<script src="/resources/js/infoDetail.js"></script>
+			<script src="/resources/js/image.js"></script>
 			<!-- Bootstrap core JS-->
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 			<!-- Core theme JS-->

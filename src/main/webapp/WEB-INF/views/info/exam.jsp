@@ -29,7 +29,9 @@
         <form name="form1"></form>
         <div class="content">
             <!-- 컨텐츠 타이틀 -->
+            <section style="padding-bottom: 0px;padding-top: 50px;">
             <h3 class="tit_content" style="margin-bottom: 0px;margin-left: 400px;">월간 시험일정 & 캘린더 추가</h3>
+        </section>
             <!-- //컨텐츠 타이틀 -->
 
             <title>제목없음</title>
