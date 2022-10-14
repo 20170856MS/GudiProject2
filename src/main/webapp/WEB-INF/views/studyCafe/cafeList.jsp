@@ -28,7 +28,7 @@
 	
 	<!-- header.jsp -->
         <c:import url="../template/header.jsp"></c:import>
-        <section class="container-fluid col-lg-8 mt-5" style="
+        <section class="container-fluid col-lg-4 mt-5" style="
 		padding-top: 0px;
 		padding-bottom: 0px;
 		padding-left: 0px;
