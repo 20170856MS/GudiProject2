@@ -224,7 +224,7 @@
 	</insert>
 
 	<insert id="setAddBook" parameterType="BookDTO">
-		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},'https://previews.123rf.com/images/oasis15/oasis151506/oasis15150600005/40908970-%EB%B9%88-%EC%B1%85-%ED%91%9C%EC%A7%80.jpg',#{bookPrice})
+		INSERT INTO BOOK VALUES(LI_SEQ.NEXTVAL,#{bookName},'https://image.yes24.com/goods/104245816/L',#{bookPrice})
 	</insert>
 	
 	<select id="getBookNumSeq" parameterType="BookDTO" resultType="Long">
