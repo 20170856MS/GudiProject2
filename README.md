@@ -31,12 +31,13 @@
   </div></div>
   <h2>ERD 다이어그램</h2>
   <img width="100%" alt="erd1" src="https://user-images.githubusercontent.com/91714677/197436511-c3cdb0ff-000d-4ffc-bcbe-5c9962445ecc.png">
-<img width="533" alt="erd2" src="https://user-images.githubusercontent.com/91714677/197436523-6ea4ff68-f110-4969-9677-6e3cafabe880.png">
+<img width="100%" alt="erd2" src="https://user-images.githubusercontent.com/91714677/197436523-6ea4ff68-f110-4969-9677-6e3cafabe880.png">
 
  
  <h2>구동 화면</h2>
+ 
  - 메인 화면
-<img width="653" alt="erd1" src="https://user-images.githubusercontent.com/91714677/197438821-26cc20ef-4258-418f-ba95-d1202fceb928.png">
+<img width="100%" alt="erd1" src="https://user-images.githubusercontent.com/91714677/197438821-26cc20ef-4258-418f-ba95-d1202fceb928.png">
  - 자격증 정보 
 
  - 결제
