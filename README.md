@@ -37,7 +37,8 @@
  <h2>구동 화면</h2>
  
  - 메인 화면
-<img width="100%" alt="erd1" src="https://user-images.githubusercontent.com/91714677/197438821-26cc20ef-4258-418f-ba95-d1202fceb928.png">
+<img width="100%" alt="erd1" src="https://user-images.githubusercontent.com/91714677/197438821-26cc20ef-4258-418f-ba95-d1202fceb928.png"/>
+
  - 자격증 정보 
 
  - 결제
