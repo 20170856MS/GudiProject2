@@ -1,2 +1,2 @@
 # GudiProject2
-![GOOD](https://user-images.githubusercontent.com/91714677/190055279-0c887a75-e2ab-4a32-8992-036926d34488.png)
+<img width="149" alt="자바스로고" src="https://user-images.githubusercontent.com/91714677/197428489-b6dba730-ecef-43d4-a90a-3bc0ea17a45b.png">
