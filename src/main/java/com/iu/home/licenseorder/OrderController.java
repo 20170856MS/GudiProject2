@@ -61,7 +61,7 @@ public class OrderController {
 	private AdminService adminService;
 	
 	
-	private IamportClient client = new IamportClient("7017488345532835", "r0p7EfkrcMnSmuoEyspvckZJ4fhZhuPizl5sbCYonZWDUovs728pTqMwSfJmaDRqs6P7RYU0Z2Eh4xYM");
+	private IamportClient client = new IamportClient("impkey", "impsecret");
 	
 	// /admin/주소 적용시 exception 에러
 	@PostMapping("orderCancle")
